@@ -382,6 +382,9 @@
   <ItemGroup>
     <Content Include="bhair.ico" />
     <Content Include="Dll\BarcodeLib.dll" />
+    <Content Include="转货数据库.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
