@@ -233,9 +233,6 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Base\frmConfig.resx">
@@ -351,38 +348,6 @@
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\BHair.Base.frmConfig.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Base.frmItem.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Base.frmItem_Import.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Base.frmItem_List.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Base.frmMember.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Base.frmMember_Import.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Base.frmMember_List.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Base.frmStore.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Base.frmStore_List.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAddApplication.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAddStoreApplication.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAlterApplication.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAlterStoreApplication.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAppApprovalAlter.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAppApprovalDetail.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAppApprovalDetail2.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAppAproval.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAppAproval2.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAppDone.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmAppDoneDetail.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmApplicationReport.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmHistoryDetail.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmHistoryInfo.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmRecharge.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmSelectItems.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmSelectItems_App.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmStoreApp.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.frmStoreAppDetail.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Business.Login.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.frmMain.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.Properties.Resources.resources" />
-    <EmbeddedResource Include="obj\Debug\BHair.SystemSet.ComboDate.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -402,12 +367,6 @@
     <None Include="bin\Debug\BHair.vshost.exe.config" />
     <None Include="bin\Debug\BHair.vshost.exe.manifest" />
     <None Include="bin\Debug\templet\转货申请表模板.xls" />
-    <None Include="obj\Debug\BHair.csproj.GenerateResource.Cache" />
-    <None Include="obj\Debug\BHair.csprojResolveAssemblyReference.cache" />
-    <None Include="obj\Debug\build.force" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\ResolveAssemblyReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -439,11 +398,6 @@
     <Content Include="bin\Debug\WinFormsUI.Docking.dll" />
     <Content Include="bin\Debug\XLuSharpLibrary.dll" />
     <Content Include="Dll\BarcodeLib.dll" />
-    <Content Include="obj\Debug\BHair.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\BHair.exe" />
-    <Content Include="obj\Debug\BHair.pdb" />
-    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
-    <Content Include="obj\Debug\TT_Base.csproj.FileListAbsolute.txt" />
     <Content Include="转货数据库.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -457,7 +411,6 @@
   <ItemGroup>
     <Folder Include="bin\Debug\tempPDF\" />
     <Folder Include="bin\Release\" />
-    <Folder Include="obj\Debug\Refactor\" />
     <Folder Include="Report\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

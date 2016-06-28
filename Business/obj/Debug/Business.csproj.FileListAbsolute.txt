@@ -71,7 +71,6 @@ G:\WorkStation\GitHub\TiffanyTransfer\Business\bin\Debug\Microsoft.Vbe.Interop.d
 G:\WorkStation\GitHub\TiffanyTransfer\Business\bin\Debug\stdole.dll
 G:\WorkStation\GitHub\TiffanyTransfer\Business\bin\Debug\Microsoft.Office.Interop.Excel.xml
 G:\WorkStation\GitHub\TiffanyTransfer\Business\bin\Debug\office.xml
-G:\WorkStation\GitHub\TiffanyTransfer\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 G:\WorkStation\GitHub\TiffanyTransfer\Business\obj\Debug\Business.csproj.ResolveComReference.cache
 G:\WorkStation\GitHub\TiffanyTransfer\Business\obj\Debug\BHair.Business.dll
 G:\WorkStation\GitHub\TiffanyTransfer\Business\obj\Debug\BHair.Business.pdb

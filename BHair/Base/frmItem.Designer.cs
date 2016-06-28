@@ -41,6 +41,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtDetail = new System.Windows.Forms.RichTextBox();
             this.txtPrice = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbDepartment = new System.Windows.Forms.TextBox();
+            this.tbClass = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +60,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(219, 248);
+            this.btnCancel.Location = new System.Drawing.Point(219, 348);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 16;
@@ -66,7 +70,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(125, 248);
+            this.btnOk.Location = new System.Drawing.Point(125, 348);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 15;
@@ -120,24 +124,26 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 124);
+            this.label4.Location = new System.Drawing.Point(12, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 22;
             this.label4.Text = "产品名字";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtItemName
             // 
-            this.txtItemName.Location = new System.Drawing.Point(83, 120);
+            this.txtItemName.Location = new System.Drawing.Point(83, 112);
             this.txtItemName.MaxLength = 30;
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(211, 21);
             this.txtItemName.TabIndex = 23;
+            this.txtItemName.TextChanged += new System.EventHandler(this.txtItemName_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 165);
+            this.label5.Location = new System.Drawing.Point(12, 211);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 24;
@@ -145,7 +151,7 @@
             // 
             // txtDetail
             // 
-            this.txtDetail.Location = new System.Drawing.Point(83, 165);
+            this.txtDetail.Location = new System.Drawing.Point(83, 211);
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.Size = new System.Drawing.Size(211, 53);
             this.txtDetail.TabIndex = 25;
@@ -169,11 +175,47 @@
             this.txtPrice.Size = new System.Drawing.Size(211, 21);
             this.txtPrice.TabIndex = 26;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 149);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "部门";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 178);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "级别";
+            // 
+            // tbDepartment
+            // 
+            this.tbDepartment.Location = new System.Drawing.Point(83, 146);
+            this.tbDepartment.Name = "tbDepartment";
+            this.tbDepartment.Size = new System.Drawing.Size(211, 21);
+            this.tbDepartment.TabIndex = 29;
+            // 
+            // tbClass
+            // 
+            this.tbClass.Location = new System.Drawing.Point(83, 175);
+            this.tbClass.Name = "tbClass";
+            this.tbClass.Size = new System.Drawing.Size(211, 21);
+            this.tbClass.TabIndex = 30;
+            // 
             // frmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 283);
+            this.ClientSize = new System.Drawing.Size(328, 380);
+            this.Controls.Add(this.tbClass);
+            this.Controls.Add(this.tbDepartment);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtDetail);
             this.Controls.Add(this.label5);
@@ -194,6 +236,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "新增商品";
+            this.Load += new System.EventHandler(this.frmItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -215,5 +258,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox txtDetail;
         private System.Windows.Forms.NumericUpDown txtPrice;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbDepartment;
+        private System.Windows.Forms.TextBox tbClass;
     }
 }

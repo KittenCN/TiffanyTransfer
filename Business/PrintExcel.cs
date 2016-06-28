@@ -156,6 +156,8 @@ namespace BHair.Business
             Result.Columns.Add(new DataColumn("ItemID2", typeof(string)));
             Result.Columns.Add(new DataColumn("Price", typeof(double)));
             Result.Columns.Add(new DataColumn("ItemName", typeof(string)));
+            Result.Columns.Add(new DataColumn("Department", typeof(string)));
+            Result.Columns.Add(new DataColumn("Class", typeof(string)));
             Result.Columns.Add(new DataColumn("Detail", typeof(string)));
             Result.Columns.Add(new DataColumn("IsDelete", typeof(double)));
 
@@ -194,6 +196,8 @@ namespace BHair.Business
                     dr["Price"] = price;
                     dr["Detail"] = ((Excel.Range)worksheet.Cells[iRow, 4]).Text;
                     dr["IsDelete"] = 0;
+                    dr["Department"] = ((Excel.Range)worksheet.Cells[iRow, 5]).Text;
+                    dr["Class"] = ((Excel.Range)worksheet.Cells[iRow, 6]).Text;
 
                     if (dr["ItemID"].ToString() == "") validate++;
                     //if (dr["ItemID2"].ToString() == "") validate++;

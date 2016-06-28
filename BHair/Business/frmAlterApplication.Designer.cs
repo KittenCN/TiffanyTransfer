@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtLevel4 = new System.Windows.Forms.TextBox();
@@ -99,35 +99,43 @@
             // 
             // txtLevel4
             // 
+            this.txtLevel4.Enabled = false;
             this.txtLevel4.Location = new System.Drawing.Point(95, 104);
             this.txtLevel4.Name = "txtLevel4";
             this.txtLevel4.Size = new System.Drawing.Size(142, 21);
             this.txtLevel4.TabIndex = 3;
+            this.txtLevel4.Visible = false;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.Enabled = false;
             this.label13.Location = new System.Drawing.Point(19, 65);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 12);
             this.label13.TabIndex = 11;
             this.label13.Text = "部门";
+            this.label13.Visible = false;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Enabled = false;
             this.label12.Location = new System.Drawing.Point(19, 107);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(29, 12);
             this.label12.TabIndex = 10;
             this.label12.Text = "级别";
+            this.label12.Visible = false;
             // 
             // txtDepartment4
             // 
+            this.txtDepartment4.Enabled = false;
             this.txtDepartment4.Location = new System.Drawing.Point(95, 62);
             this.txtDepartment4.Name = "txtDepartment4";
             this.txtDepartment4.Size = new System.Drawing.Size(142, 21);
             this.txtDepartment4.TabIndex = 1;
+            this.txtDepartment4.Visible = false;
             // 
             // tableLayoutPanel2
             // 
@@ -450,9 +458,9 @@
             // price
             // 
             this.price.DataPropertyName = "Price";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.price.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.price.DefaultCellStyle = dataGridViewCellStyle1;
             this.price.FillWeight = 88.02526F;
             this.price.HeaderText = "单价";
             this.price.Name = "price";
@@ -461,9 +469,9 @@
             // numbers
             // 
             this.numbers.DataPropertyName = "App_Count";
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.numbers.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.numbers.DefaultCellStyle = dataGridViewCellStyle2;
             this.numbers.FillWeight = 88.02526F;
             this.numbers.HeaderText = "数量";
             this.numbers.Name = "numbers";

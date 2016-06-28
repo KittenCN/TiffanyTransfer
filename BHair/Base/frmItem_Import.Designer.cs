@@ -37,6 +37,8 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Class = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
@@ -57,6 +59,8 @@
             this.Price,
             this.ItemName,
             this.Detail,
+            this.Department,
+            this.Class,
             this.ID,
             this.IsDelete});
             this.dgvItem.Location = new System.Drawing.Point(12, 39);
@@ -131,6 +135,20 @@
             this.Detail.Name = "Detail";
             this.Detail.ReadOnly = true;
             // 
+            // Department
+            // 
+            this.Department.DataPropertyName = "Department";
+            this.Department.HeaderText = "部门";
+            this.Department.Name = "Department";
+            this.Department.ReadOnly = true;
+            // 
+            // Class
+            // 
+            this.Class.DataPropertyName = "Class";
+            this.Class.HeaderText = "级别";
+            this.Class.Name = "Class";
+            this.Class.ReadOnly = true;
+            // 
             // ID
             // 
             this.ID.DataPropertyName = "ID";
@@ -176,6 +194,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Detail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Department;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Class;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsDelete;
     }

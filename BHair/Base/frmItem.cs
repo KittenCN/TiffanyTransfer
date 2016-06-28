@@ -33,6 +33,8 @@ namespace BHair.Base
                 txtPrice.Text = item.ItemsDT.Rows[0]["Price"].ToString();
                 txtItemName.Text = item.ItemsDT.Rows[0]["ItemName"].ToString();
                 txtDetail.Text = item.ItemsDT.Rows[0]["Detail"].ToString();
+                tbClass.Text = item.ItemsDT.Rows[0]["Class"].ToString();
+                tbDepartment.Text = item.ItemsDT.Rows[0]["Department"].ToString();
             }
             else
             {
@@ -68,6 +70,8 @@ namespace BHair.Base
                     dr["ItemName"] = txtItemName.Text.Trim();
                     dr["Detail"] = txtDetail.Text.Trim();
                     dr["IsDelete"] = 0;
+                    dr["Department"] = tbDepartment.Text.Trim();
+                    dr["Class"] = tbClass.Text.Trim();
                     item.ItemsDT.Rows.Add(dr);
                     item.UpdateItems(item.ItemsDT);
                     MessageBox.Show("添加成功！", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -87,6 +91,8 @@ namespace BHair.Base
                     item.ItemsDT.Rows[0]["Price"] = txtPrice.Text;
                     item.ItemsDT.Rows[0]["ItemName"] = txtItemName.Text;
                     item.ItemsDT.Rows[0]["Detail"] = txtDetail.Text;
+                    item.ItemsDT.Rows[0]["Department"] = tbDepartment.Text.Trim();
+                    item.ItemsDT.Rows[0]["Class"] = tbClass.Text.Trim();
                     item.UpdateItems(item.ItemsDT);
                     MessageBox.Show("修改成功！", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -104,6 +110,21 @@ namespace BHair.Base
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmItem_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtItemName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

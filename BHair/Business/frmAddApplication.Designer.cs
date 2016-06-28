@@ -60,7 +60,7 @@
             this.BtnDelete = new System.Windows.Forms.Button();
             this.dgvApplyProducts = new System.Windows.Forms.DataGridView();
             this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.App_Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doubleNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,35 +99,43 @@
             // 
             // txtLevel4
             // 
+            this.txtLevel4.Enabled = false;
             this.txtLevel4.Location = new System.Drawing.Point(95, 104);
             this.txtLevel4.Name = "txtLevel4";
             this.txtLevel4.Size = new System.Drawing.Size(142, 21);
             this.txtLevel4.TabIndex = 3;
+            this.txtLevel4.Visible = false;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.Enabled = false;
             this.label13.Location = new System.Drawing.Point(19, 65);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 12);
             this.label13.TabIndex = 11;
             this.label13.Text = "部门";
+            this.label13.Visible = false;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Enabled = false;
             this.label12.Location = new System.Drawing.Point(19, 107);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(29, 12);
             this.label12.TabIndex = 10;
             this.label12.Text = "级别";
+            this.label12.Visible = false;
             // 
             // txtDepartment4
             // 
+            this.txtDepartment4.Enabled = false;
             this.txtDepartment4.Location = new System.Drawing.Point(95, 62);
             this.txtDepartment4.Name = "txtDepartment4";
             this.txtDepartment4.Size = new System.Drawing.Size(142, 21);
             this.txtDepartment4.TabIndex = 1;
+            this.txtDepartment4.Visible = false;
             // 
             // tableLayoutPanel2
             // 
@@ -394,7 +402,7 @@
             this.dgvApplyProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvApplyProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.department,
-            this.level,
+            this.App_Level,
             this.number,
             this.doubleNumber,
             this.Column1,
@@ -417,13 +425,15 @@
             this.department.FillWeight = 88.02526F;
             this.department.HeaderText = "部门";
             this.department.Name = "department";
+            this.department.ReadOnly = true;
             // 
-            // level
+            // App_Level
             // 
-            this.level.DataPropertyName = "App_Level";
-            this.level.FillWeight = 58.62457F;
-            this.level.HeaderText = "级别";
-            this.level.Name = "level";
+            this.App_Level.DataPropertyName = "App_Level";
+            this.App_Level.FillWeight = 58.62457F;
+            this.App_Level.HeaderText = "级别";
+            this.App_Level.Name = "App_Level";
+            this.App_Level.ReadOnly = true;
             // 
             // number
             // 
@@ -558,7 +568,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn department;
-        private System.Windows.Forms.DataGridViewTextBoxColumn level;
+        private System.Windows.Forms.DataGridViewTextBoxColumn App_Level;
         private System.Windows.Forms.DataGridViewTextBoxColumn number;
         private System.Windows.Forms.DataGridViewTextBoxColumn doubleNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -568,6 +578,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemHighlight;
-
     }
 }
