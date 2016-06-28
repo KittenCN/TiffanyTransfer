@@ -112,6 +112,8 @@
             this.BtnExit = new System.Windows.Forms.Button();
             this.ConfirmPanel = new System.Windows.Forms.Panel();
             this.BtnConfirm = new System.Windows.Forms.Button();
+            this.btnDeliver = new System.Windows.Forms.Button();
+            this.btnReceipt = new System.Windows.Forms.Button();
             this.groupBox20.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -872,20 +874,22 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnReceipt);
+            this.panel5.Controls.Add(this.btnDeliver);
             this.panel5.Controls.Add(this.btnExcel);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(105, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(155, 40);
+            this.panel5.Size = new System.Drawing.Size(260, 40);
             this.panel5.TabIndex = 128;
             // 
             // btnExcel
             // 
             this.btnExcel.Location = new System.Drawing.Point(15, 8);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(118, 23);
+            this.btnExcel.Size = new System.Drawing.Size(73, 23);
             this.btnExcel.TabIndex = 0;
-            this.btnExcel.Text = "申请单另存为Excel";
+            this.btnExcel.Text = "申请单转存";
             this.btnExcel.UseVisualStyleBackColor = true;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
@@ -930,6 +934,26 @@
             this.BtnConfirm.UseVisualStyleBackColor = true;
             this.BtnConfirm.Visible = false;
             this.BtnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
+            // 
+            // btnDeliver
+            // 
+            this.btnDeliver.Location = new System.Drawing.Point(94, 7);
+            this.btnDeliver.Name = "btnDeliver";
+            this.btnDeliver.Size = new System.Drawing.Size(75, 23);
+            this.btnDeliver.TabIndex = 1;
+            this.btnDeliver.Text = "发货单转存";
+            this.btnDeliver.UseVisualStyleBackColor = true;
+            this.btnDeliver.Click += new System.EventHandler(this.btnDeliver_Click);
+            // 
+            // btnReceipt
+            // 
+            this.btnReceipt.Location = new System.Drawing.Point(175, 8);
+            this.btnReceipt.Name = "btnReceipt";
+            this.btnReceipt.Size = new System.Drawing.Size(75, 23);
+            this.btnReceipt.TabIndex = 2;
+            this.btnReceipt.Text = "收货单转存";
+            this.btnReceipt.UseVisualStyleBackColor = true;
+            this.btnReceipt.Click += new System.EventHandler(this.btnReceipt_Click);
             // 
             // frmStoreAppDetail
             // 
@@ -1057,8 +1081,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnExcel;
-
-
-
+        private System.Windows.Forms.Button btnReceipt;
+        private System.Windows.Forms.Button btnDeliver;
     }
 }

@@ -234,5 +234,55 @@ namespace BHair.Business
         {
             HighlightItemID();
         }
+
+        private void btnDeliver_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            //点了保存按钮进入
+            if (result == DialogResult.OK)
+            {
+                //获得文件路径
+                string localFilePath = saveFileDialog.FileName.ToString();
+                PrintExcel pe = new PrintExcel();
+                try
+                {
+                    DataTable appDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
+                    pe.OutPutXLS(appDT, DeliverDetailTable, localFilePath);
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnReceipt_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            //点了保存按钮进入
+            if (result == DialogResult.OK)
+            {
+                //获得文件路径
+                string localFilePath = saveFileDialog.FileName.ToString();
+                PrintExcel pe = new PrintExcel();
+                try
+                {
+                    DataTable appDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
+                    pe.OutPutXLS(appDT, ReceiptDetailTable, localFilePath);
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }
