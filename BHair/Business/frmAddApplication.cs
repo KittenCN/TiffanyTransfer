@@ -29,6 +29,7 @@ namespace BHair.Business
             if (Login.LoginUser.IsAdmin == 1)
             {
                 cbDeliverStore.Enabled = true;
+                cbRecieveStore.Enabled = true; 
             }
         }
 
@@ -246,8 +247,8 @@ namespace BHair.Business
             }
             if (cbDeliverStore.Items.Count > 0)
             {
-                cbDeliverStore.SelectedItem = Login.LoginUser.Store;
-                //cbDeliverStore.SelectedIndex = 0;
+                //cbDeliverStore.SelectedItem = Login.LoginUser.Store;
+                cbDeliverStore.SelectedIndex = 0;
             }
             foreach (DataRow dr in store.StoreDT.Rows)
             {
@@ -255,7 +256,8 @@ namespace BHair.Business
             }
             if (cbRecieveStore.Items.Count > 0)
             {
-                cbRecieveStore.SelectedIndex = 0;
+                //cbRecieveStore.SelectedIndex = 0;
+                cbRecieveStore.SelectedItem = Login.LoginUser.Store;
             }
 
 
@@ -263,14 +265,14 @@ namespace BHair.Business
 
         private void cbRecieveStore_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbDeliverStore.SelectedItem != null && cbRecieveStore.SelectedItem!=null&&cbDeliverStore.SelectedItem.ToString() == cbRecieveStore.SelectedItem.ToString())
+            if (cbDeliverStore.SelectedItem != null && cbRecieveStore.SelectedItem!=null && cbDeliverStore.SelectedItem.ToString() == cbRecieveStore.SelectedItem.ToString())
             {
                 //MessageBox.Show("收发店铺相同，请重新选择", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 foreach (object obj in cbRecieveStore.Items)
                 {
-                    if (obj.ToString() != cbDeliverStore.SelectedItem.ToString())
+                    if (obj.ToString() != cbRecieveStore.SelectedItem.ToString())
                     {
-                        cbRecieveStore.SelectedItem = obj;
+                        cbDeliverStore.SelectedItem = obj;
                     }
                 }
             }
