@@ -230,6 +230,7 @@ namespace BHair.Business
                     if (dr["ApprovalState"].ToString() == "1")
                     {
                         successRows += applicationInfo.ApprovalApplication2(dr["CtrlID"].ToString(), Login.LoginUser, 1, DateTime.Now);
+                        EmailControl.ToDeliverConfirm(applicationInfo);
                     }
                 }
                 MessageBox.Show("审批通过" + successRows + "条", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);

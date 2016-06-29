@@ -82,12 +82,14 @@ namespace BHair.Business
                     {
                         DataRow dr = AddApplicationDT.NewRow();
                         dr["CtrlID"] = txtCtrlID.Text;
-                        dr["Department"] = txtDepartment4.Text;
-                        dr["App_Level"] = txtLevel4.Text;
+                        //dr["Department"] = txtDepartment4.Text;
+                        //dr["App_Level"] = txtLevel4.Text;
                         dr["ItemID"] = ItemDT.Rows[0]["ItemID"];
                         dr["ItemID2"] = ItemDT.Rows[0]["ItemID2"];
                         dr["Detail"] = ItemDT.Rows[0]["Detail"];
                         dr["Price"] = ItemDT.Rows[0]["Price"];
+                        dr["Department"] = ItemDT.Rows[0]["Department"];
+                        dr["App_Level"] = ItemDT.Rows[0]["Class"];
                         dr["App_Count"] = int.Parse(this.numCount.Value.ToString());
                         dr["IsDelete"] = 0;
                         if (dr["ItemID"].ToString() == txtItemID.Text) dr["ItemHighlight"] = 1;

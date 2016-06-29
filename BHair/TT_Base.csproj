@@ -56,9 +56,33 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BarcodeLib, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\TiffanyPurchase\BHair\Dll\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -198,6 +222,12 @@
     <Compile Include="Business\frmAppDoneDetail.Designer.cs">
       <DependentUpon>frmAppDoneDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\frmEditReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmEditReason.Designer.cs">
+      <DependentUpon>frmEditReason.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\frmSelectItems_App.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,6 +362,9 @@
       <DependentUpon>frmAppDoneDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmEditReason.resx">
+      <DependentUpon>frmEditReason.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Business\frmSelectItems_App.resx">
       <DependentUpon>frmSelectItems_App.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -411,10 +444,18 @@
     <Content Include="bin\Debug\BHair.pdb" />
     <Content Include="bin\Debug\BHair.vshost.exe" />
     <Content Include="bin\Debug\Config.xml" />
-    <Content Include="bin\Debug\Microsoft.Office.Interop.Excel.dll" />
-    <Content Include="bin\Debug\Microsoft.Vbe.Interop.dll" />
-    <Content Include="bin\Debug\office.dll" />
-    <Content Include="bin\Debug\stdole.dll" />
+    <Content Include="bin\Debug\Microsoft.Office.Interop.Excel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Microsoft.Vbe.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\office.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\stdole.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\WinFormsUI.Docking.dll" />
     <Content Include="bin\Debug\XLuSharpLibrary.dll" />
     <Content Include="bin\Debug\转货数据库.accdb">

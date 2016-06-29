@@ -1,10 +1,5 @@
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\BHair.Business.dll
-G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\Microsoft.Office.Interop.Excel.dll
-G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\office.dll
-G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\Microsoft.Vbe.Interop.dll
-G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\stdole.dll
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\BHair.Business.pdb
-G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\office.xml
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TT_Base.csprojResolveAssemblyReference.cache
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\BHair.Base.frmConfig.resources
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\BHair.Base.frmItem_List.resources
@@ -90,3 +85,8 @@ G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TiffanyTransfer.Properties
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TiffanyTransfer.exe
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TiffanyTransfer.pdb
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\转货数据库.accdb
+G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TiffanyTransfer.Business.frmEditReason.resources
+G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\Microsoft.Office.Interop.Excel.dll
+G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\Microsoft.Vbe.Interop.dll
+G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\office.dll
+G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\stdole.dll

@@ -279,7 +279,7 @@ namespace BHair.Business
                 }
                 return Result;
             }
-            catch { return null; }
+            catch (Exception ex) { return null; }
             finally
             {
                 workbook.Close(false, oMissiong, oMissiong);

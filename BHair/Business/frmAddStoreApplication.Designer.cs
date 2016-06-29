@@ -107,6 +107,7 @@
             this.txtLevel4.Name = "txtLevel4";
             this.txtLevel4.Size = new System.Drawing.Size(142, 21);
             this.txtLevel4.TabIndex = 3;
+            this.txtLevel4.Visible = false;
             // 
             // label13
             // 
@@ -116,6 +117,7 @@
             this.label13.Size = new System.Drawing.Size(29, 12);
             this.label13.TabIndex = 11;
             this.label13.Text = "部门";
+            this.label13.Visible = false;
             // 
             // label12
             // 
@@ -125,6 +127,7 @@
             this.label12.Size = new System.Drawing.Size(29, 12);
             this.label12.TabIndex = 10;
             this.label12.Text = "级别";
+            this.label12.Visible = false;
             // 
             // txtDepartment4
             // 
@@ -132,6 +135,7 @@
             this.txtDepartment4.Name = "txtDepartment4";
             this.txtDepartment4.Size = new System.Drawing.Size(142, 21);
             this.txtDepartment4.TabIndex = 1;
+            this.txtDepartment4.Visible = false;
             // 
             // tableLayoutPanel2
             // 
