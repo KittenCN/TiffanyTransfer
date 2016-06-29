@@ -74,3 +74,13 @@ G:\WorkStation\GitHub\TiffanyTransfer\Business\bin\Debug\office.xml
 G:\WorkStation\GitHub\TiffanyTransfer\Business\obj\Debug\Business.csproj.ResolveComReference.cache
 G:\WorkStation\GitHub\TiffanyTransfer\Business\obj\Debug\BHair.Business.dll
 G:\WorkStation\GitHub\TiffanyTransfer\Business\obj\Debug\BHair.Business.pdb
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\bin\Debug\BHair.Business.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\bin\Debug\BHair.Business.pdb
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\bin\Debug\Microsoft.Office.Interop.Excel.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\bin\Debug\XLuSharpLibrary.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\bin\Debug\office.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\bin\Debug\Microsoft.Vbe.Interop.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\bin\Debug\stdole.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\obj\Debug\Business.csproj.ResolveComReference.cache
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\obj\Debug\BHair.Business.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\obj\Debug\BHair.Business.pdb
