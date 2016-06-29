@@ -45,10 +45,6 @@ G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\BHair.Properties.Resources
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\BHair.SystemSet.ComboDate.resources
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TT_Base.csproj.GenerateResource.Cache
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\BHair.pdb
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\转货数据库.accdb
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\BHair.exe.config
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\BHair.exe
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\BHair.pdb
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\BHair.Business.dll
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\Microsoft.Office.Interop.Excel.dll
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\office.dll
@@ -87,8 +83,11 @@ E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BH
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.Business.frmSelectItems.resources
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.Business.Login.resources
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.frmMain.resources
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.Properties.Resources.resources
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.SystemSet.ComboDate.resources
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\TT_Base.csproj.GenerateResource.Cache
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.exe
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.pdb
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\TiffanyTransfer.exe.config
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\TiffanyTransfer.exe
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\TiffanyTransfer.pdb
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\TiffanyTransfer.Properties.Resources.resources
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\TiffanyTransfer.exe
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\TiffanyTransfer.pdb

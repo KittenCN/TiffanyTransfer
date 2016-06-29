@@ -133,9 +133,9 @@ namespace BHair.Base
                         dgvMember.DataSource = MemberDT;
                         label1.Text = "Excel数据导入完成";
                     }
-                    catch
+                    catch(Exception ex)
                     {
-                        label1.Text = "Excel数据导入失败";
+                        label1.Text = "Excel数据导入失败:" + ex.ToString();
                     }
                 }
             }
