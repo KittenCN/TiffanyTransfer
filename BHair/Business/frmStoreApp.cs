@@ -128,7 +128,7 @@ namespace BHair.Business
             CtrlType = cbCtrlType.SelectedItem.ToString();
             GetApplicationDetail();
 
-            if (CtrlType == "正在审核") { btnAdd.Visible = true; btnAlter.Visible = true; btnDelete.Visible = true; }
+            if (CtrlType == "正在审核") { btnAdd.Visible = true; btnAlter.Visible = false; btnDelete.Visible = false; }
             if (CtrlType == "发货确认") {btnAdd.Visible = false; btnAlter.Visible = false; btnDelete.Visible = false;}
             if (CtrlType == "收货确认") {btnAdd.Visible = false; btnAlter.Visible = false; btnDelete.Visible = false;}
             if (CtrlType == "历史申请单") { btnAdd.Visible = false; btnAlter.Visible = false; btnDelete.Visible = false; }

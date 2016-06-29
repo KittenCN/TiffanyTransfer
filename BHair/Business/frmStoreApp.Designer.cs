@@ -265,6 +265,7 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "撤销申请单";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAlter
@@ -275,6 +276,7 @@
             this.btnAlter.TabIndex = 3;
             this.btnAlter.Text = "修改申请单";
             this.btnAlter.UseVisualStyleBackColor = true;
+            this.btnAlter.Visible = false;
             this.btnAlter.Click += new System.EventHandler(this.btnAlter_Click);
             // 
             // btnAdd
