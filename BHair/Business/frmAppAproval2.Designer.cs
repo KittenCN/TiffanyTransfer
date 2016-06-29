@@ -49,6 +49,8 @@
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
+            this.ApprovalState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FinalState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +89,8 @@
             this.S_O_Str = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.O_O_Str = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WuliuDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSelectAll = new System.Windows.Forms.Button();
+            this.btnApprovalAll = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -223,6 +227,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btnApprovalAll);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(248, 479);
             this.panel1.Name = "panel1";
@@ -269,6 +274,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvApplyInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvApplyInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ApprovalState,
+            this.FinalState,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -307,12 +314,12 @@
             this.S_O_Str,
             this.O_O_Str,
             this.WuliuDate});
-            this.dgvApplyInfo.Location = new System.Drawing.Point(248, 61);
+            this.dgvApplyInfo.Location = new System.Drawing.Point(248, 92);
             this.dgvApplyInfo.MultiSelect = false;
             this.dgvApplyInfo.Name = "dgvApplyInfo";
             this.dgvApplyInfo.RowTemplate.Height = 23;
             this.dgvApplyInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvApplyInfo.Size = new System.Drawing.Size(733, 409);
+            this.dgvApplyInfo.Size = new System.Drawing.Size(733, 378);
             this.dgvApplyInfo.TabIndex = 127;
             this.dgvApplyInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApplyInfo_CellClick);
             this.dgvApplyInfo.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvApplyInfo_CellMouseDoubleClick);
@@ -322,12 +329,13 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.btnSelectAll);
             this.panel3.Controls.Add(this.cbCtrlType);
             this.panel3.Controls.Add(this.TxtChoose);
             this.panel3.Controls.Add(this.BtnChoose);
             this.panel3.Location = new System.Drawing.Point(248, 6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(733, 49);
+            this.panel3.Size = new System.Drawing.Size(733, 75);
             this.panel3.TabIndex = 128;
             // 
             // cbCtrlType
@@ -359,6 +367,23 @@
             this.BtnChoose.Text = "查询";
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
+            // 
+            // ApprovalState
+            // 
+            this.ApprovalState.DataPropertyName = "ApprovalState";
+            this.ApprovalState.FalseValue = "0";
+            this.ApprovalState.HeaderText = "选中";
+            this.ApprovalState.Name = "ApprovalState";
+            this.ApprovalState.TrueValue = "1";
+            // 
+            // FinalState
+            // 
+            this.FinalState.DataPropertyName = "FinalState";
+            this.FinalState.FalseValue = "0";
+            this.FinalState.HeaderText = "选中";
+            this.FinalState.Name = "FinalState";
+            this.FinalState.TrueValue = "1";
+            this.FinalState.Visible = false;
             // 
             // Column1
             // 
@@ -635,6 +660,26 @@
             this.WuliuDate.ReadOnly = true;
             this.WuliuDate.Visible = false;
             // 
+            // btnSelectAll
+            // 
+            this.btnSelectAll.Location = new System.Drawing.Point(4, 38);
+            this.btnSelectAll.Name = "btnSelectAll";
+            this.btnSelectAll.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectAll.TabIndex = 3;
+            this.btnSelectAll.Text = "全选/反选";
+            this.btnSelectAll.UseVisualStyleBackColor = true;
+            this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
+            // 
+            // btnApprovalAll
+            // 
+            this.btnApprovalAll.Location = new System.Drawing.Point(4, 38);
+            this.btnApprovalAll.Name = "btnApprovalAll";
+            this.btnApprovalAll.Size = new System.Drawing.Size(75, 23);
+            this.btnApprovalAll.TabIndex = 2;
+            this.btnApprovalAll.Text = "批量审批通过";
+            this.btnApprovalAll.UseVisualStyleBackColor = true;
+            this.btnApprovalAll.Click += new System.EventHandler(this.btnApprovalAll_Click);
+            // 
             // frmAppAproval2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -687,6 +732,9 @@
         private System.Windows.Forms.TextBox TxtChoose;
         private System.Windows.Forms.Button BtnChoose;
         private System.Windows.Forms.ComboBox cbCtrlType;
+        private System.Windows.Forms.Button btnApprovalAll;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ApprovalState;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn FinalState;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -725,7 +773,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn S_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn O_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn WuliuDate;
-
-
+        private System.Windows.Forms.Button btnSelectAll;
     }
 }

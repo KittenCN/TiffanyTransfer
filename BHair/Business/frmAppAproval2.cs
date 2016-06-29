@@ -173,6 +173,78 @@ namespace BHair.Business
             }
         }
 
+        private void btnSelectAll_Click(object sender, EventArgs e)
+        {
+            bool isAll = true;
+            if (CtrlType == "未审核")
+            {
+                foreach (DataRow dr in ApplicationInfoTable.Rows)
+                {
+                    if (dr["ApprovalState"].ToString() == "0") isAll = false;
+                }
+                if (isAll)
+                {
+                    foreach (DataRow dr in ApplicationInfoTable.Rows)
+                    {
+                        dr["ApprovalState"] = 0;
+                    }
+                }
+                else
+                {
+                    foreach (DataRow dr in ApplicationInfoTable.Rows)
+                    {
+                        dr["ApprovalState"] = 1;
+                    }
+                }
+            }
+            //if (CtrlType == "最终确认")
+            //{
+            //    foreach (DataRow dr in ApplicationInfoTable.Rows)
+            //    {
+            //        if (dr["FinalState"].ToString() == "0") isAll = false;
+            //    }
+            //    if (isAll)
+            //    {
+            //        foreach (DataRow dr in ApplicationInfoTable.Rows)
+            //        {
+            //            dr["FinalState"] = 0;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        foreach (DataRow dr in ApplicationInfoTable.Rows)
+            //        {
+            //            dr["FinalState"] = 1;
+            //        }
+            //    }
+            //}
+        }
 
+        private void btnApprovalAll_Click(object sender, EventArgs e)
+        {
+            int successRows = 0;
+            if (CtrlType == "未审核")
+            {
+                foreach (DataRow dr in ApplicationInfoTable.Rows)
+                {
+                    if (dr["ApprovalState"].ToString() == "1")
+                    {
+                        successRows += applicationInfo.ApprovalApplication2(dr["CtrlID"].ToString(), Login.LoginUser, 1, DateTime.Now);
+                    }
+                }
+                MessageBox.Show("审批通过" + successRows + "条", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            //if (CtrlType == "最终确认")
+            //{
+            //    foreach (DataRow dr in ApplicationInfoTable.Rows)
+            //    {
+            //        if (dr["FinalState"].ToString() == "1")
+            //        {
+            //            successRows += applicationInfo.FinalConfirm(dr["TransNo"].ToString());
+            //        }
+            //    }
+            //    MessageBox.Show("最终确认通过" + successRows + "条", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+        }
     }
 }
