@@ -29,8 +29,8 @@ namespace BHair.Business
             GetApplicationDetail();
             InitButton(CtrlType);
             ctrlType = CtrlType;
-            if (ctrlType == "发货确认") { BtnConfirm.Text = "发货确认"; tabControl1.TabPages.Remove(tabPage3); }
-            else if (ctrlType == "收货确认") BtnConfirm.Text = "收货确认";
+            if (ctrlType == "待发货") { BtnConfirm.Text = "待发货"; tabControl1.TabPages.Remove(tabPage3); }
+            else if (ctrlType == "待收货") BtnConfirm.Text = "待收货";
             else if (ctrlType == "正在审核") { tabControl1.TabPages.Remove(tabPage3); tabControl1.TabPages.Remove(tabPage2); }
             else if (ctrlType == "历史申请单") { BtnConfirm.Visible = false; }
         }
@@ -83,8 +83,8 @@ namespace BHair.Business
             switch (CtrlType)
             {
                 case "正在审核": break;
-                case "发货确认": ConfirmPanel.Visible = true; txtBeforeChecked.ReadOnly = false; BtnConfirm.Visible = true; txtBeforeUser.Text = Login.LoginUser.UserName; break;
-                case "收货确认": ConfirmPanel.Visible = true; txtAfterChecked.ReadOnly = false; BtnConfirm.Visible = true; txtAfterUser.Text = Login.LoginUser.UserName; break;
+                case "待发货": ConfirmPanel.Visible = true; txtBeforeChecked.ReadOnly = false; BtnConfirm.Visible = true; txtBeforeUser.Text = Login.LoginUser.UserName; break;
+                case "待收货": ConfirmPanel.Visible = true; txtAfterChecked.ReadOnly = false; BtnConfirm.Visible = true; txtAfterUser.Text = Login.LoginUser.UserName; break;
                 default: break;
             }
         }
@@ -104,8 +104,8 @@ namespace BHair.Business
             //    switch(ctrlType)
             //    {
             //        case "正在审核": break;
-            //        case "发货确认": applicationInfo.DeliverConfirm(applicationInfo.CtrlID,txtBeforeChecked.Text,Login.LoginUser,1); break;
-            //        case "收货确认": applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, txtAfterChecked.Text, Login.LoginUser,1); break;
+            //        case "待发货": applicationInfo.DeliverConfirm(applicationInfo.CtrlID,txtBeforeChecked.Text,Login.LoginUser,1); break;
+            //        case "待收货": applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, txtAfterChecked.Text, Login.LoginUser,1); break;
             //        default: break;
             //    }
 
@@ -124,8 +124,8 @@ namespace BHair.Business
                 switch (ctrlType)
                 {
                     case "正在审核": break;
-                    case "发货确认": break;
-                    case "收货确认": applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, txtAfterChecked.Text, Login.LoginUser, 2); break;
+                    case "待发货": break;
+                    case "待收货": applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, txtAfterChecked.Text, Login.LoginUser, 2); break;
                     default: break;
                 }
 
@@ -144,8 +144,8 @@ namespace BHair.Business
                 switch (ctrlType)
                 {
                     case "正在审核": break;
-                    case "发货确认": applicationInfo.DeliverConfirm(applicationInfo.CtrlID, txtBeforeChecked.Text, Login.LoginUser, 2); break;
-                    case "收货确认": applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, txtAfterChecked.Text, Login.LoginUser, 3); break;
+                    case "待发货": applicationInfo.DeliverConfirm(applicationInfo.CtrlID, txtBeforeChecked.Text, Login.LoginUser, 2); break;
+                    case "待收货": applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, txtAfterChecked.Text, Login.LoginUser, 3); break;
                     default: break;
                 }
 

@@ -24,8 +24,8 @@ namespace BHair.Business
             InitializeComponent();
             GetApplicationDetail();
             cbCtrlType.Items.Add("正在审核");
-            cbCtrlType.Items.Add("发货确认");
-            cbCtrlType.Items.Add("收货确认");
+            cbCtrlType.Items.Add("待发货");
+            cbCtrlType.Items.Add("待收货");
             cbCtrlType.Items.Add("历史申请单");
             cbCtrlType.SelectedIndex = 0;
         }
@@ -43,8 +43,8 @@ namespace BHair.Business
             switch(CtrlType)
             {
                 case "正在审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(Login.LoginUser.UID,""); break;
-                case "发货确认": ApplicationInfoTable = applicationInfo.SelectApplicationByDeliver(Login.LoginUser.Store,""); break;
-                case "收货确认": ApplicationInfoTable = applicationInfo.SelectApplicationByReceipt(Login.LoginUser.Store,""); break;
+                case "待发货": ApplicationInfoTable = applicationInfo.SelectApplicationByDeliver(Login.LoginUser.Store,""); break;
+                case "待收货": ApplicationInfoTable = applicationInfo.SelectApplicationByReceipt(Login.LoginUser.Store,""); break;
                 case "历史申请单": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApplicants(Login.LoginUser.UID, ""); break;
                 default: ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(Login.LoginUser.UID,""); break;
             }
@@ -115,8 +115,8 @@ namespace BHair.Business
             switch (CtrlType)
             {
                 case "正在审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(Login.LoginUser.UID, SelectStr); break;
-                case "发货确认": ApplicationInfoTable = applicationInfo.SelectApplicationByDeliver(Login.LoginUser.Store, SelectStr);  break;
-                case "收货确认": ApplicationInfoTable = applicationInfo.SelectApplicationByReceipt(Login.LoginUser.Store, SelectStr);  break;
+                case "待发货": ApplicationInfoTable = applicationInfo.SelectApplicationByDeliver(Login.LoginUser.Store, SelectStr);  break;
+                case "待收货": ApplicationInfoTable = applicationInfo.SelectApplicationByReceipt(Login.LoginUser.Store, SelectStr);  break;
                 case "历史申请单": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApplicants(Login.LoginUser.UID, ""); break;
                 default: ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(Login.LoginUser.UID, SelectStr); break;
             }
@@ -129,8 +129,8 @@ namespace BHair.Business
             GetApplicationDetail();
 
             if (CtrlType == "正在审核") { btnAdd.Visible = true; btnAlter.Visible = false; btnDelete.Visible = false; }
-            if (CtrlType == "发货确认") {btnAdd.Visible = false; btnAlter.Visible = false; btnDelete.Visible = false;}
-            if (CtrlType == "收货确认") {btnAdd.Visible = false; btnAlter.Visible = false; btnDelete.Visible = false;}
+            if (CtrlType == "待发货") {btnAdd.Visible = false; btnAlter.Visible = false; btnDelete.Visible = false;}
+            if (CtrlType == "待收货") {btnAdd.Visible = false; btnAlter.Visible = false; btnDelete.Visible = false;}
             if (CtrlType == "历史申请单") { btnAdd.Visible = false; btnAlter.Visible = false; btnDelete.Visible = false; }
 
         }

@@ -25,6 +25,7 @@ namespace BHair.Business
 
         private void Login_Load(object sender, EventArgs e)
         {
+            this.TopMost = true;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

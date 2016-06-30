@@ -97,10 +97,14 @@ namespace BHair.Business
                         AddApplicationDT.Rows.Add(dr);
                         HighlightItemID();
                     }
+                    txtItemID.Text = "";
+                    txtItemID.Focus();
                 }
                 else
                 {
                     MessageBox.Show("货号错误");
+                    txtItemID.Text = "";
+                    txtItemID.Focus();
                 }
             }
         }
