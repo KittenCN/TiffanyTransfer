@@ -33,13 +33,7 @@ G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\BHair.frmMain.resources
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\BHair.SystemSet.ComboDate.resources
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TT_Base.csproj.GenerateResource.Cache
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\BHair.Business.dll
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\Microsoft.Office.Interop.Excel.dll
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\office.dll
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\Microsoft.Vbe.Interop.dll
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\stdole.dll
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\BHair.Business.pdb
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\Microsoft.Office.Interop.Excel.xml
-E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\office.xml
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\TT_Base.csprojResolveAssemblyReference.cache
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.Base.frmConfig.resources
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.Base.frmItem_List.resources
@@ -90,3 +84,9 @@ G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\Microsoft.Office
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\Microsoft.Vbe.Interop.dll
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\office.dll
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\stdole.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\bin\Debug\Microsoft.Office.Interop.Excel.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\bin\Debug\Microsoft.Vbe.Interop.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\bin\Debug\office.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\bin\Debug\stdole.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\bin\Debug\转货数据库.accdb
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\TiffanyTransfer.Business.frmEditReason.resources

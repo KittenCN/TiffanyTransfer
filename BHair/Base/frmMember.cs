@@ -110,7 +110,6 @@ namespace BHair.Base
             if (user.UsersDT.Rows[0]["Character"].ToString() == "3") cboCharacter.SelectedIndex = 2;
             if (user.UsersDT.Rows[0]["Character"].ToString() == "4") cboCharacter.SelectedIndex = 3;
 
- 
             if(cboStore.Items.Contains(user.UsersDT.Rows[0]["Store"].ToString()))
             {
                 cboStore.SelectedIndex = cboStore.Items.IndexOf(user.UsersDT.Rows[0]["Store"].ToString());
@@ -163,6 +162,7 @@ namespace BHair.Base
 
             Store store = new Store();
             store.StoreDT = store.SelectAllStoreInfo();
+            cboStore.Items.Add("");
             foreach(DataRow dr in store.StoreDT.Rows)
             {
                 cboStore.Items.Add(dr["StoreName"].ToString());

@@ -15,7 +15,7 @@ namespace BHair.Business
         //public string ConnString=@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=G:\公共\test\test\test\转货数据库.accdb";//连接字符串   
         //public string ConnString = ConfigurationSettings.AppSettings["ConnectionStrings"];//连接字符串  
 
-            public string ConnString = XMLHelper.strGetConnectString();
+        public string ConnString = XMLHelper.strGetConnectString();
         //public string AccessPath ;
         /**//// <summary>    
         /// 构造函数    

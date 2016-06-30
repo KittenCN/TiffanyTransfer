@@ -306,7 +306,7 @@
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(220, 25);
-            this.txtUserName.MaxLength = 30;
+            this.txtUserName.MaxLength = 255;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.ReadOnly = true;
             this.txtUserName.Size = new System.Drawing.Size(80, 21);
@@ -324,7 +324,7 @@
             // txtUID
             // 
             this.txtUID.Location = new System.Drawing.Point(71, 25);
-            this.txtUID.MaxLength = 12;
+            this.txtUID.MaxLength = 255;
             this.txtUID.Name = "txtUID";
             this.txtUID.ReadOnly = true;
             this.txtUID.Size = new System.Drawing.Size(80, 21);
