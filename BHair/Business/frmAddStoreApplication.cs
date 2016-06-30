@@ -15,7 +15,7 @@ namespace BHair.Business
         DataTable AddApplicationDT;
         ApplicationInfo applicationInfo = new ApplicationInfo();
         ApplicationDetail applicationDetail = new ApplicationDetail();
-        string DeliverOrReceipt = "发货确认";
+        string DeliverOrReceipt = "待发货";
         /// <summary>申请转货单</summary>
         public frmAddStoreApplication(ApplicationInfo ai,string DorR)
         {
@@ -27,10 +27,11 @@ namespace BHair.Business
             applicationInfo = ai;
             txtCtrlID.Text = ai.CtrlID;
             LoadComBox();
-
+            cbDeliverStore.SelectedItem = applicationInfo.DeliverStore;
+            cbRecieveStore.SelectedItem = applicationInfo.ReceiptStore;
             DeliverOrReceipt = DorR;
-            if (DeliverOrReceipt == "发货确认") { this.Name = "发货单输入"; txtWuliuID.Visible = true; label5.Visible = true; label3.Text = "发货日期"; label48.Text = "发货之前的检查，是否有损坏没有写无，有则写明货号"; }
-            else if (DeliverOrReceipt=="收货确认") { this.Name = "收货单输入"; label3.Text = "收货日期"; label48.Text = "收货之前的检查，是否有损坏.没有写无，有则写明货号"; }
+            if (DeliverOrReceipt == "待发货") { this.Name = "发货单输入"; txtWuliuID.Visible = true; label5.Visible = true; label3.Text = "发货日期"; label48.Text = "发货之前的检查，是否有损坏没有写无，有则写明货号"; }
+            else if (DeliverOrReceipt=="待收货") { this.Name = "收货单输入"; label3.Text = "收货日期"; label48.Text = "收货之前的检查，是否有损坏.没有写无，有则写明货号"; }
         }
 
         void GetDataTable()
@@ -116,7 +117,7 @@ namespace BHair.Business
             //{
             //    MessageBox.Show("收发店铺名错误");
             //}
-            if (txtWuliuID.Text.Length < 1 && DeliverOrReceipt == "发货确认")
+            if (txtWuliuID.Text.Length < 1 && DeliverOrReceipt == "待发货")
             {
                 MessageBox.Show("请填写物流单号");
             }
@@ -134,19 +135,19 @@ namespace BHair.Business
                 if(AddAppInfoDT.Rows.Count>0)
                 {
                     AddAppInfoDT.Rows[0]["WuliuID"] = txtWuliuID.Text;
-                    if (DeliverOrReceipt == "发货确认") { AddAppInfoDT.Rows[0]["DeliverDate"] = dtAppDate.Value; AddAppInfoDT.Rows[0]["DeliverCheck"] = txtStoreCheck.Text; }
-                    else if (DeliverOrReceipt == "收货确认") { AddAppInfoDT.Rows[0]["ReceiptDate"] = dtAppDate.Value; AddAppInfoDT.Rows[0]["ReceiptCheck"] = txtStoreCheck.Text; }
+                    if (DeliverOrReceipt == "待发货") { AddAppInfoDT.Rows[0]["DeliverDate"] = dtAppDate.Value; AddAppInfoDT.Rows[0]["DeliverCheck"] = txtStoreCheck.Text; }
+                    else if (DeliverOrReceipt == "待收货") { AddAppInfoDT.Rows[0]["ReceiptDate"] = dtAppDate.Value; AddAppInfoDT.Rows[0]["ReceiptCheck"] = txtStoreCheck.Text; }
                 }
                 try
                 {
-                    if (DeliverOrReceipt == "发货确认")
+                    if (DeliverOrReceipt == "待发货")
                     {
                         applicationDetail.UpdateDeliverDetail(AddApplicationDT);
                         applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
                         applicationInfo.DeliverConfirm(applicationInfo.CtrlID, "", Login.LoginUser, 1);
                         EmailControl.ToReceiptConfirm(applicationInfo);
                     }
-                    else if (DeliverOrReceipt == "收货确认")
+                    else if (DeliverOrReceipt == "待收货")
                     {
                         applicationDetail.UpdateReceiptDetail(AddApplicationDT);
                         applicationInfo.UpdateApplicationInfo(AddAppInfoDT);

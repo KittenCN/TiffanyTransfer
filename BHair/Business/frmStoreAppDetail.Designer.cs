@@ -930,7 +930,7 @@
             this.BtnConfirm.Name = "BtnConfirm";
             this.BtnConfirm.Size = new System.Drawing.Size(66, 23);
             this.BtnConfirm.TabIndex = 0;
-            this.BtnConfirm.Text = "发货确认";
+            this.BtnConfirm.Text = "待发货";
             this.BtnConfirm.UseVisualStyleBackColor = true;
             this.BtnConfirm.Visible = false;
             this.BtnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
