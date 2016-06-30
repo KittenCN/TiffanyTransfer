@@ -14,8 +14,8 @@ namespace BHair.Business
         public OleDbConnection Conn;
         //public string ConnString=@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=G:\公共\test\test\test\转货数据库.accdb";//连接字符串   
         //public string ConnString = ConfigurationSettings.AppSettings["ConnectionStrings"];//连接字符串  
-
         public string ConnString = XMLHelper.strGetConnectString();
+        public string[] strConnMode = new string[] { "adModeUnknown", "adModeRead", "adModeReadWrite" };
         //public string AccessPath ;
         /**//// <summary>    
         /// 构造函数    
@@ -23,8 +23,8 @@ namespace BHair.Business
         /// <param name="Dbpath">ACCESS数据库路径</param>    
         public AccessHelper()    
         {
-            Conn = new OleDbConnection(ConnString);    
-            Conn.Open();    
+            Conn = new OleDbConnection(ConnString);
+            Conn.Open();
         }    
     
         /**//// <summary>    

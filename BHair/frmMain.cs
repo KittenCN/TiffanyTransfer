@@ -41,6 +41,16 @@ namespace BHair
         {
             //frmPays_List objfrmPaysList = new frmPays_List();
             //this.ShowWindows_Click(objfrmPaysList);
+            if(Login.LoginUser.Character == 1)
+            {
+                timer1.Enabled = true;
+                timer1.Interval = 43200000;
+            }
+            else
+            {
+                timer1.Enabled = false;
+            }
+
         }
 
         private void frmMain_Resize(object sender, EventArgs e)
