@@ -255,7 +255,6 @@
             this.menuMain_System_Pwd.Name = "menuMain_System_Pwd";
             this.menuMain_System_Pwd.Size = new System.Drawing.Size(163, 22);
             this.menuMain_System_Pwd.Text = "修改个人信息(&P)";
-            this.menuMain_System_Pwd.Visible = false;
             this.menuMain_System_Pwd.Click += new System.EventHandler(this.menuMain_System_Pwd_Click);
             // 
             // toolStripMenuItem2
@@ -284,7 +283,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(621, 21);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(652, 21);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "转货系统";
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

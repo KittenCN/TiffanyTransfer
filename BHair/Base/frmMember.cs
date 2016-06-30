@@ -50,6 +50,13 @@ namespace BHair.Base
                 cbIsAdmin.Visible = true;
                 cbIsAble.Visible = true;
             }
+            else
+            {
+                cboCharacter.Enabled = false;
+                cboStore.Enabled = false;
+                cbIsAdmin.Visible = false;
+                cbIsAble.Visible = false;
+            }
         }
 
         #region 初化基础数据。
