@@ -87,3 +87,4 @@ G:\WorkStation\GitHub\TiffanyTransfer\Business\obj\Debug\BHair.Business.Properti
 G:\WorkStation\GitHub\TiffanyTransfer\Business\obj\Debug\Business.csproj.GenerateResource.Cache
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\obj\Debug\BHair.Business.Properties.Resources.resources
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\obj\Debug\Business.csproj.GenerateResource.Cache
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache

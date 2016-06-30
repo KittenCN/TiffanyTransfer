@@ -139,7 +139,7 @@ namespace BHair.Business
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (applicationInfo.CtrlID != null)
+            if (applicationInfo.CtrlID != null && txtS_O_Str.Text!="" && txtO_O_Str.Text!="" && txtBatch_Num1.Text!="" && txtBatch_Num2.Text!="")
             {
                 try
                 {
@@ -156,6 +156,10 @@ namespace BHair.Business
                 {
                     MessageBox.Show("确认失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+            else
+            {
+                MessageBox.Show("有必填项目为空!确认失败!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
