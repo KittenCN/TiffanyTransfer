@@ -81,6 +81,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppDetail)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -590,6 +591,7 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.btnExcel);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Location = new System.Drawing.Point(13, 12);
@@ -607,6 +609,16 @@
             this.btnSearch.Text = "查询";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(657, 153);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnExcel.TabIndex = 3;
+            this.btnExcel.Text = "转存PDF";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // frmApplicationReport
             // 
@@ -690,5 +702,6 @@
         private System.Windows.Forms.TextBox txtO_O_Str;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtS_O_Str;
+        private System.Windows.Forms.Button btnExcel;
     }
 }

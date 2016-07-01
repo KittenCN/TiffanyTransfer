@@ -145,7 +145,7 @@ namespace BHair.Business
                     {
                         applicationDetail.UpdateDeliverDetail(AddApplicationDT);
                         applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
-                        applicationInfo.DeliverConfirm(applicationInfo.CtrlID, "", Login.LoginUser, 1);
+                        applicationInfo.DeliverConfirm(applicationInfo.CtrlID, txtStoreCheck.Text, Login.LoginUser, 1);
                         Thread thread = new Thread(new ThreadStart(SendEmail));
                         thread.Start();
                     }
@@ -153,7 +153,7 @@ namespace BHair.Business
                     {
                         applicationDetail.UpdateReceiptDetail(AddApplicationDT);
                         applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
-                        applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, "", Login.LoginUser, 1);
+                        applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, txtStoreCheck.Text, Login.LoginUser, 1);
                         Thread thread = new Thread(new ThreadStart(SendEmail));
                         thread.Start();
                     }

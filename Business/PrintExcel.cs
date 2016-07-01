@@ -291,5 +291,75 @@ namespace BHair.Business
                 app = null;
             }
         }
+
+        ///
+        /// 將 DataTable 資料轉換至 Excel
+        /// 
+        /// thisTable -- 欲轉換之DataTable
+        /// FileName -- 賦予檔案名稱
+        /// sheetName -- 寫入之sheet名稱
+
+        public void WriteToExcel(DataTable thisTable, string FileName, string sheetName)
+        {
+            //需加入參考
+            //References右鍵AddReferences => COM => Microsoft Excel 10.0 Object Library
+            //在References會多Excel及Microsoft.Office.Core
+
+            Excel.Application oXL = null;
+            Excel._Workbook oWB = null;
+            Excel._Worksheet oSheet = null;
+
+            try
+            {
+                //string tempImagePath = Application.StartupPath;//軟體安裝目錄
+                //string temp = tempImagePath + "\\Execl";//目錄下的Excel文件
+                //Directory.CreateDirectory(@temp);
+                //string strFilePath = @Application.StartupPath + @"\Execl\" + FileName + ".xls"; //賦予檔名
+                string strFilePath = FileName;
+
+                oXL = new Excel.Application();
+                oWB = oXL.Workbooks.Open(strFilePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                oSheet = (Excel._Worksheet)oWB.Worksheets[sheetName];
+                int sheetRowsCount = oSheet.UsedRange.Rows.Count;
+
+
+                //加入內容
+                for (int i = 1; i <= thisTable.Rows.Count; i++)
+                {
+                    for (int j = 1; j <= thisTable.Columns.Count; j++)
+                    {
+                        oSheet.Cells[i + sheetRowsCount, j] = thisTable.Rows[i - 1][j - 1];
+                    }
+                }
+
+                //若為EXCEL2000, 將最後一個參數拿掉即可
+                oWB.SaveAs(strFilePath, Excel.XlFileFormat.xlWorkbookNormal,
+                    null, null, false, false, Excel.XlSaveAsAccessMode.xlShared,
+                    false, false, null, null, null);
+
+                //MessageBox.Show("成功匯出[" + thisTable.Rows.Count.ToString() + "]行到Execl！");
+            }
+            catch (Exception ex)
+            {
+                //WriteErrLog("排程 -- WriteToExcel2", ex);
+                //MessageBox.Show("匯出Execl失敗！");
+                //throw ex;
+            }
+            finally
+            {
+                //關閉文件
+                oWB.Close(false, Type.Missing, Type.Missing);
+                oXL.Workbooks.Close();
+                oXL.Quit();
+
+                //釋放資源
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oXL);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oSheet);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oWB);
+                oSheet = null;
+                oWB = null;
+                oXL = null;
+            }
+        }
     }
 }
