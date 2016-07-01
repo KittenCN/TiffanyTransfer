@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using BHair.Business.Table;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace BHair.Business
 {
@@ -230,7 +231,9 @@ namespace BHair.Business
                     if (dr["ApprovalState"].ToString() == "1")
                     {
                         successRows += applicationInfo.ApprovalApplication2(dr["CtrlID"].ToString(), Login.LoginUser, 1, DateTime.Now);
-                        EmailControl.ToDeliverConfirm(applicationInfo);
+                        //EmailControl.ToDeliverConfirm(applicationInfo);
+                        Thread thread = new Thread(new ThreadStart(SendEmail));
+                        thread.Start();
                     }
                 }
                 MessageBox.Show("审批通过" + successRows + "条", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -246,6 +249,11 @@ namespace BHair.Business
             //    }
             //    MessageBox.Show("最终确认通过" + successRows + "条", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
+        }
+
+        void SendEmail()
+        {
+            EmailControl.ToDeliverConfirm(applicationInfo);
         }
 
         private void frmAppAproval2_Load(object sender, EventArgs e)

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using BHair.Business.Table;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace BHair.Business
 {
@@ -137,6 +138,11 @@ namespace BHair.Business
             txtO_O.SelectedIndex = 0;
         }
 
+        void SendEmail()
+        {
+            EmailControl.ToApplicantFinal(applicationInfo);
+        }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (applicationInfo.CtrlID != null && txtS_O_Str.Text!="" && txtO_O_Str.Text!="" && txtBatch_Num1.Text!="" && txtBatch_Num2.Text!="")
@@ -147,7 +153,9 @@ namespace BHair.Business
                     applicationInfo.UpdateApplicationInfo(applicationInfoDT);
                     applicationInfo.WLConfirm(applicationInfo.CtrlID,Login.LoginUser.UID);
                     GetApplicationDetail();
-                    EmailControl.ToApplicantFinal(applicationInfo);
+                    //EmailControl.ToApplicantFinal(applicationInfo);
+                    Thread thread = new Thread(new ThreadStart(SendEmail));
+                    thread.Start();
                     MessageBox.Show("确认成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
                     this.Close();

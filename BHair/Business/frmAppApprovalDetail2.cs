@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using BHair.Business.Table;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace BHair.Business
 {
@@ -81,7 +82,9 @@ namespace BHair.Business
             try
             {
                 applicationInfo.ApprovalApplication2(applicationInfo.CtrlID, Login.LoginUser, 1, dtApprovalTime2.Value);
-                EmailControl.ToDeliverConfirm(applicationInfo);
+                //EmailControl.ToDeliverConfirm(applicationInfo);
+                Thread thread = new Thread(new ThreadStart(SendEmail));
+                thread.Start();
                 MessageBox.Show("审核完毕", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 DialogResult = DialogResult.OK;
                 this.Close();
@@ -90,6 +93,10 @@ namespace BHair.Business
             {
                 MessageBox.Show("审核失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        void SendEmail()
+        {
+            EmailControl.ToDeliverConfirm(applicationInfo);
         }
 
         private void BtnApprovalNot_Click(object sender, EventArgs e)

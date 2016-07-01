@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using BHair.Business.Table;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace BHair.Business
 {
@@ -145,14 +146,16 @@ namespace BHair.Business
                         applicationDetail.UpdateDeliverDetail(AddApplicationDT);
                         applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
                         applicationInfo.DeliverConfirm(applicationInfo.CtrlID, "", Login.LoginUser, 1);
-                        EmailControl.ToReceiptConfirm(applicationInfo);
+                        Thread thread = new Thread(new ThreadStart(SendEmail));
+                        thread.Start();
                     }
                     else if (DeliverOrReceipt == "待收货")
                     {
                         applicationDetail.UpdateReceiptDetail(AddApplicationDT);
                         applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
                         applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, "", Login.LoginUser, 1);
-                        EmailControl.ToApplicantWLSubmit(applicationInfo);
+                        Thread thread = new Thread(new ThreadStart(SendEmail));
+                        thread.Start();
                     }
                     MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
@@ -163,6 +166,11 @@ namespace BHair.Business
                     MessageBox.Show("提交失败，错误信息：" + ex.Message);
                 }
             }
+        }
+
+        void SendEmail()
+        {
+            EmailControl.ToApplicantWLSubmit(applicationInfo);
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)

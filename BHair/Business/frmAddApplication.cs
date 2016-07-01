@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using BHair.Business.Table;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace BHair.Business
 {
@@ -201,7 +202,8 @@ namespace BHair.Business
                         {
                             applicationInfo.SubmitApplicationInfo(AddAppInfoDT);
                             applicationDetail.SubmitApplicationDetail(AddApplicationDT);
-                            EmailControl.ToApplicantSubmit(txtCtrlID.Text, Login.LoginUser.UserName, dtAppDate.Value.ToString());
+                            Thread thread = new Thread(new ThreadStart(SendEmail));
+                            thread.Start();
                             MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
@@ -217,7 +219,8 @@ namespace BHair.Business
                     {
                         applicationInfo.SubmitApplicationInfo(AddAppInfoDT);
                         applicationDetail.SubmitApplicationDetail(AddApplicationDT);
-                        EmailControl.ToApplicantSubmit(txtCtrlID.Text, Login.LoginUser.UserName, dtAppDate.Value.ToString());
+                        Thread thread = new Thread(new ThreadStart(SendEmail));
+                        thread.Start();
                         MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
@@ -228,6 +231,11 @@ namespace BHair.Business
                 }
 
             }
+        }
+
+        void SendEmail()
+        {
+            EmailControl.ToApplicantSubmit(txtCtrlID.Text, Login.LoginUser.UserName, dtAppDate.Value.ToString());
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
