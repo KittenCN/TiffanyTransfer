@@ -736,6 +736,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "商品部审核";
             this.Text = "商品部审核";
+            this.Load += new System.EventHandler(this.frmAppAproval_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

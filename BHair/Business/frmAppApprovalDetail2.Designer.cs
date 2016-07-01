@@ -625,6 +625,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "财务部审核";
             this.Text = "财务部审核";
+            this.Load += new System.EventHandler(this.frmAppApprovalDetail2_Load);
             this.groupBox20.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

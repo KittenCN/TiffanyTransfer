@@ -284,5 +284,10 @@ namespace BHair.Business
                 }
             }
         }
+
+        private void frmStoreAppDetail_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }

@@ -47,9 +47,6 @@
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.BtnSelect = new System.Windows.Forms.Button();
             this.dgvApplyInfo = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.TxtChoose = new System.Windows.Forms.TextBox();
-            this.BtnChoose = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +90,9 @@
             this.S_O_Str = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.O_O_Str = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WuliuDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.TxtChoose = new System.Windows.Forms.TextBox();
+            this.BtnChoose = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -347,37 +347,6 @@
             this.dgvApplyInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApplyInfo_CellClick);
             this.dgvApplyInfo.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvApplyInfo_CellMouseDoubleClick);
             this.dgvApplyInfo.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvApplyInfo_DataBindingComplete);
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.TxtChoose);
-            this.panel3.Controls.Add(this.BtnChoose);
-            this.panel3.Location = new System.Drawing.Point(248, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(733, 49);
-            this.panel3.TabIndex = 128;
-            // 
-            // TxtChoose
-            // 
-            this.TxtChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtChoose.Location = new System.Drawing.Point(509, 10);
-            this.TxtChoose.Name = "TxtChoose";
-            this.TxtChoose.Size = new System.Drawing.Size(119, 21);
-            this.TxtChoose.TabIndex = 1;
-            this.TxtChoose.TextChanged += new System.EventHandler(this.TxtChoose_TextChanged);
-            // 
-            // BtnChoose
-            // 
-            this.BtnChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnChoose.Location = new System.Drawing.Point(646, 9);
-            this.BtnChoose.Name = "BtnChoose";
-            this.BtnChoose.Size = new System.Drawing.Size(75, 23);
-            this.BtnChoose.TabIndex = 0;
-            this.BtnChoose.Text = "查询";
-            this.BtnChoose.UseVisualStyleBackColor = true;
-            this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
             // 
             // Column1
             // 
@@ -694,6 +663,37 @@
             this.WuliuDate.ReadOnly = true;
             this.WuliuDate.Visible = false;
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.TxtChoose);
+            this.panel3.Controls.Add(this.BtnChoose);
+            this.panel3.Location = new System.Drawing.Point(248, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(733, 49);
+            this.panel3.TabIndex = 128;
+            // 
+            // TxtChoose
+            // 
+            this.TxtChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtChoose.Location = new System.Drawing.Point(509, 10);
+            this.TxtChoose.Name = "TxtChoose";
+            this.TxtChoose.Size = new System.Drawing.Size(119, 21);
+            this.TxtChoose.TabIndex = 1;
+            this.TxtChoose.TextChanged += new System.EventHandler(this.TxtChoose_TextChanged);
+            // 
+            // BtnChoose
+            // 
+            this.BtnChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnChoose.Location = new System.Drawing.Point(646, 9);
+            this.BtnChoose.Name = "BtnChoose";
+            this.BtnChoose.Size = new System.Drawing.Size(75, 23);
+            this.BtnChoose.TabIndex = 0;
+            this.BtnChoose.Text = "查询";
+            this.BtnChoose.UseVisualStyleBackColor = true;
+            this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
+            // 
             // frmHistoryInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -711,6 +711,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "查询历史转货记录";
             this.Text = "查询历史转货记录";
+            this.Load += new System.EventHandler(this.frmHistoryInfo_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

@@ -247,5 +247,10 @@ namespace BHair.Business
             //    MessageBox.Show("最终确认通过" + successRows + "条", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
         }
+
+        private void frmAppAproval2_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }

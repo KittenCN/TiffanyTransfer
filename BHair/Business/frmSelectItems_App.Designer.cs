@@ -29,6 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvDevilerDetails = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemIDf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemIDf2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemHighlightf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAppDetails = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,22 +54,10 @@
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemHighlights = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvDevilerDetails = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemIDf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemIDf2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemHighlightf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevilerDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppDetails)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDevilerDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -69,6 +69,115 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "发货差异清单";
+            // 
+            // dgvDevilerDetails
+            // 
+            this.dgvDevilerDetails.AllowUserToAddRows = false;
+            this.dgvDevilerDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDevilerDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDevilerDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.ItemIDf,
+            this.ItemIDf2,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.ItemHighlightf});
+            this.dgvDevilerDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDevilerDetails.Location = new System.Drawing.Point(3, 17);
+            this.dgvDevilerDetails.MultiSelect = false;
+            this.dgvDevilerDetails.Name = "dgvDevilerDetails";
+            this.dgvDevilerDetails.RowTemplate.Height = 23;
+            this.dgvDevilerDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvDevilerDetails.Size = new System.Drawing.Size(798, 211);
+            this.dgvDevilerDetails.TabIndex = 129;
+            this.dgvDevilerDetails.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDevilerDetails_DataBindingComplete);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Department";
+            this.dataGridViewTextBoxColumn1.HeaderText = "部门";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "App_Level";
+            this.dataGridViewTextBoxColumn2.HeaderText = "级别";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // ItemIDf
+            // 
+            this.ItemIDf.DataPropertyName = "ItemID";
+            this.ItemIDf.HeaderText = "货号";
+            this.ItemIDf.Name = "ItemIDf";
+            this.ItemIDf.ReadOnly = true;
+            // 
+            // ItemIDf2
+            // 
+            this.ItemIDf2.DataPropertyName = "ItemID2";
+            this.ItemIDf2.HeaderText = "双货号";
+            this.ItemIDf2.Name = "ItemIDf2";
+            this.ItemIDf2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Detail";
+            this.dataGridViewTextBoxColumn5.HeaderText = "产品描述";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 20;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn6.HeaderText = "单价";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "App_Count";
+            this.dataGridViewTextBoxColumn7.HeaderText = "数量";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn8.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "IsDelete";
+            this.dataGridViewTextBoxColumn9.HeaderText = "IsDelete";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "CtrlID";
+            this.dataGridViewTextBoxColumn10.HeaderText = "CtrlID";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Visible = false;
+            // 
+            // ItemHighlightf
+            // 
+            this.ItemHighlightf.DataPropertyName = "ItemHighlight";
+            this.ItemHighlightf.HeaderText = "ItemHighlight";
+            this.ItemHighlightf.Name = "ItemHighlightf";
+            this.ItemHighlightf.ReadOnly = true;
+            this.ItemHighlightf.Visible = false;
             // 
             // dgvAppDetails
             // 
@@ -189,115 +298,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "申请单差异清单";
             // 
-            // dgvDevilerDetails
-            // 
-            this.dgvDevilerDetails.AllowUserToAddRows = false;
-            this.dgvDevilerDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDevilerDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDevilerDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.ItemIDf,
-            this.ItemIDf2,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.ItemHighlightf});
-            this.dgvDevilerDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDevilerDetails.Location = new System.Drawing.Point(3, 17);
-            this.dgvDevilerDetails.MultiSelect = false;
-            this.dgvDevilerDetails.Name = "dgvDevilerDetails";
-            this.dgvDevilerDetails.RowTemplate.Height = 23;
-            this.dgvDevilerDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvDevilerDetails.Size = new System.Drawing.Size(798, 211);
-            this.dgvDevilerDetails.TabIndex = 129;
-            this.dgvDevilerDetails.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDevilerDetails_DataBindingComplete);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Department";
-            this.dataGridViewTextBoxColumn1.HeaderText = "部门";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "App_Level";
-            this.dataGridViewTextBoxColumn2.HeaderText = "级别";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // ItemIDf
-            // 
-            this.ItemIDf.DataPropertyName = "ItemID";
-            this.ItemIDf.HeaderText = "货号";
-            this.ItemIDf.Name = "ItemIDf";
-            this.ItemIDf.ReadOnly = true;
-            // 
-            // ItemIDf2
-            // 
-            this.ItemIDf2.DataPropertyName = "ItemID2";
-            this.ItemIDf2.HeaderText = "双货号";
-            this.ItemIDf2.Name = "ItemIDf2";
-            this.ItemIDf2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Detail";
-            this.dataGridViewTextBoxColumn5.HeaderText = "产品描述";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 20;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn6.HeaderText = "单价";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "App_Count";
-            this.dataGridViewTextBoxColumn7.HeaderText = "数量";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn8.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "IsDelete";
-            this.dataGridViewTextBoxColumn9.HeaderText = "IsDelete";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "CtrlID";
-            this.dataGridViewTextBoxColumn10.HeaderText = "CtrlID";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Visible = false;
-            // 
-            // ItemHighlightf
-            // 
-            this.ItemHighlightf.DataPropertyName = "ItemHighlight";
-            this.ItemHighlightf.HeaderText = "ItemHighlight";
-            this.ItemHighlightf.Name = "ItemHighlightf";
-            this.ItemHighlightf.ReadOnly = true;
-            this.ItemHighlightf.Visible = false;
-            // 
             // frmSelectItems_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -312,10 +312,11 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "申请单-发货差异对比";
+            this.Load += new System.EventHandler(this.frmSelectItems_App_Load);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevilerDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppDetails)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDevilerDetails)).EndInit();
             this.ResumeLayout(false);
 
         }

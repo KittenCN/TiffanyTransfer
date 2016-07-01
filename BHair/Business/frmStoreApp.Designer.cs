@@ -721,6 +721,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "店铺申请单状态";
             this.Text = "店铺申请单状态";
+            this.Load += new System.EventHandler(this.frmStoreApp_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

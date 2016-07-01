@@ -221,5 +221,9 @@ namespace BHair.Business
             }
         }
 
+        private void frmAppAproval_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }

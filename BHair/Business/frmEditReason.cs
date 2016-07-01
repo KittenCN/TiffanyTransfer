@@ -16,5 +16,10 @@ namespace TiffanyTransfer.Business
         {
             InitializeComponent();
         }
+
+        private void frmEditReason_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }

@@ -618,6 +618,7 @@
             this.Name = "frmApplicationReport";
             this.TabText = "转货报表";
             this.Text = "转货报表";
+            this.Load += new System.EventHandler(this.frmApplicationReport_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppDetail)).EndInit();
             this.groupBox1.ResumeLayout(false);

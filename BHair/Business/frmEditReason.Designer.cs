@@ -49,15 +49,16 @@
             this.btnOK.Text = "确定";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
-            // frmEditRemark
+            // frmEditReason
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(325, 184);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtEditReason);
-            this.Name = "frmEditRemark";
+            this.Name = "frmEditReason";
             this.Text = "填写修改/撤销原因：";
+            this.Load += new System.EventHandler(this.frmEditReason_Load);
             this.ResumeLayout(false);
 
         }

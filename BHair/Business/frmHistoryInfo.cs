@@ -142,5 +142,10 @@ namespace BHair.Business
                 new frmHistoryDetail(applicationInfo).ShowDialog();
             }
         }
+
+        private void frmHistoryInfo_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }

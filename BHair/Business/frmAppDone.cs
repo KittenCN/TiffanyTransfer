@@ -183,5 +183,10 @@ namespace BHair.Business
                 this.GetApplicationDetail();
             }
         }
+
+        private void frmAppDone_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }

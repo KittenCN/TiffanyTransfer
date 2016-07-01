@@ -523,6 +523,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "申请转货单添加";
             this.Text = "申请转货单添加";
+            this.Load += new System.EventHandler(this.frmAddApplication_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

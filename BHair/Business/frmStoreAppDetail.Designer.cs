@@ -107,13 +107,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnReceipt = new System.Windows.Forms.Button();
+            this.btnDeliver = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BtnExit = new System.Windows.Forms.Button();
             this.ConfirmPanel = new System.Windows.Forms.Panel();
             this.BtnConfirm = new System.Windows.Forms.Button();
-            this.btnDeliver = new System.Windows.Forms.Button();
-            this.btnReceipt = new System.Windows.Forms.Button();
             this.groupBox20.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -883,6 +883,26 @@
             this.panel5.Size = new System.Drawing.Size(260, 40);
             this.panel5.TabIndex = 128;
             // 
+            // btnReceipt
+            // 
+            this.btnReceipt.Location = new System.Drawing.Point(175, 8);
+            this.btnReceipt.Name = "btnReceipt";
+            this.btnReceipt.Size = new System.Drawing.Size(75, 23);
+            this.btnReceipt.TabIndex = 2;
+            this.btnReceipt.Text = "收货单转存";
+            this.btnReceipt.UseVisualStyleBackColor = true;
+            this.btnReceipt.Click += new System.EventHandler(this.btnReceipt_Click);
+            // 
+            // btnDeliver
+            // 
+            this.btnDeliver.Location = new System.Drawing.Point(94, 7);
+            this.btnDeliver.Name = "btnDeliver";
+            this.btnDeliver.Size = new System.Drawing.Size(75, 23);
+            this.btnDeliver.TabIndex = 1;
+            this.btnDeliver.Text = "发货单转存";
+            this.btnDeliver.UseVisualStyleBackColor = true;
+            this.btnDeliver.Click += new System.EventHandler(this.btnDeliver_Click);
+            // 
             // btnExcel
             // 
             this.btnExcel.Location = new System.Drawing.Point(15, 8);
@@ -935,26 +955,6 @@
             this.BtnConfirm.Visible = false;
             this.BtnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
-            // btnDeliver
-            // 
-            this.btnDeliver.Location = new System.Drawing.Point(94, 7);
-            this.btnDeliver.Name = "btnDeliver";
-            this.btnDeliver.Size = new System.Drawing.Size(75, 23);
-            this.btnDeliver.TabIndex = 1;
-            this.btnDeliver.Text = "发货单转存";
-            this.btnDeliver.UseVisualStyleBackColor = true;
-            this.btnDeliver.Click += new System.EventHandler(this.btnDeliver_Click);
-            // 
-            // btnReceipt
-            // 
-            this.btnReceipt.Location = new System.Drawing.Point(175, 8);
-            this.btnReceipt.Name = "btnReceipt";
-            this.btnReceipt.Size = new System.Drawing.Size(75, 23);
-            this.btnReceipt.TabIndex = 2;
-            this.btnReceipt.Text = "收货单转存";
-            this.btnReceipt.UseVisualStyleBackColor = true;
-            this.btnReceipt.Click += new System.EventHandler(this.btnReceipt_Click);
-            // 
             // frmStoreAppDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -970,6 +970,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "店面订单详细信息";
             this.Text = "店面订单详细信息";
+            this.Load += new System.EventHandler(this.frmStoreAppDetail_Load);
             this.groupBox20.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

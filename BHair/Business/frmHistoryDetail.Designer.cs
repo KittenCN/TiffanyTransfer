@@ -1153,6 +1153,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "历史转货记录详细信息";
             this.Text = "历史转货记录详细信息";
+            this.Load += new System.EventHandler(this.frmHistoryDetail_Load);
             this.groupBox20.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

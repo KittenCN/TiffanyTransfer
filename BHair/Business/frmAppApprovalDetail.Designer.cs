@@ -67,6 +67,17 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvApplyDetails = new System.Windows.Forms.DataGridView();
+            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemId2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemHighlight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvDevilerDetails = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,6 +120,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnDiffApp = new System.Windows.Forms.Button();
             this.btnDiffItem = new System.Windows.Forms.Button();
             this.ConfirmPanel = new System.Windows.Forms.Panel();
             this.btnFinalConfirm = new System.Windows.Forms.Button();
@@ -117,18 +129,6 @@
             this.BtnExit = new System.Windows.Forms.Button();
             this.ApprovalPanel = new System.Windows.Forms.Panel();
             this.BtnApprovalOK = new System.Windows.Forms.Button();
-            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemId2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemHighlight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDiffApp = new System.Windows.Forms.Button();
             this.groupBox20.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -546,6 +546,88 @@
             this.dgvApplyDetails.TabIndex = 127;
             this.dgvApplyDetails.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvApplyDetails_CellMouseDoubleClick);
             this.dgvApplyDetails.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvApplyDetails_DataBindingComplete);
+            // 
+            // department
+            // 
+            this.department.DataPropertyName = "Department";
+            this.department.HeaderText = "部门";
+            this.department.Name = "department";
+            this.department.ReadOnly = true;
+            // 
+            // level
+            // 
+            this.level.DataPropertyName = "App_Level";
+            this.level.HeaderText = "级别";
+            this.level.Name = "level";
+            this.level.ReadOnly = true;
+            // 
+            // itemId
+            // 
+            this.itemId.DataPropertyName = "ItemID";
+            this.itemId.HeaderText = "货号";
+            this.itemId.Name = "itemId";
+            this.itemId.ReadOnly = true;
+            // 
+            // itemId2
+            // 
+            this.itemId2.DataPropertyName = "ItemID2";
+            this.itemId2.HeaderText = "双货号";
+            this.itemId2.Name = "itemId2";
+            this.itemId2.ReadOnly = true;
+            // 
+            // detail
+            // 
+            this.detail.DataPropertyName = "Detail";
+            this.detail.HeaderText = "产品描述";
+            this.detail.MinimumWidth = 20;
+            this.detail.Name = "detail";
+            this.detail.ReadOnly = true;
+            // 
+            // price
+            // 
+            this.price.DataPropertyName = "Price";
+            this.price.HeaderText = "单价";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            // 
+            // count
+            // 
+            this.count.DataPropertyName = "App_Count";
+            this.count.HeaderText = "数量";
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ID";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "IsDelete";
+            this.Column2.HeaderText = "IsDelete";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "CtrlID";
+            this.Column3.HeaderText = "CtrlID";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // ItemHighlight
+            // 
+            this.ItemHighlight.DataPropertyName = "ItemHighlight";
+            this.ItemHighlight.HeaderText = "ItemHighlight";
+            this.ItemHighlight.Name = "ItemHighlight";
+            this.ItemHighlight.ReadOnly = true;
+            this.ItemHighlight.Visible = false;
             // 
             // tabPage2
             // 
@@ -970,6 +1052,16 @@
             this.panel5.TabIndex = 5;
             this.panel5.Visible = false;
             // 
+            // btnDiffApp
+            // 
+            this.btnDiffApp.Location = new System.Drawing.Point(3, 9);
+            this.btnDiffApp.Name = "btnDiffApp";
+            this.btnDiffApp.Size = new System.Drawing.Size(134, 23);
+            this.btnDiffApp.TabIndex = 7;
+            this.btnDiffApp.Text = "申请单-发货差异对比";
+            this.btnDiffApp.UseVisualStyleBackColor = true;
+            this.btnDiffApp.Click += new System.EventHandler(this.btnDiffApp_Click);
+            // 
             // btnDiffItem
             // 
             this.btnDiffItem.Location = new System.Drawing.Point(161, 9);
@@ -1053,98 +1145,6 @@
             this.BtnApprovalOK.UseVisualStyleBackColor = true;
             this.BtnApprovalOK.Click += new System.EventHandler(this.BtnApprovalOK_Click);
             // 
-            // department
-            // 
-            this.department.DataPropertyName = "Department";
-            this.department.HeaderText = "部门";
-            this.department.Name = "department";
-            this.department.ReadOnly = true;
-            // 
-            // level
-            // 
-            this.level.DataPropertyName = "App_Level";
-            this.level.HeaderText = "级别";
-            this.level.Name = "level";
-            this.level.ReadOnly = true;
-            // 
-            // itemId
-            // 
-            this.itemId.DataPropertyName = "ItemID";
-            this.itemId.HeaderText = "货号";
-            this.itemId.Name = "itemId";
-            this.itemId.ReadOnly = true;
-            // 
-            // itemId2
-            // 
-            this.itemId2.DataPropertyName = "ItemID2";
-            this.itemId2.HeaderText = "双货号";
-            this.itemId2.Name = "itemId2";
-            this.itemId2.ReadOnly = true;
-            // 
-            // detail
-            // 
-            this.detail.DataPropertyName = "Detail";
-            this.detail.HeaderText = "产品描述";
-            this.detail.MinimumWidth = 20;
-            this.detail.Name = "detail";
-            this.detail.ReadOnly = true;
-            // 
-            // price
-            // 
-            this.price.DataPropertyName = "Price";
-            this.price.HeaderText = "单价";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            // 
-            // count
-            // 
-            this.count.DataPropertyName = "App_Count";
-            this.count.HeaderText = "数量";
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "IsDelete";
-            this.Column2.HeaderText = "IsDelete";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Visible = false;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "CtrlID";
-            this.Column3.HeaderText = "CtrlID";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            // 
-            // ItemHighlight
-            // 
-            this.ItemHighlight.DataPropertyName = "ItemHighlight";
-            this.ItemHighlight.HeaderText = "ItemHighlight";
-            this.ItemHighlight.Name = "ItemHighlight";
-            this.ItemHighlight.ReadOnly = true;
-            this.ItemHighlight.Visible = false;
-            // 
-            // btnDiffApp
-            // 
-            this.btnDiffApp.Location = new System.Drawing.Point(3, 9);
-            this.btnDiffApp.Name = "btnDiffApp";
-            this.btnDiffApp.Size = new System.Drawing.Size(134, 23);
-            this.btnDiffApp.TabIndex = 7;
-            this.btnDiffApp.Text = "申请单-发货差异对比";
-            this.btnDiffApp.UseVisualStyleBackColor = true;
-            this.btnDiffApp.Click += new System.EventHandler(this.btnDiffApp_Click);
-            // 
             // frmAppApprovalDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1160,6 +1160,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "商品部审核";
             this.Text = "商品部审核";
+            this.Load += new System.EventHandler(this.frmAppApprovalDetail_Load);
             this.groupBox20.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

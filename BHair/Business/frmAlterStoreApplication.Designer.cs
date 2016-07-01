@@ -557,6 +557,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "发货单修改";
             this.Text = "发货单修改";
+            this.Load += new System.EventHandler(this.frmAlterStoreApplication_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

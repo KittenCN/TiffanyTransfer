@@ -202,5 +202,10 @@ namespace BHair.Business
             frmSelectItems_App fsi = new frmSelectItems_App(applicationInfo.CtrlID);
             fsi.Show();
         }
+
+        private void frmAppDoneDetail_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }

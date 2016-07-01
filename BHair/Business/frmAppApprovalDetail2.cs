@@ -119,5 +119,10 @@ namespace BHair.Business
         {
             HighlightItemID();
         }
+
+        private void frmAppApprovalDetail2_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }

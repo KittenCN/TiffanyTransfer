@@ -114,5 +114,10 @@ namespace BHair.Business
                 fhd.Show();
             }
         }
+
+        private void frmApplicationReport_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }

@@ -29,6 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvReceiptDetails = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemIDs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemIDs2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemHighlights = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvDevilerDetails = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,22 +54,10 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemHighlightf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvReceiptDetails = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemIDs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemIDs2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemHighlights = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReceiptDetails)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevilerDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReceiptDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -69,6 +69,115 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "收货差异清单";
+            // 
+            // dgvReceiptDetails
+            // 
+            this.dgvReceiptDetails.AllowUserToAddRows = false;
+            this.dgvReceiptDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReceiptDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReceiptDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.ItemIDs,
+            this.ItemIDs2,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.ItemHighlights});
+            this.dgvReceiptDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvReceiptDetails.Location = new System.Drawing.Point(3, 17);
+            this.dgvReceiptDetails.MultiSelect = false;
+            this.dgvReceiptDetails.Name = "dgvReceiptDetails";
+            this.dgvReceiptDetails.RowTemplate.Height = 23;
+            this.dgvReceiptDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvReceiptDetails.Size = new System.Drawing.Size(798, 211);
+            this.dgvReceiptDetails.TabIndex = 130;
+            this.dgvReceiptDetails.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvReceiptDetails_DataBindingComplete);
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Department";
+            this.dataGridViewTextBoxColumn11.HeaderText = "部门";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "App_Level";
+            this.dataGridViewTextBoxColumn12.HeaderText = "级别";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // ItemIDs
+            // 
+            this.ItemIDs.DataPropertyName = "ItemID";
+            this.ItemIDs.HeaderText = "货号";
+            this.ItemIDs.Name = "ItemIDs";
+            this.ItemIDs.ReadOnly = true;
+            // 
+            // ItemIDs2
+            // 
+            this.ItemIDs2.DataPropertyName = "ItemID2";
+            this.ItemIDs2.HeaderText = "双货号";
+            this.ItemIDs2.Name = "ItemIDs2";
+            this.ItemIDs2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Detail";
+            this.dataGridViewTextBoxColumn15.HeaderText = "产品描述";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 20;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn16.HeaderText = "单价";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "App_Count";
+            this.dataGridViewTextBoxColumn17.HeaderText = "数量";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn18.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "IsDelete";
+            this.dataGridViewTextBoxColumn19.HeaderText = "IsDelete";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "CtrlID";
+            this.dataGridViewTextBoxColumn20.HeaderText = "CtrlID";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Visible = false;
+            // 
+            // ItemHighlights
+            // 
+            this.ItemHighlights.DataPropertyName = "ItemHighlight";
+            this.ItemHighlights.HeaderText = "ItemHighlight";
+            this.ItemHighlights.Name = "ItemHighlights";
+            this.ItemHighlights.ReadOnly = true;
+            this.ItemHighlights.Visible = false;
             // 
             // groupBox1
             // 
@@ -189,115 +298,6 @@
             this.ItemHighlightf.ReadOnly = true;
             this.ItemHighlightf.Visible = false;
             // 
-            // dgvReceiptDetails
-            // 
-            this.dgvReceiptDetails.AllowUserToAddRows = false;
-            this.dgvReceiptDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvReceiptDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReceiptDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.ItemIDs,
-            this.ItemIDs2,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.ItemHighlights});
-            this.dgvReceiptDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvReceiptDetails.Location = new System.Drawing.Point(3, 17);
-            this.dgvReceiptDetails.MultiSelect = false;
-            this.dgvReceiptDetails.Name = "dgvReceiptDetails";
-            this.dgvReceiptDetails.RowTemplate.Height = 23;
-            this.dgvReceiptDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvReceiptDetails.Size = new System.Drawing.Size(798, 211);
-            this.dgvReceiptDetails.TabIndex = 130;
-            this.dgvReceiptDetails.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvReceiptDetails_DataBindingComplete);
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Department";
-            this.dataGridViewTextBoxColumn11.HeaderText = "部门";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "App_Level";
-            this.dataGridViewTextBoxColumn12.HeaderText = "级别";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // ItemIDs
-            // 
-            this.ItemIDs.DataPropertyName = "ItemID";
-            this.ItemIDs.HeaderText = "货号";
-            this.ItemIDs.Name = "ItemIDs";
-            this.ItemIDs.ReadOnly = true;
-            // 
-            // ItemIDs2
-            // 
-            this.ItemIDs2.DataPropertyName = "ItemID2";
-            this.ItemIDs2.HeaderText = "双货号";
-            this.ItemIDs2.Name = "ItemIDs2";
-            this.ItemIDs2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Detail";
-            this.dataGridViewTextBoxColumn15.HeaderText = "产品描述";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 20;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn16.HeaderText = "单价";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "App_Count";
-            this.dataGridViewTextBoxColumn17.HeaderText = "数量";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn18.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "IsDelete";
-            this.dataGridViewTextBoxColumn19.HeaderText = "IsDelete";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "CtrlID";
-            this.dataGridViewTextBoxColumn20.HeaderText = "CtrlID";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Visible = false;
-            // 
-            // ItemHighlights
-            // 
-            this.ItemHighlights.DataPropertyName = "ItemHighlight";
-            this.ItemHighlights.HeaderText = "ItemHighlight";
-            this.ItemHighlights.Name = "ItemHighlights";
-            this.ItemHighlights.ReadOnly = true;
-            this.ItemHighlights.Visible = false;
-            // 
             // frmSelectItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -312,10 +312,11 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "收发差异对比";
+            this.Load += new System.EventHandler(this.frmSelectItems_Load);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReceiptDetails)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevilerDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReceiptDetails)).EndInit();
             this.ResumeLayout(false);
 
         }

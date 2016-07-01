@@ -131,5 +131,9 @@ namespace BHair.Business
             HighlightItemID();
         }
 
+        private void frmSelectItems_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }

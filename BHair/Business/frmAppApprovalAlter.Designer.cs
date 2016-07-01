@@ -49,6 +49,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbReciptStor = new System.Windows.Forms.ComboBox();
+            this.cbDeliverStor = new System.Windows.Forms.ComboBox();
             this.label46 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.txtDate = new System.Windows.Forms.TextBox();
@@ -58,6 +60,7 @@
             this.label47 = new System.Windows.Forms.Label();
             this.txtApplyUser = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -74,9 +77,6 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.cbDeliverStor = new System.Windows.Forms.ComboBox();
-            this.cbReciptStor = new System.Windows.Forms.ComboBox();
             this.groupBox20.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -299,6 +299,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "申请信息";
             // 
+            // cbReciptStor
+            // 
+            this.cbReciptStor.FormattingEnabled = true;
+            this.cbReciptStor.Location = new System.Drawing.Point(89, 140);
+            this.cbReciptStor.Name = "cbReciptStor";
+            this.cbReciptStor.Size = new System.Drawing.Size(102, 20);
+            this.cbReciptStor.TabIndex = 19;
+            // 
+            // cbDeliverStor
+            // 
+            this.cbDeliverStor.FormattingEnabled = true;
+            this.cbDeliverStor.Location = new System.Drawing.Point(89, 110);
+            this.cbDeliverStor.Name = "cbDeliverStor";
+            this.cbDeliverStor.Size = new System.Drawing.Size(102, 20);
+            this.cbDeliverStor.TabIndex = 18;
+            // 
             // label46
             // 
             this.label46.AutoSize = true;
@@ -379,6 +395,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(747, 561);
             this.panel1.TabIndex = 126;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.Location = new System.Drawing.Point(558, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(186, 479);
+            this.panel5.TabIndex = 130;
             // 
             // panel2
             // 
@@ -533,32 +559,6 @@
             this.Column3.ReadOnly = true;
             this.Column3.Visible = false;
             // 
-            // panel5
-            // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.Location = new System.Drawing.Point(558, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(186, 479);
-            this.panel5.TabIndex = 130;
-            // 
-            // cbDeliverStor
-            // 
-            this.cbDeliverStor.FormattingEnabled = true;
-            this.cbDeliverStor.Location = new System.Drawing.Point(89, 110);
-            this.cbDeliverStor.Name = "cbDeliverStor";
-            this.cbDeliverStor.Size = new System.Drawing.Size(102, 20);
-            this.cbDeliverStor.TabIndex = 18;
-            // 
-            // cbReciptStor
-            // 
-            this.cbReciptStor.FormattingEnabled = true;
-            this.cbReciptStor.Location = new System.Drawing.Point(89, 140);
-            this.cbReciptStor.Name = "cbReciptStor";
-            this.cbReciptStor.Size = new System.Drawing.Size(102, 20);
-            this.cbReciptStor.TabIndex = 19;
-            // 
             // frmAppApprovalAlter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -574,6 +574,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "申请单修改";
             this.Text = "申请单修改";
+            this.Load += new System.EventHandler(this.frmAppApprovalAlter_Load);
             this.groupBox20.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

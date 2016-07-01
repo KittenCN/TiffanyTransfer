@@ -118,10 +118,10 @@
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemHighlights = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnDiffApp = new System.Windows.Forms.Button();
             this.btnDiffItem = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.btnDiffApp = new System.Windows.Forms.Button();
             this.groupBox20.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1009,6 +1009,16 @@
             this.panel3.Size = new System.Drawing.Size(729, 40);
             this.panel3.TabIndex = 128;
             // 
+            // btnDiffApp
+            // 
+            this.btnDiffApp.Location = new System.Drawing.Point(14, 8);
+            this.btnDiffApp.Name = "btnDiffApp";
+            this.btnDiffApp.Size = new System.Drawing.Size(134, 23);
+            this.btnDiffApp.TabIndex = 4;
+            this.btnDiffApp.Text = "申请单-发货差异对比";
+            this.btnDiffApp.UseVisualStyleBackColor = true;
+            this.btnDiffApp.Click += new System.EventHandler(this.btnDiffApp_Click);
+            // 
             // btnDiffItem
             // 
             this.btnDiffItem.Location = new System.Drawing.Point(179, 8);
@@ -1038,16 +1048,6 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // btnDiffApp
-            // 
-            this.btnDiffApp.Location = new System.Drawing.Point(14, 8);
-            this.btnDiffApp.Name = "btnDiffApp";
-            this.btnDiffApp.Size = new System.Drawing.Size(134, 23);
-            this.btnDiffApp.TabIndex = 4;
-            this.btnDiffApp.Text = "申请单-发货差异对比";
-            this.btnDiffApp.UseVisualStyleBackColor = true;
-            this.btnDiffApp.Click += new System.EventHandler(this.btnDiffApp_Click);
-            // 
             // frmAppDoneDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1063,6 +1063,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TabText = "物流确认详细信息";
             this.Text = "物流确认详细信息";
+            this.Load += new System.EventHandler(this.frmAppDoneDetail_Load);
             this.groupBox20.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();

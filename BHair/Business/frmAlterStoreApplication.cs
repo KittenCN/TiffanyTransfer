@@ -237,5 +237,10 @@ namespace BHair.Business
         {
             HighlightItemID();
         }
+
+        private void frmAlterStoreApplication_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+        }
     }
 }
