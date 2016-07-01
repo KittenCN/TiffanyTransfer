@@ -308,6 +308,12 @@ namespace BHair.Business
             Excel.Application oXL = null;
             Excel._Workbook oWB = null;
             Excel._Worksheet oSheet = null;
+            string XLSName = System.IO.Directory.GetCurrentDirectory() + @"\templet\报告模板.xls";
+            Excel.Application app = new Excel.Application();
+            app.DisplayAlerts = false;
+            Excel.Workbooks wbks = app.Workbooks;
+            Excel._Workbook _wbk = wbks.Add(XLSName);
+            Excel.Sheets shs = _wbk.Sheets;
 
             try
             {
@@ -318,6 +324,8 @@ namespace BHair.Business
                 string strFilePath = FileName;
 
                 oXL = new Excel.Application();
+                _wbk.SaveAs(strFilePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                _wbk.Close();
                 oWB = oXL.Workbooks.Open(strFilePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                 oSheet = (Excel._Worksheet)oWB.Worksheets[sheetName];
                 int sheetRowsCount = oSheet.UsedRange.Rows.Count;

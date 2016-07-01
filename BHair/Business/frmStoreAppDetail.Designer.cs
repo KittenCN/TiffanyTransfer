@@ -880,14 +880,14 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(105, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(260, 40);
+            this.panel5.Size = new System.Drawing.Size(345, 40);
             this.panel5.TabIndex = 128;
             // 
             // btnReceipt
             // 
-            this.btnReceipt.Location = new System.Drawing.Point(175, 8);
+            this.btnReceipt.Location = new System.Drawing.Point(222, 8);
             this.btnReceipt.Name = "btnReceipt";
-            this.btnReceipt.Size = new System.Drawing.Size(75, 23);
+            this.btnReceipt.Size = new System.Drawing.Size(97, 23);
             this.btnReceipt.TabIndex = 2;
             this.btnReceipt.Text = "收货单转存";
             this.btnReceipt.UseVisualStyleBackColor = true;
@@ -895,9 +895,9 @@
             // 
             // btnDeliver
             // 
-            this.btnDeliver.Location = new System.Drawing.Point(94, 7);
+            this.btnDeliver.Location = new System.Drawing.Point(126, 8);
             this.btnDeliver.Name = "btnDeliver";
-            this.btnDeliver.Size = new System.Drawing.Size(75, 23);
+            this.btnDeliver.Size = new System.Drawing.Size(90, 23);
             this.btnDeliver.TabIndex = 1;
             this.btnDeliver.Text = "发货单转存";
             this.btnDeliver.UseVisualStyleBackColor = true;
@@ -907,7 +907,7 @@
             // 
             this.btnExcel.Location = new System.Drawing.Point(15, 8);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(73, 23);
+            this.btnExcel.Size = new System.Drawing.Size(105, 23);
             this.btnExcel.TabIndex = 0;
             this.btnExcel.Text = "申请单转存";
             this.btnExcel.UseVisualStyleBackColor = true;

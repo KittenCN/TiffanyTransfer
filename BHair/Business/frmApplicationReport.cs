@@ -136,7 +136,7 @@ namespace BHair.Business
                 {
                     //DataTable appDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
                     //pe.OutPutXLS(appDT, ApplicationReport, localFilePath);
-                    pe.WriteToExcel(ApplicationReport, localFilePath, "Report");
+                    pe.WriteToExcel(ApplicationReport, localFilePath, "Sheet1");
                     MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch
