@@ -225,5 +225,11 @@ namespace BHair.Business
         {
             this.TopMost = true;
         }
+
+        private void btnImportApp_Click(object sender, EventArgs e)
+        {
+            frmImportApplication fia = new frmImportApplication();
+            fia.Show();
+        }
     }
 }

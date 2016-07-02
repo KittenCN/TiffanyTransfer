@@ -837,5 +837,18 @@ namespace BHair.Business.Table
             return rows;
         }
         #endregion
+
+        /// <summary>
+        /// 查询全部ApplicationInfo
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectAllApplicationInfo(string sql)
+        {
+            AccessHelper ah = new AccessHelper();
+            string sqlString = string.Format("select * from ApplicationInfo  order by [ApplicantsDate] desc", sql);
+            DataTable Result = ah.SelectToDataTable(sqlString);
+            ah.Close();
+            return Result;
+        }
     }
 }

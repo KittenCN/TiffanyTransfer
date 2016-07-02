@@ -7,6 +7,8 @@ using Microsoft.Office.Core;
 using System.IO;
 using System.Data;
 using System.Windows.Forms;
+using BHair.Business.BaseData;
+using BHair.Business.Table;
 
 namespace BHair.Business
 {
@@ -444,5 +446,226 @@ namespace BHair.Business
             myRange.Value2 = myData;
             myRange.EntireColumn.AutoFit();
         }
-    }
+        public DataTable[] ExcelToDataTable_Application(string filePath, DataTable[] Result)
+        {
+            Items items = new Items();
+            items.ItemsDT = items.SelectAllItem();
+            Store store = new Store();
+            store.StoreDT = store.SelectAllStoreInfo();
+            Users users = new Users();
+            users.UsersDT = users.SelectAllUsers("");
+            ApplicationInfo applicationInfo = new ApplicationInfo();
+            DataTable applicationInfoDT = applicationInfo.SelectAllApplicationInfo("");
+
+            Excel.Application app = new Excel.Application();
+            Excel.Sheets sheets;
+            object oMissiong = System.Reflection.Missing.Value;
+            Excel.Workbook workbook = null;
+
+            try
+            {
+                if (app == null) return null;
+                workbook = app.Workbooks.Open(filePath, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong,
+                    oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong);
+                sheets = workbook.Worksheets;
+
+                //将数据读入到DataTable中
+                Excel.Worksheet worksheet = (Excel.Worksheet)sheets.get_Item(1);//读取第一张表  
+                if (worksheet == null) return null;
+
+                int iRowCount = worksheet.UsedRange.Rows.Count;
+                int iColCount = worksheet.UsedRange.Columns.Count;
+
+                //生成申请单行数据
+                Excel.Range range;
+
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                {
+                    int validate = 0;
+                    DataRow dr = Result[0].NewRow();
+                    dr["CtrlID"] = ((Excel.Range)worksheet.Cells[iRow, 2]).Text;
+                    if (Result[0].Select(string.Format("CtrlID='{0}'", dr["CtrlID"])).Length != 0)//重复控制号
+                    {
+                        try
+                        {
+                            dr = Result[0].Select(string.Format("CtrlID='{0}'", dr["CtrlID"])).First();
+                            double price = 0;
+                            DataRow[] itemDr = items.ItemsDT.Select(string.Format("ItemID='{0}' or ItemID2='{0}'", ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString()));
+                            if (itemDr.Length != 0)
+                            { double.TryParse(itemDr[0]["Price"].ToString(), out price); }
+
+
+
+                            int count = 0;
+                            if (!int.TryParse(((Excel.Range)worksheet.Cells[iRow, 11]).Text.ToString(), out count))
+                                dr["TotalCount"] = double.Parse(dr["TotalCount"].ToString()) + count;
+
+                            dr["TotalPrice"] = double.Parse(dr["TotalPrice"].ToString()) + price * count;
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        dr["Applicants"] = ((Excel.Range)worksheet.Cells[iRow, 3]).Text;
+                        if (users.UsersDT.Select(string.Format("UID='{0}'", dr["Applicants"].ToString())).Length == 0) validate++;
+                        dr["ApplicantsName"] = ((Excel.Range)worksheet.Cells[iRow, 4]).Text;
+                        dr["ApplicantsPos"] = ((Excel.Range)worksheet.Cells[iRow, 5]).Text;
+                        DateTime applicationsDate = DateTime.Now;
+                        if (!DateTime.TryParse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString(), out applicationsDate))
+                            validate++;
+                        if (((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString() == "")
+                        { validate--; applicationsDate = DateTime.Now; }
+                        dr["ApplicantsDate"] = applicationsDate;
+                        dr["DeliverStore"] = ((Excel.Range)worksheet.Cells[iRow, 7]).Text;
+                        if (store.StoreDT.Select(string.Format("StoreName='{0}'", dr["DeliverStore"].ToString())).Length == 0) validate++;
+                        dr["ReceiptStore"] = ((Excel.Range)worksheet.Cells[iRow, 8]).Text;
+                        if (store.StoreDT.Select(string.Format("StoreName='{0}'", dr["ReceiptStore"].ToString())).Length == 0) validate++;
+
+                        double totalPrice = 0;
+                        DataRow[] itemDr = items.ItemsDT.Select(string.Format("ItemID='{0}' or ItemID2='{0}'", ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString()));
+                        if (itemDr.Length != 0)
+                        {
+                            double.TryParse(itemDr[0]["Price"].ToString(), out totalPrice);
+                        }
+                        else validate++;
+
+
+                        int totalCount = 0;
+                        if (!int.TryParse(((Excel.Range)worksheet.Cells[iRow, 11]).Text.ToString(), out totalCount))
+                            validate++;
+                        dr["TotalCount"] = totalCount;
+                        dr["TotalPrice"] = totalPrice * totalCount;
+
+                        dr["IsDelete"] = 0;
+                        dr["ApprovalState"] = 0;
+                        dr["ApprovalState2"] = 0;
+                        dr["DeliverState"] = 0;
+                        dr["ReceiptState"] = 0;
+                        dr["AppState"] = 0;
+                        dr["Alert_Approval"] = 0;
+                        dr["Alert_Deliver"] = 0;
+                        dr["Alert_Receipt"] = 0;
+
+                        if (dr["CtrlID"].ToString() == "") validate++;
+
+                        if (validate == 0) Result[0].Rows.Add(dr);
+                    }
+                }
+
+
+
+                //生成货物行数据
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                {
+                    int validate = 0;
+                    DataRow dr = Result[1].NewRow();
+
+                    dr["CtrlID"] = ((Excel.Range)worksheet.Cells[iRow, 2]).Text;
+                    DataRow[] itemDr;
+                    string itemID = ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString();
+                    itemDr = items.ItemsDT.Select(string.Format("ItemID='{0}'", itemID));//货号
+                    if (itemDr.Length > 0)
+                    {
+                        dr["ItemID"] = itemDr[0]["ItemID"];
+                        dr["ItemID2"] = itemDr[0]["ItemID2"];
+                        dr["Price"] = itemDr[0]["Price"];
+                        dr["Detail"] = itemDr[0]["Detail"];
+                        dr["Department"] = itemDr[0]["Department"];
+                        dr["App_Level"] = itemDr[0]["Class"];
+
+                        int count = 0;
+                        if (!int.TryParse(((Excel.Range)worksheet.Cells[iRow, 11]).Text.ToString(), out count) || count == 0)
+                            validate++;
+                        else
+                            dr["App_Count"] = count;
+
+
+                        dr["ItemHighlight"] = 1;
+
+
+                    }
+                    else
+                    {
+                        itemDr.Initialize();
+                        itemDr = items.ItemsDT.Select(string.Format("ItemID2='{0}'", itemID));//双货号
+                        if (itemDr.Length > 0)
+                        {
+                            dr["ItemID"] = itemDr[0]["ItemID"];
+                            dr["ItemID2"] = itemDr[0]["ItemID2"];
+                            dr["Price"] = itemDr[0]["Price"];
+                            dr["Detail"] = itemDr[0]["Detail"];
+                            dr["Department"] = itemDr[0]["Department"];
+                            dr["App_Level"] = itemDr[0]["Class"];
+
+                            int count = 0;
+                            if (!int.TryParse(((Excel.Range)worksheet.Cells[iRow, 11]).Text.ToString(), out count) || count == 0)
+                                validate++;
+                            else
+                                dr["App_Count"] = count;
+
+                            dr["ItemHighlight"] = 2;
+                        }
+                    }
+
+
+                    dr["IsDelete"] = 0;
+
+                    if (dr["ItemID"].ToString() == "" && dr["ItemID2"].ToString() == "") validate++;
+
+                    if (validate == 0) Result[1].Rows.Add(dr);
+                }
+
+
+                //与数据库对照重复控制号
+
+                for (int i = 0; i < Result[0].Rows.Count; i++)
+                {
+                    DataRow[] repeatDr = applicationInfoDT.Select(string.Format("CtrlID='{0}'", Result[0].Rows[i]["CtrlID"]));
+                    if (repeatDr.Length > 0)
+                    {
+                        Result[0].Rows[i].Delete();
+                        i--;
+                    }
+                }
+                for (int i = 0; i < Result[1].Rows.Count; i++)
+                {
+                    DataRow[] repeatDr = applicationInfoDT.Select(string.Format("CtrlID='{0}'", Result[1].Rows[i]["CtrlID"]));
+                    if (repeatDr.Length > 0)
+                    {
+                        Result[1].Rows[i].Delete();
+                        i--;
+                    }
+                }
+
+                //货物详细表与申请表对照多余控制号
+
+                for (int i = 0; i < Result[1].Rows.Count; i++)
+                {
+                    DataRow[] repeatDr = Result[0].Select(string.Format("CtrlID='{0}'", Result[1].Rows[i]["CtrlID"]));
+                    if (repeatDr.Length == 0)
+                    {
+                        Result[1].Rows[i].Delete();
+                        i--;
+                    }
+                }
+
+
+                return Result;
+            }
+            catch { return null; }
+            finally
+            {
+                workbook.Close(false, oMissiong, oMissiong);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                workbook = null;
+                app.Workbooks.Close();
+                app.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+                app = null;
+            }
+        }
+        }
 }

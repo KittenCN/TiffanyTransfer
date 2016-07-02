@@ -228,6 +228,12 @@
     <Compile Include="Business\frmEditReason.Designer.cs">
       <DependentUpon>frmEditReason.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\frmImportApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmImportApplication.designer.cs">
+      <DependentUpon>frmImportApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\frmSelectItems_App.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Business\frmEditReason.resx">
       <DependentUpon>frmEditReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmImportApplication.resx">
+      <DependentUpon>frmImportApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\frmSelectItems_App.resx">
       <DependentUpon>frmSelectItems_App.cs</DependentUpon>
