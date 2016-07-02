@@ -76,7 +76,7 @@ namespace BHair.Business
         public static bool ToApplicantFinal(ApplicationInfo ai)
         {
             bool isSuccess = false;
-            string Subject = string.Format("转货系统：转货流程已完成，需要最终确认");
+            string Subject = string.Format("转货系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程已完成，需要最终确认");
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
@@ -117,7 +117,7 @@ namespace BHair.Business
         public static bool ToApplicantSubmit2(ApplicationInfo ai)
         {
             bool isSuccess = false;
-            string Subject = string.Format("转货系统：有一单转货单需要审核");
+            string Subject = string.Format("转货系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要审核");
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
@@ -138,7 +138,7 @@ namespace BHair.Business
         public static bool ToDeliverConfirm(ApplicationInfo ai)
         {
             bool isSuccess = false;
-            string Subject = string.Format("转货系统：有一单转货单需要填写转出确认");
+            string Subject = string.Format("转货系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要填写转出确认");
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
@@ -160,7 +160,7 @@ namespace BHair.Business
         public static bool ToReceiptConfirm(ApplicationInfo ai)
         {
             bool isSuccess = false;
-            string Subject = string.Format("转货系统：有一单转货单需要填写转入确认");
+            string Subject = string.Format("转货系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要填写转入确认");
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
@@ -181,7 +181,7 @@ namespace BHair.Business
         public static bool ToApplicantWLSubmit(ApplicationInfo ai)
         {
             bool isSuccess = false;
-            string Subject = string.Format("转货系统：有一单转货单需要物流确认");
+            string Subject = string.Format("转货系统：" + ai.DeliverStore + "到" + ai.ReceiptStore + ",在" + DateTime.Now.ToString() + "的转货流程需要物流确认");
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
