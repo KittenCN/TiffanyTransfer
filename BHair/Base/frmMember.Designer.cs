@@ -42,12 +42,13 @@
             this.txtTel = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
             this.grpNotNull = new System.Windows.Forms.GroupBox();
+            this.cboStore = new System.Windows.Forms.ComboBox();
+            this.cbcbStroe = new PresentationControls.CheckBoxComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblAffirm = new System.Windows.Forms.Label();
             this.txtAffirm = new System.Windows.Forms.TextBox();
-            this.cboStore = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDetail = new System.Windows.Forms.TextBox();
             this.lblRemark = new System.Windows.Forms.Label();
@@ -59,7 +60,7 @@
             this.lblCard = new System.Windows.Forms.Label();
             this.cbIsAdmin = new System.Windows.Forms.CheckBox();
             this.cbIsAble = new System.Windows.Forms.CheckBox();
-            this.cbcbStroe = new PresentationControls.CheckBoxComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabMember.SuspendLayout();
             this.tabDetail.SuspendLayout();
             this.grpNotNull.SuspendLayout();
@@ -68,7 +69,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(410, 301);
+            this.btnCancel.Location = new System.Drawing.Point(410, 329);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
@@ -78,7 +79,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(318, 301);
+            this.btnSave.Location = new System.Drawing.Point(318, 329);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 6;
@@ -89,7 +90,7 @@
             // tabMember
             // 
             this.tabMember.Controls.Add(this.tabDetail);
-            this.tabMember.Location = new System.Drawing.Point(12, 152);
+            this.tabMember.Location = new System.Drawing.Point(12, 180);
             this.tabMember.Name = "tabMember";
             this.tabMember.SelectedIndex = 0;
             this.tabMember.Size = new System.Drawing.Size(477, 143);
@@ -183,6 +184,7 @@
             // 
             // grpNotNull
             // 
+            this.grpNotNull.Controls.Add(this.button1);
             this.grpNotNull.Controls.Add(this.cboStore);
             this.grpNotNull.Controls.Add(this.cbcbStroe);
             this.grpNotNull.Controls.Add(this.groupBox1);
@@ -197,10 +199,32 @@
             this.grpNotNull.Controls.Add(this.lblCard);
             this.grpNotNull.Location = new System.Drawing.Point(12, 12);
             this.grpNotNull.Name = "grpNotNull";
-            this.grpNotNull.Size = new System.Drawing.Size(477, 134);
+            this.grpNotNull.Size = new System.Drawing.Size(477, 162);
             this.grpNotNull.TabIndex = 4;
             this.grpNotNull.TabStop = false;
             this.grpNotNull.Text = "用户信息(必填)";
+            // 
+            // cboStore
+            // 
+            this.cboStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStore.Enabled = false;
+            this.cboStore.FormattingEnabled = true;
+            this.cboStore.Location = new System.Drawing.Point(159, 74);
+            this.cboStore.Name = "cboStore";
+            this.cboStore.Size = new System.Drawing.Size(80, 20);
+            this.cboStore.TabIndex = 19;
+            this.cboStore.Visible = false;
+            // 
+            // cbcbStroe
+            // 
+            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbcbStroe.CheckBoxProperties = checkBoxProperties1;
+            this.cbcbStroe.DisplayMemberSingleItem = "";
+            this.cbcbStroe.FormattingEnabled = true;
+            this.cbcbStroe.Location = new System.Drawing.Point(220, 59);
+            this.cbcbStroe.Name = "cbcbStroe";
+            this.cbcbStroe.Size = new System.Drawing.Size(80, 20);
+            this.cbcbStroe.TabIndex = 21;
             // 
             // groupBox1
             // 
@@ -251,17 +275,6 @@
             this.txtAffirm.Size = new System.Drawing.Size(83, 21);
             this.txtAffirm.TabIndex = 15;
             // 
-            // cboStore
-            // 
-            this.cboStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStore.Enabled = false;
-            this.cboStore.FormattingEnabled = true;
-            this.cboStore.Location = new System.Drawing.Point(159, 74);
-            this.cboStore.Name = "cboStore";
-            this.cboStore.Size = new System.Drawing.Size(80, 20);
-            this.cboStore.TabIndex = 19;
-            this.cboStore.Visible = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -273,7 +286,7 @@
             // 
             // txtDetail
             // 
-            this.txtDetail.Location = new System.Drawing.Point(71, 100);
+            this.txtDetail.Location = new System.Drawing.Point(73, 130);
             this.txtDetail.MaxLength = 400;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.Size = new System.Drawing.Size(400, 21);
@@ -282,7 +295,7 @@
             // lblRemark
             // 
             this.lblRemark.AutoSize = true;
-            this.lblRemark.Location = new System.Drawing.Point(6, 103);
+            this.lblRemark.Location = new System.Drawing.Point(8, 133);
             this.lblRemark.Name = "lblRemark";
             this.lblRemark.Size = new System.Drawing.Size(41, 12);
             this.lblRemark.TabIndex = 16;
@@ -346,7 +359,7 @@
             // cbIsAdmin
             // 
             this.cbIsAdmin.AutoSize = true;
-            this.cbIsAdmin.Location = new System.Drawing.Point(20, 302);
+            this.cbIsAdmin.Location = new System.Drawing.Point(20, 330);
             this.cbIsAdmin.Name = "cbIsAdmin";
             this.cbIsAdmin.Size = new System.Drawing.Size(120, 16);
             this.cbIsAdmin.TabIndex = 8;
@@ -357,7 +370,7 @@
             // cbIsAble
             // 
             this.cbIsAble.AutoSize = true;
-            this.cbIsAble.Location = new System.Drawing.Point(171, 302);
+            this.cbIsAble.Location = new System.Drawing.Point(171, 330);
             this.cbIsAble.Name = "cbIsAble";
             this.cbIsAble.Size = new System.Drawing.Size(96, 16);
             this.cbIsAble.TabIndex = 9;
@@ -365,22 +378,21 @@
             this.cbIsAble.UseVisualStyleBackColor = true;
             this.cbIsAble.Visible = false;
             // 
-            // cbcbStroe
+            // button1
             // 
-            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbcbStroe.CheckBoxProperties = checkBoxProperties1;
-            this.cbcbStroe.DisplayMemberSingleItem = "";
-            this.cbcbStroe.FormattingEnabled = true;
-            this.cbcbStroe.Location = new System.Drawing.Point(220, 59);
-            this.cbcbStroe.Name = "cbcbStroe";
-            this.cbcbStroe.Size = new System.Drawing.Size(80, 20);
-            this.cbcbStroe.TabIndex = 21;
+            this.button1.Location = new System.Drawing.Point(384, 100);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(83, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "重置密码";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 336);
+            this.ClientSize = new System.Drawing.Size(495, 361);
             this.Controls.Add(this.cbIsAble);
             this.Controls.Add(this.cbIsAdmin);
             this.Controls.Add(this.btnCancel);
@@ -439,5 +451,6 @@
         private System.Windows.Forms.CheckBox cbIsAdmin;
         private System.Windows.Forms.CheckBox cbIsAble;
         private PresentationControls.CheckBoxComboBox cbcbStroe;
+        private System.Windows.Forms.Button button1;
     }
 }

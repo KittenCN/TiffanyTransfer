@@ -303,5 +303,18 @@ namespace BHair.Base
 
             return hash;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                user.ResetPwd(txtUID.Text);
+                MessageBox.Show("重置成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("重置密码失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

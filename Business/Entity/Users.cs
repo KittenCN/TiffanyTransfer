@@ -308,6 +308,24 @@ namespace BHair.Business.BaseData
             return rows;
         }
 
+        public bool ResetPwd(string UserID)
+        {
+            bool Result = false;
+            AccessHelper ah = new AccessHelper();
+            try
+            {
+                string sql = string.Format("Update Users Set [UserPwd]='05B530AD0FB56286FE051D5F8BE5B8453F1CD93F' where [UID]='{0}'", UserID);
+                Result = ah.ExecuteSQLNonquery(sql);
+            }
+            catch (Exception ex)
+            {
+                ah.Close();
+                return false;
+            }
+            ah.Close();
+            return Result;
+        }
+
         #endregion
     }
 }
