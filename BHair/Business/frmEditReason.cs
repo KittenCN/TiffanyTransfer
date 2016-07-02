@@ -8,13 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TiffanyTransfer.Business
+namespace BHair.Business
 {
     public partial class frmEditReason : Form
     {
+        public string EditReasonString;
         public frmEditReason()
         {
             InitializeComponent();
+        }
+        public frmEditReason(string oldEditReason)
+        {
+            InitializeComponent();
+            EditReasonString = oldEditReason;
+            //txtEditReason.Text = EditReasonString;
+        }
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            EditReasonString += Login.LoginUser.UserName + ":" + txtEditReason.Text + "|";
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void frmEditReason_Load(object sender, EventArgs e)

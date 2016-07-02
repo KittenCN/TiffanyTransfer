@@ -14,7 +14,7 @@ namespace BHair.Business
     {
         public DataTable ApplicationInfoTable;
         public DataRow ApplicationInfoRow;
-         ApplicationInfo applicationInfo = new ApplicationInfo();
+        ApplicationInfo applicationInfo = new ApplicationInfo();
         public string CtrlID = "";
         string SelectStr = "and 1=1";
         string CtrlType = "未审核";
@@ -105,7 +105,7 @@ namespace BHair.Business
                 applicationInfo.Batch_Num1 = dgvApplyInfo.SelectedRows[0].Cells["Batch_Num1"].Value.ToString();
                 applicationInfo.Batch_Num2 = dgvApplyInfo.SelectedRows[0].Cells["Batch_Num2"].Value.ToString();
                 applicationInfo.WuliuID = dgvApplyInfo.SelectedRows[0].Cells["WuliuID"].Value.ToString();
-
+                applicationInfo.EditReason = dgvApplyInfo.SelectedRows[0].Cells["EditReason"].Value.ToString();
                 applicationInfo.DeliverDate = dgvApplyInfo.SelectedRows[0].Cells["DeliverDate"].Value.ToString();
                 applicationInfo.ReceiptDate = dgvApplyInfo.SelectedRows[0].Cells["ReceiptDate"].Value.ToString();
                 applicationInfo.S_O_Str = dgvApplyInfo.SelectedRows[0].Cells["S_O_Str"].Value.ToString();

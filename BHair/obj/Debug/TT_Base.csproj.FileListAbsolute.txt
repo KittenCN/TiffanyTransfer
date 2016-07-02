@@ -79,7 +79,6 @@ G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TiffanyTransfer.Properties
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TiffanyTransfer.exe
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TiffanyTransfer.pdb
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\转货数据库.accdb
-G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\TiffanyTransfer.Business.frmEditReason.resources
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\Microsoft.Office.Interop.Excel.dll
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\Microsoft.Vbe.Interop.dll
 G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\bin\Debug\office.dll
@@ -93,3 +92,7 @@ E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\Ti
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\CheckBoxComboBox.dll
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\CheckBoxComboBox.pdb
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.Business.frmImportApplication.resources
+G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\BHair.Business.frmEditReason.resources
+G:\WorkStation\GitHub\TiffanyTransfer\BHair\obj\Debug\BHair.Business.frmImportApplication.resources
+G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\CheckBoxComboBox.dll
+G:\WorkStation\GitHub\TiffanyTransfer\BHair\bin\Debug\CheckBoxComboBox.pdb

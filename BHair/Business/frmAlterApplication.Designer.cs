@@ -70,6 +70,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemHighlight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbEditReason = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -185,14 +187,16 @@
             this.tableLayoutPanel1.Controls.Add(this.txtApplicant, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtApplicantPos, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tbEditReason, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(805, 136);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.23899F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.23899F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.91195F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(805, 159);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
             // txtCtrlID
@@ -214,7 +218,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 34);
+            this.label8.Location = new System.Drawing.Point(3, 29);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 8;
@@ -223,7 +227,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 68);
+            this.label10.Location = new System.Drawing.Point(3, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 8;
@@ -233,7 +237,7 @@
             // 
             this.cbDeliverStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDeliverStore.FormattingEnabled = true;
-            this.cbDeliverStore.Location = new System.Drawing.Point(123, 37);
+            this.cbDeliverStore.Location = new System.Drawing.Point(123, 32);
             this.cbDeliverStore.Name = "cbDeliverStore";
             this.cbDeliverStore.Size = new System.Drawing.Size(184, 20);
             this.cbDeliverStore.TabIndex = 12;
@@ -242,7 +246,7 @@
             // 
             this.cbRecieveStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRecieveStore.FormattingEnabled = true;
-            this.cbRecieveStore.Location = new System.Drawing.Point(123, 71);
+            this.cbRecieveStore.Location = new System.Drawing.Point(123, 60);
             this.cbRecieveStore.Name = "cbRecieveStore";
             this.cbRecieveStore.Size = new System.Drawing.Size(184, 20);
             this.cbRecieveStore.TabIndex = 13;
@@ -250,7 +254,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(415, 34);
+            this.label2.Location = new System.Drawing.Point(415, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 15;
@@ -259,7 +263,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(415, 68);
+            this.label3.Location = new System.Drawing.Point(415, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 16;
@@ -267,7 +271,7 @@
             // 
             // dtAppDate
             // 
-            this.dtAppDate.Location = new System.Drawing.Point(535, 71);
+            this.dtAppDate.Location = new System.Drawing.Point(535, 60);
             this.dtAppDate.Name = "dtAppDate";
             this.dtAppDate.Size = new System.Drawing.Size(184, 21);
             this.dtAppDate.TabIndex = 17;
@@ -282,7 +286,7 @@
             // 
             // txtApplicantPos
             // 
-            this.txtApplicantPos.Location = new System.Drawing.Point(535, 37);
+            this.txtApplicantPos.Location = new System.Drawing.Point(535, 32);
             this.txtApplicantPos.Name = "txtApplicantPos";
             this.txtApplicantPos.ReadOnly = true;
             this.txtApplicantPos.Size = new System.Drawing.Size(184, 21);
@@ -505,6 +509,24 @@
             this.ItemHighlight.ReadOnly = true;
             this.ItemHighlight.Visible = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "修改原因";
+            // 
+            // tbEditReason
+            // 
+            this.tbEditReason.Enabled = false;
+            this.tbEditReason.Location = new System.Drawing.Point(123, 88);
+            this.tbEditReason.Multiline = true;
+            this.tbEditReason.Name = "tbEditReason";
+            this.tbEditReason.Size = new System.Drawing.Size(265, 68);
+            this.tbEditReason.TabIndex = 23;
+            // 
             // frmAlterApplication
             // 
             this.AcceptButton = this.btnAdd;
@@ -576,6 +598,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemHighlight;
-
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbEditReason;
     }
 }

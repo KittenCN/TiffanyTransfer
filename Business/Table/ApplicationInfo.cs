@@ -213,6 +213,14 @@ namespace BHair.Business.Table
             set { _wuliuDate = value; }
         }
 
+        //修改原因
+        private string _editReason;
+        public string EditReason
+        {
+            get { return _editReason; }
+            set { _editReason = value; }
+        }
+
         #endregion
 
         #region 自定义函数...

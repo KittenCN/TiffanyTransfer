@@ -124,43 +124,62 @@ namespace BHair.Business
             }
             else
             {
-                int TotalCount = 0;
-                double TotalPrice = 0;
-                DataTable AddAppInfoDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
-
-                AddAppInfoDT.Rows[0]["CtrlID"] = txtCtrlID.Text;
-                AddAppInfoDT.Rows[0]["DeliverStore"] = cbDeliverStore.SelectedItem.ToString();
-                AddAppInfoDT.Rows[0]["ReceiptStore"] = cbRecieveStore.SelectedItem.ToString();
-                AddAppInfoDT.Rows[0]["ApplicantsDate"] = dtAppDate.Value;
-                AddAppInfoDT.Rows[0]["ApplicantsName"] = txtApplicant.Text;
-                AddAppInfoDT.Rows[0]["ApplicantsPos"] = txtApplicantPos.Text;
-                AddAppInfoDT.Rows[0]["Applicants"] = Login.LoginUser.UID;
-
-                foreach (DataGridViewRow addDr in dgvApplyProducts.Rows)
+                frmEditReason fer = new frmEditReason(applicationInfo.EditReason);
+                if (fer.ShowDialog() == DialogResult.OK)
                 {
-                    //addDr["CtrlID"] = AddAppInfoDT.Rows[0]["CtrlID"];
-                    TotalCount += (int)addDr.Cells["numbers"].Value;
-                    TotalPrice += ((int)addDr.Cells["numbers"].Value) * ((double.Parse(addDr.Cells["price"].Value.ToString())));
-                }
-                AddAppInfoDT.Rows[0]["TotalCount"] = TotalCount;
-                AddAppInfoDT.Rows[0]["TotalPrice"] = TotalPrice;
+                    int TotalCount = 0;
+                    double TotalPrice = 0;
+                    DataTable AddAppInfoDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
+                    AddAppInfoDT.Rows[0]["EditReason"] = fer.EditReasonString;
+                    AddAppInfoDT.Rows[0]["CtrlID"] = txtCtrlID.Text;
+                    AddAppInfoDT.Rows[0]["DeliverStore"] = cbDeliverStore.SelectedItem.ToString();
+                    AddAppInfoDT.Rows[0]["ReceiptStore"] = cbRecieveStore.SelectedItem.ToString();
+                    AddAppInfoDT.Rows[0]["ApplicantsDate"] = dtAppDate.Value;
+                    AddAppInfoDT.Rows[0]["ApplicantsName"] = txtApplicant.Text;
+                    AddAppInfoDT.Rows[0]["ApplicantsPos"] = txtApplicantPos.Text;
+                    AddAppInfoDT.Rows[0]["Applicants"] = Login.LoginUser.UID;
 
-                //foreach(DataRow dr in AddApplicationDT.Rows)
-                //{
-                //    dr["CtrlID"] = txtCtrlID.Text;
-                //}
+                    foreach (DataGridViewRow addDr in dgvApplyProducts.Rows)
+                    {
+                        //addDr["CtrlID"] = AddAppInfoDT.Rows[0]["CtrlID"];
+                        TotalCount += (int)addDr.Cells["numbers"].Value;
+                        TotalPrice += ((int)addDr.Cells["numbers"].Value) * ((double.Parse(addDr.Cells["price"].Value.ToString())));
+                    }
+                    AddAppInfoDT.Rows[0]["TotalCount"] = TotalCount;
+                    AddAppInfoDT.Rows[0]["TotalPrice"] = TotalPrice;
 
-                if(Login.LoginUser.Character==1)
-                {
-                    if ((int)AddAppInfoDT.Rows[0]["ApprovalState"] != 1) AddAppInfoDT.Rows[0]["ApprovalState"] = 0;
-                    if ((int)AddAppInfoDT.Rows[0]["ApprovalState2"] != 1) AddAppInfoDT.Rows[0]["ApprovalState2"] = 0;
-                    if ((int)AddAppInfoDT.Rows[0]["DeliverState"] != 1) AddAppInfoDT.Rows[0]["DeliverState"] = 0;
-                    if ((int)AddAppInfoDT.Rows[0]["ReceiptState"] != 1) AddAppInfoDT.Rows[0]["ReceiptState"] = 0;
-                }
-                if (TotalPrice > EmailControl.config.UpperLimit)
-                {
-                    DialogResult dres = MessageBox.Show("超出限额，是否继续提交？", "消息", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                    if (dres == DialogResult.OK)
+                    //foreach(DataRow dr in AddApplicationDT.Rows)
+                    //{
+                    //    dr["CtrlID"] = txtCtrlID.Text;
+                    //}
+
+                    if (Login.LoginUser.Character == 1)
+                    {
+                        if ((int)AddAppInfoDT.Rows[0]["ApprovalState"] != 1) AddAppInfoDT.Rows[0]["ApprovalState"] = 0;
+                        if ((int)AddAppInfoDT.Rows[0]["ApprovalState2"] != 1) AddAppInfoDT.Rows[0]["ApprovalState2"] = 0;
+                        if ((int)AddAppInfoDT.Rows[0]["DeliverState"] != 1) AddAppInfoDT.Rows[0]["DeliverState"] = 0;
+                        if ((int)AddAppInfoDT.Rows[0]["ReceiptState"] != 1) AddAppInfoDT.Rows[0]["ReceiptState"] = 0;
+                    }
+                    if (TotalPrice > EmailControl.config.UpperLimit)
+                    {
+                        DialogResult dres = MessageBox.Show("超出限额，是否继续提交？", "消息", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        if (dres == DialogResult.OK)
+                        {
+                            try
+                            {
+                                applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
+                                applicationDetail.UpdateApplicationDetail(AddApplicationDT);
+                                MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                DialogResult = DialogResult.OK;
+                                this.Close();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("提交失败，错误信息：" + ex.Message);
+                            }
+                        }
+                    }
+                    else
                     {
                         try
                         {
@@ -175,22 +194,7 @@ namespace BHair.Business
                             MessageBox.Show("提交失败，错误信息：" + ex.Message);
                         }
                     }
-                }
-                else
-                {
-                    try
-                    {
-                        applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
-                        applicationDetail.UpdateApplicationDetail(AddApplicationDT);
-                        MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        DialogResult = DialogResult.OK;
-                        this.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("提交失败，错误信息：" + ex.Message);
-                    }
-                }
+                }              
             }
         }
 
@@ -238,6 +242,7 @@ namespace BHair.Business
             cbDeliverStore.SelectedItem = applicationInfo.DeliverStore;
             cbRecieveStore.SelectedItem = applicationInfo.ReceiptStore;
             dtAppDate.Value = DateTime.Parse(applicationInfo.ApplicantsDate);
+            tbEditReason.Text = applicationInfo.EditReason;
         }
 
         void HighlightItemID()

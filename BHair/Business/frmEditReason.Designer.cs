@@ -1,4 +1,4 @@
-﻿namespace TiffanyTransfer.Business
+﻿namespace BHair.Business
 {
     partial class frmEditReason
     {
@@ -48,6 +48,7 @@
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "确定";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // frmEditReason
             // 
