@@ -6,6 +6,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Core;
 using System.IO;
 using System.Data;
+using System.Windows.Forms;
 
 namespace BHair.Business
 {
@@ -305,30 +306,28 @@ namespace BHair.Business
             //References右鍵AddReferences => COM => Microsoft Excel 10.0 Object Library
             //在References會多Excel及Microsoft.Office.Core
 
-            Excel.Application oXL = null;
-            Excel._Workbook oWB = null;
-            Excel._Worksheet oSheet = null;
+            //Excel.Application oXL = null;
+            //Excel._Workbook oWB = null;
+            //Excel._Worksheet oSheet = null;
+            string strFilePath = FileName;
             string XLSName = System.IO.Directory.GetCurrentDirectory() + @"\templet\报告模板.xls";
             Excel.Application app = new Excel.Application();
             app.DisplayAlerts = false;
             Excel.Workbooks wbks = app.Workbooks;
             Excel._Workbook _wbk = wbks.Add(XLSName);
             Excel.Sheets shs = _wbk.Sheets;
-
+            Excel._Worksheet _wsh = (Excel._Worksheet)shs.get_Item(1);
             try
             {
                 //string tempImagePath = Application.StartupPath;//軟體安裝目錄
                 //string temp = tempImagePath + "\\Execl";//目錄下的Excel文件
                 //Directory.CreateDirectory(@temp);
                 //string strFilePath = @Application.StartupPath + @"\Execl\" + FileName + ".xls"; //賦予檔名
-                string strFilePath = FileName;
 
-                oXL = new Excel.Application();
-                _wbk.SaveAs(strFilePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                _wbk.Close();
-                oWB = oXL.Workbooks.Open(strFilePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                oSheet = (Excel._Worksheet)oWB.Worksheets[sheetName];
-                int sheetRowsCount = oSheet.UsedRange.Rows.Count;
+                //oXL = new Excel.Application();
+                //oWB = oXL.Workbooks.Open(strFilePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                //_wsh = (Excel._Worksheet)oWB.Worksheets[sheetName];
+                int sheetRowsCount = _wsh.UsedRange.Rows.Count;
 
 
                 //加入內容
@@ -336,12 +335,12 @@ namespace BHair.Business
                 {
                     for (int j = 1; j <= thisTable.Columns.Count; j++)
                     {
-                        oSheet.Cells[i + sheetRowsCount, j] = thisTable.Rows[i - 1][j - 1];
+                        _wsh.Cells[i + sheetRowsCount, j] = thisTable.Rows[i - 1][j - 1];
                     }
                 }
 
                 //若為EXCEL2000, 將最後一個參數拿掉即可
-                oWB.SaveAs(strFilePath, Excel.XlFileFormat.xlWorkbookNormal,
+                _wbk.SaveAs(strFilePath, Excel.XlFileFormat.xlWorkbookNormal,
                     null, null, false, false, Excel.XlSaveAsAccessMode.xlShared,
                     false, false, null, null, null);
 
@@ -356,18 +355,102 @@ namespace BHair.Business
             finally
             {
                 //關閉文件
-                oWB.Close(false, Type.Missing, Type.Missing);
-                oXL.Workbooks.Close();
-                oXL.Quit();
+                _wbk.Close(false, Type.Missing, Type.Missing);
+                app.Workbooks.Close();
+                app.Quit();
 
                 //釋放資源
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oXL);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oSheet);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oWB);
-                oSheet = null;
-                oWB = null;
-                oXL = null;
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(_wsh);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(_wbk);
+                _wsh = null;
+                _wbk = null;
+                app = null;
             }
+        }
+
+        public DataTable exporeDataToTable(DataGridView dataGridView)
+        {
+            //将datagridview中的数据导入到表中
+            DataTable tempTable = new DataTable("tempTable");
+            //定义一个模板表，专门用来获取列名
+            DataTable modelTable = new DataTable("ModelTable");
+            //创建列
+            for (int column = 0; column < dataGridView.Columns.Count; column++)
+            {
+                //可见的列才显示出来
+                if (dataGridView.Columns[column].Visible == true)
+                {
+                    DataColumn tempColumn = new DataColumn(dataGridView.Columns[column].HeaderText, typeof(string));
+                    tempTable.Columns.Add(tempColumn);
+                    DataColumn modelColumn = new DataColumn(dataGridView.Columns[column].Name, typeof(string));
+                    modelTable.Columns.Add(modelColumn);
+                }
+            }
+            //添加datagridview中行的数据到表
+            for (int row = 0; row < dataGridView.Rows.Count; row++)
+            {
+                if (dataGridView.Rows[row].Visible == false)
+                {
+                    continue;
+                }
+                DataRow tempRow = tempTable.NewRow();
+                for (int i = 0; i < tempTable.Columns.Count; i++)
+                {
+                    tempRow[i] = dataGridView.Rows[row].Cells[modelTable.Columns[i].ColumnName].Value;
+                }
+                tempTable.Rows.Add(tempRow);
+            }
+            return tempTable;
+        }
+
+        public void OutputAsExcelFile(DataGridView dataGridView)
+        {
+            //将datagridView中的数据导出到一张表中
+            DataTable tempTable = this.exporeDataToTable(dataGridView);
+            //导出信息到Excel表
+            Microsoft.Office.Interop.Excel.ApplicationClass myExcel;
+            Microsoft.Office.Interop.Excel.Workbooks myWorkBooks;
+            Microsoft.Office.Interop.Excel.Workbook myWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet myWorkSheet;
+            char myColumns;
+            Microsoft.Office.Interop.Excel.Range myRange;
+            object[,] myData = new object[500, 35];
+            int i, j;//j代表行,i代表列
+            myExcel = new Microsoft.Office.Interop.Excel.ApplicationClass();
+            //显示EXCEL
+            //myExcel.Visible = true;
+            if (myExcel == null)
+            {
+                MessageBox.Show("本地Excel程序无法启动!请检查您的Microsoft Office正确安装并能正常使用", "提示");
+                return;
+            }
+            myWorkBooks = myExcel.Workbooks;
+            myWorkBook = myWorkBooks.Add(System.Reflection.Missing.Value);
+            myWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)myWorkBook.Worksheets[1];
+            myColumns = (char)(tempTable.Columns.Count + 64);//设置列
+            myRange = myWorkSheet.get_Range("A4", myColumns.ToString() + "5");//设置列宽
+            int count = 0;
+            //设置列名
+            foreach (DataColumn myNewColumn in tempTable.Columns)
+            {
+                myData[0, count] = myNewColumn.ColumnName;
+                count = count + 1;
+            }
+            //输出datagridview中的数据记录并放在一个二维数组中
+            j = 1;
+            foreach (DataRow myRow in tempTable.Rows)//循环行
+            {
+                for (i = 0; i < tempTable.Columns.Count; i++)//循环列
+                {
+                    myData[j, i] = myRow[i].ToString();
+                }
+                j++;
+            }
+            //将二维数组中的数据写到Excel中
+            myRange = myRange.get_Resize(tempTable.Rows.Count + 1, tempTable.Columns.Count);//创建列和行
+            myRange.Value2 = myData;
+            myRange.EntireColumn.AutoFit();
         }
     }
 }

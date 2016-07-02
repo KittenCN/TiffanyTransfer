@@ -122,6 +122,8 @@ namespace BHair.Business
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
+            //PrintExcel pe = new PrintExcel();
+            //pe.OutputAsExcelFile(dgvAppDetail);
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
             // Show save file dialog box
@@ -136,14 +138,14 @@ namespace BHair.Business
                 {
                     //DataTable appDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
                     //pe.OutPutXLS(appDT, ApplicationReport, localFilePath);
-                    pe.WriteToExcel(ApplicationReport, localFilePath, "Sheet1");
+                    pe.WriteToExcel(pe.exporeDataToTable(dgvAppDetail), localFilePath, "Sheet1");
                     MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch
+                catch(Exception ex)
                 {
                     MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-    }
+        }
     }
 }
