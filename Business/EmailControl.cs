@@ -14,6 +14,7 @@ namespace BHair.Business
     {
         public static Users users = new Users();
         public static Business.BaseData.SetupConfig config = new BaseData.SetupConfig();
+       
         /// <summary>
         /// 以163邮箱发送邮件
         /// </summary>
@@ -141,7 +142,8 @@ namespace BHair.Business
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
-                if (dr["Store"].ToString() == ai.DeliverStore)
+                GenClass gc = new GenClass();
+                if (gc.boolStore(ai.DeliverStore,dr["Store"].ToString()))
                 {
                     SendEmail(Subject, Body, dr["Email"].ToString());
                 }
@@ -162,7 +164,8 @@ namespace BHair.Business
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", ai.CtrlID, ai.ApplicantsName, ai.ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
-                if (dr["Store"].ToString() == ai.ReceiptStore)
+                GenClass gc = new GenClass();
+                if (gc.boolStore(ai.ReceiptStore,dr["Store"].ToString()))
                 {
                     SendEmail(Subject, Body, dr["Email"].ToString());
                 }
@@ -206,7 +209,8 @@ namespace BHair.Business
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", CtrlID, ApplicantsName, ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
-                if (dr["Store"].ToString() == DeliverStore||dr["Character"].ToString()=="1")
+                GenClass gc = new GenClass();
+                if (gc.boolStore( DeliverStore,dr["Store"].ToString() )|| dr["Character"].ToString()=="1")
                 {
                     SendEmail(Subject, Body, dr["Email"].ToString());
                 }
@@ -230,7 +234,8 @@ namespace BHair.Business
             string Body = string.Format(@"转货流程详情：\r\n控制号：{0}\r\n申请人：{1}\r\n申请日期：{2}\r\n", CtrlID, ApplicantsName, ApplicantsDate);
             foreach (DataRow dr in users.UsersDT.Rows)
             {
-                if (dr["Store"].ToString() == DeliverStore || dr["Character"].ToString() == "4" || dr["Store"].ToString() == ReceiptStore)
+                GenClass gc = new GenClass();
+                if (gc.boolStore(DeliverStore,dr["Store"].ToString()) || dr["Character"].ToString() == "4" || gc.boolStore(ReceiptStore, dr["Store"].ToString()))
                 {
                     SendEmail(Subject, Body, dr["Email"].ToString());
                 }

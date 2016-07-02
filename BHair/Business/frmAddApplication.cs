@@ -264,16 +264,31 @@ namespace BHair.Business
                 //cbDeliverStore.SelectedItem = Login.LoginUser.Store;
                 cbDeliverStore.SelectedIndex = 0;
             }
-            foreach (DataRow dr in store.StoreDT.Rows)
+            //foreach (DataRow dr in store.StoreDT.Rows)
+            //{
+            //    cbRecieveStore.Items.Add(dr["StoreName"].ToString());
+            //}
+            //if (cbRecieveStore.Items.Count > 0)
+            //{
+            //    //cbRecieveStore.SelectedIndex = 0;
+            //    cbRecieveStore.SelectedItem = Login.LoginUser.Store;
+            //}
+            string[] strStoreTemp =Login.LoginUser.Store.ToString().Split(',');
+            if(strStoreTemp[0]!="" && strStoreTemp[0]!=null && strStoreTemp.Length>1)
             {
-                cbRecieveStore.Items.Add(dr["StoreName"].ToString());
+                for (int i = 0; i < strStoreTemp.Length - 1; i++)
+                {
+                    cbRecieveStore.Items.Add(strStoreTemp[i].ToString());
+                }
             }
-            if (cbRecieveStore.Items.Count > 0)
+            else
             {
-                //cbRecieveStore.SelectedIndex = 0;
-                cbRecieveStore.SelectedItem = Login.LoginUser.Store;
+                cbRecieveStore.Items.Add(strStoreTemp[0]);
             }
-
+            if(cbRecieveStore.Items.Count>0)
+            {
+                cbRecieveStore.SelectedIndex = 0;
+            }
         }
 
         private void cbRecieveStore_SelectedIndexChanged(object sender, EventArgs e)

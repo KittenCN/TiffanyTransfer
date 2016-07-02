@@ -144,7 +144,6 @@ namespace BHair.Base
                     }
                 }
             }
-
         }
 
         /// <summary>保存用户信息</summary>

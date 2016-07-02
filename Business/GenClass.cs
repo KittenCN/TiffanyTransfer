@@ -8,34 +8,51 @@ namespace BHair.Business
 {
     class GenClass
     {
-        public string[] strSplit(string strStoreTemp)
+        public string strSplit(string strStoreTemp)
         {
-            string strTemp = "";
+            string strResult = "";
             string[] strStore = strStoreTemp.Split(',');
-            //int intCurrent = 0;
-            if (strStoreTemp.Substring(0, 1) != null && strStoreTemp.Substring(0, 1) != "")
+            if (strStore[0] != "" && strStore[0] != null && strStore.Length > 1)
             {
-                for (int i = 0; i < strStoreTemp.Length; i++)
+                for (int i = 0; i < strStoreTemp.Length - 1; i++)
                 {
-                    if (strStoreTemp.Substring(i, 1) != ",")
+                    strResult = strResult + "'" + strStore[i] + "',";
+                }
+            }
+            else
+            {
+                strResult = strResult + "'" + strStore[0] + "'";
+            }
+            if(strResult.Substring(strResult.Length - 1)==",")
+            {
+                strResult = strResult.Substring(0, strResult.Length - 2);
+            }
+            return strResult;
+        }
+
+        public Boolean boolStore(string strStore,string strStoreGroup)
+        {
+            Boolean boolResult = false;
+            string[] strTemp = strStoreGroup.Split(',');
+            if(strTemp.Length==1 && strStore==strTemp[0])
+            {
+                boolResult = true;
+            }
+            else
+            {
+                if(strTemp.Length>1)
+                {
+                    for(int i=0;i<strTemp.Length-1;i++)
                     {
-                        strTemp = strTemp + strStoreTemp.Substring(i, 1);
-                        //intCurrent = intCurrent + 1;
-                    }
-                    else
-                    {
-                        if (strTemp != "")
+                        if(strTemp[i]==strStore)
                         {
-                            for (int x = 0; x < strStoreTemp.Length; x++)
-                            {
-                                //strStore[x] = strTemp;
-                            }
+                            boolResult = true;
+                            break; 
                         }
-                        strTemp = "";
                     }
                 }
             }
-            return strStore;
+            return boolResult;
         }
     }
 }
