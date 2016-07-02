@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            PresentationControls.CheckBoxProperties checkBoxProperties1 = new PresentationControls.CheckBoxProperties();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabMember = new System.Windows.Forms.TabControl();
@@ -58,6 +59,7 @@
             this.lblCard = new System.Windows.Forms.Label();
             this.cbIsAdmin = new System.Windows.Forms.CheckBox();
             this.cbIsAble = new System.Windows.Forms.CheckBox();
+            this.cbcbStroe = new PresentationControls.CheckBoxComboBox();
             this.tabMember.SuspendLayout();
             this.tabDetail.SuspendLayout();
             this.grpNotNull.SuspendLayout();
@@ -181,8 +183,9 @@
             // 
             // grpNotNull
             // 
-            this.grpNotNull.Controls.Add(this.groupBox1);
             this.grpNotNull.Controls.Add(this.cboStore);
+            this.grpNotNull.Controls.Add(this.cbcbStroe);
+            this.grpNotNull.Controls.Add(this.groupBox1);
             this.grpNotNull.Controls.Add(this.label2);
             this.grpNotNull.Controls.Add(this.txtDetail);
             this.grpNotNull.Controls.Add(this.lblRemark);
@@ -253,10 +256,11 @@
             this.cboStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStore.Enabled = false;
             this.cboStore.FormattingEnabled = true;
-            this.cboStore.Location = new System.Drawing.Point(219, 57);
+            this.cboStore.Location = new System.Drawing.Point(159, 74);
             this.cboStore.Name = "cboStore";
             this.cboStore.Size = new System.Drawing.Size(80, 20);
             this.cboStore.TabIndex = 19;
+            this.cboStore.Visible = false;
             // 
             // label2
             // 
@@ -361,6 +365,17 @@
             this.cbIsAble.UseVisualStyleBackColor = true;
             this.cbIsAble.Visible = false;
             // 
+            // cbcbStroe
+            // 
+            checkBoxProperties1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbcbStroe.CheckBoxProperties = checkBoxProperties1;
+            this.cbcbStroe.DisplayMemberSingleItem = "";
+            this.cbcbStroe.FormattingEnabled = true;
+            this.cbcbStroe.Location = new System.Drawing.Point(220, 59);
+            this.cbcbStroe.Name = "cbcbStroe";
+            this.cbcbStroe.Size = new System.Drawing.Size(80, 20);
+            this.cbcbStroe.TabIndex = 21;
+            // 
             // frmMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -423,5 +438,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox cbIsAdmin;
         private System.Windows.Forms.CheckBox cbIsAble;
+        private PresentationControls.CheckBoxComboBox cbcbStroe;
     }
 }

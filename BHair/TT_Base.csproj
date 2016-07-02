@@ -470,6 +470,10 @@
       <Project>{778265EE-4F26-4739-A390-AE5510CF9C81}</Project>
       <Name>Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CheckBoxComboBox\CheckBoxComboBox.csproj">
+      <Project>{70a25201-8ea4-48f8-a4a6-ed13adf8823c}</Project>
+      <Name>CheckBoxComboBox</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\tempPDF\" />

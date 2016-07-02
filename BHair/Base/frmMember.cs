@@ -16,6 +16,7 @@ namespace BHair.Base
     {
         private string UID = "";
         Users user = new Users();
+        private static string[] strStore;
 
         /// <summary>新增用户信息。</summary>
         public frmMember()
@@ -26,11 +27,12 @@ namespace BHair.Base
             if (Login.LoginUser.IsAdmin == 1)
             {
                 cboCharacter.Enabled = true;
-                cboStore.Enabled = true;
+                //cboStore.Enabled = true;
                 txtUID.ReadOnly = false;
                 txtUserName.ReadOnly = false;
                 cbIsAdmin.Visible = true;
                 cbIsAble.Visible = true;
+                cbcbStroe.Enabled = true;
             }
         }
 
@@ -43,19 +45,21 @@ namespace BHair.Base
             this.UID = memberid;
             LoadComBox();
             LoadData();
-            if(Login.LoginUser.IsAdmin==1)
+            if (Login.LoginUser.IsAdmin == 1)
             {
                 cboCharacter.Enabled = true;
-                cboStore.Enabled = true;
+                //cboStore.Enabled = true;
                 cbIsAdmin.Visible = true;
                 cbIsAble.Visible = true;
+                cbcbStroe.Enabled = true;
             }
             else
             {
                 cboCharacter.Enabled = false;
-                cboStore.Enabled = false;
+                //cboStore.Enabled = false;
                 cbIsAdmin.Visible = false;
                 cbIsAble.Visible = false;
+                cbcbStroe.Enabled = false;
             }
         }
 
@@ -65,13 +69,13 @@ namespace BHair.Base
         private void LoadData()
         {
             user.UsersDT = user.SelectUsersByUID(UID);
-            if(user.UsersDT.Rows.Count>0)
+            if (user.UsersDT.Rows.Count > 0)
             {
                 LoadMember();
             }
             else
             {
-                 MessageBox.Show("获取用户信息失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("获取用户信息失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -107,9 +111,9 @@ namespace BHair.Base
             txtDepartment.Text = user.UsersDT.Rows[0]["Department"].ToString();
             txtDetail.Text = user.UsersDT.Rows[0]["Detail"].ToString();
 
-            if(user.UsersDT.Rows[0]["IsAdmin"].ToString()=="1")
+            if (user.UsersDT.Rows[0]["IsAdmin"].ToString() == "1")
             { cbIsAdmin.Checked = true; }
-            if(user.UsersDT.Rows[0]["IsAble"].ToString()=="0")
+            if (user.UsersDT.Rows[0]["IsAble"].ToString() == "0")
             { cbIsAble.Checked = true; }
 
             if (user.UsersDT.Rows[0]["Character"].ToString() == "1") cboCharacter.SelectedIndex = 0;
@@ -117,21 +121,54 @@ namespace BHair.Base
             if (user.UsersDT.Rows[0]["Character"].ToString() == "3") cboCharacter.SelectedIndex = 2;
             if (user.UsersDT.Rows[0]["Character"].ToString() == "4") cboCharacter.SelectedIndex = 3;
 
-            if(cboStore.Items.Contains(user.UsersDT.Rows[0]["Store"].ToString()))
+            //if(cboStore.Items.Contains(user.UsersDT.Rows[0]["Store"].ToString()))
+            //{
+            //    cboStore.SelectedIndex = cboStore.Items.IndexOf(user.UsersDT.Rows[0]["Store"].ToString());
+            //}
+            //if (cbcbStroe.Items.Contains(user.UsersDT.Rows[0]["Store"].ToString()))
+            //{
+            //    cbcbStroe.SelectedIndex = cbcbStroe.Items.IndexOf(user.UsersDT.Rows[0]["Store"].ToString());
+            //}
+            string strTemp = "";
+            //int intCurrent = 0;
+            if (user.UsersDT.Rows[0]["Store"].ToString().Substring(0, 1) != null && user.UsersDT.Rows[0]["Store"].ToString().Substring(0, 1) != "")
             {
-                cboStore.SelectedIndex = cboStore.Items.IndexOf(user.UsersDT.Rows[0]["Store"].ToString());
+                for (int i = 0; i < user.UsersDT.Rows[0]["Store"].ToString().Length; i++)
+                {
+                    if(user.UsersDT.Rows[0]["Store"].ToString().Substring(i,1)!=",")
+                    {
+                        strTemp = strTemp + user.UsersDT.Rows[0]["Store"].ToString().Substring(i, 1);
+                        //intCurrent = intCurrent + 1;
+                    }
+                    else
+                    {
+                        if(strTemp!="")
+                        {
+                            for (int x = 0; x < cbcbStroe.Items.Count + 1; x++)
+                            {
+                                if (strStore[x] == strTemp)
+                                {
+                                    cbcbStroe.CheckBoxItems[x].Checked = true;
+                                    break;
+                                }
+                            }
+                        }
+                        strTemp = "";
+                    }
+                }
             }
+
         }
 
         /// <summary>保存用户信息</summary>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtPassword.Text!=txtAffirm.Text)
+            if (txtPassword.Text != txtAffirm.Text)
             {
                 MessageBox.Show("两次密码不同", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (txtUID.Text=="")
+            if (txtUID.Text == "")
             {
                 MessageBox.Show("请输入用户名", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -169,18 +206,48 @@ namespace BHair.Base
 
             Store store = new Store();
             store.StoreDT = store.SelectAllStoreInfo();
-            cboStore.Items.Add("");
-            foreach(DataRow dr in store.StoreDT.Rows)
+            //cboStore.Items.Add("");
+            //foreach(DataRow dr in store.StoreDT.Rows)
+            //{
+            //    cboStore.Items.Add(dr["StoreName"].ToString());
+            //}
+            //if(cboStore.Items.Count>0)
+            //{
+            //    cboStore.SelectedIndex = 0;
+            //}
+            strStore = new string[store.StoreDT.Rows.Count + 1];
+            cbcbStroe.Items.Add("");
+            strStore[0] = "";
+            int i = 1;
+            foreach (DataRow dr in store.StoreDT.Rows)
             {
-                cboStore.Items.Add(dr["StoreName"].ToString());
+                cbcbStroe.Items.Add(dr["StoreName"].ToString());
+                strStore[i] = dr["StoreName"].ToString();
+                i++;
             }
-            if(cboStore.Items.Count>0)
+            if (cbcbStroe.Items.Count > 0)
             {
-                cboStore.SelectedIndex = 0;
+                cbcbStroe.SelectedIndex = 0;
             }
         }
 
-        
+        private string GetcbcbString()
+        {
+            string strResult = "";
+            //for(int i=0;i<cbcbStroe.Items.Count;i++)
+            //{
+            //    if(cbcbStroe.)
+            //}
+            foreach (var item in cbcbStroe.CheckBoxItems)
+            {
+                if (item.Checked == true)
+                {
+                    strResult = strResult + item.Text + ",";
+                }
+            }
+            return strResult;
+        }
+
         void GetUserInfo()
         {
             user.UID = txtUID.Text;
@@ -190,11 +257,12 @@ namespace BHair.Base
             user.Email = txtEmail.Text;
             user.Position = txtPosition.Text;
             user.Department = txtDepartment.Text;
-            user.Store = cboStore.SelectedItem.ToString();
+            //user.Store = cboStore.SelectedItem.ToString();
             user.Detail = txtDetail.Text;
             user.Character = cboCharacter.SelectedIndex + 1;
             user.IsDelete = 0;
-            if (cbIsAble.Checked) user.IsAble = 0;else user.IsAble = 1;
+            user.Store = GetcbcbString();
+            if (cbIsAble.Checked) user.IsAble = 0; else user.IsAble = 1;
             if (cbIsAdmin.Checked) user.IsAdmin = 1; else user.IsAdmin = 0;
 
 

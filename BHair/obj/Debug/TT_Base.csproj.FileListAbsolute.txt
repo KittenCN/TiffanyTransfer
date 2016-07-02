@@ -90,3 +90,5 @@ E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\bi
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\bin\Debug\stdole.dll
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\bin\Debug\转货数据库.accdb
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\obj\Debug\TiffanyTransfer.Business.frmEditReason.resources
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\CheckBoxComboBox.dll
+E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\BHair\bin\Debug\CheckBoxComboBox.pdb
