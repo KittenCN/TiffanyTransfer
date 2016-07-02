@@ -302,13 +302,6 @@ namespace BHair.Business
 
         public void WriteToExcel(DataTable thisTable, string FileName, string sheetName)
         {
-            //需加入參考
-            //References右鍵AddReferences => COM => Microsoft Excel 10.0 Object Library
-            //在References會多Excel及Microsoft.Office.Core
-
-            //Excel.Application oXL = null;
-            //Excel._Workbook oWB = null;
-            //Excel._Worksheet oSheet = null;
             string strFilePath = FileName;
             string XLSName = System.IO.Directory.GetCurrentDirectory() + @"\templet\报告模板.xls";
             Excel.Application app = new Excel.Application();
@@ -319,16 +312,18 @@ namespace BHair.Business
             Excel._Worksheet _wsh = (Excel._Worksheet)shs.get_Item(1);
             try
             {
-                //string tempImagePath = Application.StartupPath;//軟體安裝目錄
-                //string temp = tempImagePath + "\\Execl";//目錄下的Excel文件
-                //Directory.CreateDirectory(@temp);
-                //string strFilePath = @Application.StartupPath + @"\Execl\" + FileName + ".xls"; //賦予檔名
-
-                //oXL = new Excel.Application();
-                //oWB = oXL.Workbooks.Open(strFilePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                //_wsh = (Excel._Worksheet)oWB.Worksheets[sheetName];
                 int sheetRowsCount = _wsh.UsedRange.Rows.Count;
-
+                int count = thisTable.Columns.Count;
+                //设置列名
+                //foreach (DataColumn myNewColumn in thisTable.Columns)
+                //{
+                //    _wsh.Cells[0, count] = myNewColumn.ColumnName;
+                //    count = count + 1;
+                //}er
+                for(int i=0;i<count;i++)
+                {
+                    _wsh.Cells[1, i + 1] = thisTable.Columns[i].ColumnName;
+                }
 
                 //加入內容
                 for (int i = 1; i <= thisTable.Rows.Count; i++)
@@ -344,13 +339,10 @@ namespace BHair.Business
                     null, null, false, false, Excel.XlSaveAsAccessMode.xlShared,
                     false, false, null, null, null);
 
-                //MessageBox.Show("成功匯出[" + thisTable.Rows.Count.ToString() + "]行到Execl！");
             }
             catch (Exception ex)
             {
-                //WriteErrLog("排程 -- WriteToExcel2", ex);
-                //MessageBox.Show("匯出Execl失敗！");
-                //throw ex;
+                
             }
             finally
             {
