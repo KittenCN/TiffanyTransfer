@@ -129,31 +129,18 @@ namespace BHair.Base
             //{
             //    cbcbStroe.SelectedIndex = cbcbStroe.Items.IndexOf(user.UsersDT.Rows[0]["Store"].ToString());
             //}
-            string strTemp = "";
-            //int intCurrent = 0;
-            if (user.UsersDT.Rows[0]["Store"].ToString().Substring(0, 1) != null && user.UsersDT.Rows[0]["Store"].ToString().Substring(0, 1) != "")
+            string[] strTemp = user.UsersDT.Rows[0]["Store"].ToString().Split(',');
+            if (strTemp[0]!="" && strTemp[0]!=null)
             {
-                for (int i = 0; i < user.UsersDT.Rows[0]["Store"].ToString().Length; i++)
+                for (int x = 0; x < strTemp.Length - 1 ; x++)
                 {
-                    if(user.UsersDT.Rows[0]["Store"].ToString().Substring(i,1)!=",")
+                    for(int y=0; y< cbcbStroe.Items.Count + 1; y++)
                     {
-                        strTemp = strTemp + user.UsersDT.Rows[0]["Store"].ToString().Substring(i, 1);
-                        //intCurrent = intCurrent + 1;
-                    }
-                    else
-                    {
-                        if(strTemp!="")
+                        if (strStore[y] == strTemp[x])
                         {
-                            for (int x = 0; x < cbcbStroe.Items.Count + 1; x++)
-                            {
-                                if (strStore[x] == strTemp)
-                                {
-                                    cbcbStroe.CheckBoxItems[x].Checked = true;
-                                    break;
-                                }
-                            }
+                            cbcbStroe.CheckBoxItems[y].Checked = true;
+                            break;
                         }
-                        strTemp = "";
                     }
                 }
             }

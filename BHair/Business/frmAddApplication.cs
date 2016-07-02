@@ -274,7 +274,6 @@ namespace BHair.Business
                 cbRecieveStore.SelectedItem = Login.LoginUser.Store;
             }
 
-
         }
 
         private void cbRecieveStore_SelectedIndexChanged(object sender, EventArgs e)

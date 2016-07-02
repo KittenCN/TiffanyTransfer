@@ -241,7 +241,6 @@
             // cbRecieveStore
             // 
             this.cbRecieveStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRecieveStore.Enabled = false;
             this.cbRecieveStore.FormattingEnabled = true;
             this.cbRecieveStore.Location = new System.Drawing.Point(123, 71);
             this.cbRecieveStore.Name = "cbRecieveStore";

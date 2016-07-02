@@ -81,6 +81,7 @@
     <Compile Include="Entity\Store.cs" />
     <Compile Include="Entity\Items.cs" />
     <Compile Include="Entity\Users.cs" />
+    <Compile Include="GenClass.cs" />
     <Compile Include="PrintExcel.cs" />
     <Compile Include="PrintPDF.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
