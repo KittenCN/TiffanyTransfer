@@ -221,6 +221,13 @@ namespace BHair.Business.Table
             set { _editReason = value; }
         }
 
+        //转货类型
+        private string _exchangeType;
+        public string ExchangeType
+        {
+            get { return _exchangeType; }
+            set { _exchangeType = value; }
+        }
         #endregion
 
         #region 自定义函数...
@@ -443,7 +450,7 @@ namespace BHair.Business.Table
                     if (SelectApplicationByCtrlID(dr["CtrlID"].ToString()).Rows.Count == 0)
                     {
                         OleDbDataAdapter adapt = new OleDbDataAdapter("select * from ApplicationInfo", ah.Conn);
-                        var cmd = new OleDbCommand("insert into ApplicationInfo (CtrlID,Applicants,ApplicantsName,ApplicantsPos,ApplicantsDate,DeliverStore,ReceiptStore,Approval,ApprovalPos,TotalCount,TotalPrice) values(@CtrlID,@Applicants,@ApplicantsName,@ApplicantsPos,@ApplicantsDate,@DeliverStore,@ReceiptStore,@Approval,@ApprovalPos,@TotalCount,@TotalPrice) ", ah.Conn);
+                        var cmd = new OleDbCommand("insert into ApplicationInfo (CtrlID,Applicants,ApplicantsName,ApplicantsPos,ApplicantsDate,DeliverStore,ReceiptStore,Approval,ApprovalPos,TotalCount,TotalPrice,ExchangeType) values(@CtrlID,@Applicants,@ApplicantsName,@ApplicantsPos,@ApplicantsDate,@DeliverStore,@ReceiptStore,@Approval,@ApprovalPos,@TotalCount,@TotalPrice,@ExchangeType) ", ah.Conn);
                         cmd.Parameters.Add("@CtrlID", OleDbType.VarChar, 20, "CtrlID");
                         cmd.Parameters.Add("@Applicants", OleDbType.VarChar, 40, "Applicants");
                         cmd.Parameters.Add("@ApplicantsName", OleDbType.VarChar, 40, "ApplicantsName");
@@ -455,6 +462,7 @@ namespace BHair.Business.Table
                         cmd.Parameters.Add("@ApprovalPos", OleDbType.VarChar, 20, "ApprovalPos");
                         cmd.Parameters.Add("@TotalCount", OleDbType.Numeric, 20, "TotalCount");
                         cmd.Parameters.Add("@TotalPrice", OleDbType.Numeric, 20, "TotalPrice");
+                        cmd.Parameters.Add("@ExchangeType", OleDbType.VarChar, 40, "ExchangeType");
                         adapt.InsertCommand = cmd;
                         rows += adapt.Update(dt);
                     }

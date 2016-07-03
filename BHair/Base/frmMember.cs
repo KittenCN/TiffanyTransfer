@@ -143,6 +143,17 @@ namespace BHair.Base
                         }
                     }
                 }
+                if(strTemp.Length==1)
+                {
+                    for (int y = 0; y < cbcbStroe.Items.Count + 1; y++)
+                    {
+                        if (strStore[y] == strTemp[0])
+                        {
+                            cbcbStroe.CheckBoxItems[y].Checked = true;
+                            break;
+                        }
+                    }
+                }
             }
         }
 

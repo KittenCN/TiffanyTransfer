@@ -97,6 +97,7 @@
             this.O_O_Str = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WuliuDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EditReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExchangeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -364,7 +365,8 @@
             this.S_O_Str,
             this.O_O_Str,
             this.WuliuDate,
-            this.EditReason});
+            this.EditReason,
+            this.ExchangeType});
             this.dgvApplyInfo.Location = new System.Drawing.Point(248, 61);
             this.dgvApplyInfo.MultiSelect = false;
             this.dgvApplyInfo.Name = "dgvApplyInfo";
@@ -741,6 +743,13 @@
             this.EditReason.Name = "EditReason";
             this.EditReason.Visible = false;
             // 
+            // ExchangeType
+            // 
+            this.ExchangeType.DataPropertyName = "ExchangeType";
+            this.ExchangeType.HeaderText = "ExchangeType";
+            this.ExchangeType.Name = "ExchangeType";
+            this.ExchangeType.Visible = false;
+            // 
             // frmAppAproval
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -842,5 +851,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn O_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn WuliuDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn EditReason;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExchangeType;
     }
 }

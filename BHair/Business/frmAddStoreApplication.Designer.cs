@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtLevel4 = new System.Windows.Forms.TextBox();
@@ -74,6 +74,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemHighlight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cboExchangeType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -169,15 +171,15 @@
             // 
             // txtStoreCheck
             // 
-            this.txtStoreCheck.Location = new System.Drawing.Point(539, 97);
+            this.txtStoreCheck.Location = new System.Drawing.Point(539, 124);
             this.txtStoreCheck.Name = "txtStoreCheck";
-            this.txtStoreCheck.Size = new System.Drawing.Size(186, 70);
+            this.txtStoreCheck.Size = new System.Drawing.Size(186, 54);
             this.txtStoreCheck.TabIndex = 24;
             this.txtStoreCheck.Text = "";
             // 
             // label48
             // 
-            this.label48.Location = new System.Drawing.Point(423, 100);
+            this.label48.Location = new System.Drawing.Point(423, 127);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(110, 67);
             this.label48.TabIndex = 23;
@@ -186,7 +188,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 100);
+            this.label5.Location = new System.Drawing.Point(9, 127);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 13;
@@ -203,6 +205,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cboExchangeType, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtCtrlID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 1);
@@ -217,11 +221,12 @@
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(805, 88);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(805, 115);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
             // txtCtrlID
@@ -244,7 +249,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 29);
+            this.label8.Location = new System.Drawing.Point(3, 28);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 8;
@@ -253,7 +258,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 58);
+            this.label10.Location = new System.Drawing.Point(3, 56);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 8;
@@ -264,7 +269,7 @@
             this.cbDeliverStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDeliverStore.Enabled = false;
             this.cbDeliverStore.FormattingEnabled = true;
-            this.cbDeliverStore.Location = new System.Drawing.Point(123, 32);
+            this.cbDeliverStore.Location = new System.Drawing.Point(123, 31);
             this.cbDeliverStore.Name = "cbDeliverStore";
             this.cbDeliverStore.Size = new System.Drawing.Size(184, 20);
             this.cbDeliverStore.TabIndex = 12;
@@ -274,7 +279,7 @@
             this.cbRecieveStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRecieveStore.Enabled = false;
             this.cbRecieveStore.FormattingEnabled = true;
-            this.cbRecieveStore.Location = new System.Drawing.Point(123, 61);
+            this.cbRecieveStore.Location = new System.Drawing.Point(123, 59);
             this.cbRecieveStore.Name = "cbRecieveStore";
             this.cbRecieveStore.Size = new System.Drawing.Size(184, 20);
             this.cbRecieveStore.TabIndex = 13;
@@ -282,7 +287,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(415, 29);
+            this.label2.Location = new System.Drawing.Point(415, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 15;
@@ -291,7 +296,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(415, 58);
+            this.label3.Location = new System.Drawing.Point(415, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 16;
@@ -300,7 +305,7 @@
             // dtAppDate
             // 
             this.dtAppDate.Enabled = false;
-            this.dtAppDate.Location = new System.Drawing.Point(535, 61);
+            this.dtAppDate.Location = new System.Drawing.Point(535, 59);
             this.dtAppDate.Name = "dtAppDate";
             this.dtAppDate.Size = new System.Drawing.Size(184, 21);
             this.dtAppDate.TabIndex = 17;
@@ -315,7 +320,7 @@
             // 
             // txtApplicantPos
             // 
-            this.txtApplicantPos.Location = new System.Drawing.Point(535, 32);
+            this.txtApplicantPos.Location = new System.Drawing.Point(535, 31);
             this.txtApplicantPos.Name = "txtApplicantPos";
             this.txtApplicantPos.ReadOnly = true;
             this.txtApplicantPos.Size = new System.Drawing.Size(184, 21);
@@ -333,7 +338,7 @@
             // BtnSubmitAddApp
             // 
             this.BtnSubmitAddApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSubmitAddApp.Location = new System.Drawing.Point(730, 168);
+            this.BtnSubmitAddApp.Location = new System.Drawing.Point(731, 171);
             this.BtnSubmitAddApp.Name = "BtnSubmitAddApp";
             this.BtnSubmitAddApp.Size = new System.Drawing.Size(75, 23);
             this.BtnSubmitAddApp.TabIndex = 12;
@@ -343,9 +348,9 @@
             // 
             // txtWuliuID
             // 
-            this.txtWuliuID.Location = new System.Drawing.Point(129, 97);
+            this.txtWuliuID.Location = new System.Drawing.Point(129, 124);
             this.txtWuliuID.Name = "txtWuliuID";
-            this.txtWuliuID.Size = new System.Drawing.Size(184, 70);
+            this.txtWuliuID.Size = new System.Drawing.Size(184, 54);
             this.txtWuliuID.TabIndex = 22;
             this.txtWuliuID.Text = "";
             this.txtWuliuID.Visible = false;
@@ -499,9 +504,9 @@
             // price
             // 
             this.price.DataPropertyName = "Price";
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.price.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.price.DefaultCellStyle = dataGridViewCellStyle7;
             this.price.FillWeight = 88.02526F;
             this.price.HeaderText = "单价";
             this.price.Name = "price";
@@ -510,9 +515,9 @@
             // numbers
             // 
             this.numbers.DataPropertyName = "App_Count";
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.numbers.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Format = "N0";
+            dataGridViewCellStyle8.NullValue = null;
+            this.numbers.DefaultCellStyle = dataGridViewCellStyle8;
             this.numbers.FillWeight = 88.02526F;
             this.numbers.HeaderText = "数量";
             this.numbers.Name = "numbers";
@@ -545,6 +550,24 @@
             this.ItemHighlight.Name = "ItemHighlight";
             this.ItemHighlight.ReadOnly = true;
             this.ItemHighlight.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 84);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "转货类型";
+            // 
+            // cboExchangeType
+            // 
+            this.cboExchangeType.Enabled = false;
+            this.cboExchangeType.FormattingEnabled = true;
+            this.cboExchangeType.Location = new System.Drawing.Point(123, 87);
+            this.cboExchangeType.Name = "cboExchangeType";
+            this.cboExchangeType.Size = new System.Drawing.Size(184, 20);
+            this.cboExchangeType.TabIndex = 25;
             // 
             // frmAddStoreApplication
             // 
@@ -622,6 +645,7 @@
         private System.Windows.Forms.RichTextBox txtWuliuID;
         private System.Windows.Forms.RichTextBox txtStoreCheck;
         private System.Windows.Forms.Label label48;
-
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cboExchangeType;
     }
 }

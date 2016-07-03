@@ -68,7 +68,29 @@ namespace BHair.Business
             foreach (DataRow dr in store.StoreDT.Rows)
             {
                 txtDeliverStore.Items.Add(dr["StoreName"].ToString());
-                txtReceiptStore.Items.Add(dr["StoreName"].ToString());
+                if(Login.LoginUser.Character!=3)
+                {
+                    txtReceiptStore.Items.Add(dr["StoreName"].ToString());
+                }               
+            }
+            if (Login.LoginUser.Character == 3)
+            {
+                string[] strStoreTemp = Login.LoginUser.Store.ToString().Split(',');
+                if (strStoreTemp[0] != "" && strStoreTemp[0] != null && strStoreTemp.Length > 1)
+                {
+                    for (int i = 0; i < strStoreTemp.Length - 1; i++)
+                    {
+                        txtReceiptStore.Items.Add(strStoreTemp[i].ToString());
+                    }
+                }
+                else
+                {
+                    txtReceiptStore.Items.Add(strStoreTemp[0]);
+                }
+                if (txtReceiptStore.Items.Count > 0)
+                {
+                    txtReceiptStore.SelectedIndex = 0;
+                }
             }
             txtDeliverStore.SelectedIndex = 0;
             txtReceiptStore.SelectedIndex = 0;
