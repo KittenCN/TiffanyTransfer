@@ -492,7 +492,7 @@ namespace BHair
                 menuMain_Manage_StoreApp.Visible = true;
                 menuMain_Manage_Approval2App.Visible = false;
                 menuMain_Manage_ApprovalApp.Visible = false;
-                menuMain_Manage_History.Visible = false;
+                menuMain_Manage_History.Visible = false; 
                 menuMain_System_Member.Visible = false;
                 menuMain_Manage_Store.Visible = false;
                 menuMain_System_Item.Visible = false;
@@ -510,7 +510,7 @@ namespace BHair
                 toolStripButton13.Visible = false;
                 toolStripButton5.Visible = false;
                 toolStripButton5.Visible = false;
-                toolStripButton6.Visible = false;
+                toolStripButton6.Visible = true;
 
                 menuMain_Manage_StoreApp_Click(null, null);//打开店面申请状态窗口
             }

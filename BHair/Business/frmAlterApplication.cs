@@ -138,6 +138,7 @@ namespace BHair.Business
                     AddAppInfoDT.Rows[0]["ApplicantsName"] = txtApplicant.Text;
                     AddAppInfoDT.Rows[0]["ApplicantsPos"] = txtApplicantPos.Text;
                     AddAppInfoDT.Rows[0]["Applicants"] = Login.LoginUser.UID;
+                    AddAppInfoDT.Rows[0]["ExchangeType"] = cboExchangeType.SelectedItem.ToString();
 
                     foreach (DataGridViewRow addDr in dgvApplyProducts.Rows)
                     {
@@ -231,7 +232,10 @@ namespace BHair.Business
             {
                 cbRecieveStore.SelectedIndex = 0;
             }
-
+            cboExchangeType.Items.Add("N/A");
+            cboExchangeType.Items.Add("新店预留");
+            cboExchangeType.Items.Add("Pull Back");
+            cboExchangeType.SelectedIndex = 0;
         }
 
         void LoadAppData()
@@ -241,6 +245,7 @@ namespace BHair.Business
             txtCtrlID.Text = applicationInfo.CtrlID;
             cbDeliverStore.SelectedItem = applicationInfo.DeliverStore;
             cbRecieveStore.SelectedItem = applicationInfo.ReceiptStore;
+            cboExchangeType.SelectedItem = applicationInfo.ExchangeType;   
             dtAppDate.Value = DateTime.Parse(applicationInfo.ApplicantsDate);
             tbEditReason.Text = applicationInfo.EditReason;
         }

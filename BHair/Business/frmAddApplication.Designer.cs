@@ -70,6 +70,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemHighlight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboExchangeType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -185,6 +187,8 @@
             this.tableLayoutPanel1.Controls.Add(this.txtApplicant, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtApplicantPos, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cboExchangeType, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -507,6 +511,23 @@
             this.ItemHighlight.ReadOnly = true;
             this.ItemHighlight.Visible = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 102);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "转货类型";
+            // 
+            // cboExchangeType
+            // 
+            this.cboExchangeType.FormattingEnabled = true;
+            this.cboExchangeType.Location = new System.Drawing.Point(123, 105);
+            this.cboExchangeType.Name = "cboExchangeType";
+            this.cboExchangeType.Size = new System.Drawing.Size(184, 20);
+            this.cboExchangeType.TabIndex = 23;
+            // 
             // frmAddApplication
             // 
             this.AcceptButton = this.btnAdd;
@@ -578,5 +599,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemHighlight;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cboExchangeType;
     }
 }

@@ -182,7 +182,7 @@ namespace BHair.Business
                 dr["Alert_Approval"] = 0;
                 dr["Alert_Deliver"] = 0;
                 dr["Alert_Receipt"] = 0;
-
+                dr["ExchangeType"] = cboExchangeType.SelectedItem.ToString();
                 foreach (DataRow addDr in AddApplicationDT.Rows)
                 {
                     addDr["CtrlID"] = dr["CtrlID"];
@@ -289,6 +289,10 @@ namespace BHair.Business
             {
                 cbRecieveStore.SelectedIndex = 0;
             }
+            cboExchangeType.Items.Add("N/A");
+            cboExchangeType.Items.Add("新店预留");
+            cboExchangeType.Items.Add("Pull Back");
+            cboExchangeType.SelectedIndex = 0;
         }
 
         private void cbRecieveStore_SelectedIndexChanged(object sender, EventArgs e)
