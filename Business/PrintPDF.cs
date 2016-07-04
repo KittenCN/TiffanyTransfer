@@ -191,7 +191,7 @@ namespace BHair.Business
         /// <param name="sourcePath">源文件路径</param>
         /// <param name="targetPath">目标文件路径</param>
         /// <returns>true=转换成功</returns>
-        private bool XLSConvertToPDF(string sourcePath, string targetPath)
+        public bool XLSConvertToPDF(string sourcePath, string targetPath)
         {
             bool result = false;
             Excel.XlFixedFormatType targetType = Excel.XlFixedFormatType.xlTypePDF;

@@ -315,7 +315,8 @@ namespace BHair.Business
             try
             {
                 int sheetRowsCount = _wsh.UsedRange.Rows.Count;
-                int count = thisTable.Columns.Count;
+                int count = thisTable.Columns.Count;    
+                
                 //设置列名
                 //foreach (DataColumn myNewColumn in thisTable.Columns)
                 //{
@@ -335,8 +336,10 @@ namespace BHair.Business
                         _wsh.Cells[i + sheetRowsCount, j] = thisTable.Rows[i - 1][j - 1];
                     }
                 }
-
-                //若為EXCEL2000, 將最後一個參數拿掉即可
+                _wsh.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
+                _wsh.Cells.Columns.AutoFit();
+                _wsh.Cells.Rows.AutoFit();
+                //若為EXCEL2000, 將最後一個參數拿掉即可             
                 _wbk.SaveAs(strFilePath, Excel.XlFileFormat.xlWorkbookNormal,
                     null, null, false, false, Excel.XlSaveAsAccessMode.xlShared,
                     false, false, null, null, null);

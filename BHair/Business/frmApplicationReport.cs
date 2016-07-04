@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using BHair.Business.Table;
 using BHair.Business.BaseData;
+using System.Security.Cryptography;
 
 namespace BHair.Business
 {
@@ -125,27 +126,65 @@ namespace BHair.Business
             //PrintExcel pe = new PrintExcel();
             //pe.OutputAsExcelFile(dgvAppDetail);
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            saveFileDialog.Filter = "PDF文件(*.pdf)|*.pdf";
             // Show save file dialog box
             DialogResult result = saveFileDialog.ShowDialog();
-            //点了保存按钮进入
+            ////点了保存按钮进入
+            //if (result == DialogResult.OK)
+            //{
+            //    //获得文件路径
+            //    string localFilePath = saveFileDialog.FileName.ToString();
+            //    PrintExcel pe = new PrintExcel();
+            //    try
+            //    {
+            //        //DataTable appDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
+            //        //pe.OutPutXLS(appDT, ApplicationReport, localFilePath);
+            //        pe.WriteToExcel(pe.exporeDataToTable(dgvAppDetail), localFilePath, "Sheet1");
+            //        MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //    catch(Exception ex)
+            //    {
+            //        MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
             if (result == DialogResult.OK)
             {
-                //获得文件路径
-                string localFilePath = saveFileDialog.FileName.ToString();
-                PrintExcel pe = new PrintExcel();
                 try
                 {
-                    //DataTable appDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
-                    //pe.OutPutXLS(appDT, ApplicationReport, localFilePath);
-                    pe.WriteToExcel(pe.exporeDataToTable(dgvAppDetail), localFilePath, "Sheet1");
+                    string strRandom = getRandomString(12);
+                    string tempFilePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strRandom + ".xls";
+                    PrintExcel pe = new PrintExcel();
+                    pe.WriteToExcel(pe.exporeDataToTable(dgvAppDetail), tempFilePath, "Sheet1");
+                    string localFilePath = saveFileDialog.FileName.ToString();
+                    PrintPDF pp = new PrintPDF();
+                    pp.XLSConvertToPDF(tempFilePath, localFilePath);
                     MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        Random m_rnd = new Random();
+        public char getRandomChar()
+        {
+            int ret = m_rnd.Next(122);
+            while (ret < 48 || (ret > 57 && ret < 65) || (ret > 90 && ret < 97))
+            {
+                ret = m_rnd.Next(122);
+            }
+            return (char)ret;
+        }
+        public string getRandomString(int length)
+        {
+            StringBuilder sb = new StringBuilder(length);
+            for (int i = 0; i < length; i++)
+            {
+                sb.Append(getRandomChar());
+            }
+            return sb.ToString();
         }
     }
 }
