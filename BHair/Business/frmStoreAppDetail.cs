@@ -24,6 +24,10 @@ namespace BHair.Business
         public frmStoreAppDetail(ApplicationInfo ParentAppInfo, string CtrlType)
         {
             InitializeComponent();
+            btnExcel.Visible = true;
+            btnDeliver.Visible = false;
+            btnReceipt.Visible = false;
+            tabControl1.SelectedIndexChanged += new EventHandler(tabControl1_SelectedIndexChanged);
             applicationInfo = ParentAppInfo;
             this.Text = string.Format("店面订单详细信息:控制号：{0}", applicationInfo.CtrlID);
             GetApplicationDetail();
@@ -288,6 +292,27 @@ namespace BHair.Business
         private void frmStoreAppDetail_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
+        }
+        private void tabControl1_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            switch (this.tabControl1.SelectedIndex)
+            {
+                case 0:
+                    btnExcel.Visible = true;
+                    btnDeliver.Visible = false;
+                    btnReceipt.Visible = false;
+                    break;
+                case 1:
+                    btnExcel.Visible = false;
+                    btnDeliver.Visible = true;
+                    btnReceipt.Visible = false;
+                    break;
+                case 2:
+                    btnExcel.Visible = false;
+                    btnDeliver.Visible = false;
+                    btnReceipt.Visible = true;
+                    break;
+            }
         }
     }
 }
