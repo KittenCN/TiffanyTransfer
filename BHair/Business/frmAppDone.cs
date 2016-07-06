@@ -222,7 +222,6 @@ namespace BHair.Business
             {
                 try
                 {
-
                     label7.Text = "正在导入Excel数据....";
                     string filePath = openFileDialog.FileName;
 
