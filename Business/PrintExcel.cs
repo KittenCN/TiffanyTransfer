@@ -670,5 +670,75 @@ namespace BHair.Business
                 app = null;
             }
         }
+
+        public DataTable ExcelToDataTable_Wuliu(string filePath, DataTable Result)
+        {
+            //DataTable Result = new DataTable();
+
+
+            Excel.Application app = new Excel.Application();
+            Excel.Sheets sheets;
+            object oMissiong = System.Reflection.Missing.Value;
+            Excel.Workbook workbook = null;
+
+            try
+            {
+                if (app == null) return null;
+                workbook = app.Workbooks.Open(filePath, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong,
+                    oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong);
+                sheets = workbook.Worksheets;
+
+                //将数据读入到DataTable中
+                Excel.Worksheet worksheet = (Excel.Worksheet)sheets.get_Item(1);//读取第一张表  
+                if (worksheet == null) return null;
+
+                int iRowCount = worksheet.UsedRange.Rows.Count;
+                int iColCount = worksheet.UsedRange.Columns.Count;
+
+                //生成行数据
+                Excel.Range range;
+                for (int iRow = 2; iRow <= iRowCount; iRow++)
+                {
+                    int validate = 0;
+                    DataRow dr = Result.NewRow();
+
+                    dr["UID"] = ((Excel.Range)worksheet.Cells[iRow, 1]).Text;
+                    dr["UserName"] = ((Excel.Range)worksheet.Cells[iRow, 2]).Text;
+                    dr["Email"] = ((Excel.Range)worksheet.Cells[iRow, 3]).Text;
+                    dr["Position"] = ((Excel.Range)worksheet.Cells[iRow, 4]).Text;
+                    dr["Department"] = ((Excel.Range)worksheet.Cells[iRow, 5]).Text;
+                    dr["Store"] = ((Excel.Range)worksheet.Cells[iRow, 6]).Text;
+                    double character = 0;
+                    if (!double.TryParse(((Excel.Range)worksheet.Cells[iRow, 7]).Text.ToString(), out character))
+                        validate++;
+                    dr["Character"] = character;
+                    dr["IsDelete"] = 0;
+                    dr["IsAble"] = 1;
+                    dr["IsAdmin"] = 0;
+
+                    if (dr["UID"].ToString() == "") validate++;
+                    if (dr["UserName"].ToString() == "") validate++;
+                    //if (dr["Email"].ToString() == "") validate++;
+                    //if (dr["Position"].ToString() == "") validate++;
+                    //if (dr["Department"].ToString() == "") validate++;
+                    if (dr["Character"].ToString() != "1" && dr["Character"].ToString() != "2" && dr["Character"].ToString() != "3" && dr["Character"].ToString() != "4") validate++;
+                    if (dr["Character"].ToString() == "3" && dr["Store"].ToString() == "") validate++;
+
+                    if (validate == 0) Result.Rows.Add(dr);
+                }
+                return Result;
+            }
+            catch (Exception ex) { return null; }
+            finally
+            {
+                workbook.Close(false, oMissiong, oMissiong);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                workbook = null;
+                app.Workbooks.Close();
+                app.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+                app = null;
+            }
         }
+    }
 }

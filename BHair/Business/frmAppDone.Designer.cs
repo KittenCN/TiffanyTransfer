@@ -97,6 +97,7 @@
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -269,6 +270,7 @@
             this.btnInput.TabIndex = 4;
             this.btnInput.Text = "导入未确认订单";
             this.btnInput.UseVisualStyleBackColor = true;
+            this.btnInput.Click += new System.EventHandler(this.btnInput_Click);
             // 
             // btnExport
             // 
@@ -703,6 +705,7 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.cbCtrlType);
             this.panel3.Controls.Add(this.TxtChoose);
             this.panel3.Controls.Add(this.BtnChoose);
@@ -740,6 +743,15 @@
             this.BtnChoose.Text = "查询";
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(139, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "label7";
             // 
             // frmAppDone
             // 
@@ -842,5 +854,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn WuliuDate;
         private System.Windows.Forms.Button btnInput;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Label label7;
     }
 }

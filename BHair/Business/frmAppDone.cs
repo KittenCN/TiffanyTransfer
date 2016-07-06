@@ -213,5 +213,34 @@ namespace BHair.Business
                 }
             }
         }
+
+        private void btnInput_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel文件|*.xls";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+
+                    label7.Text = "正在导入Excel数据....";
+                    string filePath = openFileDialog.FileName;
+
+                    DataTable applicationInfoDT = applicationInfo.SelectFinalApplication("");
+                    applicationInfoDT.Clear();
+                    DataTable TempDT = applicationInfoDT;
+                    PrintExcel pe = new PrintExcel();
+                    TempDT = pe.ExcelToDataTable_Application(filePath, TempDT);
+
+                    dgvApplyInfo.AutoGenerateColumns = false;
+                    dgvApplyInfo.DataSource = TempDT;
+                    label7.Text = "Excel数据导入完成";
+                }
+                catch
+                {
+                    label1.Text = "Excel数据导入失败";
+                }
+            }
+        }
     }
 }
