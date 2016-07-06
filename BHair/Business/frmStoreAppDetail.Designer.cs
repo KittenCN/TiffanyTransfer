@@ -206,6 +206,7 @@
             // 
             // txtAfterChecked
             // 
+            this.txtAfterChecked.Enabled = false;
             this.txtAfterChecked.Location = new System.Drawing.Point(8, 62);
             this.txtAfterChecked.Name = "txtAfterChecked";
             this.txtAfterChecked.ReadOnly = true;
@@ -264,6 +265,7 @@
             // 
             // txtBeforeChecked
             // 
+            this.txtBeforeChecked.Enabled = false;
             this.txtBeforeChecked.Location = new System.Drawing.Point(8, 61);
             this.txtBeforeChecked.Name = "txtBeforeChecked";
             this.txtBeforeChecked.ReadOnly = true;

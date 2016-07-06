@@ -315,6 +315,7 @@
             // 
             // dtApprovalTime
             // 
+            this.dtApprovalTime.Enabled = false;
             this.dtApprovalTime.Location = new System.Drawing.Point(127, 47);
             this.dtApprovalTime.Name = "dtApprovalTime";
             this.dtApprovalTime.Size = new System.Drawing.Size(64, 21);

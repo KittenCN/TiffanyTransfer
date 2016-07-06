@@ -671,7 +671,7 @@ namespace BHair.Business
             }
         }
 
-        public DataTable ExcelToDataTable_Wuliu(string filePath, DataTable Result)
+        public void ExcelToDataTable_Wuliu(string filePath, DataTable Result,string strUsername)
         {
             //DataTable Result = new DataTable();
 
@@ -683,14 +683,14 @@ namespace BHair.Business
 
             try
             {
-                if (app == null) return null;
+                //if (app == null) return null;
                 workbook = app.Workbooks.Open(filePath, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong,
                     oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong, oMissiong);
                 sheets = workbook.Worksheets;
 
                 //将数据读入到DataTable中
                 Excel.Worksheet worksheet = (Excel.Worksheet)sheets.get_Item(1);//读取第一张表  
-                if (worksheet == null) return null;
+                //if (worksheet == null) return null;
 
                 int iRowCount = worksheet.UsedRange.Rows.Count;
                 int iColCount = worksheet.UsedRange.Columns.Count;
@@ -699,36 +699,21 @@ namespace BHair.Business
                 Excel.Range range;
                 for (int iRow = 2; iRow <= iRowCount; iRow++)
                 {
-                    int validate = 0;
-                    DataRow dr = Result.NewRow();
+                    //((Excel.Range)worksheet.Cells[iRow, 1]).Text;
+                    string strCtrlid = ((Excel.Range)worksheet.Cells[iRow, 1]).Text.ToString();
+                    string s_o = ((Excel.Range)worksheet.Cells[iRow, 2]).Text.ToString();
+                    string s_o_str = ((Excel.Range)worksheet.Cells[iRow, 3]).Text.ToString();
+                    string o_o = ((Excel.Range)worksheet.Cells[iRow, 4]).Text.ToString();
+                    string o_o_str = ((Excel.Range)worksheet.Cells[iRow, 5]).Text.ToString();
+                    string batchnum1 = ((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString();
+                    string batchnum2 = ((Excel.Range)worksheet.Cells[iRow, 7]).Text.ToString();
 
-                    dr["UID"] = ((Excel.Range)worksheet.Cells[iRow, 1]).Text;
-                    dr["UserName"] = ((Excel.Range)worksheet.Cells[iRow, 2]).Text;
-                    dr["Email"] = ((Excel.Range)worksheet.Cells[iRow, 3]).Text;
-                    dr["Position"] = ((Excel.Range)worksheet.Cells[iRow, 4]).Text;
-                    dr["Department"] = ((Excel.Range)worksheet.Cells[iRow, 5]).Text;
-                    dr["Store"] = ((Excel.Range)worksheet.Cells[iRow, 6]).Text;
-                    double character = 0;
-                    if (!double.TryParse(((Excel.Range)worksheet.Cells[iRow, 7]).Text.ToString(), out character))
-                        validate++;
-                    dr["Character"] = character;
-                    dr["IsDelete"] = 0;
-                    dr["IsAble"] = 1;
-                    dr["IsAdmin"] = 0;
-
-                    if (dr["UID"].ToString() == "") validate++;
-                    if (dr["UserName"].ToString() == "") validate++;
-                    //if (dr["Email"].ToString() == "") validate++;
-                    //if (dr["Position"].ToString() == "") validate++;
-                    //if (dr["Department"].ToString() == "") validate++;
-                    if (dr["Character"].ToString() != "1" && dr["Character"].ToString() != "2" && dr["Character"].ToString() != "3" && dr["Character"].ToString() != "4") validate++;
-                    if (dr["Character"].ToString() == "3" && dr["Store"].ToString() == "") validate++;
-
-                    if (validate == 0) Result.Rows.Add(dr);
+                    string sql = "update ApplicationInfo set S_O='" + s_o + "',O_O='" + o_o + "',Batch_Num1='" + batchnum1 + "',Batch_Num2='" + batchnum2 + "',WuliuUser='" + strUsername + "',WuliuDate='" + DateTime.Now.ToString() + "',S_O_Str='" + s_o_str + "',O_O_Str='" + o_o_str + "',AppState=5  where AppState=4 and CtrlID='" + strCtrlid + "' ";
+                    AccessHelper ah = new AccessHelper();
+                    Boolean boolResult = ah.ExecuteSQLNonquery(sql);
                 }
-                return Result;
             }
-            catch (Exception ex) { return null; }
+            catch (Exception ex) {  }
             finally
             {
                 workbook.Close(false, oMissiong, oMissiong);

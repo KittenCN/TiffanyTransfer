@@ -230,15 +230,19 @@ namespace BHair.Business
                     applicationInfoDT.Clear();
                     DataTable TempDT = applicationInfoDT;
                     PrintExcel pe = new PrintExcel();
-                    TempDT = pe.ExcelToDataTable_Application(filePath, TempDT);
+                    pe.ExcelToDataTable_Wuliu(filePath, TempDT,Login.LoginUser.UserName);
 
-                    dgvApplyInfo.AutoGenerateColumns = false;
-                    dgvApplyInfo.DataSource = TempDT;
-                    label7.Text = "Excel数据导入完成";
+                    //dgvApplyInfo.AutoGenerateColumns = false;
+                    //dgvApplyInfo.DataSource = TempDT;
+                    label7.Text = "";
+                    MessageBox.Show("Excel数据导入完成", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetApplicationDetail();
                 }
                 catch
                 {
-                    label1.Text = "Excel数据导入失败";
+                    label7.Text = "";
+                    MessageBox.Show("Excel数据导入失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetApplicationDetail();
                 }
             }
         }

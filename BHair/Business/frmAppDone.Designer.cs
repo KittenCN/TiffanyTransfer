@@ -94,10 +94,10 @@
             this.O_O_Str = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WuliuDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -714,6 +714,14 @@
             this.panel3.Size = new System.Drawing.Size(733, 49);
             this.panel3.TabIndex = 128;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(139, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 12);
+            this.label7.TabIndex = 5;
+            // 
             // cbCtrlType
             // 
             this.cbCtrlType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -743,15 +751,6 @@
             this.BtnChoose.Text = "查询";
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(139, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 12);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "label7";
             // 
             // frmAppDone
             // 

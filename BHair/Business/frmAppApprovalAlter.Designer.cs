@@ -301,6 +301,7 @@
             // 
             // cbReciptStor
             // 
+            this.cbReciptStor.Enabled = false;
             this.cbReciptStor.FormattingEnabled = true;
             this.cbReciptStor.Location = new System.Drawing.Point(89, 140);
             this.cbReciptStor.Name = "cbReciptStor";
@@ -309,6 +310,7 @@
             // 
             // cbDeliverStor
             // 
+            this.cbDeliverStor.Enabled = false;
             this.cbDeliverStor.FormattingEnabled = true;
             this.cbDeliverStor.Location = new System.Drawing.Point(89, 110);
             this.cbDeliverStor.Name = "cbDeliverStor";
