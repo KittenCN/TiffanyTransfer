@@ -407,6 +407,21 @@ namespace BHair.Business.Table
             ah.Close();
             return Result;
         }
+
+        /// <summary>
+        /// 物流未确认查询ApplicationInfo
+        /// </summary>
+        /// <param name="Store"></param>
+        /// <returns></returns>
+        public DataTable SelectUNApplication(string sql)
+        {
+            AccessHelper ah = new AccessHelper();
+            string sqlString = string.Format("select a.receiptdate,b.ctrlid,b.department,b.app_level,b.itemid,b.itemid2,b.price,b.app_count from applicationinfo a inner join applicationdetail b on a.ctrlid=b.ctrlid where a.AppState=4 and b.isdelete=0 {0} order by a.receiptdate,b.ctrlid,b.department,b.app_level,b.itemid,b.itemid2,b.price,b.app_count", sql);
+            DataTable Result = ah.SelectToDataTable(sqlString);
+            ah.Close();
+            return Result;
+        }
+
         /// <summary>
         /// 物流确认查询历史ApplicationInfo
         /// </summary>

@@ -43,6 +43,8 @@
             this.txtWuliuID = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnInput = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -250,12 +252,33 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btnInput);
+            this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.btnConfirm);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(248, 479);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(754, 82);
             this.panel1.TabIndex = 125;
+            // 
+            // btnInput
+            // 
+            this.btnInput.Location = new System.Drawing.Point(205, 38);
+            this.btnInput.Name = "btnInput";
+            this.btnInput.Size = new System.Drawing.Size(106, 23);
+            this.btnInput.TabIndex = 4;
+            this.btnInput.Text = "导入未确认订单";
+            this.btnInput.UseVisualStyleBackColor = true;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(93, 38);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(106, 23);
+            this.btnExport.TabIndex = 3;
+            this.btnExport.Text = "导出未确认订单";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnConfirm
             // 
@@ -817,7 +840,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn S_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn O_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn WuliuDate;
-
-
+        private System.Windows.Forms.Button btnInput;
+        private System.Windows.Forms.Button btnExport;
     }
 }
