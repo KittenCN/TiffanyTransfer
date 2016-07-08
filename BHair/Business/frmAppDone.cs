@@ -198,7 +198,6 @@ namespace BHair.Business
             {
                 try
                 {
-
                     string localFilePath = saveFileDialog.FileName.ToString();
                     //string tempFilePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strRandom + ".xls";
                     PrintExcel pe = new PrintExcel();
@@ -242,6 +241,32 @@ namespace BHair.Business
                     label7.Text = "";
                     MessageBox.Show("Excel数据导入失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     GetApplicationDetail();
+                }
+            }
+        }
+
+        private void btnOutFinish_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            DialogResult result = saveFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    string strBeginDate = dtWuliuBegin.Value.ToShortDateString().ToString();
+                    string strEndDate = dtWuliuEnd.Value.AddDays(1).ToShortDateString().ToString();
+                    string localFilePath = saveFileDialog.FileName.ToString();
+                    //string tempFilePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strRandom + ".xls";
+                    PrintExcel pe = new PrintExcel();
+                    pe.WriteToExcel(applicationInfo.SelectApplication(" and  a.WuliuDate>=#" + strBeginDate + "# and a.WuliuDate<#" + strEndDate + "# "), localFilePath, "Sheet1");
+                    PrintPDF pp = new PrintPDF();
+                    //pp.XLSConvertToPDF(tempFilePath, localFilePath);
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

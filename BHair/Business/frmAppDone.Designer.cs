@@ -98,12 +98,19 @@
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
+            this.plDateTime = new System.Windows.Forms.Panel();
+            this.dtWuliuEnd = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dtWuliuBegin = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnOutFinish = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyInfo)).BeginInit();
             this.panel3.SuspendLayout();
+            this.plDateTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -239,6 +246,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnInput);
+            this.groupBox1.Controls.Add(this.plDateTime);
+            this.groupBox1.Controls.Add(this.btnExport);
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -253,8 +263,6 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.btnInput);
-            this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.btnConfirm);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(248, 479);
@@ -264,7 +272,7 @@
             // 
             // btnInput
             // 
-            this.btnInput.Location = new System.Drawing.Point(205, 38);
+            this.btnInput.Location = new System.Drawing.Point(136, 479);
             this.btnInput.Name = "btnInput";
             this.btnInput.Size = new System.Drawing.Size(106, 23);
             this.btnInput.TabIndex = 4;
@@ -274,7 +282,7 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(93, 38);
+            this.btnExport.Location = new System.Drawing.Point(18, 479);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(106, 23);
             this.btnExport.TabIndex = 3;
@@ -752,6 +760,60 @@
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
             // 
+            // plDateTime
+            // 
+            this.plDateTime.Controls.Add(this.btnOutFinish);
+            this.plDateTime.Controls.Add(this.dtWuliuEnd);
+            this.plDateTime.Controls.Add(this.label9);
+            this.plDateTime.Controls.Add(this.dtWuliuBegin);
+            this.plDateTime.Controls.Add(this.label8);
+            this.plDateTime.Location = new System.Drawing.Point(18, 269);
+            this.plDateTime.Name = "plDateTime";
+            this.plDateTime.Size = new System.Drawing.Size(224, 103);
+            this.plDateTime.TabIndex = 6;
+            // 
+            // dtWuliuEnd
+            // 
+            this.dtWuliuEnd.Location = new System.Drawing.Point(103, 30);
+            this.dtWuliuEnd.Name = "dtWuliuEnd";
+            this.dtWuliuEnd.Size = new System.Drawing.Size(105, 21);
+            this.dtWuliuEnd.TabIndex = 13;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(71, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(17, 12);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "至";
+            // 
+            // dtWuliuBegin
+            // 
+            this.dtWuliuBegin.Location = new System.Drawing.Point(103, 3);
+            this.dtWuliuBegin.Name = "dtWuliuBegin";
+            this.dtWuliuBegin.Size = new System.Drawing.Size(103, 21);
+            this.dtWuliuBegin.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(2, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 12);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "物流确认日期段:";
+            // 
+            // btnOutFinish
+            // 
+            this.btnOutFinish.Location = new System.Drawing.Point(103, 57);
+            this.btnOutFinish.Name = "btnOutFinish";
+            this.btnOutFinish.Size = new System.Drawing.Size(104, 23);
+            this.btnOutFinish.TabIndex = 5;
+            this.btnOutFinish.Text = "导出已确认明细";
+            this.btnOutFinish.UseVisualStyleBackColor = true;
+            this.btnOutFinish.Click += new System.EventHandler(this.btnOutFinish_Click);
+            // 
             // frmAppDone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -778,6 +840,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyInfo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.plDateTime.ResumeLayout(false);
+            this.plDateTime.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -854,5 +918,11 @@
         private System.Windows.Forms.Button btnInput;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel plDateTime;
+        private System.Windows.Forms.DateTimePicker dtWuliuEnd;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dtWuliuBegin;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnOutFinish;
     }
 }
