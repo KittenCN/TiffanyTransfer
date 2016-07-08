@@ -25,6 +25,7 @@ namespace BHair.Business
             GetApplicationDetail();
             cbCtrlType.Items.Add("未审核");
             cbCtrlType.Items.Add("已完成");
+            cbCtrlType.Items.Add("财务待完成");
             cbCtrlType.Items.Add("全部");
             cbCtrlType.SelectedIndex = 0;
         }
@@ -45,6 +46,7 @@ namespace BHair.Business
                 case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(""); break;
                 case "最终确认": ApplicationInfoTable = applicationInfo.SelectAlterAppByApproval(""); break;
                 case "已完成": ApplicationInfoTable = applicationInfo.SelectFinishAppByApproval(""); break;
+                case "财务待完成": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(""); break;
                 case "全部": ApplicationInfoTable = applicationInfo.SelectAllApplication(""); break;
                 default: ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(""); break;
             }
@@ -153,6 +155,7 @@ namespace BHair.Business
                 case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(SelectStr); break;
                 case "最终确认": ApplicationInfoTable = applicationInfo.SelectAlterAppByApproval(SelectStr); break;
                 case "已完成": ApplicationInfoTable = applicationInfo.SelectFinishAppByApproval(SelectStr); break;
+                case "财务待完成": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(""); break;
                 case "全部": ApplicationInfoTable = applicationInfo.SelectAllApplication(SelectStr); break;
                 default: ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(SelectStr); break;
             }
