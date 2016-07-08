@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessHelper.cs" />
+    <Compile Include="BaseProcess.cs" />
     <Compile Include="EmailControl.cs" />
     <Compile Include="Entity\SetupConfig.cs" />
     <Compile Include="Entity\Store.cs" />

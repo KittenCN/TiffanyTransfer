@@ -302,6 +302,20 @@ namespace BHair.Business.Table
         }
 
         /// <summary>
+        /// 商品部查询Finished AppInfo
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public DataTable SelectFinishAppByApproval(string sql)
+        {
+            AccessHelper ah = new AccessHelper();
+            string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState = 9 {0} order by [ApplicantsDate] desc", sql);
+            DataTable Result = ah.SelectToDataTable(sqlString);
+            ah.Close();
+            return Result;
+        }
+
+        /// <summary>
         /// 商品部查询已审批ApplicationInfo
         /// </summary>
         /// <returns></returns>

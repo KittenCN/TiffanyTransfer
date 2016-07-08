@@ -60,6 +60,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.完成状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -329,6 +330,7 @@
             this.Column5,
             this.Column6,
             this.Column27,
+            this.完成状态,
             this.Column28,
             this.Column29,
             this.Column7,
@@ -474,6 +476,13 @@
             this.Column27.Name = "Column27";
             this.Column27.ReadOnly = true;
             this.Column27.Visible = false;
+            // 
+            // 完成状态
+            // 
+            this.完成状态.DataPropertyName = "FinishState";
+            this.完成状态.HeaderText = "完成状态";
+            this.完成状态.Name = "完成状态";
+            this.完成状态.ReadOnly = true;
             // 
             // Column28
             // 
@@ -814,6 +823,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 完成状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column28;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column29;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
