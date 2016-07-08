@@ -33,9 +33,12 @@ namespace BHair.Business
                     }
                     else
                     {
-                        boolResult = true;
-                        goto Finish;
+                        boolResult = true;                       
                     }
+                }
+                if(boolResult)
+                {
+                    goto Finish;
                 }
             }
             foreach (DataRow recdr in ReceiptDetailTable.Rows)
@@ -49,8 +52,11 @@ namespace BHair.Business
                     else
                     {
                         boolResult = true;
-                        goto Finish;
                     }
+                }
+                if (boolResult)
+                {
+                    goto Finish;
                 }
             }
             foreach (DataRow deldr in DeliverDetailTable.Rows)
@@ -64,8 +70,11 @@ namespace BHair.Business
                     else
                     {
                         boolResult = true;
-                        goto Finish;
                     }
+                }
+                if (boolResult)
+                {
+                    goto Finish;
                 }
             }
             foreach (DataRow recdr in AppDetailTable.Rows)
@@ -79,8 +88,11 @@ namespace BHair.Business
                     else
                     {
                         boolResult = true;
-                        goto Finish;
                     }
+                }
+                if (boolResult)
+                {
+                    goto Finish;
                 }
             }
             Finish:
