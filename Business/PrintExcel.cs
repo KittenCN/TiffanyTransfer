@@ -708,7 +708,7 @@ namespace BHair.Business
                     string batchnum1 = ((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString();
                     string batchnum2 = ((Excel.Range)worksheet.Cells[iRow, 7]).Text.ToString();
 
-                    string sql = "update ApplicationInfo set S_O='" + s_o + "',O_O='" + o_o + "',Batch_Num1='" + batchnum1 + "',Batch_Num2='" + batchnum2 + "',WuliuUser='" + strUsername + "',WuliuDate='" + DateTime.Now.ToString() + "',S_O_Str='" + s_o_str + "',O_O_Str='" + o_o_str + "',AppState=5  where AppState=4 and CtrlID='" + strCtrlid + "' ";
+                    string sql = "update ApplicationInfo set S_O='" + s_o + "',O_O='" + o_o + "',Batch_Num1='" + batchnum1 + "',Batch_Num2='" + batchnum2 + "',WuliuUser='" + strUsername + "',WuliuDate='" + DateTime.Now.ToString() + "',S_O_Str='" + s_o_str + "',O_O_Str='" + o_o_str + "',AppState=9  where AppState=4 and CtrlID='" + strCtrlid + "' ";
                     AccessHelper ah = new AccessHelper();
                     Boolean boolResult = ah.ExecuteSQLNonquery(sql);
                 }

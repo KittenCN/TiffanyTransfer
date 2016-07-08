@@ -678,7 +678,7 @@ namespace BHair.Business.Table
         {
             int rows = 0;
             AccessHelper ah = new AccessHelper();
-            string sql = string.Format("Update ApplicationInfo Set AppState=5,[WuliuUser]='{1}' where IsDelete = 0 and CtrlID='{0}'", CtrlID,WuliuID);
+            string sql = string.Format("Update ApplicationInfo Set AppState=9,[WuliuUser]='{1}' where IsDelete = 0 and CtrlID='{0}'", CtrlID,WuliuID);
             try
             {
                 OleDbCommand comm = new OleDbCommand(sql, ah.Conn);
