@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CheckBoxComboBox")]
+[assembly: AssemblyTitle("")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("IT")]
-[assembly: AssemblyProduct("CheckBoxComboBox")]
+[assembly: AssemblyCompany("上海麒佑信息科技有限公司")]
+[assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("Copyright © IT 2007")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
