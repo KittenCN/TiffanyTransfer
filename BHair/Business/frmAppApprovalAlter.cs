@@ -74,5 +74,10 @@ namespace BHair.Business
         {
             this.TopMost = true;
         }
+
+        private void dgvApplyDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

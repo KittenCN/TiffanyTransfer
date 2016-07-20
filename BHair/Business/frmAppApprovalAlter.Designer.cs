@@ -487,6 +487,7 @@
             this.dgvApplyDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvApplyDetails.Size = new System.Drawing.Size(545, 479);
             this.dgvApplyDetails.TabIndex = 127;
+            this.dgvApplyDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApplyDetails_CellContentClick);
             // 
             // department
             // 

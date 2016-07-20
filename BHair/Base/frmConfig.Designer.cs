@@ -37,11 +37,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtEmailAddress = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtEmailSMTP = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtUpperLimit = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpperLimit)).BeginInit();
@@ -72,7 +72,7 @@
             // txtEmailID
             // 
             this.txtEmailID.Location = new System.Drawing.Point(79, 11);
-            this.txtEmailID.MaxLength = 30;
+            this.txtEmailID.MaxLength = 255;
             this.txtEmailID.Name = "txtEmailID";
             this.txtEmailID.Size = new System.Drawing.Size(197, 21);
             this.txtEmailID.TabIndex = 13;
@@ -98,7 +98,7 @@
             // txtEmailPwd
             // 
             this.txtEmailPwd.Location = new System.Drawing.Point(79, 47);
-            this.txtEmailPwd.MaxLength = 30;
+            this.txtEmailPwd.MaxLength = 255;
             this.txtEmailPwd.Name = "txtEmailPwd";
             this.txtEmailPwd.PasswordChar = '*';
             this.txtEmailPwd.Size = new System.Drawing.Size(197, 21);
@@ -116,7 +116,7 @@
             // txtEmailAddress
             // 
             this.txtEmailAddress.Location = new System.Drawing.Point(79, 82);
-            this.txtEmailAddress.MaxLength = 30;
+            this.txtEmailAddress.MaxLength = 255;
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(197, 21);
             this.txtEmailAddress.TabIndex = 23;
@@ -138,6 +138,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "邮箱设置";
             // 
+            // txtEmailSMTP
+            // 
+            this.txtEmailSMTP.Location = new System.Drawing.Point(79, 117);
+            this.txtEmailSMTP.MaxLength = 255;
+            this.txtEmailSMTP.Name = "txtEmailSMTP";
+            this.txtEmailSMTP.Size = new System.Drawing.Size(197, 21);
+            this.txtEmailSMTP.TabIndex = 25;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -146,14 +154,6 @@
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 24;
             this.label1.Text = "Email地址";
-            // 
-            // txtEmailSMTP
-            // 
-            this.txtEmailSMTP.Location = new System.Drawing.Point(79, 117);
-            this.txtEmailSMTP.MaxLength = 30;
-            this.txtEmailSMTP.Name = "txtEmailSMTP";
-            this.txtEmailSMTP.Size = new System.Drawing.Size(197, 21);
-            this.txtEmailSMTP.TabIndex = 25;
             // 
             // groupBox2
             // 
@@ -165,15 +165,6 @@
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "提醒金额设置";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "上限金额提醒";
             // 
             // txtUpperLimit
             // 
@@ -192,6 +183,15 @@
             this.txtUpperLimit.Name = "txtUpperLimit";
             this.txtUpperLimit.Size = new System.Drawing.Size(186, 21);
             this.txtUpperLimit.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "上限金额提醒";
             // 
             // frmConfig
             // 
