@@ -56,10 +56,12 @@ namespace BHair.Business
 
                     //users.UsersDT = users.SelectAllUsers("");
                     //client.Send(Message);
-                    AccessHelper ah = new AccessHelper();
-                    string strSQL = "select * from " + strTableName;
-                    DataTable Result = ah.SelectToDataTable(strSQL);
-                    ah.Close();
+                    string strSQL2 = "insert into MailTrans(MailSubject,MailBody,MailTargetAddress,Flag) ";
+                    strSQL2 = strSQL2 + " Values('" + Subject + "','" + Body + "','" + TargetAddress + "',0) ";
+                    AccessHelper ah2 = new AccessHelper();
+                    OleDbCommand comm2 = new OleDbCommand(strSQL2, ah2.Conn);
+                    comm2.ExecuteNonQuery();
+                    isSuccess = true;
                 }
                 catch (Exception ex1)
                 {
@@ -71,6 +73,12 @@ namespace BHair.Business
                             string strInSQL = "create table MailTrans(id autoincrement,MailSubject longtext,MailBody longtext,MailTargetAddress longtext,Flag int)";
                             OleDbCommand comm = new OleDbCommand(strInSQL, ah.Conn);
                             comm.ExecuteNonQuery();
+                            string strSQL2 = "insert into MailTrans(MailSubject,MailBody,MailTargetAddress,Flag) ";
+                            strSQL2 = strSQL2 + " Values('" + Subject + "','" + Body + "','" + TargetAddress + "',0) ";
+                            AccessHelper ah2 = new AccessHelper();
+                            OleDbCommand comm2 = new OleDbCommand(strSQL2, ah2.Conn);
+                            comm2.ExecuteNonQuery();
+                            isSuccess = true;
                         }
                         catch (Exception ex2)
                         {
@@ -82,12 +90,6 @@ namespace BHair.Business
                         return false;
                     }
                 }
-                string strSQL2 = "insert into MailTrans(MailSubject,MailBody,MailTargetAddress,Flag) ";
-                strSQL2 = strSQL2 + " Values('" + Subject + "','" + Body + "','" + TargetAddress + "',0) ";
-                AccessHelper ah2 = new AccessHelper();
-                OleDbCommand comm2 = new OleDbCommand(strSQL2, ah2.Conn);
-                comm2.ExecuteNonQuery();
-                isSuccess = true;
             }
             return isSuccess;
         }
