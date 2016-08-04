@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.Data;
 using BHair.Business.Table;
 using BHair.Business.BaseData;
+using System.Data.OleDb;
 
 namespace BHair.Business
 {
@@ -14,7 +15,7 @@ namespace BHair.Business
     {
         public static Users users = new Users();
         public static Business.BaseData.SetupConfig config = new BaseData.SetupConfig();
-       
+        public static string strTableName = "MailTrans";
         /// <summary>
         /// 以163邮箱发送邮件
         /// </summary>
@@ -31,36 +32,62 @@ namespace BHair.Business
 
             bool isSuccess = false;//是否成功发送
 
-            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
-            client.Host = smtp;//使用163的SMTP服务器发送邮件
-            client.UseDefaultCredentials = true;
-            client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
-            client.Credentials = new System.Net.NetworkCredential(id, pwd);//163的SMTP服务器需要用163邮箱的用户名和密码作认证，如果没有需要去163申请个,
-            System.Net.Mail.MailMessage Message = new System.Net.Mail.MailMessage();
-            Message.From = new System.Net.Mail.MailAddress(address);//这里需要注意，163似乎有规定发信人的邮箱地址必须是163的，而且发信人的邮箱用户名必须和上面SMTP服务器认证时的用户名相同
-            //因为上面用的用户名abc作SMTP服务器认证，所以这里发信人的邮箱地址也应该写为abc@163.com
-            //Message.To.Add("123456@gmail.com");//将邮件发送给Gmail
-            //Message.To.Add("12345@qq.com");//将邮件发送给QQ邮箱
+            //System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
+            //client.Host = smtp;//使用163的SMTP服务器发送邮件
+            //client.UseDefaultCredentials = true;
+            //client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            //client.Credentials = new System.Net.NetworkCredential(id, pwd);//163的SMTP服务器需要用163邮箱的用户名和密码作认证，如果没有需要去163申请个,
+            //System.Net.Mail.MailMessage Message = new System.Net.Mail.MailMessage();
+            //Message.From = new System.Net.Mail.MailAddress(address);//这里需要注意，163似乎有规定发信人的邮箱地址必须是163的，而且发信人的邮箱用户名必须和上面SMTP服务器认证时的用户名相同
+            ////因为上面用的用户名abc作SMTP服务器认证，所以这里发信人的邮箱地址也应该写为abc@163.com
+            ////Message.To.Add("123456@gmail.com");//将邮件发送给Gmail
+            ////Message.To.Add("12345@qq.com");//将邮件发送给QQ邮箱
             if (TargetAddress != "")
             {
                 try
                 {
-                    Message.To.Add(TargetAddress);
-                    Message.Subject = Subject;
-                    Message.Body = Body;
-                    Message.SubjectEncoding = System.Text.Encoding.UTF8;
-                    Message.BodyEncoding = System.Text.Encoding.UTF8;
-                    Message.Priority = System.Net.Mail.MailPriority.High;
-                    Message.IsBodyHtml = true;
+                    //Message.To.Add(TargetAddress);
+                    //Message.Subject = Subject;
+                    //Message.Body = Body;
+                    //Message.SubjectEncoding = System.Text.Encoding.UTF8;
+                    //Message.BodyEncoding = System.Text.Encoding.UTF8;
+                    //Message.Priority = System.Net.Mail.MailPriority.High;
+                    //Message.IsBodyHtml = true;
 
-                    users.UsersDT = users.SelectAllUsers("");
-                    client.Send(Message);
-                    return true;
+                    //users.UsersDT = users.SelectAllUsers("");
+                    //client.Send(Message);
+                    AccessHelper ah = new AccessHelper();
+                    string strSQL = "select * from " + strTableName;
+                    DataTable Result = ah.SelectToDataTable(strSQL);
+                    ah.Close();
                 }
-                catch (Exception e)
+                catch (Exception ex1)
                 {
-                    return false;
+                    if (ex1.HResult.ToString() == "-2147217865")
+                    {
+                        try
+                        {
+                            AccessHelper ah = new AccessHelper();
+                            string strInSQL = "create table MailTrans(id autoincrement,MailSubject longtext,MailBody longtext,MailTargetAddress longtext,Flag int)";
+                            OleDbCommand comm = new OleDbCommand(strInSQL, ah.Conn);
+                            comm.ExecuteNonQuery();
+                        }
+                        catch (Exception ex2)
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
+                string strSQL2 = "insert into MailTrans(MailSubject,MailBody,MailTargetAddress,Flag) ";
+                strSQL2 = strSQL2 + " Values('" + Subject + "','" + Body + "','" + TargetAddress + "',0) ";
+                AccessHelper ah2 = new AccessHelper();
+                OleDbCommand comm2 = new OleDbCommand(strSQL2, ah2.Conn);
+                comm2.ExecuteNonQuery();
+                isSuccess = true;
             }
             return isSuccess;
         }
