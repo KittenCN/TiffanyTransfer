@@ -374,7 +374,8 @@ namespace BHair.Business.Table
         public DataTable SelectHistoryApplicationByApproval2(string sql,Users users)
         {
             AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from ApplicationInfo where  AppState>1 and Approval2='{1}'  {0} order by [ApplicantsDate] desc", sql, users.UID);
+            //string sqlString = string.Format("select * from ApplicationInfo where  AppState>1 and Approval2='{1}'  {0} order by [ApplicantsDate] desc", sql, users.UID);
+            string sqlString = string.Format("select * from ApplicationInfo where  AppState>1 {0} order by [ApplicantsDate] desc", sql);
             DataTable Result = ah.SelectToDataTable(sqlString);
             ah.Close();
             return Result;
@@ -459,7 +460,8 @@ namespace BHair.Business.Table
         public DataTable SelectHistoryFinalApplication(string sql,string WuliuUser)
         {
             AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from ApplicationInfo where AppState>4  and [WuliuUser]='{1}' {0} order by [ApplicantsDate] desc", sql, WuliuUser);
+            //string sqlString = string.Format("select * from ApplicationInfo where AppState>4  and [WuliuUser]='{1}' {0} order by [ApplicantsDate] desc", sql, WuliuUser);
+            string sqlString = string.Format("select * from ApplicationInfo where AppState>4  {0} order by [ApplicantsDate] desc", sql);
             DataTable Result = ah.SelectToDataTable(sqlString);
             ah.Close();
             return Result;
