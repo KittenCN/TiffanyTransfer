@@ -238,7 +238,7 @@
             // 
             this.btnApprovalAll.Location = new System.Drawing.Point(4, 38);
             this.btnApprovalAll.Name = "btnApprovalAll";
-            this.btnApprovalAll.Size = new System.Drawing.Size(75, 23);
+            this.btnApprovalAll.Size = new System.Drawing.Size(90, 23);
             this.btnApprovalAll.TabIndex = 2;
             this.btnApprovalAll.Text = "批量审批通过";
             this.btnApprovalAll.UseVisualStyleBackColor = true;

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using BHair.Business.Table;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace BHair.Business
 {
@@ -295,6 +296,55 @@ namespace BHair.Business
         {
             frmImportApplication fia = new frmImportApplication();
             fia.Show();
+        }
+
+        private void btnSelectAll_Click(object sender, EventArgs e)
+        {
+            bool isAll = true;
+            if (CtrlType == "未审核")
+            {
+                foreach (DataRow dr in ApplicationInfoTable.Rows)
+                {
+                    if (dr["ApprovalState"].ToString() == "0") isAll = false;
+                }
+                if (isAll)
+                {
+                    foreach (DataRow dr in ApplicationInfoTable.Rows)
+                    {
+                        dr["ApprovalState"] = 0;
+                    }
+                }
+                else
+                {
+                    foreach (DataRow dr in ApplicationInfoTable.Rows)
+                    {
+                        dr["ApprovalState"] = 1;
+                    }
+                }
+            }
+        }
+
+        private void btnApprovalAll_Click(object sender, EventArgs e)
+        {
+            int successRows = 0;
+            if (CtrlType == "未审核")
+            {
+                foreach (DataRow dr in ApplicationInfoTable.Rows)
+                {
+                    if (dr["ApprovalState"].ToString() == "1")
+                    {
+                        successRows += applicationInfo.ApprovalApplication(dr["CtrlID"].ToString(), Login.LoginUser, 1, DateTime.Now);
+                        //EmailControl.ToDeliverConfirm(applicationInfo);
+                        Thread thread = new Thread(new ThreadStart(SendEmail));
+                        thread.Start();
+                    }
+                }
+                MessageBox.Show("审批通过" + successRows + "条", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        void SendEmail()
+        {
+            EmailControl.ToApplicantSubmit2(applicationInfo);
         }
     }
 }
