@@ -20,7 +20,7 @@ namespace BHair
         public frmMain()
         {
             InitializeComponent();
-            this.Text = "员工内购系统 " + " V " + Application.ProductVersion + " 最后编译时间 " + System.IO.File.GetLastWriteTime(this.GetType().Assembly.Location);
+            this.Text = "内部转货系统 " + " V " + Application.ProductVersion + " 最后编译时间 " + System.IO.File.GetLastWriteTime(this.GetType().Assembly.Location);
 
             this.tssrMain_Timer.Text = DateTime.Now.ToString();
             this.dPanelMain_AutoSize();
