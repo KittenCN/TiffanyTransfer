@@ -27,7 +27,7 @@ namespace BHair.Business
             this.Text = string.Format("订单详细信息:控制号：{0}", applicationInfo.CtrlID);
             GetApplicationDetail();
             InitButton(CtrlType);
-            txtApproval.Text = Login.LoginUser.UserName;
+            //txtApproval.Text = Login.LoginUser.UserName;
         }
 
 

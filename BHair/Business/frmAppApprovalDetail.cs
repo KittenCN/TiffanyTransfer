@@ -30,7 +30,7 @@ namespace BHair.Business
             InitComboBox();
             GetApplicationDetail();
             InitButton(CtrlType);
-            txtApproval.Text = Login.LoginUser.UserName;
+            //txtApproval.Text = Login.LoginUser.UserName;
         }
 
 
