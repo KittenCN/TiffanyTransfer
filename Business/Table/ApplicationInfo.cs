@@ -386,12 +386,17 @@ namespace BHair.Business.Table
         /// </summary>
         /// <param name="Store"></param>
         /// <returns></returns>
-        public DataTable SelectApplicationByDeliver(string Store,string sql)
+        public DataTable SelectApplicationByDeliver(string[] Store,string sql)
         {
-            AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=2  and DeliverStore = '{0}' {1} order by [ApplicantsDate] desc", Store, sql);
-            DataTable Result = ah.SelectToDataTable(sqlString);
-            ah.Close();
+            DataTable Result = null;
+            for (int i = 0; i < Store.Length - 1; i++)
+            {
+                AccessHelper ah = new AccessHelper();
+                string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=2  and DeliverStore = '{0}' {1} order by [ApplicantsDate] desc", Store[i].ToString(), sql);
+                DataTable tempResult = ah.SelectToDataTable(sqlString);
+                ah.Close();
+            }
+
             return Result;
         }
 

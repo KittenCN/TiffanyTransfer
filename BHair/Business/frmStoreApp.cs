@@ -40,10 +40,11 @@ namespace BHair.Business
         public void GetApplicationDetail()
         {
             ApplicationInfoTable = new DataTable();
-            switch(CtrlType)
+            string[] strStoreTemp = Login.LoginUser.Store.ToString().Split(',');
+            switch (CtrlType)
             {
                 case "正在审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(Login.LoginUser.UID,""); break;
-                case "待发货": ApplicationInfoTable = applicationInfo.SelectApplicationByDeliver(Login.LoginUser.Store,""); break;
+                case "待发货": ApplicationInfoTable = applicationInfo.SelectApplicationByDeliver(strStoreTemp, ""); break;
                 case "待收货": ApplicationInfoTable = applicationInfo.SelectApplicationByReceipt(Login.LoginUser.Store,""); break;
                 case "历史申请单": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApplicants(Login.LoginUser.UID, ""); break;
                 default: ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(Login.LoginUser.UID,""); break;
