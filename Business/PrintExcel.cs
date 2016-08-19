@@ -51,8 +51,8 @@ namespace BHair.Business
             _wsh.Cells[7, 2] = AppDT.Rows[0]["ApplicantsDate"].ToString();
             _wsh.Cells[9, 2] = AppDT.Rows[0]["DeliverStore"].ToString();
             _wsh.Cells[10, 2] = AppDT.Rows[0]["ReceiptStore"].ToString();
-            _wsh.Cells[12, 2] = AppDT.Rows[0]["ApprovalName"].ToString();
-            _wsh.Cells[13, 2] = AppDT.Rows[0]["ApprovalPos"].ToString();
+            _wsh.Cells[12, 2] = AppDT.Rows[0]["ApprovalName2"].ToString();
+            _wsh.Cells[13, 2] = AppDT.Rows[0]["ApprovalPos2"].ToString();
             _wsh.Cells[18, 1] = AppDT.Rows[0]["DeliverCheck"].ToString();
             _wsh.Cells[19, 2] = AppDT.Rows[0]["DeliverCheckerName"].ToString();
             _wsh.Cells[24, 1] = AppDT.Rows[0]["ReceiptCheck"].ToString();
