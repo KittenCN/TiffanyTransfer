@@ -389,11 +389,24 @@ namespace BHair.Business.Table
         public DataTable SelectApplicationByDeliver(string[] Store,string sql)
         {
             DataTable Result = null;
+            Boolean boolFlag = false;
             for (int i = 0; i < Store.Length - 1; i++)
             {
                 AccessHelper ah = new AccessHelper();
                 string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=2  and DeliverStore = '{0}' {1} order by [ApplicantsDate] desc", Store[i].ToString(), sql);
                 DataTable tempResult = ah.SelectToDataTable(sqlString);
+                if (boolFlag==false)
+                {
+                    Result = tempResult;
+                    boolFlag = true;
+                }
+                else
+                {
+                    foreach (DataRow dr in tempResult.Rows)
+                    {
+                        Result.Rows.Add(dr.ItemArray);
+                    }
+                }
                 ah.Close();
             }
 
@@ -405,12 +418,30 @@ namespace BHair.Business.Table
         /// </summary>
         /// <param name="Store"></param>
         /// <returns></returns>
-        public DataTable SelectApplicationByReceipt(string Store,string sql)
+        public DataTable SelectApplicationByReceipt(string[] Store,string sql)
         {
-            AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=3 and ApprovalState =1 and ApprovalState2 = 1 and DeliverState = 1 and ReceiptState = 0 and ReceiptStore = '{0}' {1} order by [ApplicantsDate] desc", Store, sql);
-            DataTable Result = ah.SelectToDataTable(sqlString);
-            ah.Close();
+            DataTable Result = null;
+            Boolean boolFlag = false;
+            for (int i = 0; i < Store.Length - 1; i++)
+            {
+                AccessHelper ah = new AccessHelper();
+                string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=3 and ApprovalState =1 and ApprovalState2 = 1 and DeliverState = 1 and ReceiptState = 0 and ReceiptStore = '{0}' {1} order by [ApplicantsDate] desc", Store[i].ToString(), sql);
+                DataTable tempResult = ah.SelectToDataTable(sqlString);
+                if (boolFlag == false)
+                {
+                    Result = tempResult;
+                    boolFlag = true;
+                }
+                else
+                {
+                    foreach (DataRow dr in tempResult.Rows)
+                    {
+                        Result.Rows.Add(dr.ItemArray);
+                    }
+                }
+                ah.Close();
+            }
+
             return Result;
         }
 
