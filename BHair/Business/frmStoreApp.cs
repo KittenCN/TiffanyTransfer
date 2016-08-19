@@ -43,11 +43,11 @@ namespace BHair.Business
             string[] strStoreTemp = Login.LoginUser.Store.ToString().Split(',');
             switch (CtrlType)
             {
-                case "正在审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(Login.LoginUser.UID,""); break;
+                case "正在审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(strStoreTemp, ""); break;
                 case "待发货": ApplicationInfoTable = applicationInfo.SelectApplicationByDeliver(strStoreTemp, ""); break;
                 case "待收货": ApplicationInfoTable = applicationInfo.SelectApplicationByReceipt(strStoreTemp, ""); break;
-                case "历史申请单": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApplicants(Login.LoginUser.UID, ""); break;
-                default: ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(Login.LoginUser.UID,""); break;
+                case "历史申请单": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApplicants(strStoreTemp, ""); break;
+                default: ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(strStoreTemp, ""); break;
             }
 
             dgvApplyInfo.AutoGenerateColumns = false; 
@@ -116,11 +116,11 @@ namespace BHair.Business
             string[] strStoreTemp = Login.LoginUser.Store.ToString().Split(',');
             switch (CtrlType)
             {
-                case "正在审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(Login.LoginUser.UID, SelectStr); break;
+                case "正在审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(strStoreTemp, SelectStr); break;
                 case "待发货": ApplicationInfoTable = applicationInfo.SelectApplicationByDeliver(strStoreTemp, SelectStr);  break;
                 case "待收货": ApplicationInfoTable = applicationInfo.SelectApplicationByReceipt(strStoreTemp, SelectStr);  break;
-                case "历史申请单": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApplicants(Login.LoginUser.UID, ""); break;
-                default: ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(Login.LoginUser.UID, SelectStr); break;
+                case "历史申请单": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApplicants(strStoreTemp, ""); break;
+                default: ApplicationInfoTable = applicationInfo.SelectApplicationByApplicants(strStoreTemp, SelectStr); break;
             }
             dgvApplyInfo.DataSource = ApplicationInfoTable;
         }

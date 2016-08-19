@@ -237,12 +237,30 @@ namespace BHair.Business.Table
         /// </summary>
         /// <param name="Applicants">申请人ID</param>
         /// <returns>Application表</returns>
-        public DataTable SelectApplicationByApplicants(string Applicants,string sql)
+        public DataTable SelectApplicationByApplicants(string[] Applicants,string sql)
         {
-            AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState<5 and Applicants = '{0}' {1} order by [ApplicantsDate] desc", Applicants, sql);
-            DataTable Result = ah.SelectToDataTable(sqlString);
-            ah.Close();
+            DataTable Result = null;
+            Boolean boolFlag = false;
+            for (int i = 0; i < Applicants.Length - 1; i++)
+            {
+                AccessHelper ah = new AccessHelper();
+                string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState<5 and ( DeliverStore='{0}' or ReceiptStore='{0}') {1} order by [ApplicantsDate] desc", Applicants[i].ToString(), sql);
+                DataTable tempResult = ah.SelectToDataTable(sqlString);
+                if (boolFlag == false)
+                {
+                    Result = tempResult;
+                    boolFlag = true;
+                }
+                else
+                {
+                    foreach (DataRow dr in tempResult.Rows)
+                    {
+                        Result.Rows.Add(dr.ItemArray);
+                    }
+                }
+                ah.Close();
+            }
+
             return Result;
         }
 
@@ -251,12 +269,30 @@ namespace BHair.Business.Table
         /// </summary>
         /// <param name="Applicants">申请人ID</param>
         /// <returns>Application表</returns>
-        public DataTable SelectHistoryApplicationByApplicants(string Applicants, string sql)
+        public DataTable SelectHistoryApplicationByApplicants(string[] Applicants, string sql)
         {
-            AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from ApplicationInfo where  AppState=9 and( Applicants = '{0}' or DeliverChecker='{0}' or ReceiptChecker='{0}') {1} order by [ApplicantsDate] desc", Applicants, sql);
-            DataTable Result = ah.SelectToDataTable(sqlString);
-            ah.Close();
+            DataTable Result = null;
+            Boolean boolFlag = false;
+            for (int i = 0; i < Applicants.Length - 1; i++)
+            {
+                AccessHelper ah = new AccessHelper();
+                string sqlString = string.Format("select * from ApplicationInfo where IsDelete=0 and AppState=9 and ( DeliverStore='{0}' or ReceiptStore='{0}') {1} order by [ApplicantsDate] desc", Applicants[i].ToString(), sql);
+                DataTable tempResult = ah.SelectToDataTable(sqlString);
+                if (boolFlag == false)
+                {
+                    Result = tempResult;
+                    boolFlag = true;
+                }
+                else
+                {
+                    foreach (DataRow dr in tempResult.Rows)
+                    {
+                        Result.Rows.Add(dr.ItemArray);
+                    }
+                }
+                ah.Close();
+            }
+
             return Result;
         }
 
