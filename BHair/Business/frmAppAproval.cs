@@ -146,7 +146,7 @@ namespace BHair.Business
                 applicationInfo.WuliuDate = dgvApplyInfo.SelectedRows[0].Cells["WuliuDate"].Value.ToString();
                 applicationInfo.ExchangeType = dgvApplyInfo.SelectedRows[0].Cells["ExchangeType"].Value.ToString();
             }
-            if(CtrlType=="未审核")
+            if (CtrlType == "未审核")
             {
                 txtApproval.Text = "未审批";
                 txtApproval2.Text = "未审批";
@@ -220,9 +220,9 @@ namespace BHair.Business
                     //        GetApplicationDetail();
                     //    }
                     //}
-                    for(int x=0;x<dgvApplyInfo.Rows.Count;x++)
+                    for (int x = 0; x < dgvApplyInfo.Rows.Count; x++)
                     {
-                        if(dgvApplyInfo.Rows[x].Cells["dgChecked"].Value != null && dgvApplyInfo.Rows[x].Cells["dgChecked"].Value.ToString()=="True")
+                        if (dgvApplyInfo.Rows[x].Cells["dgChecked"].Value != null && dgvApplyInfo.Rows[x].Cells["dgChecked"].Value.ToString() == "True")
                         {
                             successRows += applicationInfo.DeleteApplicaionInfo(dgvApplyInfo.Rows[x].Cells["Column1"].Value.ToString());
                         }
@@ -327,28 +327,15 @@ namespace BHair.Business
 
         private void btnSelectAll_Click(object sender, EventArgs e)
         {
-            bool isAll = true;
-            if (CtrlType == "未审核")
+            for (int x = 0; x < dgvApplyInfo.Rows.Count; x++)
             {
-                foreach (DataRow dr in ApplicationInfoTable.Rows)
+                if(dgvApplyInfo.Rows[x].Cells["dgChecked"].Value != null && dgvApplyInfo.Rows[x].Cells["dgChecked"].Value.ToString() == "True")
                 {
-                    if (dr["ApprovalState"].ToString() == "0") isAll = false;
-                }
-                if (isAll)
-                {
-                    foreach (DataRow dr in ApplicationInfoTable.Rows)
-                    {
-                        //dr["ApprovalState"] = 0;
-                        dr["dgChecked"] = 0;
-                    }
+                    dgvApplyInfo.Rows[x].Cells["dgChecked"].Value = null;
                 }
                 else
                 {
-                    foreach (DataRow dr in ApplicationInfoTable.Rows)
-                    {
-                        //dr["ApprovalState"] = 1;
-                        dr["dgChecked"] = 1;
-                    }
+                    dgvApplyInfo.Rows[x].Cells["dgChecked"].Value = "True";
                 }
             }
         }

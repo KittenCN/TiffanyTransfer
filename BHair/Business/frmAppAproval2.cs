@@ -176,49 +176,17 @@ namespace BHair.Business
 
         private void btnSelectAll_Click(object sender, EventArgs e)
         {
-            bool isAll = true;
-            if (CtrlType == "未审核")
+            for (int x = 0; x < dgvApplyInfo.Rows.Count; x++)
             {
-                foreach (DataRow dr in ApplicationInfoTable.Rows)
+                if (dgvApplyInfo.Rows[x].Cells["dgChecked"].Value != null && dgvApplyInfo.Rows[x].Cells["dgChecked"].Value.ToString() == "True")
                 {
-                    if (dr["ApprovalState"].ToString() == "0") isAll = false;
-                }
-                if (isAll)
-                {
-                    foreach (DataRow dr in ApplicationInfoTable.Rows)
-                    {
-                        dr["ApprovalState"] = 0;
-                    }
+                    dgvApplyInfo.Rows[x].Cells["dgChecked"].Value = null;
                 }
                 else
                 {
-                    foreach (DataRow dr in ApplicationInfoTable.Rows)
-                    {
-                        dr["ApprovalState"] = 1;
-                    }
+                    dgvApplyInfo.Rows[x].Cells["dgChecked"].Value = "True";
                 }
             }
-            //if (CtrlType == "最终确认")
-            //{
-            //    foreach (DataRow dr in ApplicationInfoTable.Rows)
-            //    {
-            //        if (dr["FinalState"].ToString() == "0") isAll = false;
-            //    }
-            //    if (isAll)
-            //    {
-            //        foreach (DataRow dr in ApplicationInfoTable.Rows)
-            //        {
-            //            dr["FinalState"] = 0;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        foreach (DataRow dr in ApplicationInfoTable.Rows)
-            //        {
-            //            dr["FinalState"] = 1;
-            //        }
-            //    }
-            //}
         }
 
         private void btnApprovalAll_Click(object sender, EventArgs e)
@@ -266,6 +234,10 @@ namespace BHair.Business
                 }
                 MessageBox.Show("审批通过" + successRows + "条", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GetApplicationDetail();
+            }
+            else
+            {
+                MessageBox.Show("非未审核订单,不得再次审核");
             }
             //if (CtrlType == "最终确认")
             //{
