@@ -14,25 +14,25 @@ namespace BHair.Business
 {
     public class PrintExcel
     {
-        public bool OutPutXLS(DataTable AppDT,DataTable DetailDT,string ExcelPath)
+        public bool OutPutXLS(DataTable AppDT, DataTable DetailDT, string ExcelPath)
         {
             try
             {
-                CreateXLS(AppDT, DetailDT,ExcelPath);
+                CreateXLS(AppDT, DetailDT, ExcelPath);
                 //string sourcePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\tempExcel.xls";
                 //string targetPath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\tempPDF.pdf";
                 //XLSConvertToPDF(sourcePath, targetPath);
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return false;
             }
         }
 
-       
 
-        private bool CreateXLS(DataTable AppDT, DataTable DetailDT,string ExcelPath)
+
+        private bool CreateXLS(DataTable AppDT, DataTable DetailDT, string ExcelPath)
         {
             string XLSName;
             XLSName = System.IO.Directory.GetCurrentDirectory() + @"\templet\转货申请表模板.xls";
@@ -61,9 +61,9 @@ namespace BHair.Business
 
             int j = 0;
             int i = 0;
-            foreach(DataRow dr in DetailDT.Rows)
+            foreach (DataRow dr in DetailDT.Rows)
             {
-                if(i<21)
+                if (i < 21)
                 {
                     _wsh.Cells[5 + i, 6] = dr["Department"].ToString();
                     _wsh.Cells[5 + i, 7] = dr["App_Level"].ToString();
@@ -76,7 +76,7 @@ namespace BHair.Business
                     _wsh.Cells[5 + i, 13] = double.Parse(dr["Price"].ToString()) * double.Parse(dr["App_Count"].ToString());
                     i++;
                 }
-              
+
             }
 
 
@@ -95,7 +95,7 @@ namespace BHair.Business
             return true;
         }
 
-       
+
 
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace BHair.Business
                 GC.WaitForPendingFinalizers();
             }
 
-            if(workBook!=null)workBook.Close();
+            if (workBook != null) workBook.Close();
             if (application != null) application.Quit();
             return result;
         }
@@ -183,7 +183,7 @@ namespace BHair.Business
 
                 int iRowCount = worksheet.UsedRange.Rows.Count;
                 int iColCount = worksheet.UsedRange.Columns.Count;
-                
+
                 //生成行数据
                 Excel.Range range;
                 for (int iRow = 2; iRow <= iRowCount; iRow++)
@@ -193,7 +193,7 @@ namespace BHair.Business
 
                     dr["ItemID"] = ((Excel.Range)worksheet.Cells[iRow, 1]).Text;
                     dr["ItemID2"] = ((Excel.Range)worksheet.Cells[iRow, 2]).Text;
-                    double price=0;
+                    double price = 0;
                     if (!double.TryParse(((Excel.Range)worksheet.Cells[iRow, 3]).Text.ToString(), out price))
                         validate++;
                     dr["Price"] = price;
@@ -206,7 +206,7 @@ namespace BHair.Business
                     //if (dr["ItemID2"].ToString() == "") validate++;
                     //if (dr["Detail"].ToString() == "") validate++;
 
-                    if(validate==0)Result.Rows.Add(dr);
+                    if (validate == 0) Result.Rows.Add(dr);
                 }
                 return Result;
             }
@@ -224,7 +224,7 @@ namespace BHair.Business
         }
 
 
-        public DataTable ExcelToDataTable_Member(string filePath,DataTable Result,string sha1pwd)
+        public DataTable ExcelToDataTable_Member(string filePath, DataTable Result, string sha1pwd)
         {
             //DataTable Result = new DataTable();
 
@@ -276,7 +276,7 @@ namespace BHair.Business
                     //if (dr["Position"].ToString() == "") validate++;
                     //if (dr["Department"].ToString() == "") validate++;
                     if (dr["Character"].ToString() != "1" && dr["Character"].ToString() != "2" && dr["Character"].ToString() != "3" && dr["Character"].ToString() != "4") validate++;
-                    if (dr["Character"].ToString()=="3"&&dr["Store"].ToString() == "") validate++;
+                    if (dr["Character"].ToString() == "3" && dr["Store"].ToString() == "") validate++;
 
                     if (validate == 0) Result.Rows.Add(dr);
                 }
@@ -315,15 +315,15 @@ namespace BHair.Business
             try
             {
                 int sheetRowsCount = _wsh.UsedRange.Rows.Count;
-                int count = thisTable.Columns.Count;    
-                
+                int count = thisTable.Columns.Count;
+
                 //设置列名
                 //foreach (DataColumn myNewColumn in thisTable.Columns)
                 //{
                 //    _wsh.Cells[0, count] = myNewColumn.ColumnName;
                 //    count = count + 1;
                 //}er
-                for(int i=0;i<count;i++)
+                for (int i = 0; i < count-1; i++)
                 {
                     _wsh.Cells[1, i + 1] = thisTable.Columns[i].ColumnName;
                 }
@@ -331,8 +331,13 @@ namespace BHair.Business
                 //加入內容
                 for (int i = 1; i <= thisTable.Rows.Count; i++)
                 {
-                    for (int j = 1; j <= thisTable.Columns.Count; j++)
+                    for (int j = 1; j <= thisTable.Columns.Count-1; j++)
                     {
+                        if ((j == 7 && thisTable.Rows[i - 1]["ItemHighlight"].ToString() == "1") || (j == 8 && thisTable.Rows[i - 1]["ItemHighlight"].ToString() == "2"))
+                        {
+                            Excel.Range range = _wsh.get_Range(_wsh.Cells[i + sheetRowsCount, j], _wsh.Cells[i + sheetRowsCount, j]);
+                            range.Interior.ColorIndex = 3;
+                        }
                         _wsh.Cells[i + sheetRowsCount, j] = thisTable.Rows[i - 1][j - 1];
                     }
                 }
@@ -347,7 +352,7 @@ namespace BHair.Business
             }
             catch (Exception ex)
             {
-                
+
             }
             finally
             {
@@ -671,7 +676,7 @@ namespace BHair.Business
             }
         }
 
-        public void ExcelToDataTable_Wuliu(string filePath, DataTable Result,string strUsername)
+        public void ExcelToDataTable_Wuliu(string filePath, DataTable Result, string strUsername)
         {
             //DataTable Result = new DataTable();
 
@@ -713,7 +718,7 @@ namespace BHair.Business
                     Boolean boolResult = ah.ExecuteSQLNonquery(sql);
                 }
             }
-            catch (Exception ex) {  }
+            catch (Exception ex) { }
             finally
             {
                 workbook.Close(false, oMissiong, oMissiong);
