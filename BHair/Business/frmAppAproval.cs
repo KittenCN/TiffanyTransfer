@@ -406,6 +406,7 @@ namespace BHair.Business
                     }
                 }
                 MessageBox.Show("审批通过" + successRows + "条", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GetApplicationDetail();
             }
         }
         void SendEmail()

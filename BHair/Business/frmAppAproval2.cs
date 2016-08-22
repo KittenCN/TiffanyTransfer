@@ -226,17 +226,46 @@ namespace BHair.Business
             int successRows = 0;
             if (CtrlType == "未审核")
             {
-                foreach (DataRow dr in ApplicationInfoTable.Rows)
+                //foreach (DataRow dr in ApplicationInfoTable.Rows)
+                //{
+                //    if (dr["ApprovalState"].ToString() == "1")
+                //    {
+                //        successRows += applicationInfo.ApprovalApplication2(dr["CtrlID"].ToString(), Login.LoginUser, 1, DateTime.Now);
+                //        //EmailControl.ToDeliverConfirm(applicationInfo);
+                //        Thread thread = new Thread(new ThreadStart(SendEmail));
+                //        thread.Start();
+                //    }
+                //}
+                for (int x = 0; x < dgvApplyInfo.Rows.Count; x++)
                 {
-                    if (dr["ApprovalState"].ToString() == "1")
+                    if (dgvApplyInfo.Rows[x].Cells["dgChecked"].Value != null && dgvApplyInfo.Rows[x].Cells["dgChecked"].Value.ToString() == "True")
                     {
-                        successRows += applicationInfo.ApprovalApplication2(dr["CtrlID"].ToString(), Login.LoginUser, 1, DateTime.Now);
-                        //EmailControl.ToDeliverConfirm(applicationInfo);
-                        Thread thread = new Thread(new ThreadStart(SendEmail));
-                        thread.Start();
+                        successRows += applicationInfo.ApprovalApplication2(dgvApplyInfo.Rows[x].Cells["Column1"].Value.ToString(), Login.LoginUser, 1, DateTime.Now);
+                        applicationInfo.CtrlID = dgvApplyInfo.Rows[x].Cells["Column1"].Value.ToString();
+                        applicationInfo.ApplicantsName = dgvApplyInfo.Rows[x].Cells["Column5"].Value.ToString();
+                        applicationInfo.ApplicantsPos = dgvApplyInfo.Rows[x].Cells["Column8"].Value.ToString();
+                        applicationInfo.ApplicantsDate = dgvApplyInfo.Rows[x].Cells["Column4"].Value.ToString();
+                        applicationInfo.DeliverStore = dgvApplyInfo.Rows[x].Cells["Column2"].Value.ToString();
+                        applicationInfo.ReceiptStore = dgvApplyInfo.Rows[x].Cells["Column3"].Value.ToString();
+                        applicationInfo.ApprovalName = dgvApplyInfo.Rows[x].Cells["Column10"].Value.ToString();
+                        applicationInfo.ApprovalDate = dgvApplyInfo.Rows[x].Cells["Column19"].Value.ToString();
+                        applicationInfo.ApprovalName2 = dgvApplyInfo.Rows[x].Cells["Column30"].Value.ToString();
+                        applicationInfo.ApprovalDate2 = dgvApplyInfo.Rows[x].Cells["Column21"].Value.ToString();
+                        applicationInfo.DeliverCheck = dgvApplyInfo.Rows[x].Cells["Column12"].Value.ToString();
+                        applicationInfo.DeliverCheckerName = dgvApplyInfo.Rows[x].Cells["Column14"].Value.ToString();
+                        applicationInfo.ReceiptCheck = dgvApplyInfo.Rows[x].Cells["Column15"].Value.ToString();
+                        applicationInfo.ReceiptCheckerName = dgvApplyInfo.Rows[x].Cells["Column17"].Value.ToString();
+
+                        applicationInfo.DeliverDate = dgvApplyInfo.Rows[x].Cells["DeliverDate"].Value.ToString();
+                        applicationInfo.ReceiptDate = dgvApplyInfo.Rows[x].Cells["ReceiptDate"].Value.ToString();
+                        applicationInfo.S_O_Str = dgvApplyInfo.Rows[x].Cells["S_O_Str"].Value.ToString();
+                        applicationInfo.O_O_Str = dgvApplyInfo.Rows[x].Cells["O_O_Str"].Value.ToString();
+                        applicationInfo.WuliuDate = dgvApplyInfo.Rows[x].Cells["WuliuDate"].Value.ToString();
+                        SendEmail();
                     }
                 }
                 MessageBox.Show("审批通过" + successRows + "条", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GetApplicationDetail();
             }
             //if (CtrlType == "最终确认")
             //{
