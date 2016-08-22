@@ -503,7 +503,7 @@ namespace BHair.Business.Table
         public DataTable SelectUNApplication(string sql)
         {
             AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select a.receiptdate,b.ctrlid,b.department,b.app_level,b.itemid,b.itemid2,b.price,b.app_count from applicationinfo a inner join applicationdetail b on a.ctrlid=b.ctrlid where a.AppState=4 and b.isdelete=0 {0} order by a.receiptdate,b.ctrlid,b.department,b.app_level,b.itemid,b.itemid2,b.price,b.app_count", sql);
+            string sqlString = string.Format("select a.DeliverStore as 发货店铺,ReceiptStore as 收货店铺,a.receiptdate as 收货日期,b.ctrlid as 控制号,b.department as 部门,b.app_level as 级别,b.itemid as 货号,b.itemid2 as 双货号,b.price as 单价,b.app_count as 数量 from applicationinfo a inner join applicationdetail b on a.ctrlid=b.ctrlid where a.AppState=4 and b.isdelete=0 {0} order by a.receiptdate,b.ctrlid,b.department,b.app_level,b.itemid,b.itemid2,b.price,b.app_count", sql);
             DataTable Result = ah.SelectToDataTable(sqlString);
             ah.Close();
             return Result;
@@ -518,7 +518,7 @@ namespace BHair.Business.Table
         public DataTable SelectApplication(string sql)
         {
             AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select a.receiptdate,b.ctrlid,b.department,b.app_level,b.itemid,b.itemid2,a.S_O,a.S_O_Str,a.O_O,a.O_O_Str,a.Batch_Num1,a.Batch_Num2,b.price,b.app_count from applicationinfo a inner join applicationdetail b on a.ctrlid=b.ctrlid where a.AppState>4 and b.isdelete=0 {0} order by a.receiptdate,b.ctrlid,b.department,b.app_level,b.itemid,b.itemid2,b.price,b.app_count", sql);
+            string sqlString = string.Format("select a.DeliverStore as 发货店铺,ReceiptStore as 收货店铺,a.receiptdate as 收货日期,b.ctrlid as 控制号,b.department as 部门,b.app_level as 级别,b.itemid as 货号,b.itemid2 as 双货号,a.S_O,a.S_O_Str,a.O_O,a.O_O_Str,a.Batch_Num1,a.Batch_Num2,b.price as 单价,b.app_count as 数量 from applicationinfo a inner join applicationdetail b on a.ctrlid=b.ctrlid where a.AppState>4 and b.isdelete=0 {0} order by a.receiptdate,b.ctrlid,b.department,b.app_level,b.itemid,b.itemid2,b.price,b.app_count", sql);
             DataTable Result = ah.SelectToDataTable(sqlString);
             ah.Close();
             return Result;
