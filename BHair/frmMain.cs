@@ -420,7 +420,7 @@ namespace BHair
                 toolStripButton5.Visible = false;
                 toolStripButton6.Visible = false;
             }
-            else if (Login.LoginUser.Character == 1)
+            else if (Login.LoginUser.Character == 1)    //商品部
             {
                 menuMain_Flow_add.Visible = true;
                 menuMain_Manage_StoreApp.Visible = true;
@@ -436,7 +436,7 @@ namespace BHair
                     menuMain_System_SetupConfig.Visible = true;
                     menuMain_System_Item.Visible = true;
                     menuMain_System_Log.Visible = false;
-                    toolStripButton8.Visible = true;
+                    //toolStripButton8.Visible = true;
                     toolStripButton2.Visible = true;
                     物流确认ToolStripMenuItem.Visible = true;
                     toolStripButton13.Visible = true;
@@ -447,7 +447,7 @@ namespace BHair
                     menuMain_Manage_Store.Visible = false;
                     menuMain_System_Item.Visible = false;
                     menuMain_System_Log.Visible = false;
-                    toolStripButton8.Visible = false;
+                    //toolStripButton8.Visible = false;
                     toolStripButton2.Visible = false;
                 }
 
@@ -457,6 +457,7 @@ namespace BHair
                 toolStripButton3.Visible = true;
                 toolStripButton5.Visible = true;
                 toolStripButton6.Visible=true;
+                toolStripButton8.Visible = true;
 
                 menuMain_Manage_ApprovalApp_Click(null, null);//商品部审核窗口
             }
