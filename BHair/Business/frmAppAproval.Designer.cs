@@ -43,6 +43,7 @@
             this.txtWuliuID = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnApprovalAll = new System.Windows.Forms.Button();
             this.btnImportApp = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -50,11 +51,13 @@
             this.BtnSelect = new System.Windows.Forms.Button();
             this.dgvApplyInfo = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnSelectAll = new System.Windows.Forms.Button();
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
-            this.FinalState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ApprovalState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgChecked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FinalState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,8 +104,6 @@
             this.WuliuDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EditReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExchangeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSelectAll = new System.Windows.Forms.Button();
-            this.btnApprovalAll = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -267,6 +268,16 @@
             this.panel1.Size = new System.Drawing.Size(754, 82);
             this.panel1.TabIndex = 125;
             // 
+            // btnApprovalAll
+            // 
+            this.btnApprovalAll.Location = new System.Drawing.Point(249, 38);
+            this.btnApprovalAll.Name = "btnApprovalAll";
+            this.btnApprovalAll.Size = new System.Drawing.Size(90, 23);
+            this.btnApprovalAll.TabIndex = 5;
+            this.btnApprovalAll.Text = "批量审批通过";
+            this.btnApprovalAll.UseVisualStyleBackColor = true;
+            this.btnApprovalAll.Click += new System.EventHandler(this.btnApprovalAll_Click);
+            // 
             // btnImportApp
             // 
             this.btnImportApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -328,8 +339,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvApplyInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvApplyInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FinalState,
             this.ApprovalState,
+            this.dgChecked,
+            this.FinalState,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -384,6 +396,7 @@
             this.dgvApplyInfo.Size = new System.Drawing.Size(733, 409);
             this.dgvApplyInfo.TabIndex = 127;
             this.dgvApplyInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApplyInfo_CellClick);
+            this.dgvApplyInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApplyInfo_CellContentClick);
             this.dgvApplyInfo.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvApplyInfo_CellMouseDoubleClick);
             this.dgvApplyInfo.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvApplyInfo_DataBindingComplete);
             this.dgvApplyInfo.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvApplyInfo_MouseDoubleClick);
@@ -400,6 +413,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(733, 49);
             this.panel3.TabIndex = 128;
+            // 
+            // btnSelectAll
+            // 
+            this.btnSelectAll.Location = new System.Drawing.Point(127, 10);
+            this.btnSelectAll.Name = "btnSelectAll";
+            this.btnSelectAll.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectAll.TabIndex = 4;
+            this.btnSelectAll.Text = "全选/反选";
+            this.btnSelectAll.UseVisualStyleBackColor = true;
+            this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
             // 
             // cbCtrlType
             // 
@@ -431,18 +454,25 @@
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
             // 
+            // ApprovalState
+            // 
+            this.ApprovalState.DataPropertyName = "ApprovalState";
+            this.ApprovalState.HeaderText = "选中";
+            this.ApprovalState.Name = "ApprovalState";
+            this.ApprovalState.Visible = false;
+            // 
+            // dgChecked
+            // 
+            this.dgChecked.DataPropertyName = "dgChecked";
+            this.dgChecked.HeaderText = "选中";
+            this.dgChecked.Name = "dgChecked";
+            // 
             // FinalState
             // 
             this.FinalState.DataPropertyName = "FinalState";
             this.FinalState.HeaderText = "选中";
             this.FinalState.Name = "FinalState";
             this.FinalState.Visible = false;
-            // 
-            // ApprovalState
-            // 
-            this.ApprovalState.DataPropertyName = "ApprovalState";
-            this.ApprovalState.HeaderText = "选中";
-            this.ApprovalState.Name = "ApprovalState";
             // 
             // Column1
             // 
@@ -780,26 +810,6 @@
             this.ExchangeType.Name = "ExchangeType";
             this.ExchangeType.Visible = false;
             // 
-            // btnSelectAll
-            // 
-            this.btnSelectAll.Location = new System.Drawing.Point(127, 10);
-            this.btnSelectAll.Name = "btnSelectAll";
-            this.btnSelectAll.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectAll.TabIndex = 4;
-            this.btnSelectAll.Text = "全选/反选";
-            this.btnSelectAll.UseVisualStyleBackColor = true;
-            this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
-            // 
-            // btnApprovalAll
-            // 
-            this.btnApprovalAll.Location = new System.Drawing.Point(249, 38);
-            this.btnApprovalAll.Name = "btnApprovalAll";
-            this.btnApprovalAll.Size = new System.Drawing.Size(90, 23);
-            this.btnApprovalAll.TabIndex = 5;
-            this.btnApprovalAll.Text = "批量审批通过";
-            this.btnApprovalAll.UseVisualStyleBackColor = true;
-            this.btnApprovalAll.Click += new System.EventHandler(this.btnApprovalAll_Click);
-            // 
             // frmAppAproval
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -857,8 +867,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtWuliuID;
         private System.Windows.Forms.Button btnImportApp;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn FinalState;
+        private System.Windows.Forms.Button btnSelectAll;
+        private System.Windows.Forms.Button btnApprovalAll;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ApprovalState;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dgChecked;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn FinalState;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -905,7 +918,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn WuliuDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn EditReason;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExchangeType;
-        private System.Windows.Forms.Button btnSelectAll;
-        private System.Windows.Forms.Button btnApprovalAll;
     }
 }
