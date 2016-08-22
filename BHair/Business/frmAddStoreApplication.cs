@@ -147,7 +147,7 @@ namespace BHair.Business
                         applicationDetail.UpdateDeliverDetail(AddApplicationDT);
                         applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
                         applicationInfo.DeliverConfirm(applicationInfo.CtrlID, txtStoreCheck.Text, Login.LoginUser, 1);
-                        Thread thread = new Thread(new ThreadStart(SendEmail));
+                        Thread thread = new Thread(new ThreadStart(SendEmailtoReceipt));
                         thread.Start();
                     }
                     else if (DeliverOrReceipt == "待收货")
@@ -155,7 +155,7 @@ namespace BHair.Business
                         applicationDetail.UpdateReceiptDetail(AddApplicationDT);
                         applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
                         applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, txtStoreCheck.Text, Login.LoginUser, 1);
-                        Thread thread = new Thread(new ThreadStart(SendEmail));
+                        Thread thread = new Thread(new ThreadStart(SendEmailtoWuliu));
                         thread.Start();
                     }
                     MessageBox.Show("提交成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -169,9 +169,16 @@ namespace BHair.Business
             }
         }
 
-        void SendEmail()
+        void SendEmailtoReceipt()
+        {
+            //EmailControl.ToApplicantWLSubmit(applicationInfo);
+            EmailControl.ToReceiptConfirm(applicationInfo);
+        }
+
+        void SendEmailtoWuliu()
         {
             EmailControl.ToApplicantWLSubmit(applicationInfo);
+            //EmailControl.ToReceiptConfirm(applicationInfo);
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
