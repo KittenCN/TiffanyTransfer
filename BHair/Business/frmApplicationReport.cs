@@ -127,6 +127,8 @@ namespace BHair.Business
             applicationInfo.O_O = dgvAppDetail.SelectedRows[0].Cells["O_O"].Value.ToString();
             applicationInfo.Batch_Num1 = dgvAppDetail.SelectedRows[0].Cells["Batch_Num1"].Value.ToString();
             applicationInfo.Batch_Num2 = dgvAppDetail.SelectedRows[0].Cells["Batch_Num2"].Value.ToString();
+            applicationInfo.DeliverDate= dgvAppDetail.SelectedRows[0].Cells["DeliverDate"].Value.ToString();
+            applicationInfo.ReceiptDate = dgvAppDetail.SelectedRows[0].Cells["ReceiptDate"].Value.ToString();
         }
 
         private void dgvAppDetail_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

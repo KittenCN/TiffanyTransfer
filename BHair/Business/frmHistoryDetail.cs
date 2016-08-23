@@ -66,7 +66,7 @@ namespace BHair.Business
             txtBatch_Num1.SelectedText = applicationInfo.Batch_Num1;
             txtBatch_Num2.SelectedText = applicationInfo.Batch_Num2;
             txtDeliverDate.Text = applicationInfo.DeliverDate;
-            txtReceiptDate.Text = applicationInfo.DeliverDate;
+            txtReceiptDate.Text = applicationInfo.ReceiptDate;
             txtS_O_Str.Text = applicationInfo.S_O_Str;
             txtO_O_Str.Text = applicationInfo.O_O_Str;
         }

@@ -40,6 +40,8 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.App_Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceiptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeliverDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApplicantsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApplicantsPos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApprovalName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,6 +120,8 @@
             this.Price,
             this.App_Count,
             this.TotalPrice,
+            this.ReceiptDate,
+            this.DeliverDate,
             this.ApplicantsName,
             this.ApplicantsPos,
             this.ApprovalName,
@@ -211,6 +215,22 @@
             this.TotalPrice.HeaderText = "总价";
             this.TotalPrice.Name = "TotalPrice";
             this.TotalPrice.ReadOnly = true;
+            // 
+            // ReceiptDate
+            // 
+            this.ReceiptDate.DataPropertyName = "ReceiptDate";
+            this.ReceiptDate.HeaderText = "ReceiptDate";
+            this.ReceiptDate.Name = "ReceiptDate";
+            this.ReceiptDate.ReadOnly = true;
+            this.ReceiptDate.Visible = false;
+            // 
+            // DeliverDate
+            // 
+            this.DeliverDate.DataPropertyName = "DeliverDate";
+            this.DeliverDate.HeaderText = "DeliverDate";
+            this.DeliverDate.Name = "DeliverDate";
+            this.DeliverDate.ReadOnly = true;
+            this.DeliverDate.Visible = false;
             // 
             // ApplicantsName
             // 
@@ -674,6 +694,11 @@
         private System.Windows.Forms.ComboBox txtO_O;
         private System.Windows.Forms.TextBox txtBatch_Num1;
         private System.Windows.Forms.TextBox txtBatch_Num2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox txtO_O_Str;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txtS_O_Str;
+        private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.DataGridViewTextBoxColumn CtrlID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApplicantsDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn DeliverStore;
@@ -684,6 +709,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn App_Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeliverDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApplicantsName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApplicantsPos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApprovalName;
@@ -698,10 +725,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn O_O;
         private System.Windows.Forms.DataGridViewTextBoxColumn Batch_Num1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Batch_Num2;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtO_O_Str;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtS_O_Str;
-        private System.Windows.Forms.Button btnExcel;
     }
 }
