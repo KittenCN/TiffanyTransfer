@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Windows.Forms; 
 
 namespace BHair.Business
 {
-    class GenClass
+    public class GenClass
     {
         public string strSplit(string strStoreTemp)
         {
@@ -53,6 +55,25 @@ namespace BHair.Business
                 }
             }
             return boolResult;
+        }
+        public static DataTable GetDgvToTable(DataGridView dgv)
+        {
+            DataTable dt = new DataTable();
+            for (int count = 0; count < dgv.Columns.Count; count++)
+            {
+                DataColumn dc = new DataColumn(dgv.Columns[count].Name.ToString());
+                dt.Columns.Add(dc);
+            }
+            for (int count = 0; count < dgv.Rows.Count; count++)
+            {
+                DataRow dr = dt.NewRow();
+                for (int countsub = 0; countsub < dgv.Columns.Count; countsub++)
+                {
+                    dr[countsub] = dgv.Rows[count].Cells[countsub].Value.ToString();
+                }
+                dt.Rows.Add(dr);
+            }
+            return dt;
         }
     }
 }

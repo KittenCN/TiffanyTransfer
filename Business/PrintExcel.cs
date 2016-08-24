@@ -730,5 +730,135 @@ namespace BHair.Business
                 app = null;
             }
         }
+        public void WriteToExcelSPB(DataTable thisTable, string FileName, string sheetName)
+        {
+            string strFilePath = FileName;
+            string XLSName = System.IO.Directory.GetCurrentDirectory() + @"\templet\商品部模板.xls";
+            Excel.Application app = new Excel.Application();
+            app.DisplayAlerts = false;
+            app.ScreenUpdating = false;
+            Excel.Workbooks wbks = app.Workbooks;
+            Excel._Workbook _wbk = wbks.Add(XLSName);
+            Excel.Sheets shs = _wbk.Sheets;
+            Excel._Worksheet _wsh = (Excel._Worksheet)shs.get_Item(1);
+            try
+            {
+                int sheetRowsCount = _wsh.UsedRange.Rows.Count;
+                int count = thisTable.Columns.Count;
+
+                //设置列名
+                //foreach (DataColumn myNewColumn in thisTable.Columns)
+                //{
+                //    _wsh.Cells[0, count] = myNewColumn.ColumnName;
+                //    count = count + 1;
+                //}er
+                //for (int i = 0; i < count; i++)
+                //{
+                //    _wsh.Cells[1, i + 1] = thisTable.Columns[i].ColumnName;
+                //}
+
+                //加入內容
+                for (int i = 1; i <= thisTable.Rows.Count; i++)
+                {
+                    _wsh.Cells[i + sheetRowsCount, 1] = "'" + thisTable.Rows[i - 1]["CtrlID"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 2] = thisTable.Rows[i - 1]["DeliverStore"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 3] = thisTable.Rows[i - 1]["ReceiptStore"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 4] = thisTable.Rows[i - 1]["ApplicantsDate"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 5] = thisTable.Rows[i - 1]["ApplicantsName"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 6] = thisTable.Rows[i - 1]["TotalPrice"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 7] = strFinishState(thisTable.Rows[i - 1]["CtrlID"].ToString(), thisTable.Rows[i - 1]["AppState"].ToString());
+                    _wsh.Cells[i + sheetRowsCount, 8] = strAppState(thisTable.Rows[i - 1]["AppState"].ToString(), thisTable.Rows[i - 1]["IsDelete"].ToString());
+                }
+                _wsh.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
+                _wsh.Cells.Columns.AutoFit();
+                _wsh.Cells.Rows.AutoFit();
+                app.ScreenUpdating = true;
+                //若為EXCEL2000, 將最後一個參數拿掉即可             
+                _wbk.SaveAs(strFilePath, Excel.XlFileFormat.xlWorkbookNormal,
+                    null, null, false, false, Excel.XlSaveAsAccessMode.xlShared,
+                    false, false, null, null, null);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //關閉文件
+                _wbk.Close(false, Type.Missing, Type.Missing);
+                app.Workbooks.Close();
+                app.Quit();
+
+                //釋放資源
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(_wsh);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(_wbk);
+                _wsh = null;
+                _wbk = null;
+                app = null;
+            }
+        }
+        public string strAppState(string strIN1,string strIN2)
+        {
+            string strResult = "";
+            if(strIN2!=null && strIN2!="1")
+            {
+                switch (strIN1)
+                {
+                    case "0":
+                        strResult = "未审核";
+                        break;
+                    case "1":
+                        strResult = "商品部审核通过";
+                        break;
+                    case "2":
+                        strResult = "财务部审核通过";
+                        break;
+                    case "3":
+                        strResult = "转出店面确认通过";
+                        break;
+                    case "4":
+                        strResult = "转入店面确认通过";
+                        break;
+                    case "5":
+                        strResult = "物流确认通过";
+                        break;
+                    case "9":
+                        strResult = "已完成";
+                        break;
+                    default:
+                        strResult = "无";
+                        break;
+                }
+            }
+            else
+            {
+                strResult = "已撤销";
+            }
+            return strResult;
+        }
+        public string strFinishState(string strIN1,string strIN2)
+        {
+            string strResult = "";
+            BaseProcess bp = new Business.BaseProcess();
+            if (strIN2!=null && strIN1!= null && strIN2=="9")
+            {
+                if(bp.boolCampareOrder(strIN1))
+                {
+                    strResult = "异常";
+                }
+                else
+                {
+                    strResult = "正常";
+                }
+
+            }
+            else
+            {
+                strResult = "-";
+            }
+            return strResult;
+        }
     }
 }

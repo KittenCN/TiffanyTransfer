@@ -19,6 +19,7 @@ namespace BHair.Business
         public string CtrlID = "";
         string SelectStr = "and 1=1";
         string CtrlType = "未审核";
+        public DataTable dtResult = null;
         /// <summary>商品部转货单状态</summary>
         public frmAppAproval()
         {
@@ -51,10 +52,11 @@ namespace BHair.Business
                 case "全部": ApplicationInfoTable = applicationInfo.SelectAllApplication(""); break;
                 default: ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(""); break;
             }
+            dtResult = ApplicationInfoTable;
             ApplicationInfoTable.Columns.Add("FinishState", typeof(string));
             for (int i = 0; i < ApplicationInfoTable.Rows.Count; i++)
             {
-                if (CtrlType == "已完成")
+                if (ApplicationInfoTable.Rows[i]["AppState"].ToString() == "9")
                 {
                     if (bp.boolCampareOrder(ApplicationInfoTable.Rows[i]["CtrlID"].ToString()))
                     {
@@ -72,14 +74,11 @@ namespace BHair.Business
             }
             dgvApplyInfo.AutoGenerateColumns = false;
             dgvApplyInfo.DataSource = ApplicationInfoTable;
-            if (CtrlType == "已完成")
+            for (int i = 0; i < dgvApplyInfo.Rows.Count; i++)
             {
-                for (int i = 0; i < dgvApplyInfo.Rows.Count; i++)
+                if (dgvApplyInfo.Rows[i].Cells["完成状态"].Value.ToString() == "异常")
                 {
-                    if (dgvApplyInfo.Rows[i].Cells["完成状态"].Value.ToString() == "异常")
-                    {
-                        dgvApplyInfo.Rows[i].Cells["完成状态"].Style.ForeColor = Color.Red;
-                    }
+                    dgvApplyInfo.Rows[i].Cells["完成状态"].Style.ForeColor = Color.Red;
                 }
             }
         }
@@ -164,14 +163,15 @@ namespace BHair.Business
                 case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(SelectStr); break;
                 case "最终确认": ApplicationInfoTable = applicationInfo.SelectAlterAppByApproval(SelectStr); break;
                 case "已完成": ApplicationInfoTable = applicationInfo.SelectFinishAppByApproval(SelectStr); break;
-                case "财务待完成": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(""); break;
+                case "财务待完成": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(SelectStr); break;
                 case "全部": ApplicationInfoTable = applicationInfo.SelectAllApplication(SelectStr); break;
                 default: ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(SelectStr); break;
             }
+            dtResult = ApplicationInfoTable;
             ApplicationInfoTable.Columns.Add("FinishState", typeof(string));
             for (int i = 0; i < ApplicationInfoTable.Rows.Count; i++)
             {
-                if (CtrlType == "已完成")
+                if (ApplicationInfoTable.Rows[i]["AppState"].ToString() == "9")
                 {
                     if (bp.boolCampareOrder(ApplicationInfoTable.Rows[i]["CtrlID"].ToString()))
                     {
@@ -188,14 +188,11 @@ namespace BHair.Business
                 }
             }
             dgvApplyInfo.DataSource = ApplicationInfoTable;
-            if (CtrlType == "已完成")
+            for (int i = 0; i < dgvApplyInfo.Rows.Count; i++)
             {
-                for (int i = 0; i < dgvApplyInfo.Rows.Count; i++)
+                if (dgvApplyInfo.Rows[i].Cells["FinishState"].Value.ToString() == "异常")
                 {
-                    if (dgvApplyInfo.Rows[i].Cells["FinishState"].Value.ToString() == "异常")
-                    {
-                        dgvApplyInfo.Rows[i].Cells["FinishState"].Style.ForeColor = Color.Red;
-                    }
+                    dgvApplyInfo.Rows[i].Cells["FinishState"].Style.ForeColor = Color.Red;
                 }
             }
         }
@@ -329,7 +326,7 @@ namespace BHair.Business
         {
             for (int x = 0; x < dgvApplyInfo.Rows.Count; x++)
             {
-                if(dgvApplyInfo.Rows[x].Cells["dgChecked"].Value != null && dgvApplyInfo.Rows[x].Cells["dgChecked"].Value.ToString() == "True")
+                if (dgvApplyInfo.Rows[x].Cells["dgChecked"].Value != null && dgvApplyInfo.Rows[x].Cells["dgChecked"].Value.ToString() == "True")
                 {
                     dgvApplyInfo.Rows[x].Cells["dgChecked"].Value = null;
                 }
@@ -404,6 +401,30 @@ namespace BHair.Business
         private void dgvApplyInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnOuttoExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            DialogResult result = saveFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    string localFilePath = saveFileDialog.FileName.ToString();
+                    //string tempFilePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strRandom + ".xls";
+                    PrintExcel pe = new PrintExcel();
+                    pe.WriteToExcelSPB(dtResult, localFilePath, "Sheet1");
+                    //PrintPDF pp = new PrintPDF();
+                    //pp.XLSConvertToPDF(tempFilePath, localFilePath);
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }
