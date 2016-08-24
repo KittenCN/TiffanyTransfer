@@ -406,25 +406,33 @@ namespace BHair.Business
 
         private void btnOuttoExcel_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
-            DialogResult result = saveFileDialog.ShowDialog();
-            if (result == DialogResult.OK)
+            if(CtrlType == "全部")
             {
-                try
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+                DialogResult result = saveFileDialog.ShowDialog();
+                if (result == DialogResult.OK)
                 {
-                    string localFilePath = saveFileDialog.FileName.ToString();
-                    //string tempFilePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strRandom + ".xls";
-                    PrintExcel pe = new PrintExcel();
-                    pe.WriteToExcelSPB(dtResult, localFilePath, "Sheet1");
-                    //PrintPDF pp = new PrintPDF();
-                    //pp.XLSConvertToPDF(tempFilePath, localFilePath);
-                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        string localFilePath = saveFileDialog.FileName.ToString();
+                        //string tempFilePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strRandom + ".xls";
+                        dtResult = applicationInfo.SelectAllDetail("");
+                        PrintExcel pe = new PrintExcel();
+                        pe.WriteToExcelSPB(dtResult, localFilePath, "Sheet1");
+                        //PrintPDF pp = new PrintPDF();
+                        //pp.XLSConvertToPDF(tempFilePath, localFilePath);
+                        MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            }
+            else
+            {
+                MessageBox.Show("保存失败,仅全部选择项且无搜索项的条件下,可导出明细EXCEL", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

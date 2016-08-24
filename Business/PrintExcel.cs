@@ -761,13 +761,15 @@ namespace BHair.Business
                 for (int i = 1; i <= thisTable.Rows.Count; i++)
                 {
                     _wsh.Cells[i + sheetRowsCount, 1] = "'" + thisTable.Rows[i - 1]["CtrlID"].ToString();
-                    _wsh.Cells[i + sheetRowsCount, 2] = thisTable.Rows[i - 1]["DeliverStore"].ToString();
-                    _wsh.Cells[i + sheetRowsCount, 3] = thisTable.Rows[i - 1]["ReceiptStore"].ToString();
-                    _wsh.Cells[i + sheetRowsCount, 4] = thisTable.Rows[i - 1]["ApplicantsDate"].ToString();
-                    _wsh.Cells[i + sheetRowsCount, 5] = thisTable.Rows[i - 1]["ApplicantsName"].ToString();
-                    _wsh.Cells[i + sheetRowsCount, 6] = thisTable.Rows[i - 1]["TotalPrice"].ToString();
-                    _wsh.Cells[i + sheetRowsCount, 7] = strFinishState(thisTable.Rows[i - 1]["CtrlID"].ToString(), thisTable.Rows[i - 1]["AppState"].ToString());
-                    _wsh.Cells[i + sheetRowsCount, 8] = strAppState(thisTable.Rows[i - 1]["AppState"].ToString(), thisTable.Rows[i - 1]["IsDelete"].ToString());
+                    _wsh.Cells[i + sheetRowsCount, 2] = "'" + thisTable.Rows[i - 1]["ItemID"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 3] = "'" + thisTable.Rows[i - 1]["ItemID2"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 4] = "'" + thisTable.Rows[i - 1]["DeliverStore"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 5] = "'" + thisTable.Rows[i - 1]["ReceiptStore"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 6] = "'" + thisTable.Rows[i - 1]["ApplicantsDate"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 7] = "'" + thisTable.Rows[i - 1]["ApplicantsName"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 8] = "'" + thisTable.Rows[i - 1]["TotalPrice"].ToString();
+                    _wsh.Cells[i + sheetRowsCount, 9] = "'" + strFinishState(thisTable.Rows[i - 1]["CtrlID"].ToString(), thisTable.Rows[i - 1]["AppState"].ToString());
+                    _wsh.Cells[i + sheetRowsCount, 10] = "'" + strAppState(thisTable.Rows[i - 1]["AppState"].ToString(), thisTable.Rows[i - 1]["IsDelete"].ToString());
                 }
                 _wsh.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
                 _wsh.Cells.Columns.AutoFit();

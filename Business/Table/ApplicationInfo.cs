@@ -395,7 +395,14 @@ namespace BHair.Business.Table
             ah.Close();
             return Result;
         }
-
+        public DataTable SelectAllDetail(string sql)
+        {
+            AccessHelper ah = new AccessHelper();
+            string sqlString = string.Format("select a.CtrlID,b.ItemID,b.ItemID2,a.DeliverStore,a.ReceiptStore,a.ApplicantsDate,a.ApplicantsName,a.TotalPrice,a.AppState,a.IsDelete from ApplicationInfo a left join ApplicationDetail b on  a.CtrlID=b.CtrlID where a.IsDelete=0 and b.IsDelete=0 {0} order by [ApplicantsDate] desc", sql);
+            DataTable Result = ah.SelectToDataTable(sqlString);
+            ah.Close();
+            return Result;
+        }
         /// <summary>
         /// 财务部查询ApplicationInfo
         /// </summary>
