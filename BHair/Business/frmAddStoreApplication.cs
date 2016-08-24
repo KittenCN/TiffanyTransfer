@@ -31,6 +31,7 @@ namespace BHair.Business
             cbDeliverStore.SelectedItem = applicationInfo.DeliverStore;
             cbRecieveStore.SelectedItem = applicationInfo.ReceiptStore;
             cboExchangeType.SelectedItem = applicationInfo.ExchangeType;
+            txtWuliuID.Text = ai.WuliuID;
             DeliverOrReceipt = DorR;
             if (DeliverOrReceipt == "待发货") { TabText = "转货单输入"; Text = "转货单输入"; txtWuliuID.Visible = true; label5.Visible = true; label3.Text = "发货日期"; label48.Text = "发货之前的检查，是否有损坏没有写无，有则写明货号"; BtnSubmitAddApp.Text = "提交转货单"; }
             else if (DeliverOrReceipt=="待收货") { TabText = "转货单输入"; Text = "转货单输入"; label3.Text = "收货日期"; label48.Text = "收货之前的检查，是否有损坏.没有写无，有则写明货号"; BtnSubmitAddApp.Text = "提交转货单"; }

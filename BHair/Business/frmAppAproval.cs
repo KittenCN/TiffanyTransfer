@@ -175,11 +175,11 @@ namespace BHair.Business
                 {
                     if (bp.boolCampareOrder(ApplicationInfoTable.Rows[i]["CtrlID"].ToString()))
                     {
-                        ApplicationInfoTable.Rows[i]["完成状态"] = "异常";
+                        ApplicationInfoTable.Rows[i]["FinishState"] = "异常";
                     }
                     else
                     {
-                        ApplicationInfoTable.Rows[i]["完成状态"] = "正常";
+                        ApplicationInfoTable.Rows[i]["FinishState"] = "正常";
                     }
                 }
                 else
@@ -187,12 +187,13 @@ namespace BHair.Business
                     ApplicationInfoTable.Rows[i]["FinishState"] = "-";
                 }
             }
+            dgvApplyInfo.AutoGenerateColumns = false;
             dgvApplyInfo.DataSource = ApplicationInfoTable;
             for (int i = 0; i < dgvApplyInfo.Rows.Count; i++)
             {
-                if (dgvApplyInfo.Rows[i].Cells["FinishState"].Value.ToString() == "异常")
+                if (dgvApplyInfo.Rows[i].Cells["完成状态"].Value.ToString() == "异常")
                 {
-                    dgvApplyInfo.Rows[i].Cells["FinishState"].Style.ForeColor = Color.Red;
+                    dgvApplyInfo.Rows[i].Cells["完成状态"].Style.ForeColor = Color.Red;
                 }
             }
         }

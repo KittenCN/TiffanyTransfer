@@ -108,6 +108,7 @@ namespace BHair.Business
                 applicationInfo.S_O_Str = dgvApplyInfo.SelectedRows[0].Cells["S_O_Str"].Value.ToString();
                 applicationInfo.O_O_Str = dgvApplyInfo.SelectedRows[0].Cells["O_O_Str"].Value.ToString();
                 applicationInfo.WuliuDate = dgvApplyInfo.SelectedRows[0].Cells["WuliuDate"].Value.ToString();
+                applicationInfo.WuliuID = dgvApplyInfo.SelectedRows[0].Cells["WuliuID"].Value.ToString();
             }
         }
 
