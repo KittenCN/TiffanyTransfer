@@ -241,7 +241,7 @@ namespace BHair.Business.Table
         {
             DataTable Result = null;
             Boolean boolFlag = false;
-            for (int i = 0; i < Applicants.Length - 1; i++)
+            for (int i = 0; i < Applicants.Length; i++)
             {
                 AccessHelper ah = new AccessHelper();
                 string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState<5 and ( DeliverStore='{0}' or ReceiptStore='{0}') {1} order by [ApplicantsDate] desc", Applicants[i].ToString(), sql);
@@ -273,7 +273,7 @@ namespace BHair.Business.Table
         {
             DataTable Result = null;
             Boolean boolFlag = false;
-            for (int i = 0; i < Applicants.Length - 1; i++)
+            for (int i = 0; i < Applicants.Length; i++)
             {
                 AccessHelper ah = new AccessHelper();
                 string sqlString = string.Format("select * from ApplicationInfo where IsDelete=0 and AppState=9 and ( DeliverStore='{0}' or ReceiptStore='{0}') {1} order by [ApplicantsDate] desc", Applicants[i].ToString(), sql);
@@ -426,7 +426,7 @@ namespace BHair.Business.Table
         {
             DataTable Result = null;
             Boolean boolFlag = false;
-            for (int i = 0; i < Store.Length - 1; i++)
+            for (int i = 0; i < Store.Length; i++)
             {
                 AccessHelper ah = new AccessHelper();
                 string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=2  and DeliverStore = '{0}' {1} order by [ApplicantsDate] desc", Store[i].ToString(), sql);
@@ -458,7 +458,7 @@ namespace BHair.Business.Table
         {
             DataTable Result = null;
             Boolean boolFlag = false;
-            for (int i = 0; i < Store.Length - 1; i++)
+            for (int i = 0; i < Store.Length; i++)
             {
                 AccessHelper ah = new AccessHelper();
                 string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=3 and ApprovalState =1 and ApprovalState2 = 1 and DeliverState = 1 and ReceiptState = 0 and ReceiptStore = '{0}' {1} order by [ApplicantsDate] desc", Store[i].ToString(), sql);

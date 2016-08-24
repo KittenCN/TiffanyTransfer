@@ -276,9 +276,13 @@ namespace BHair.Business
             string[] strStoreTemp =Login.LoginUser.Store.ToString().Split(',');
             if(strStoreTemp[0]!="" && strStoreTemp[0]!=null && strStoreTemp.Length>1)
             {
-                for (int i = 0; i < strStoreTemp.Length - 1; i++)
+                for (int i = 0; i < strStoreTemp.Length; i++)
                 {
-                    cbRecieveStore.Items.Add(strStoreTemp[i].ToString());
+                    if (strStoreTemp[i].ToString() != null && strStoreTemp[i].ToString() != "")
+                    {
+                        cbRecieveStore.Items.Add(strStoreTemp[i].ToString());
+                    }
+                        
                 }
             }
             else
