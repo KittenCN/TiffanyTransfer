@@ -243,22 +243,25 @@ namespace BHair.Business.Table
             Boolean boolFlag = false;
             for (int i = 0; i < Applicants.Length; i++)
             {
-                AccessHelper ah = new AccessHelper();
-                string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState<5 and ( DeliverStore='{0}' or ReceiptStore='{0}') {1} order by [ApplicantsDate] desc", Applicants[i].ToString(), sql);
-                DataTable tempResult = ah.SelectToDataTable(sqlString);
-                if (boolFlag == false)
+                if (Applicants[i].ToString() != null && Applicants[i].ToString() != "")
                 {
-                    Result = tempResult;
-                    boolFlag = true;
-                }
-                else
-                {
-                    foreach (DataRow dr in tempResult.Rows)
+                    AccessHelper ah = new AccessHelper();
+                    string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState<9 and ( DeliverStore='{0}' or ReceiptStore='{0}') {1} order by [ApplicantsDate] desc", Applicants[i].ToString(), sql);
+                    DataTable tempResult = ah.SelectToDataTable(sqlString);
+                    if (boolFlag == false)
                     {
-                        Result.Rows.Add(dr.ItemArray);
+                        Result = tempResult;
+                        boolFlag = true;
                     }
+                    else
+                    {
+                        foreach (DataRow dr in tempResult.Rows)
+                        {
+                            Result.Rows.Add(dr.ItemArray);
+                        }
+                    }
+                    ah.Close();
                 }
-                ah.Close();
             }
 
             return Result;
@@ -275,22 +278,25 @@ namespace BHair.Business.Table
             Boolean boolFlag = false;
             for (int i = 0; i < Applicants.Length; i++)
             {
-                AccessHelper ah = new AccessHelper();
-                string sqlString = string.Format("select * from ApplicationInfo where IsDelete=0 and AppState=9 and ( DeliverStore='{0}' or ReceiptStore='{0}') {1} order by [ApplicantsDate] desc", Applicants[i].ToString(), sql);
-                DataTable tempResult = ah.SelectToDataTable(sqlString);
-                if (boolFlag == false)
+                if (Applicants[i].ToString() != null && Applicants[i].ToString() != "")
                 {
-                    Result = tempResult;
-                    boolFlag = true;
-                }
-                else
-                {
-                    foreach (DataRow dr in tempResult.Rows)
+                    AccessHelper ah = new AccessHelper();
+                    string sqlString = string.Format("select * from ApplicationInfo where IsDelete=0 and AppState=9 and ( DeliverStore='{0}' or ReceiptStore='{0}') {1} order by [ApplicantsDate] desc", Applicants[i].ToString(), sql);
+                    DataTable tempResult = ah.SelectToDataTable(sqlString);
+                    if (boolFlag == false)
                     {
-                        Result.Rows.Add(dr.ItemArray);
+                        Result = tempResult;
+                        boolFlag = true;
                     }
+                    else
+                    {
+                        foreach (DataRow dr in tempResult.Rows)
+                        {
+                            Result.Rows.Add(dr.ItemArray);
+                        }
+                    }
+                    ah.Close();
                 }
-                ah.Close();
             }
 
             return Result;
@@ -428,22 +434,25 @@ namespace BHair.Business.Table
             Boolean boolFlag = false;
             for (int i = 0; i < Store.Length; i++)
             {
-                AccessHelper ah = new AccessHelper();
-                string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=2  and DeliverStore = '{0}' {1} order by [ApplicantsDate] desc", Store[i].ToString(), sql);
-                DataTable tempResult = ah.SelectToDataTable(sqlString);
-                if (boolFlag==false)
+                if(Store[i].ToString()!=null && Store[i].ToString()!="")
                 {
-                    Result = tempResult;
-                    boolFlag = true;
-                }
-                else
-                {
-                    foreach (DataRow dr in tempResult.Rows)
+                    AccessHelper ah = new AccessHelper();
+                    string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=2  and DeliverStore = '{0}' {1} order by [ApplicantsDate] desc", Store[i].ToString(), sql);
+                    DataTable tempResult = ah.SelectToDataTable(sqlString);
+                    if (boolFlag == false)
                     {
-                        Result.Rows.Add(dr.ItemArray);
+                        Result = tempResult;
+                        boolFlag = true;
                     }
+                    else
+                    {
+                        foreach (DataRow dr in tempResult.Rows)
+                        {
+                            Result.Rows.Add(dr.ItemArray);
+                        }
+                    }
+                    ah.Close();
                 }
-                ah.Close();
             }
 
             return Result;
@@ -460,22 +469,25 @@ namespace BHair.Business.Table
             Boolean boolFlag = false;
             for (int i = 0; i < Store.Length; i++)
             {
-                AccessHelper ah = new AccessHelper();
-                string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=3 and ApprovalState =1 and ApprovalState2 = 1 and DeliverState = 1 and ReceiptState = 0 and ReceiptStore = '{0}' {1} order by [ApplicantsDate] desc", Store[i].ToString(), sql);
-                DataTable tempResult = ah.SelectToDataTable(sqlString);
-                if (boolFlag == false)
+                if (Store[i].ToString() != null && Store[i].ToString() != "")
                 {
-                    Result = tempResult;
-                    boolFlag = true;
-                }
-                else
-                {
-                    foreach (DataRow dr in tempResult.Rows)
+                    AccessHelper ah = new AccessHelper();
+                    string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and AppState=3 and ApprovalState =1 and ApprovalState2 = 1 and DeliverState = 1 and ReceiptState = 0 and ReceiptStore = '{0}' {1} order by [ApplicantsDate] desc", Store[i].ToString(), sql);
+                    DataTable tempResult = ah.SelectToDataTable(sqlString);
+                    if (boolFlag == false)
                     {
-                        Result.Rows.Add(dr.ItemArray);
+                        Result = tempResult;
+                        boolFlag = true;
                     }
+                    else
+                    {
+                        foreach (DataRow dr in tempResult.Rows)
+                        {
+                            Result.Rows.Add(dr.ItemArray);
+                        }
+                    }
+                    ah.Close();
                 }
-                ah.Close();
             }
 
             return Result;
