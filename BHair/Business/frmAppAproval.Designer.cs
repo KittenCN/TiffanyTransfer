@@ -105,6 +105,7 @@
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
+            this.btnFinishState = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -762,6 +763,7 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.btnFinishState);
             this.panel3.Controls.Add(this.btnOuttoExcel);
             this.panel3.Controls.Add(this.btnSelectAll);
             this.panel3.Controls.Add(this.cbCtrlType);
@@ -821,6 +823,16 @@
             this.BtnChoose.Text = "查询";
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
+            // 
+            // btnFinishState
+            // 
+            this.btnFinishState.Location = new System.Drawing.Point(289, 10);
+            this.btnFinishState.Name = "btnFinishState";
+            this.btnFinishState.Size = new System.Drawing.Size(90, 23);
+            this.btnFinishState.TabIndex = 6;
+            this.btnFinishState.Text = "计算完成状态";
+            this.btnFinishState.UseVisualStyleBackColor = true;
+            this.btnFinishState.Click += new System.EventHandler(this.btnFinishState_Click);
             // 
             // frmAppAproval
             // 
@@ -931,5 +943,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn ApprovalState;
         private System.Windows.Forms.DataGridViewCheckBoxColumn FinalState;
         private System.Windows.Forms.Button btnOuttoExcel;
+        private System.Windows.Forms.Button btnFinishState;
     }
 }

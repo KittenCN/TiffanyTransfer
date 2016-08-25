@@ -42,7 +42,6 @@ namespace BHair.Business
         public void GetApplicationDetail()
         {
             ApplicationInfoTable = new DataTable();
-            BaseProcess bp = new BaseProcess();
             switch (CtrlType)
             {
                 case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(""); break;
@@ -54,33 +53,37 @@ namespace BHair.Business
             }
             dtResult = ApplicationInfoTable;
             ApplicationInfoTable.Columns.Add("FinishState", typeof(string));
-            for (int i = 0; i < ApplicationInfoTable.Rows.Count; i++)
-            {
-                if (ApplicationInfoTable.Rows[i]["AppState"].ToString() == "9")
-                {
-                    if (bp.boolCampareOrder(ApplicationInfoTable.Rows[i]["CtrlID"].ToString()))
-                    {
-                        ApplicationInfoTable.Rows[i]["FinishState"] = "异常";
-                    }
-                    else
-                    {
-                        ApplicationInfoTable.Rows[i]["FinishState"] = "正常";
-                    }
-                }
-                else
-                {
-                    ApplicationInfoTable.Rows[i]["FinishState"] = "-";
-                }
-            }
             dgvApplyInfo.AutoGenerateColumns = false;
             dgvApplyInfo.DataSource = ApplicationInfoTable;
-            for (int i = 0; i < dgvApplyInfo.Rows.Count; i++)
-            {
-                if (dgvApplyInfo.Rows[i].Cells["完成状态"].Value.ToString() == "异常")
-                {
-                    dgvApplyInfo.Rows[i].Cells["完成状态"].Style.ForeColor = Color.Red;
-                }
-            }
+            //if(CtrlType== "已完成")
+            //{
+            //    BaseProcess bp = new BaseProcess();
+            //    for (int i = 0; i < ApplicationInfoTable.Rows.Count; i++)
+            //    {
+            //        if (ApplicationInfoTable.Rows[i]["AppState"].ToString() == "9")
+            //        {
+            //            if (bp.boolCampareOrder(ApplicationInfoTable.Rows[i]["CtrlID"].ToString()))
+            //            {
+            //                ApplicationInfoTable.Rows[i]["FinishState"] = "异常";
+            //            }
+            //            else
+            //            {
+            //                ApplicationInfoTable.Rows[i]["FinishState"] = "正常";
+            //            }
+            //        }
+            //        else
+            //        {
+            //            ApplicationInfoTable.Rows[i]["FinishState"] = "-";
+            //        }
+            //    }
+            //    for (int i = 0; i < dgvApplyInfo.Rows.Count; i++)
+            //    {
+            //        if (dgvApplyInfo.Rows[i].Cells["完成状态"].Value.ToString() == "异常")
+            //        {
+            //            dgvApplyInfo.Rows[i].Cells["完成状态"].Style.ForeColor = Color.Red;
+            //        }
+            //    }
+            //}
         }
 
         private void BtnSelect_Click(object sender, EventArgs e)
@@ -157,7 +160,6 @@ namespace BHair.Business
 
         private void BtnChoose_Click(object sender, EventArgs e)
         {
-            BaseProcess bp = new BaseProcess();
             switch (CtrlType)
             {
                 case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(SelectStr); break;
@@ -169,33 +171,37 @@ namespace BHair.Business
             }
             dtResult = ApplicationInfoTable;
             ApplicationInfoTable.Columns.Add("FinishState", typeof(string));
-            for (int i = 0; i < ApplicationInfoTable.Rows.Count; i++)
-            {
-                if (ApplicationInfoTable.Rows[i]["AppState"].ToString() == "9")
-                {
-                    if (bp.boolCampareOrder(ApplicationInfoTable.Rows[i]["CtrlID"].ToString()))
-                    {
-                        ApplicationInfoTable.Rows[i]["FinishState"] = "异常";
-                    }
-                    else
-                    {
-                        ApplicationInfoTable.Rows[i]["FinishState"] = "正常";
-                    }
-                }
-                else
-                {
-                    ApplicationInfoTable.Rows[i]["FinishState"] = "-";
-                }
-            }
             dgvApplyInfo.AutoGenerateColumns = false;
             dgvApplyInfo.DataSource = ApplicationInfoTable;
-            for (int i = 0; i < dgvApplyInfo.Rows.Count; i++)
-            {
-                if (dgvApplyInfo.Rows[i].Cells["完成状态"].Value.ToString() == "异常")
-                {
-                    dgvApplyInfo.Rows[i].Cells["完成状态"].Style.ForeColor = Color.Red;
-                }
-            }
+            //if(CtrlType== "已完成")
+            //{
+            //    BaseProcess bp = new BaseProcess();
+            //    for (int i = 0; i < ApplicationInfoTable.Rows.Count; i++)
+            //    {
+            //        if (ApplicationInfoTable.Rows[i]["AppState"].ToString() == "9")
+            //        {
+            //            if (bp.boolCampareOrder(ApplicationInfoTable.Rows[i]["CtrlID"].ToString()))
+            //            {
+            //                ApplicationInfoTable.Rows[i]["FinishState"] = "异常";
+            //            }
+            //            else
+            //            {
+            //                ApplicationInfoTable.Rows[i]["FinishState"] = "正常";
+            //            }
+            //        }
+            //        else
+            //        {
+            //            ApplicationInfoTable.Rows[i]["FinishState"] = "-";
+            //        }
+            //    }
+            //    for (int i = 0; i < dgvApplyInfo.Rows.Count; i++)
+            //    {
+            //        if (dgvApplyInfo.Rows[i].Cells["完成状态"].Value.ToString() == "异常")
+            //        {
+            //            dgvApplyInfo.Rows[i].Cells["完成状态"].Style.ForeColor = Color.Red;
+            //        }
+            //    }
+            //}
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -433,6 +439,36 @@ namespace BHair.Business
             else
             {
                 MessageBox.Show("保存失败,仅全部选择项且无搜索项的条件下,可导出明细EXCEL", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnFinishState_Click(object sender, EventArgs e)
+        {
+            BaseProcess bp = new BaseProcess();
+            for (int i = 0; i < ApplicationInfoTable.Rows.Count; i++)
+            {
+                if (ApplicationInfoTable.Rows[i]["AppState"].ToString() == "9")
+                {
+                    if (bp.boolCampareOrder(ApplicationInfoTable.Rows[i]["CtrlID"].ToString()))
+                    {
+                        ApplicationInfoTable.Rows[i]["FinishState"] = "异常";
+                    }
+                    else
+                    {
+                        ApplicationInfoTable.Rows[i]["FinishState"] = "正常";
+                    }
+                }
+                else
+                {
+                    ApplicationInfoTable.Rows[i]["FinishState"] = "-";
+                }
+            }
+            for (int i = 0; i < dgvApplyInfo.Rows.Count; i++)
+            {
+                if (dgvApplyInfo.Rows[i].Cells["完成状态"].Value.ToString() == "异常")
+                {
+                    dgvApplyInfo.Rows[i].Cells["完成状态"].Style.ForeColor = Color.Red;
+                }
             }
         }
     }
