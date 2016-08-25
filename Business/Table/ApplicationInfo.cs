@@ -310,7 +310,7 @@ namespace BHair.Business.Table
         public DataTable SelectApplicationByCtrlID(string CtrlID)
         {
             AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and  CtrlID = '{0}' ", CtrlID);
+            string sqlString = string.Format("select * from ApplicationInfo where IsDelete = 0 and  CtrlID = '{0}' order by [ApplicantsDate] desc ", CtrlID);
             DataTable Result = ah.SelectToDataTable(sqlString);
             ah.Close();
             return Result;
