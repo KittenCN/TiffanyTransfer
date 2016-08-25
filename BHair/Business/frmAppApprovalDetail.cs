@@ -21,6 +21,7 @@ namespace BHair.Business
          ApplicationDetail applicationDetail = new ApplicationDetail();
         public string CtrlID = "";
         string ctrlType = "未审核";
+        DataTable applicationInfoDT = new DataTable();
         /// <summary>商品部审批转货单详情</summary>
         public frmAppApprovalDetail(ApplicationInfo ParentAppInfo, string CtrlType)
         {
@@ -275,6 +276,62 @@ namespace BHair.Business
         private void frmAppApprovalDetail_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
+        }
+
+        private void btnEditWuliu_Click(object sender, EventArgs e)
+        {
+            if(btnEditWuliu.Text=="修改物流信息")
+            {
+                btnEditWuliu.Text = "保存修改";
+                txtS_O.Enabled = true;
+                txtS_O_Str.Enabled = true;
+                txtO_O.Enabled = true;
+                txtO_O_Str.Enabled = true;
+                txtBatch_Num1.Enabled = true;
+                txtBatch_Num2.Enabled = true;
+            }
+            else
+            {
+                btnEditWuliu.Text = "修改物流信息";
+                txtS_O.Enabled = false;
+                txtS_O_Str.Enabled = false;
+                txtO_O.Enabled = false;
+                txtO_O_Str.Enabled = false;
+                txtBatch_Num1.Enabled = false;
+                txtBatch_Num2.Enabled = false;
+
+                if (applicationInfo.CtrlID != null && txtS_O_Str.Text != "" && txtO_O_Str.Text != "" && txtBatch_Num1.Text != "" && txtBatch_Num2.Text != "")
+                {
+                    try
+                    {
+                        ApplicationInfo applicationInfo = new ApplicationInfo();
+                        GetData();
+                        applicationInfo.UpdateApplicationInfo(applicationInfoDT);
+                        GetApplicationDetail();
+                        this.Close(); 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("确认失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("有必填项目为空!确认失败!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        void GetData()
+        {
+            applicationInfoDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
+            applicationInfoDT.Rows[0]["S_O"] = txtS_O.SelectedItem.ToString();
+            applicationInfoDT.Rows[0]["O_O"] = txtO_O.SelectedItem.ToString();
+            applicationInfoDT.Rows[0]["Batch_Num1"] = txtBatch_Num1.Text;
+            applicationInfoDT.Rows[0]["Batch_Num2"] = txtBatch_Num2.Text;
+
+            applicationInfoDT.Rows[0]["S_O_Str"] = txtS_O_Str.Text;
+            applicationInfoDT.Rows[0]["O_O_Str"] = txtO_O_Str.Text;
+            //applicationInfoDT.Rows[0]["WuliuDate"] = txtWuliuDate.Value;
         }
     }
 }

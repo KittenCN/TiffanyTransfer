@@ -129,6 +129,7 @@
             this.BtnExit = new System.Windows.Forms.Button();
             this.ApprovalPanel = new System.Windows.Forms.Panel();
             this.BtnApprovalOK = new System.Windows.Forms.Button();
+            this.btnEditWuliu = new System.Windows.Forms.Button();
             this.groupBox20.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -877,12 +878,12 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(729, 136);
             this.panel2.TabIndex = 129;
-            this.panel2.Visible = false;
             // 
             // groupBox5
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.btnEditWuliu);
             this.groupBox5.Controls.Add(this.txtWuliuDate);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.txtO_O_Str);
@@ -1146,6 +1147,16 @@
             this.BtnApprovalOK.UseVisualStyleBackColor = true;
             this.BtnApprovalOK.Click += new System.EventHandler(this.BtnApprovalOK_Click);
             // 
+            // btnEditWuliu
+            // 
+            this.btnEditWuliu.Location = new System.Drawing.Point(531, 97);
+            this.btnEditWuliu.Name = "btnEditWuliu";
+            this.btnEditWuliu.Size = new System.Drawing.Size(90, 23);
+            this.btnEditWuliu.TabIndex = 14;
+            this.btnEditWuliu.Text = "修改物流信息";
+            this.btnEditWuliu.UseVisualStyleBackColor = true;
+            this.btnEditWuliu.Click += new System.EventHandler(this.btnEditWuliu_Click);
+            // 
             // frmAppApprovalDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1294,8 +1305,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemHighlight;
         private System.Windows.Forms.Button btnDiffApp;
-
-
-
+        private System.Windows.Forms.Button btnEditWuliu;
     }
 }

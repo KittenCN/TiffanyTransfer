@@ -158,10 +158,8 @@ namespace BHair.Business
             if (applicationInfo.CtrlID != null)
             {
                 frmAppDoneDetail fadd = new frmAppDoneDetail(applicationInfo, CtrlType);
-                if (fadd.ShowDialog() == DialogResult.OK)
-                {
-                    this.GetApplicationDetail();
-                }
+                fadd.ShowDialog();
+                this.GetApplicationDetail();
             }
             else
             {
@@ -178,10 +176,8 @@ namespace BHair.Business
         private void dgvApplyInfo_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             frmAppDoneDetail fadd = new frmAppDoneDetail(applicationInfo, CtrlType);
-            if (fadd.ShowDialog() == DialogResult.OK)
-            {
-                this.GetApplicationDetail();
-            }
+            fadd.ShowDialog();
+            this.GetApplicationDetail();
         }
 
         private void frmAppDone_Load(object sender, EventArgs e)

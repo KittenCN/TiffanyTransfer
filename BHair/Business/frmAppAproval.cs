@@ -95,6 +95,7 @@ namespace BHair.Business
                 {
                     this.GetApplicationDetail();
                 }
+                this.GetApplicationDetail();
             }
             else
             {
@@ -315,6 +316,7 @@ namespace BHair.Business
                 {
                     this.GetApplicationDetail();
                 }
+                this.GetApplicationDetail();
             }
         }
 
