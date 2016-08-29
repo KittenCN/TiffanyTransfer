@@ -32,6 +32,14 @@ namespace BHair.Business
             GetApplicationDetail();
             InitButton(CtrlType);
             //txtApproval.Text = Login.LoginUser.UserName;
+            if(Login.LoginUser.Character==4)
+            {
+                BtnApprovalOK.Visible = false;
+                btnDiffApp.Visible = false;
+                btnDiffItem.Visible = false;
+                btnEdit.Visible = false;
+                btnFinalConfirm.Visible = false;
+            }
         }
 
 

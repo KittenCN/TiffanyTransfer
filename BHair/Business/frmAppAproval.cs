@@ -25,10 +25,24 @@ namespace BHair.Business
         {
             InitializeComponent();
             GetApplicationDetail();
-            cbCtrlType.Items.Add("未审核");
-            cbCtrlType.Items.Add("已完成");
-            cbCtrlType.Items.Add("财务待完成");
-            cbCtrlType.Items.Add("全部");
+            if (Login.LoginUser.Character == 4)
+            {
+                cbCtrlType.Items.Add("物流部历史");
+                btnApprovalAll.Visible = false;
+                btnDelete.Visible = false;
+                btnFinishState.Visible = false;
+                btnOuttoExcel.Visible = false;
+                btnImportApp.Visible = false;
+                btnSelectAll.Visible = false;
+            }
+            else
+            {
+                cbCtrlType.Items.Add("未审核");
+                cbCtrlType.Items.Add("已完成");
+                cbCtrlType.Items.Add("财务待完成");
+                cbCtrlType.Items.Add("全部");
+            }
+
             cbCtrlType.SelectedIndex = 0;
         }
 
@@ -44,6 +58,7 @@ namespace BHair.Business
             ApplicationInfoTable = new DataTable();
             switch (CtrlType)
             {
+                case "物流部历史": ApplicationInfoTable = applicationInfo.SelectHistoryFinalApplication("", Login.LoginUser.UID); break;
                 case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(""); break;
                 case "最终确认": ApplicationInfoTable = applicationInfo.SelectAlterAppByApproval(""); break;
                 case "已完成": ApplicationInfoTable = applicationInfo.SelectFinishAppByApproval(""); break;
@@ -163,6 +178,7 @@ namespace BHair.Business
         {
             switch (CtrlType)
             {
+                case "物流部历史": ApplicationInfoTable = applicationInfo.SelectHistoryFinalApplication(SelectStr, Login.LoginUser.UID); break;
                 case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(SelectStr); break;
                 case "最终确认": ApplicationInfoTable = applicationInfo.SelectAlterAppByApproval(SelectStr); break;
                 case "已完成": ApplicationInfoTable = applicationInfo.SelectFinishAppByApproval(SelectStr); break;

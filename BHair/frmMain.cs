@@ -518,6 +518,9 @@ namespace BHair
             }
             else if (Login.LoginUser.Character == 4)
             {
+                toolStripButton5.Text = "单据修改";
+                toolStripButton5.ToolTipText = "单据修改";
+
                 menuMain_Flow_add.Visible = false;
                 menuMain_Manage_StoreApp.Visible = false;
                 menuMain_Manage_Approval2App.Visible = false;
@@ -538,7 +541,7 @@ namespace BHair
                 toolStripButton8.Visible = false;
                 toolStripButton2.Visible = false;
                 toolStripButton13.Visible = true;
-                toolStripButton5.Visible = false;
+                toolStripButton5.Visible = true;    //物流部能修改单据 2016.8.29
                 toolStripButton6.Visible = false;
 
                 物流确认ToolStripMenuItem_Click(null, null);//物流确认窗口
