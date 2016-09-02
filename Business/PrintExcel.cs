@@ -371,6 +371,76 @@ namespace BHair.Business
             }
         }
 
+        public void WriteToExcelReport(DataTable thisTable, string FileName, string sheetName)
+        {
+            string strFilePath = FileName;
+            string XLSName = System.IO.Directory.GetCurrentDirectory() + @"\templet\报告模板.xls";
+            Excel.Application app = new Excel.Application();
+            app.DisplayAlerts = false;
+            Excel.Workbooks wbks = app.Workbooks;
+            Excel._Workbook _wbk = wbks.Add(XLSName);
+            Excel.Sheets shs = _wbk.Sheets;
+            Excel._Worksheet _wsh = (Excel._Worksheet)shs.get_Item(1);
+            try
+            {
+                int sheetRowsCount = _wsh.UsedRange.Rows.Count;
+                int count = thisTable.Columns.Count;
+
+                //设置列名
+                //foreach (DataColumn myNewColumn in thisTable.Columns)
+                //{
+                //    _wsh.Cells[0, count] = myNewColumn.ColumnName;
+                //    count = count + 1;
+                //}er
+                for (int i = 0; i < count; i++)
+                {
+                    _wsh.Cells[1, i + 1] = thisTable.Columns[i].ColumnName;
+                }
+
+                //加入內容
+                for (int i = 1; i <= thisTable.Rows.Count; i++)
+                {
+                    for (int j = 1; j <= thisTable.Columns.Count; j++)
+                    {
+                        //if ((j == 7 && thisTable.Rows[i - 1]["ItemHighlight"].ToString() == "1") || (j == 8 && thisTable.Rows[i - 1]["ItemHighlight"].ToString() == "2"))
+                        //{
+                        //    Excel.Range range = _wsh.get_Range(_wsh.Cells[i + sheetRowsCount, j], _wsh.Cells[i + sheetRowsCount, j]);
+                        //    range.Interior.ColorIndex = 3;
+                        //}
+                        _wsh.Cells[i + sheetRowsCount, j] = thisTable.Rows[i - 1][j - 1];
+                    }
+                }
+                _wsh.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
+                _wsh.PageSetup.PaperSize = Excel.XlPaperSize.xlPaperB4;
+                _wsh.Cells.Columns.AutoFit();
+                _wsh.Cells.Rows.AutoFit();
+                //若為EXCEL2000, 將最後一個參數拿掉即可             
+                _wbk.SaveAs(strFilePath, Excel.XlFileFormat.xlWorkbookNormal,
+                    null, null, false, false, Excel.XlSaveAsAccessMode.xlShared,
+                    false, false, null, null, null);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //關閉文件
+                _wbk.Close(false, Type.Missing, Type.Missing);
+                app.Workbooks.Close();
+                app.Quit();
+
+                //釋放資源
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(_wsh);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(_wbk);
+                _wsh = null;
+                _wbk = null;
+                app = null;
+            }
+        }
+
         public DataTable exporeDataToTable(DataGridView dataGridView)
         {
             //将datagridview中的数据导入到表中

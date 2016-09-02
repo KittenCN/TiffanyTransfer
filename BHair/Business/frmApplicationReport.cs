@@ -163,7 +163,7 @@ namespace BHair.Business
                     string strRandom = getRandomString(12);
                     string tempFilePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strRandom + ".xls";
                     PrintExcel pe = new PrintExcel();
-                    pe.WriteToExcel(pe.exporeDataToTable(dgvAppDetail), tempFilePath, "Sheet1");
+                    pe.WriteToExcelReport(pe.exporeDataToTable(dgvAppDetail), tempFilePath, "Sheet1");
                     string localFilePath = saveFileDialog.FileName.ToString();
                     PrintPDF pp = new PrintPDF();
                     pp.XLSConvertToPDF(tempFilePath, localFilePath);
