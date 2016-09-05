@@ -540,6 +540,9 @@ namespace BHair.Business
             object oMissiong = System.Reflection.Missing.Value;
             Excel.Workbook workbook = null;
 
+            int intError = 0;
+            DataRow drError = Result[2].NewRow();
+
             try
             {
                 if (app == null) return null;
@@ -588,19 +591,50 @@ namespace BHair.Business
                     else
                     {
                         dr["Applicants"] = ((Excel.Range)worksheet.Cells[iRow, 3]).Text;
-                        if (users.UsersDT.Select(string.Format("UID='{0}'", dr["Applicants"].ToString())).Length == 0) validate++;
+                        if (users.UsersDT.Select(string.Format("UID='{0}'", dr["Applicants"].ToString())).Length == 0)
+                        {
+                            validate++;
+                            intError++;
+                            drError = Result[2].NewRow();
+                            drError["ID"] = intError;
+                            drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 3]).Text + "::用户不存在!";
+                            Result[2].Rows.Add(drError);
+                        }
                         dr["ApplicantsName"] = ((Excel.Range)worksheet.Cells[iRow, 4]).Text;
                         dr["ApplicantsPos"] = ((Excel.Range)worksheet.Cells[iRow, 5]).Text;
                         DateTime applicationsDate = DateTime.Now;
                         if (!DateTime.TryParse(((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString(), out applicationsDate))
+                        {
                             validate++;
+                            intError++;
+                            drError = Result[2].NewRow();
+                            drError["ID"] = intError;
+                            drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString() + "::日期错误!";
+                            Result[2].Rows.Add(drError);
+                        }
                         if (((Excel.Range)worksheet.Cells[iRow, 6]).Text.ToString() == "")
                         { validate--; applicationsDate = DateTime.Now; }
                         dr["ApplicantsDate"] = applicationsDate;
                         dr["DeliverStore"] = ((Excel.Range)worksheet.Cells[iRow, 7]).Text;
-                        if (store.StoreDT.Select(string.Format("StoreName='{0}'", dr["DeliverStore"].ToString())).Length == 0) validate++;
+                        if (store.StoreDT.Select(string.Format("StoreName='{0}'", dr["DeliverStore"].ToString())).Length == 0)
+                        {
+                            validate++;
+                            intError++;
+                            drError = Result[2].NewRow();
+                            drError["ID"] = intError;
+                            drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 7]).Text + "::店铺错误!";
+                            Result[2].Rows.Add(drError);
+                        }
                         dr["ReceiptStore"] = ((Excel.Range)worksheet.Cells[iRow, 8]).Text;
-                        if (store.StoreDT.Select(string.Format("StoreName='{0}'", dr["ReceiptStore"].ToString())).Length == 0) validate++;
+                        if (store.StoreDT.Select(string.Format("StoreName='{0}'", dr["ReceiptStore"].ToString())).Length == 0)
+                        {
+                            validate++;
+                            intError++;
+                            drError = Result[2].NewRow();
+                            drError["ID"] = intError;
+                            drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 8]).Text + "::店铺错误!";
+                            Result[2].Rows.Add(drError);
+                        }
 
                         double totalPrice = 0;
                         DataRow[] itemDr = items.ItemsDT.Select(string.Format("ItemID='{0}' or ItemID2='{0}'", ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString()));
@@ -608,12 +642,27 @@ namespace BHair.Business
                         {
                             double.TryParse(itemDr[0]["Price"].ToString(), out totalPrice);
                         }
-                        else validate++;
+                        else
+                        {
+                            validate++;
+                            intError++;
+                            drError = Result[2].NewRow();
+                            drError["ID"] = intError;
+                            drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString() + "::货物号错误!";
+                            Result[2].Rows.Add(drError);
+                        }
 
 
                         int totalCount = 0;
                         if (!int.TryParse(((Excel.Range)worksheet.Cells[iRow, 11]).Text.ToString(), out totalCount))
+                        {
                             validate++;
+                            intError++;
+                            drError = Result[2].NewRow();
+                            drError["ID"] = intError;
+                            drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString() + "::货物数量错误!";
+                            Result[2].Rows.Add(drError);
+                        }
                         dr["TotalCount"] = totalCount;
                         dr["TotalPrice"] = totalPrice * totalCount;
 
@@ -627,7 +676,15 @@ namespace BHair.Business
                         dr["Alert_Deliver"] = 0;
                         dr["Alert_Receipt"] = 0;
 
-                        if (dr["CtrlID"].ToString() == "") validate++;
+                        if (dr["CtrlID"].ToString() == "")
+                        {
+                            validate++;
+                            intError++;
+                            drError = Result[2].NewRow();
+                            drError["ID"] = intError;
+                            drError["ErrorString"] = "::控制号错误!";
+                            Result[2].Rows.Add(drError);
+                        }
 
                         if (validate == 0) Result[0].Rows.Add(dr);
                     }
@@ -656,7 +713,14 @@ namespace BHair.Business
 
                         int count = 0;
                         if (!int.TryParse(((Excel.Range)worksheet.Cells[iRow, 11]).Text.ToString(), out count) || count == 0)
+                        {
                             validate++;
+                            intError++;
+                            drError = Result[2].NewRow();
+                            drError["ID"] = intError;
+                            drError["ErrorString"] = "::货物数量错误!";
+                            Result[2].Rows.Add(drError);
+                        }
                         else
                             dr["App_Count"] = count;
 
@@ -680,7 +744,14 @@ namespace BHair.Business
 
                             int count = 0;
                             if (!int.TryParse(((Excel.Range)worksheet.Cells[iRow, 11]).Text.ToString(), out count) || count == 0)
+                            {
                                 validate++;
+                                intError++;
+                                drError = Result[2].NewRow();
+                                drError["ID"] = intError;
+                                drError["ErrorString"] = "::货物数量错误!";
+                                Result[2].Rows.Add(drError);
+                            }
                             else
                                 dr["App_Count"] = count;
 
@@ -691,7 +762,15 @@ namespace BHair.Business
 
                     dr["IsDelete"] = 0;
 
-                    if (dr["ItemID"].ToString() == "" && dr["ItemID2"].ToString() == "") validate++;
+                    if (dr["ItemID"].ToString() == "" && dr["ItemID2"].ToString() == "")
+                    {
+                        validate++;
+                        intError++;
+                        drError = Result[2].NewRow();
+                        drError["ID"] = intError;
+                        drError["ErrorString"] = "::货号错误!";
+                        Result[2].Rows.Add(drError);
+                    }
 
                     if (validate == 0) Result[1].Rows.Add(dr);
                 }
@@ -733,7 +812,7 @@ namespace BHair.Business
 
                 return Result;
             }
-            catch { return null; }
+            catch { Exception ex; return null; }
             finally
             {
                 workbook.Close(false, oMissiong, oMissiong);

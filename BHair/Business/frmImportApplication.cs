@@ -19,7 +19,7 @@ namespace BHair.Business
         ApplicationDetail applicationDetail = new ApplicationDetail();
         DataTable applicationInfoDT = new DataTable();
         DataTable applicationDetailDT = new DataTable();
-        DataTable[] TempDT = new DataTable[2];
+        DataTable[] TempDT = new DataTable[3];
 
         string filePath;
         public frmImportApplication()
@@ -34,41 +34,60 @@ namespace BHair.Business
 
 
         private void btnExcel_Click(object sender, EventArgs e)
-        {
-            
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Excel文件|*.xls";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {          
+            TempDT = new DataTable[3];
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel文件|*.xls";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
                 {
-                    try
+
+                    label1.Text = "正在导入Excel数据....";
+                    filePath = openFileDialog.FileName;
+
+
+                    applicationInfoDT = applicationInfo.SelectApplicationByCtrlID("");
+                    applicationInfoDT.Clear();
+                    applicationDetailDT = applicationDetail.SelectAppDetailByCtrlID("");
+                    applicationDetailDT.Clear();
+                    //创建错误列表
+                    DataTable dtError = new DataTable("Error");
+                    DataColumn dc1 = new DataColumn("ID", Type.GetType("System.Int16"));
+                    DataColumn dc2 = new DataColumn("ErrorString", Type.GetType("System.String"));
+                    dtError.Columns.Add(dc1);
+                    dtError.Columns.Add(dc2);
+                    TempDT[0] = applicationInfoDT;
+                    TempDT[1] = applicationDetailDT;
+                    TempDT[2] = dtError;
+                    PrintExcel pe = new PrintExcel();
+                    TempDT = pe.ExcelToDataTable_Application(filePath, TempDT);
+
+                    dgvApplyInfo.AutoGenerateColumns = false;
+                    dgvApplyInfo.DataSource = TempDT[0];
+                    dgvApplyDetails.AutoGenerateColumns = false;
+                    dgvApplyDetails.DataSource = TempDT[1];
+                    dgvErrorList.AutoGenerateColumns = false;
+                    dgvErrorList.DataSource = TempDT[2];
+                    label1.Text = "Excel数据载入完成";
+                    if(TempDT[0].Rows.Count>0 && TempDT[1].Rows.Count>0)
                     {
-                      
-                        label1.Text = "正在导入Excel数据....";
-                        filePath = openFileDialog.FileName;
-
-
-                        applicationInfoDT = applicationInfo.SelectApplicationByCtrlID("");
-                        applicationInfoDT.Clear();
-                        applicationDetailDT = applicationDetail.SelectAppDetailByCtrlID("");
-                        applicationDetailDT.Clear();
-                        TempDT[0] = applicationInfoDT;
-                        TempDT[1] = applicationDetailDT;
-                        PrintExcel pe = new PrintExcel();
-                        TempDT = pe.ExcelToDataTable_Application(filePath, TempDT);
-
-                        dgvApplyInfo.AutoGenerateColumns = false;
-                        dgvApplyInfo.DataSource = TempDT[0];
-                        dgvApplyDetails.AutoGenerateColumns = false;
-                        dgvApplyDetails.DataSource = TempDT[1];
-                        label1.Text = "Excel数据导入完成";
+                        btnImport.Enabled = true;
                     }
-                    catch
+                    if(TempDT[2].Rows.Count>0)
                     {
-                        label1.Text = "Excel数据导入失败";
-                    }
+                        label1.ForeColor = Color.Red;
+                        label1.Text = label1.Text + " ,但是数据有错,详见数据错误列表";
+                    }                   
+                }
+                catch(Exception ex)
+                {
+                    label1.ForeColor = Color.Red;
+                    label1.Text = "Excel数据导入失败,详见数据错误列表";
                 }
             }
-        
+        }
+
 
         private void btnImport_Click(object sender, EventArgs e)
         {

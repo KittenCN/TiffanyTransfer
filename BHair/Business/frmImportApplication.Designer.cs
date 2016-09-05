@@ -88,10 +88,16 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemHighlight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gbErrorList = new System.Windows.Forms.GroupBox();
+            this.dgvErrorList = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ErrorString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyInfo)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyDetails)).BeginInit();
+            this.gbErrorList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvErrorList)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExcel
@@ -107,14 +113,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 412);
+            this.label1.Location = new System.Drawing.Point(135, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 12);
             this.label1.TabIndex = 8;
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(784, 407);
+            this.btnImport.Enabled = false;
+            this.btnImport.Location = new System.Drawing.Point(781, 15);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(100, 23);
             this.btnImport.TabIndex = 9;
@@ -611,11 +618,51 @@
             this.ItemHighlight.ReadOnly = true;
             this.ItemHighlight.Visible = false;
             // 
+            // gbErrorList
+            // 
+            this.gbErrorList.Controls.Add(this.dgvErrorList);
+            this.gbErrorList.Location = new System.Drawing.Point(18, 436);
+            this.gbErrorList.Name = "gbErrorList";
+            this.gbErrorList.Size = new System.Drawing.Size(863, 201);
+            this.gbErrorList.TabIndex = 12;
+            this.gbErrorList.TabStop = false;
+            this.gbErrorList.Text = "错误列表";
+            // 
+            // dgvErrorList
+            // 
+            this.dgvErrorList.AllowUserToAddRows = false;
+            this.dgvErrorList.AllowUserToDeleteRows = false;
+            this.dgvErrorList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvErrorList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.ErrorString});
+            this.dgvErrorList.Location = new System.Drawing.Point(7, 20);
+            this.dgvErrorList.Name = "dgvErrorList";
+            this.dgvErrorList.ReadOnly = true;
+            this.dgvErrorList.RowTemplate.Height = 23;
+            this.dgvErrorList.Size = new System.Drawing.Size(855, 175);
+            this.dgvErrorList.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // ErrorString
+            // 
+            this.ErrorString.DataPropertyName = "ErrorString";
+            this.ErrorString.HeaderText = "ErrorString";
+            this.ErrorString.Name = "ErrorString";
+            this.ErrorString.ReadOnly = true;
+            // 
             // frmImportApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 436);
+            this.ClientSize = new System.Drawing.Size(892, 649);
+            this.Controls.Add(this.gbErrorList);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnImport);
@@ -629,6 +676,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyInfo)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyDetails)).EndInit();
+            this.gbErrorList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvErrorList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -696,5 +745,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn S_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn O_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn WuliuDate;
+        private System.Windows.Forms.GroupBox gbErrorList;
+        private System.Windows.Forms.DataGridView dgvErrorList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ErrorString;
     }
 }
