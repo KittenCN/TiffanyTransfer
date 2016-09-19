@@ -51,7 +51,7 @@ namespace BHair
             {
                 timer1.Enabled = false;
             }
-            //this.TopMost = true;
+            //this.TopMost = false;
 
         }
 

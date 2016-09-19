@@ -133,7 +133,7 @@ namespace BHair.Business
 
         private void frmSelectItems_App_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
     }
 }

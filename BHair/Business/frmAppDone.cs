@@ -194,7 +194,7 @@ namespace BHair.Business
 
         private void frmAppDone_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
 
         private void btnExport_Click(object sender, EventArgs e)

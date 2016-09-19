@@ -270,7 +270,7 @@ namespace BHair.Business
 
         private void frmAppAproval2_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
     }
 }

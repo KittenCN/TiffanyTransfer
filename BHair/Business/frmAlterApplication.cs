@@ -279,7 +279,7 @@ namespace BHair.Business
 
         private void frmAlterApplication_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
     }
 }

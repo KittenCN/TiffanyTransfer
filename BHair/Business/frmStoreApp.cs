@@ -232,7 +232,7 @@ namespace BHair.Business
 
         private void frmStoreApp_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
     }
 }

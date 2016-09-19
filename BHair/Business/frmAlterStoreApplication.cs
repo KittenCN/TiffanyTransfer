@@ -240,7 +240,7 @@ namespace BHair.Business
 
         private void frmAlterStoreApplication_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
     }
 }

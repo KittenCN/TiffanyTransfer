@@ -283,7 +283,7 @@ namespace BHair.Business
 
         private void frmAppApprovalDetail_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
 
         private void btnEditWuliu_Click(object sender, EventArgs e)

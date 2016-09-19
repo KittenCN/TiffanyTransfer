@@ -215,7 +215,7 @@ namespace BHair.Business
 
         private void frmAppDoneDetail_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
     }
 }

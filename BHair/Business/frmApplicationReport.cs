@@ -145,7 +145,7 @@ namespace BHair.Business
 
         private void frmApplicationReport_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)

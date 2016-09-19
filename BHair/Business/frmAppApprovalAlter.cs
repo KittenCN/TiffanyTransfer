@@ -72,7 +72,7 @@ namespace BHair.Business
 
         private void frmAppApprovalAlter_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
 
         private void dgvApplyDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)

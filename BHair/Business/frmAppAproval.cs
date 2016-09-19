@@ -349,7 +349,7 @@ namespace BHair.Business
 
         private void frmAppAproval_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
 
         private void btnImportApp_Click(object sender, EventArgs e)

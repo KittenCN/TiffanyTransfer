@@ -145,7 +145,7 @@ namespace BHair.Business
 
         private void frmHistoryInfo_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
     }
 }

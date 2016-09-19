@@ -292,7 +292,7 @@ namespace BHair.Business
 
         private void frmStoreAppDetail_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopMost = false;
         }
         private void tabControl1_SelectedIndexChanged(object sender, System.EventArgs e)
         {
