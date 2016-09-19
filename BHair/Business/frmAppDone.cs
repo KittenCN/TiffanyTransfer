@@ -48,8 +48,18 @@ namespace BHair.Business
             dgvApplyInfo.AutoGenerateColumns = false; 
             dgvApplyInfo.DataSource = ApplicationInfoTable;
 
-            dgvApplyInfo.Rows[intSelectRowIndex].Selected = true;
-            dgvApplyInfo.CurrentCell = dgvApplyInfo.Rows[intSelectRowIndex].Cells[0];
+            try
+            {
+                if (dgvApplyInfo.Rows.Count > 0 && intSelectRowIndex > 0)
+                {
+                    dgvApplyInfo.Rows[intSelectRowIndex].Selected = true;
+                    dgvApplyInfo.CurrentCell = dgvApplyInfo.Rows[intSelectRowIndex].Cells[1];
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
 
@@ -165,10 +175,11 @@ namespace BHair.Business
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            intSelectRowIndex = dgvApplyInfo.CurrentRow.Index;
+           
 
-            if (applicationInfo.CtrlID != null)
+            if (applicationInfo.CtrlID != null && dgvApplyInfo.CurrentRow != null)
             {
+                intSelectRowIndex = dgvApplyInfo.CurrentRow.Index;
                 frmAppDoneDetail fadd = new frmAppDoneDetail(applicationInfo, CtrlType);
                 fadd.ShowDialog();
                 this.GetApplicationDetail();
