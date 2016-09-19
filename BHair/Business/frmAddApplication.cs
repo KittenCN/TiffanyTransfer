@@ -118,22 +118,29 @@ namespace BHair.Business
 
                     if (!Repeated)
                     {
-                        DataRow dr = AddApplicationDT.NewRow();
-                        dr["CtrlID"] = txtCtrlID.Text;
-                        //dr["Department"] = txtDepartment4.Text;
-                        //dr["App_Level"] = txtLevel4.Text;
-                        dr["ItemID"] = ItemDT.Rows[0]["ItemID"];
-                        dr["ItemID2"] = ItemDT.Rows[0]["ItemID2"];
-                        dr["Detail"] = ItemDT.Rows[0]["Detail"];
-                        dr["Price"] = ItemDT.Rows[0]["Price"];
-                        dr["Department"] = ItemDT.Rows[0]["Department"];
-                        dr["App_Level"] = ItemDT.Rows[0]["Class"];
-                        dr["App_Count"] = int.Parse(this.numCount.Value.ToString());
-                        dr["IsDelete"] = 0;
-                        if (dr["ItemID"].ToString() == txtItemID.Text) dr["ItemHighlight"] = 1;
-                        else if (dr["ItemID2"].ToString() == txtItemID.Text) dr["ItemHighlight"] = 2;
-                        AddApplicationDT.Rows.Add(dr);
-                        HighlightItemID();
+                        if(AddApplicationDT.Rows.Count<20)
+                        {
+                            DataRow dr = AddApplicationDT.NewRow();
+                            dr["CtrlID"] = txtCtrlID.Text;
+                            //dr["Department"] = txtDepartment4.Text;
+                            //dr["App_Level"] = txtLevel4.Text;
+                            dr["ItemID"] = ItemDT.Rows[0]["ItemID"];
+                            dr["ItemID2"] = ItemDT.Rows[0]["ItemID2"];
+                            dr["Detail"] = ItemDT.Rows[0]["Detail"];
+                            dr["Price"] = ItemDT.Rows[0]["Price"];
+                            dr["Department"] = ItemDT.Rows[0]["Department"];
+                            dr["App_Level"] = ItemDT.Rows[0]["Class"];
+                            dr["App_Count"] = int.Parse(this.numCount.Value.ToString());
+                            dr["IsDelete"] = 0;
+                            if (dr["ItemID"].ToString() == txtItemID.Text) dr["ItemHighlight"] = 1;
+                            else if (dr["ItemID2"].ToString() == txtItemID.Text) dr["ItemHighlight"] = 2;
+                            AddApplicationDT.Rows.Add(dr);
+                            HighlightItemID();
+                        }
+                        else
+                        {
+                            MessageBox.Show("添加失败,每张转货单,只允许20条记录!");
+                        }
                     }
                     txtItemID.Text = "";
                     txtItemID.Focus();
