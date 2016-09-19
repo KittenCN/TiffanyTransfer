@@ -25,6 +25,7 @@ namespace BHair.Business
         {
             InitializeComponent();
             btnExcel.Visible = true;
+            btnOutDetail.Visible = true;
             btnDeliver.Visible = false;
             btnReceipt.Visible = false;
             tabControl1.SelectedIndexChanged += new EventHandler(tabControl1_SelectedIndexChanged);
@@ -299,19 +300,47 @@ namespace BHair.Business
             {
                 case 0:
                     btnExcel.Visible = true;
+                    btnOutDetail.Visible = true;
                     btnDeliver.Visible = false;
                     btnReceipt.Visible = false;
                     break;
                 case 1:
                     btnExcel.Visible = false;
+                    btnOutDetail.Visible = false;
                     btnDeliver.Visible = true;
                     btnReceipt.Visible = false;
                     break;
                 case 2:
                     btnExcel.Visible = false;
+                    btnOutDetail.Visible = false;
                     btnDeliver.Visible = false;
                     btnReceipt.Visible = true;
                     break;
+            }
+        }
+
+        private void btnOutDetail_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            //点了保存按钮进入
+            if (result == DialogResult.OK)
+            {
+                //获得文件路径
+                string localFilePath = saveFileDialog.FileName.ToString();
+                PrintExcel pe = new PrintExcel();
+                try
+                {
+                    DataTable appDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
+                    pe.WriteToExcelReport(pe.exporeDataToTable(dgvApplyDetails), localFilePath, "Sheet1");
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

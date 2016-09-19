@@ -114,6 +114,7 @@
             this.BtnExit = new System.Windows.Forms.Button();
             this.ConfirmPanel = new System.Windows.Forms.Panel();
             this.BtnConfirm = new System.Windows.Forms.Button();
+            this.btnOutDetail = new System.Windows.Forms.Button();
             this.groupBox20.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -917,6 +918,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnOutDetail);
             this.panel4.Controls.Add(this.BtnExit);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(486, 0);
@@ -956,6 +958,16 @@
             this.BtnConfirm.UseVisualStyleBackColor = true;
             this.BtnConfirm.Visible = false;
             this.BtnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
+            // 
+            // btnOutDetail
+            // 
+            this.btnOutDetail.Location = new System.Drawing.Point(57, 8);
+            this.btnOutDetail.Name = "btnOutDetail";
+            this.btnOutDetail.Size = new System.Drawing.Size(100, 23);
+            this.btnOutDetail.TabIndex = 3;
+            this.btnOutDetail.Text = "导出申请单明细";
+            this.btnOutDetail.UseVisualStyleBackColor = true;
+            this.btnOutDetail.Click += new System.EventHandler(this.btnOutDetail_Click);
             // 
             // frmStoreAppDetail
             // 
@@ -1086,5 +1098,6 @@
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.Button btnReceipt;
         private System.Windows.Forms.Button btnDeliver;
+        private System.Windows.Forms.Button btnOutDetail;
     }
 }
