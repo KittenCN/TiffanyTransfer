@@ -40,9 +40,9 @@ namespace BHair.Business
             ApplicationInfoTable = new DataTable();
             switch (CtrlType)
             {
-                case "未确认": ApplicationInfoTable = applicationInfo.SelectFinalApplication(""); break;
-                case "历史确认": ApplicationInfoTable = applicationInfo.SelectHistoryFinalApplication("",Login.LoginUser.UID); break;
-                default: ApplicationInfoTable = applicationInfo.SelectFinalApplication(""); break;
+                case "未确认": ApplicationInfoTable = applicationInfo.SelectFinalApplication(SelectStr); break;
+                case "历史确认": ApplicationInfoTable = applicationInfo.SelectHistoryFinalApplication(SelectStr, Login.LoginUser.UID); break;
+                default: ApplicationInfoTable = applicationInfo.SelectFinalApplication(SelectStr); break;
             }
             dgvApplyInfo.AutoGenerateColumns = false; 
             dgvApplyInfo.DataSource = ApplicationInfoTable;
@@ -54,6 +54,10 @@ namespace BHair.Business
             if (TxtChoose.Text != "")
             {
                 SelectStr = string.Format("and 1=1 and( CtrlID='{0}' or DeliverStore='{0}' or ReceiptStore='{0}' or ApplicantsName='{0}')", TxtChoose.Text);
+            }
+            else
+            {
+                SelectStr = "";
             }
         }
 

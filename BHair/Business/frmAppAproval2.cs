@@ -41,9 +41,9 @@ namespace BHair.Business
             ApplicationInfoTable = new DataTable();
             switch(CtrlType)
             {
-                case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(""); break;
-                case "历史审核": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApproval2("", Login.LoginUser); break;
-                default: ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2( ""); break;
+                case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(SelectStr); break;
+                case "历史审核": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApproval2(SelectStr, Login.LoginUser); break;
+                default: ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(SelectStr); break;
             }
 
             dgvApplyInfo.AutoGenerateColumns = false; 
@@ -71,6 +71,10 @@ namespace BHair.Business
             if (TxtChoose.Text != "")
             {
                 SelectStr = string.Format("and 1=1 and( CtrlID='{0}' or DeliverStore='{0}' or ReceiptStore='{0}' or ApplicantsName='{0}')", TxtChoose.Text);
+            }
+            else
+            {
+                SelectStr = "";
             }
         }
 

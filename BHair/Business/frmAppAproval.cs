@@ -58,13 +58,13 @@ namespace BHair.Business
             ApplicationInfoTable = new DataTable();
             switch (CtrlType)
             {
-                case "物流部历史": ApplicationInfoTable = applicationInfo.SelectHistoryFinalApplication("", Login.LoginUser.UID); break;
-                case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(""); break;
-                case "最终确认": ApplicationInfoTable = applicationInfo.SelectAlterAppByApproval(""); break;
-                case "已完成": ApplicationInfoTable = applicationInfo.SelectFinishAppByApproval(""); break;
-                case "财务待完成": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(""); break;
-                case "全部": ApplicationInfoTable = applicationInfo.SelectAllApplication(""); break;
-                default: ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(""); break;
+                case "物流部历史": ApplicationInfoTable = applicationInfo.SelectHistoryFinalApplication(SelectStr, Login.LoginUser.UID); break;
+                case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(SelectStr); break;
+                case "最终确认": ApplicationInfoTable = applicationInfo.SelectAlterAppByApproval(SelectStr); break;
+                case "已完成": ApplicationInfoTable = applicationInfo.SelectFinishAppByApproval(SelectStr); break;
+                case "财务待完成": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(SelectStr); break;
+                case "全部": ApplicationInfoTable = applicationInfo.SelectAllApplication(SelectStr); break;
+                default: ApplicationInfoTable = applicationInfo.SelectApplicationByApproval(SelectStr); break;
             }
             dtResult = ApplicationInfoTable;
             ApplicationInfoTable.Columns.Add("FinishState", typeof(string));
@@ -123,6 +123,10 @@ namespace BHair.Business
             if (TxtChoose.Text != "")
             {
                 SelectStr = string.Format("and 1=1 and( CtrlID='{0}' or DeliverStore='{0}' or ReceiptStore='{0}' or ApplicantsName='{0}')", TxtChoose.Text);
+            }
+            else
+            {
+                SelectStr = "";
             }
         }
 
