@@ -19,6 +19,7 @@ namespace BHair.Business
         public string CtrlID = "";
         string SelectStr = "and 1=1";
         string CtrlType="未审核";
+        public int intSelectRowIndex = 0;
         /// <summary>财务部转货单状态</summary>
         public frmAppAproval2()
         {
@@ -48,10 +49,14 @@ namespace BHair.Business
 
             dgvApplyInfo.AutoGenerateColumns = false; 
             dgvApplyInfo.DataSource = ApplicationInfoTable;
+
+            dgvApplyInfo.Rows[intSelectRowIndex].Selected = true;
+            dgvApplyInfo.CurrentCell = dgvApplyInfo.Rows[intSelectRowIndex].Cells[0];
         }
 
         private void BtnSelect_Click(object sender, EventArgs e)
         {
+            intSelectRowIndex = dgvApplyInfo.CurrentRow.Index;
             if (applicationInfo.CtrlID!=null)
             {
                 frmAppApprovalDetail2 faad = new frmAppApprovalDetail2(applicationInfo, CtrlType);
@@ -82,6 +87,8 @@ namespace BHair.Business
         {
             if (dgvApplyInfo.RowCount > 0)
             {
+                intSelectRowIndex = dgvApplyInfo.CurrentRow.Index;
+
                 if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column18"].Value == 1) txtApproval.Text = "通过"; else if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column18"].Value == 2) txtApproval.Text = "不通过"; else txtApproval.Text = "未审批";
                 if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column20"].Value == 1) txtApproval2.Text = "通过"; else if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column20"].Value == 2) txtApproval2.Text = "不通过"; else txtApproval2.Text = "未审批";
                 if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column22"].Value == 1) txtDeliverConfirm.Text = "通过"; else if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column22"].Value == 2) txtDeliverConfirm.Text = "不确认"; else txtDeliverConfirm.Text = "未确认";

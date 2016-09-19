@@ -20,6 +20,7 @@ namespace BHair.Business
         string SelectStr = "and 1=1";
         string CtrlType = "未审核";
         public DataTable dtResult = null;
+        public int intSelectRowIndex = 0;
         /// <summary>商品部转货单状态</summary>
         public frmAppAproval()
         {
@@ -70,6 +71,9 @@ namespace BHair.Business
             ApplicationInfoTable.Columns.Add("FinishState", typeof(string));
             dgvApplyInfo.AutoGenerateColumns = false;
             dgvApplyInfo.DataSource = ApplicationInfoTable;
+
+            dgvApplyInfo.Rows[intSelectRowIndex].Selected = true;
+            dgvApplyInfo.CurrentCell = dgvApplyInfo.Rows[intSelectRowIndex].Cells[0];
             //if(CtrlType== "已完成")
             //{
             //    BaseProcess bp = new BaseProcess();
@@ -103,6 +107,7 @@ namespace BHair.Business
 
         private void BtnSelect_Click(object sender, EventArgs e)
         {
+            intSelectRowIndex = dgvApplyInfo.CurrentRow.Index;
             if (applicationInfo.CtrlID != null)
             {
                 frmAppApprovalDetail faad = new frmAppApprovalDetail(applicationInfo, CtrlType);
@@ -134,6 +139,8 @@ namespace BHair.Business
         {
             if (dgvApplyInfo.RowCount > 0)
             {
+                intSelectRowIndex = dgvApplyInfo.CurrentRow.Index;
+
                 if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column18"].Value == 1) txtApproval.Text = "通过"; else if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column18"].Value == 2) txtApproval.Text = "不通过"; else txtApproval.Text = "未审批";
                 if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column20"].Value == 1) txtApproval2.Text = "通过"; else if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column20"].Value == 2) txtApproval2.Text = "不通过"; else txtApproval2.Text = "未审批";
                 if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column22"].Value == 1) txtDeliverConfirm.Text = "通过"; else if ((int)dgvApplyInfo.SelectedRows[0].Cells["Column22"].Value == 2) txtDeliverConfirm.Text = "不确认"; else txtDeliverConfirm.Text = "未确认";
