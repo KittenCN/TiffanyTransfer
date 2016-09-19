@@ -513,7 +513,7 @@
             this.txtWuliuDate.Location = new System.Drawing.Point(122, 91);
             this.txtWuliuDate.Name = "txtWuliuDate";
             this.txtWuliuDate.Size = new System.Drawing.Size(200, 21);
-            this.txtWuliuDate.TabIndex = 13;
+            this.txtWuliuDate.TabIndex = 5;
             // 
             // txtBatch_Num2
             // 
@@ -523,7 +523,7 @@
             this.txtBatch_Num2.Location = new System.Drawing.Point(485, 57);
             this.txtBatch_Num2.Name = "txtBatch_Num2";
             this.txtBatch_Num2.Size = new System.Drawing.Size(200, 21);
-            this.txtBatch_Num2.TabIndex = 7;
+            this.txtBatch_Num2.TabIndex = 4;
             // 
             // txtO_O
             // 
@@ -545,7 +545,7 @@
             this.txtBatch_Num1.Location = new System.Drawing.Point(122, 57);
             this.txtBatch_Num1.Name = "txtBatch_Num1";
             this.txtBatch_Num1.Size = new System.Drawing.Size(203, 21);
-            this.txtBatch_Num1.TabIndex = 6;
+            this.txtBatch_Num1.TabIndex = 3;
             // 
             // label5
             // 
@@ -594,7 +594,7 @@
             this.txtO_O_Str.Location = new System.Drawing.Point(485, 22);
             this.txtO_O_Str.Name = "txtO_O_Str";
             this.txtO_O_Str.Size = new System.Drawing.Size(200, 21);
-            this.txtO_O_Str.TabIndex = 11;
+            this.txtO_O_Str.TabIndex = 2;
             // 
             // txtS_O_Str
             // 
@@ -604,7 +604,7 @@
             this.txtS_O_Str.Location = new System.Drawing.Point(122, 22);
             this.txtS_O_Str.Name = "txtS_O_Str";
             this.txtS_O_Str.Size = new System.Drawing.Size(203, 21);
-            this.txtS_O_Str.TabIndex = 10;
+            this.txtS_O_Str.TabIndex = 1;
             // 
             // label12
             // 
@@ -1014,7 +1014,7 @@
             this.btnDiffApp.Location = new System.Drawing.Point(14, 8);
             this.btnDiffApp.Name = "btnDiffApp";
             this.btnDiffApp.Size = new System.Drawing.Size(134, 23);
-            this.btnDiffApp.TabIndex = 4;
+            this.btnDiffApp.TabIndex = 14;
             this.btnDiffApp.Text = "申请单-发货差异对比";
             this.btnDiffApp.UseVisualStyleBackColor = true;
             this.btnDiffApp.Click += new System.EventHandler(this.btnDiffApp_Click);
@@ -1024,7 +1024,7 @@
             this.btnDiffItem.Location = new System.Drawing.Point(179, 8);
             this.btnDiffItem.Name = "btnDiffItem";
             this.btnDiffItem.Size = new System.Drawing.Size(124, 23);
-            this.btnDiffItem.TabIndex = 1;
+            this.btnDiffItem.TabIndex = 19;
             this.btnDiffItem.Text = "收货-发货差异对比";
             this.btnDiffItem.UseVisualStyleBackColor = true;
             this.btnDiffItem.Click += new System.EventHandler(this.btnDiffItem_Click);
@@ -1043,7 +1043,7 @@
             this.btnConfirm.Location = new System.Drawing.Point(147, 8);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirm.TabIndex = 0;
+            this.btnConfirm.TabIndex = 6;
             this.btnConfirm.Text = "确认";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);

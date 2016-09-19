@@ -43,7 +43,7 @@ namespace BHair.Business
             }
             InitComboBox();
             GetApplicationDetail();
-            
+            txtS_O_Str.Focus();
         }
 
 
