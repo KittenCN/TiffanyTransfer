@@ -157,8 +157,10 @@ namespace BHair.Business
                     Thread thread = new Thread(new ThreadStart(SendEmail));
                     thread.Start();
                     MessageBox.Show("确认成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DialogResult = DialogResult.OK;
-                    this.Close();
+                    if(DialogResult == DialogResult.OK)
+                    {
+                        this.Close();
+                    }             
                 }
                 catch (Exception ex)
                 {
