@@ -152,42 +152,6 @@ namespace BHair.Business
             }
         }
 
-        public string RepairAccess(string mdbPath)
-        {
-            string strResult = "";
-            //声明临时数据库的名称  
-            string temp = DateTime.Now.Year.ToString();
-            temp += DateTime.Now.Month.ToString();
-            temp += DateTime.Now.Day.ToString();
-            temp += DateTime.Now.Hour.ToString();
-            temp += DateTime.Now.Minute.ToString();
-            temp += DateTime.Now.Second.ToString() + ".accdb";
-            temp = mdbPath.Substring(0, mdbPath.LastIndexOf("\\") + 1) + temp;
-
-            string strlock = mdbPath.Substring(0, mdbPath.LastIndexOf("\\") + 1) + "Lock";
-
-            string sourceDbSpec = mdbPath;
-            string destinationDbSpec = temp;
-
-            // Required COM reference for project:
-            // Microsoft Office 14.0 Access Database Engine Object Library
-            var dbe = new Microsoft.Office.Interop.Access.Dao.DBEngine();
-            try
-            {
-                File.Create(strlock);
-                dbe.CompactDatabase(sourceDbSpec, destinationDbSpec);
-                File.Delete(mdbPath);
-                File.Copy(destinationDbSpec, mdbPath, true);
-                strResult = "修复成功!";                
-            }
-            catch (Exception e)
-            {
-                strResult = "Error: " + e.Message;
-            }
-            File.Delete(strlock);
-            return strResult;
-        }
-
     }
 }
 

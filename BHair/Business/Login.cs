@@ -83,11 +83,11 @@ namespace BHair.Business
                 catch (Exception ex)
                 {
                     MessageBox.Show("数据库损坏,点击确定后,系统将尝试自动修复,期间请勿操作!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    AccessHelper ah = new AccessHelper();
-                    string strResult=ah.RepairAccess(strConnstring); 
+                    string strResult = RepairAccess(strConnstring);
                     if(strResult.Substring(0,5)!="Error")
                     {
                         MessageBox.Show("数据库修复完成,请关闭系统,并重新登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Close();
                     }
                     else
                     {
@@ -127,6 +127,41 @@ namespace BHair.Business
             string hash = BitConverter.ToString(dataHashed).Replace("-", "");
 
             return hash;
+        }
+        public string RepairAccess(string mdbPath)
+        {
+            string strResult = "";
+            //声明临时数据库的名称  
+            string temp = DateTime.Now.Year.ToString();
+            temp += DateTime.Now.Month.ToString();
+            temp += DateTime.Now.Day.ToString();
+            temp += DateTime.Now.Hour.ToString();
+            temp += DateTime.Now.Minute.ToString();
+            temp += DateTime.Now.Second.ToString() + ".accdb";
+            temp = mdbPath.Substring(0, mdbPath.LastIndexOf("\\") + 1) + temp;
+
+            string strlock = mdbPath.Substring(0, mdbPath.LastIndexOf("\\") + 1) + "Lock";
+
+            string sourceDbSpec = mdbPath;
+            string destinationDbSpec = temp;
+
+            // Required COM reference for project:
+            // Microsoft Office 14.0 Access Database Engine Object Library
+            var dbe = new Microsoft.Office.Interop.Access.Dao.DBEngine();
+            try
+            {
+                File.Create(strlock).Dispose();
+                dbe.CompactDatabase(sourceDbSpec, destinationDbSpec);
+                File.Delete(mdbPath);
+                File.Copy(destinationDbSpec, mdbPath, true);
+                strResult = "修复成功!";
+            }
+            catch (Exception e)
+            {
+                strResult = "Error: " + e.Message;
+            }
+            File.Delete(strlock);
+            return strResult;
         }
     }
 }
