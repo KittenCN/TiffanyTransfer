@@ -24,7 +24,15 @@ namespace BHair.Business
         public AccessHelper()    
         {
             Conn = new OleDbConnection(ConnString);
-            Conn.Open();
+            if (Conn.State == ConnectionState.Closed)
+            {
+                Conn.Open();
+            }
+            else if (Conn.State == ConnectionState.Open)
+            {
+                Conn.Close();
+                Conn.Open();
+            }
         }    
     
         /**//// <summary>    
@@ -42,7 +50,10 @@ namespace BHair.Business
         /// </summary>    
         public void Close()    
         {    
-            Conn.Close();    
+            if(Conn.State==ConnectionState.Open || Conn.State==ConnectionState.Connecting)
+            {
+                Conn.Close();
+            }             
         }   
 
     

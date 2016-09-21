@@ -16,7 +16,7 @@ namespace BHair
 
     public partial class frmMain : Form
     {
-        ApplicationInfo applicationInfo = new ApplicationInfo();   
+        ApplicationInfo applicationInfo = new ApplicationInfo();
         public frmMain()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace BHair
         {
             //frmPays_List objfrmPaysList = new frmPays_List();
             //this.ShowWindows_Click(objfrmPaysList);
-            if(Login.LoginUser.Character == 1)
+            if (Login.LoginUser.Character == 1)
             {
                 timer1.Enabled = true;
                 timer1.Interval = 43200000;
@@ -428,7 +428,7 @@ namespace BHair
                 menuMain_Manage_ApprovalApp.Visible = true;
                 menuMain_Manage_History.Visible = true;
                 toolStripMenuItem3.Visible = true;
-               
+
                 if (Login.LoginUser.IsAdmin == 1)
                 {
                     menuMain_System_Member.Visible = true;
@@ -456,7 +456,7 @@ namespace BHair
                 toolStripButton1.Visible = true;
                 toolStripButton3.Visible = true;
                 toolStripButton5.Visible = true;
-                toolStripButton6.Visible=true;
+                toolStripButton6.Visible = true;
                 toolStripButton8.Visible = true;
 
                 menuMain_Manage_ApprovalApp_Click(null, null);//商品部审核窗口
@@ -494,7 +494,7 @@ namespace BHair
                 menuMain_Manage_StoreApp.Visible = true;
                 menuMain_Manage_Approval2App.Visible = false;
                 menuMain_Manage_ApprovalApp.Visible = false;
-                menuMain_Manage_History.Visible = false; 
+                menuMain_Manage_History.Visible = false;
                 menuMain_System_Member.Visible = false;
                 menuMain_Manage_Store.Visible = false;
                 menuMain_System_Item.Visible = false;
@@ -571,6 +571,31 @@ namespace BHair
                 toolStripButton5.Visible = false;
                 toolStripButton6.Visible = false;
             }
+            if (Login.LoginUser.UID == "Administrator")
+            {
+                menuMain_Flow_add.Visible = true;
+                menuMain_Manage_StoreApp.Visible = true;
+                menuMain_Manage_Approval2App.Visible = true;
+                menuMain_Manage_ApprovalApp.Visible = true;
+                menuMain_Manage_History.Visible = true;
+                toolStripMenuItem3.Visible = true;
+                menuMain_System_Member.Visible = true;
+                menuMain_Manage_Store.Visible = true;
+                menuMain_System_SetupConfig.Visible = true;
+                menuMain_System_Item.Visible = true;
+                menuMain_System_Log.Visible = false;
+                //toolStripButton8.Visible = true;
+                toolStripButton2.Visible = true;
+                物流确认ToolStripMenuItem.Visible = true;
+                toolStripButton13.Visible = true;
+                toolStripButton4.Visible = true;
+                toolStripButton12.Visible = true;
+                toolStripButton1.Visible = true;
+                toolStripButton3.Visible = true;
+                toolStripButton5.Visible = true;
+                toolStripButton6.Visible = true;
+                toolStripButton8.Visible = true;
+            }
         }
         #endregion
 
@@ -591,9 +616,9 @@ namespace BHair
         {
             //申请批准后超时提醒
             DataTable alertApprovalDT = applicationInfo.SelectAlertApproval(Login.LoginUser.Store);
-            if(alertApprovalDT.Rows.Count>0)
+            if (alertApprovalDT.Rows.Count > 0)
             {
-                foreach(DataRow dr in alertApprovalDT.Rows)
+                foreach (DataRow dr in alertApprovalDT.Rows)
                 {
                     try
                     {

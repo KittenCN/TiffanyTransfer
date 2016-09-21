@@ -243,7 +243,7 @@ namespace BHair.Business.BaseData
                 ah.Close();
                 return 0;
             }
-            //ah.Close();
+            ah.Close();
             return rows;
         }
 
