@@ -36,7 +36,7 @@ namespace BHair.Business
         private void btnLogin_Click(object sender, EventArgs e)
         {
             strConnstring = XMLHelper.strGetConnectString().Split(';')[1].ToString().Split('=')[1].ToString();
-            strlock = strConnstring.Substring(0, strConnstring.LastIndexOf("\\") + 1) + "Lock";
+            strlock = strConnstring.Substring(0, strConnstring.LastIndexOf("\\") + 1) + "TransferLock";
             if (!File.Exists(strlock))
             {
                 try
@@ -75,7 +75,8 @@ namespace BHair.Business
             }
             else
             {
-                MessageBox.Show("登陆失败::数据库正在自动修复中,请稍后登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string strRepairUser = File.ReadAllText(strlock);
+                MessageBox.Show("登陆失败::数据库正在计算机: " + strRepairUser + " 启用自动修复中,请稍后登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -118,7 +119,7 @@ namespace BHair.Business
             temp += DateTime.Now.Second.ToString() + ".accdb";
             temp = mdbPath.Substring(0, mdbPath.LastIndexOf("\\") + 1) + temp;
 
-            string strlock = mdbPath.Substring(0, mdbPath.LastIndexOf("\\") + 1) + "Lock";
+            string strlock = mdbPath.Substring(0, mdbPath.LastIndexOf("\\") + 1) + "TransferLock";
 
             string sourceDbSpec = mdbPath;
             string destinationDbSpec = temp;
@@ -129,6 +130,7 @@ namespace BHair.Business
             try
             {
                 File.Create(strlock).Dispose();
+                File.WriteAllText(strlock, GetComputerName());
                 dbe.CompactDatabase(sourceDbSpec, destinationDbSpec);
                 File.Delete(mdbPath);
                 File.Copy(destinationDbSpec, mdbPath, true);
@@ -209,7 +211,8 @@ namespace BHair.Business
             }
             else
             {
-                MessageBox.Show("登陆失败::数据库正在自动修复中,请稍后登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string strRepairUser = File.ReadAllText(strlock);
+                MessageBox.Show("登陆失败::数据库正在计算机: " + strRepairUser + " 启用自动修复中,请稍后登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -308,6 +311,20 @@ namespace BHair.Business
                     }
                     ah.Close();
                 }
+            }
+        }
+        public string GetComputerName()
+        {
+            try
+            {
+                return System.Environment.GetEnvironmentVariable("ComputerName");
+            }
+            catch
+            {
+                return "unknow";
+            }
+            finally
+            {
             }
         }
     }
