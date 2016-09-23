@@ -41,6 +41,9 @@ namespace BHair.Business
             {
                 try
                 {
+                    string strTSQL = "select * from SetupConfig";
+                    AccessHelper ahTSQL = new AccessHelper();
+                    DataTable dtTSQL = ahTSQL.SelectToDataTable(strTSQL);
                     UpdateDataBase();
                     if (strVersion == Application.ProductVersion)
                     {
@@ -60,23 +63,30 @@ namespace BHair.Business
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("数据库损坏,点击确定后,系统将尝试自动修复,期间请勿操作!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    string strResult = RepairAccess(strConnstring);
-                    if (strResult.Substring(0, 5) != "Error")
+                    if (txtName.Text == "administrator" || GetComputerName().Substring(0, 3) == "OC1")
                     {
-                        MessageBox.Show("数据库修复完成,请关闭系统,并重新登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        this.Close();
+                        MessageBox.Show("数据库损坏,点击确定后,系统将尝试自动修复,期间请勿操作!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        string strResult = RepairAccess(strConnstring);
+                        if (strResult.Substring(0, 5) != "Error")
+                        {
+                            MessageBox.Show("数据库修复完成,请关闭系统,并重新登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("数据库修复失败::" + strResult, "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("数据库修复失败::" + strResult, "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("数据库损坏,稍后将由上海办公室修复,请稍后重新登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
             else
             {
                 string strRepairUser = File.ReadAllText(strlock);
-                MessageBox.Show("登陆失败::数据库正在计算机: " + strRepairUser + " 启用自动修复中,请稍后登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("登陆失败::数据库正在计算机: " + strRepairUser + " 启用自动修复中,请稍后重新登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -196,23 +206,30 @@ namespace BHair.Business
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("数据库损坏,点击确定后,系统将尝试自动修复,期间请勿操作!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    string strResult = RepairAccess(strConnstring);
-                    if (strResult.Substring(0, 5) != "Error")
+                    if (txtName.Text == "administrator" || GetComputerName().Substring(0, 3) == "OC1")
                     {
-                        MessageBox.Show("数据库修复完成,请关闭系统,并重新登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        this.Close();
+                        MessageBox.Show("数据库损坏,点击确定后,系统将尝试自动修复,期间请勿操作!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        string strResult = RepairAccess(strConnstring);
+                        if (strResult.Substring(0, 5) != "Error")
+                        {
+                            MessageBox.Show("数据库修复完成,请关闭系统,并重新登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("数据库修复失败::" + strResult, "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("数据库修复失败::" + strResult, "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("数据库损坏,稍后将由上海办公室修复,请稍后重新登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
             else
             {
                 string strRepairUser = File.ReadAllText(strlock);
-                MessageBox.Show("登陆失败::数据库正在计算机: " + strRepairUser + " 启用自动修复中,请稍后登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("登陆失败::数据库正在计算机: " + strRepairUser + " 启用自动修复中,请稍后重新登录!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
