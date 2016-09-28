@@ -30,6 +30,7 @@ namespace BHair.Business
                     if (DeliverDetailTable.Rows.Count == ReceiptDetailTable.Rows.Count && deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
                     {
                         boolResult = false;
+                        break;
                     }
                     else
                     {
@@ -48,6 +49,7 @@ namespace BHair.Business
                     if (DeliverDetailTable.Rows.Count == ReceiptDetailTable.Rows.Count && deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
                     {
                         boolResult = false;
+                        break;
                     }
                     else
                     {
@@ -66,6 +68,7 @@ namespace BHair.Business
                     if (DeliverDetailTable.Rows.Count == AppDetailTable.Rows.Count && deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
                     {
                         boolResult = false;
+                        break;
                     }
                     else
                     {
@@ -84,6 +87,7 @@ namespace BHair.Business
                     if (DeliverDetailTable.Rows.Count == AppDetailTable.Rows.Count && deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
                     {
                         boolResult = false;
+                        break;
                     }
                     else
                     {
