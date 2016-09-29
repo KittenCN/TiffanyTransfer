@@ -907,6 +907,8 @@ namespace BHair.Business
                 //}
 
                 //加入內容
+                string strLastCtrlID = "";
+                string strLastFinishState = "";
                 for (int i = 1; i <= thisTable.Rows.Count; i++)
                 {
                     _wsh.Cells[i + sheetRowsCount, 1] = "'" + thisTable.Rows[i - 1]["CtrlID"].ToString();
@@ -917,7 +919,16 @@ namespace BHair.Business
                     _wsh.Cells[i + sheetRowsCount, 6] = "'" + thisTable.Rows[i - 1]["ApplicantsDate"].ToString();
                     _wsh.Cells[i + sheetRowsCount, 7] = "'" + thisTable.Rows[i - 1]["ApplicantsName"].ToString();
                     _wsh.Cells[i + sheetRowsCount, 8] = "'" + thisTable.Rows[i - 1]["TotalPrice"].ToString();
-                    _wsh.Cells[i + sheetRowsCount, 9] = "'" + strFinishState(thisTable.Rows[i - 1]["CtrlID"].ToString(), thisTable.Rows[i - 1]["AppState"].ToString());
+                    if (thisTable.Rows[i - 1]["CtrlID"].ToString() == strLastCtrlID)
+                    {
+                        _wsh.Cells[i + sheetRowsCount, 9] = strLastFinishState;
+                    }
+                    else
+                    {
+                        strLastFinishState = "'" + strFinishState(thisTable.Rows[i - 1]["CtrlID"].ToString(), thisTable.Rows[i - 1]["AppState"].ToString());
+                        strLastCtrlID = thisTable.Rows[i - 1]["CtrlID"].ToString();
+                        _wsh.Cells[i + sheetRowsCount, 9] = strLastFinishState;
+                    }
                     _wsh.Cells[i + sheetRowsCount, 10] = "'" + strAppState(thisTable.Rows[i - 1]["AppState"].ToString(), thisTable.Rows[i - 1]["IsDelete"].ToString());
                 }
                 _wsh.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape;
