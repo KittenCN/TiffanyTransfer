@@ -44,6 +44,7 @@ namespace BHair.Business
                     string strTSQL = "select * from SetupConfig";
                     AccessHelper ahTSQL = new AccessHelper();
                     DataTable dtTSQL = ahTSQL.SelectToDataTable(strTSQL);
+                    ahTSQL.Close();
                     UpdateDataBase();
                     if (strVersion == Application.ProductVersion)
                     {
