@@ -256,6 +256,22 @@ namespace BHair.Business.Table
             return rows;
         }
 
+        public void InsertReceiptDetail(DataTable dt)
+        {
+            int rows = 0;
+            if(dt!=null && dt.Rows.Count>0)
+            {
+                foreach(DataRow dr in dt.Rows)
+                {
+                    AccessHelper ah = new AccessHelper();
+                    string sql = "insert into ReceiptDetail(CtrlID,Department,App_Level,ItemID,ItemID2,Detail,Price,App_Count,IsDelete,ItemHighlight) ";
+                    sql = sql + " values('" + dr["CtrlID"] + "','" + dr["Department"] + "','" + dr["App_Level"] + "','" + dr["ItemID"] + "','" + dr["ItemID2"] + "','" + dr["Detail"] + "'," + dr["Price"] + "," + dr["App_Count"] + "," + dr["IsDelete"] + "," + dr["ItemHighlight"] + ") ";
+                    rows += ah.ExecuteNonQuery(sql);
+                    ah.Close();
+                }
+            }
+        }
+
         /// <summary>
         /// 删除订单详情表数据
         /// </summary>

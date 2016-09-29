@@ -228,6 +228,14 @@ namespace BHair.Business.Table
             get { return _exchangeType; }
             set { _exchangeType = value; }
         }
+
+        //订单状态
+        private int _appState;
+        public int AppState
+        {
+            get { return _appState; }
+            set { _appState = value; }
+        }
         #endregion
 
         #region 自定义函数...

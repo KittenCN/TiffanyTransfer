@@ -93,6 +93,7 @@
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
+            this.btnOneceRecive = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -666,6 +667,7 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.btnOneceRecive);
             this.panel3.Controls.Add(this.cbCtrlType);
             this.panel3.Controls.Add(this.TxtChoose);
             this.panel3.Controls.Add(this.BtnChoose);
@@ -703,6 +705,17 @@
             this.BtnChoose.Text = "查询";
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
+            // 
+            // btnOneceRecive
+            // 
+            this.btnOneceRecive.Location = new System.Drawing.Point(130, 10);
+            this.btnOneceRecive.Name = "btnOneceRecive";
+            this.btnOneceRecive.Size = new System.Drawing.Size(75, 23);
+            this.btnOneceRecive.TabIndex = 3;
+            this.btnOneceRecive.Text = "一键收货";
+            this.btnOneceRecive.UseVisualStyleBackColor = true;
+            this.btnOneceRecive.Visible = false;
+            this.btnOneceRecive.Click += new System.EventHandler(this.btnOneceRecive_Click);
             // 
             // frmStoreApp
             // 
@@ -801,7 +814,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn S_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn O_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn WuliuDate;
-
-
+        private System.Windows.Forms.Button btnOneceRecive;
     }
 }

@@ -185,6 +185,7 @@ namespace BHair.Business
                 applicationInfo.O_O_Str = dgvApplyInfo.SelectedRows[0].Cells["O_O_Str"].Value.ToString();
                 applicationInfo.WuliuDate = dgvApplyInfo.SelectedRows[0].Cells["WuliuDate"].Value.ToString();
                 applicationInfo.ExchangeType = dgvApplyInfo.SelectedRows[0].Cells["ExchangeType"].Value.ToString();
+                applicationInfo.AppState = (int)dgvApplyInfo.SelectedRows[0].Cells["Column27"].Value;
             }
             if (CtrlType == "未审核")
             {
@@ -510,6 +511,29 @@ namespace BHair.Business
                     dgvApplyInfo.Rows[i].Cells["完成状态"].Style.ForeColor = Color.Red;
                 }
             }
+        }
+
+        private void btnOneceRecive_Click(object sender, EventArgs e)
+        {
+            if (applicationInfo.CtrlID != null && applicationInfo.AppState==3)
+            {
+                ApplicationDetail applicationDetail = new ApplicationDetail();
+                DataTable AddApplicationDT = applicationDetail.SelectDeliverDetailByCtrlID(applicationInfo.CtrlID);
+                DataTable AddAppInfoDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
+                applicationDetail.InsertReceiptDetail(AddApplicationDT);
+                applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
+                applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, "一键自动收货!", Login.LoginUser, 1);
+                SendEmailtoWuliu();
+            }
+            else
+            {
+                MessageBox.Show("订单号错误,或订单状态错误!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        void SendEmailtoWuliu()
+        {
+            EmailControl.ToApplicantWLSubmit(applicationInfo);
+            //EmailControl.ToReceiptConfirm(applicationInfo);
         }
     }
 }

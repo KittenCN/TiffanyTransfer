@@ -62,6 +62,7 @@ namespace BHair.Business
                     OleDbCommand comm2 = new OleDbCommand(strSQL2, ah2.Conn);
                     comm2.ExecuteNonQuery();
                     isSuccess = true;
+                    ah2.Close();
                 }
                 catch (Exception ex1)
                 {
@@ -79,9 +80,11 @@ namespace BHair.Business
                             OleDbCommand comm2 = new OleDbCommand(strSQL2, ah2.Conn);
                             comm2.ExecuteNonQuery();
                             isSuccess = true;
+                            ah.Close();
+                            ah2.Close();
                         }
                         catch (Exception ex2)
-                        {
+                        {                           
                             return false;
                         }
                     }
