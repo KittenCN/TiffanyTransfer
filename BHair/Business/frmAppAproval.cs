@@ -515,11 +515,12 @@ namespace BHair.Business
 
         private void btnOneceRecive_Click(object sender, EventArgs e)
         {
-            if (applicationInfo.CtrlID != null && applicationInfo.AppState==3)
+            if (applicationInfo.CtrlID != null && (applicationInfo.AppState==3 || applicationInfo.AppState==4))
             {
                 ApplicationDetail applicationDetail = new ApplicationDetail();
                 DataTable AddApplicationDT = applicationDetail.SelectDeliverDetailByCtrlID(applicationInfo.CtrlID);
                 DataTable AddAppInfoDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
+                applicationDetail.DeleteReceiptDetail(AddApplicationDT);
                 applicationDetail.InsertReceiptDetail(AddApplicationDT);
                 applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
                 applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, "一键自动收货!", Login.LoginUser, 1);

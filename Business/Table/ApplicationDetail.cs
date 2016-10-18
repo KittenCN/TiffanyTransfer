@@ -272,6 +272,21 @@ namespace BHair.Business.Table
             }
         }
 
+        public void DeleteReceiptDetail(DataTable dt)
+        {
+            int rows = 0;
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    AccessHelper ah = new AccessHelper();
+                    string sql = "delete from ReceiptDetail where CtrlID='" + dr["CtrlID"].ToString() + "' ";
+                    rows += ah.ExecuteNonQuery(sql);
+                    ah.Close();
+                }
+            }
+        }
+
         /// <summary>
         /// 删除订单详情表数据
         /// </summary>
