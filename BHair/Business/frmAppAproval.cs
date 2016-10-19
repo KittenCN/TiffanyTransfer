@@ -525,7 +525,7 @@ namespace BHair.Business
                 applicationInfo.UpdateApplicationInfo(AddAppInfoDT);
                 applicationInfo.ReceiptConfirm(applicationInfo.CtrlID, "一键自动收货!", Login.LoginUser, 1);
                 SendEmailtoWuliu();
-                MessageBox.Show("订单号错误:" + applicationInfo.CtrlID + "一键自动收货成功!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("订单号:" + applicationInfo.CtrlID + "一键自动收货成功!", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

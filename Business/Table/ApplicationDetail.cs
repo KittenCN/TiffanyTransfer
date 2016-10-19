@@ -122,7 +122,7 @@ namespace BHair.Business.Table
         public DataTable SelectDeliverDetailByCtrlID(string CtrlID)
         {
             AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from DeliverDetail where IsDelete = 0 and CtrlID = '{0}'", CtrlID);
+            string sqlString = string.Format("select * from DeliverDetail where IsDelete = 0 and CtrlID = '{0}' order by ItemID,ItemID2", CtrlID);
             DataTable Result = ah.SelectToDataTable(sqlString);
             ah.Close();
             return Result;
@@ -136,7 +136,7 @@ namespace BHair.Business.Table
         public DataTable SelectReceiptDetailByCtrlID(string CtrlID)
         {
             AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from ReceiptDetail where IsDelete = 0 and CtrlID = '{0}'", CtrlID);
+            string sqlString = string.Format("select * from ReceiptDetail where IsDelete = 0 and CtrlID = '{0}' order by ItemID,ItemID2", CtrlID);
             DataTable Result = ah.SelectToDataTable(sqlString);
             ah.Close();
             return Result;
@@ -258,7 +258,6 @@ namespace BHair.Business.Table
 
         public void InsertReceiptDetail(DataTable dt)
         {
-            int rows = 0;
             if(dt!=null && dt.Rows.Count>0)
             {
                 foreach(DataRow dr in dt.Rows)
@@ -266,7 +265,7 @@ namespace BHair.Business.Table
                     AccessHelper ah = new AccessHelper();
                     string sql = "insert into ReceiptDetail(CtrlID,Department,App_Level,ItemID,ItemID2,Detail,Price,App_Count,IsDelete,ItemHighlight) ";
                     sql = sql + " values('" + dr["CtrlID"] + "','" + dr["Department"] + "','" + dr["App_Level"] + "','" + dr["ItemID"] + "','" + dr["ItemID2"] + "','" + dr["Detail"] + "'," + dr["Price"] + "," + dr["App_Count"] + "," + dr["IsDelete"] + "," + dr["ItemHighlight"] + ") ";
-                    rows += ah.ExecuteNonQuery(sql);
+                    ah.ExecuteSQLNonquery(sql);
                     ah.Close();
                 }
             }
@@ -274,14 +273,13 @@ namespace BHair.Business.Table
 
         public void DeleteReceiptDetail(DataTable dt)
         {
-            int rows = 0;
             if (dt != null && dt.Rows.Count > 0)
             {
                 foreach (DataRow dr in dt.Rows)
                 {
                     AccessHelper ah = new AccessHelper();
                     string sql = "delete from ReceiptDetail where CtrlID='" + dr["CtrlID"].ToString() + "' ";
-                    rows += ah.ExecuteNonQuery(sql);
+                    ah.ExecuteSQLNonquery(sql);
                     ah.Close();
                 }
             }

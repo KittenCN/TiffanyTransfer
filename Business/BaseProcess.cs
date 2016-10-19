@@ -30,14 +30,15 @@ namespace BHair.Business
                     if (DeliverDetailTable.Rows.Count == ReceiptDetailTable.Rows.Count && deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
                     {
                         boolResult = false;
-                        break;
+                        goto done;
                     }
                     else
                     {
-                        boolResult = true;                       
+                        boolResult = true;
                     }
                 }
-                if(boolResult)
+            done:
+                if (boolResult)
                 {
                     goto Finish;
                 }
@@ -49,13 +50,14 @@ namespace BHair.Business
                     if (DeliverDetailTable.Rows.Count == ReceiptDetailTable.Rows.Count && deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
                     {
                         boolResult = false;
-                        break;
+                        goto done2;
                     }
                     else
                     {
                         boolResult = true;
                     }
                 }
+            done2:
                 if (boolResult)
                 {
                     goto Finish;
@@ -68,13 +70,14 @@ namespace BHair.Business
                     if (DeliverDetailTable.Rows.Count == AppDetailTable.Rows.Count && deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
                     {
                         boolResult = false;
-                        break;
+                        goto done3;
                     }
                     else
                     {
                         boolResult = true;
                     }
                 }
+            done3:
                 if (boolResult)
                 {
                     goto Finish;
@@ -87,19 +90,20 @@ namespace BHair.Business
                     if (DeliverDetailTable.Rows.Count == AppDetailTable.Rows.Count && deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
                     {
                         boolResult = false;
-                        break;
+                        goto done4;
                     }
                     else
                     {
                         boolResult = true;
                     }
                 }
+            done4:
                 if (boolResult)
                 {
                     goto Finish;
                 }
             }
-            Finish:
+        Finish:
             return boolResult;
         }
     }
