@@ -84,6 +84,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnOutExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppDetail)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -611,6 +612,7 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.btnOutExcel);
             this.panel3.Controls.Add(this.btnExcel);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.groupBox1);
@@ -621,7 +623,8 @@
             // 
             // btnExcel
             // 
-            this.btnExcel.Location = new System.Drawing.Point(657, 153);
+            this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcel.Location = new System.Drawing.Point(666, 153);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(75, 23);
             this.btnExcel.TabIndex = 3;
@@ -639,6 +642,17 @@
             this.btnSearch.Text = "查询";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnOutExcel
+            // 
+            this.btnOutExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOutExcel.Location = new System.Drawing.Point(585, 153);
+            this.btnOutExcel.Name = "btnOutExcel";
+            this.btnOutExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnOutExcel.TabIndex = 4;
+            this.btnOutExcel.Text = "转存Excel";
+            this.btnOutExcel.UseVisualStyleBackColor = true;
+            this.btnOutExcel.Click += new System.EventHandler(this.btnOutExcel_Click);
             // 
             // frmApplicationReport
             // 
@@ -725,5 +739,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn O_O;
         private System.Windows.Forms.DataGridViewTextBoxColumn Batch_Num1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Batch_Num2;
+        private System.Windows.Forms.Button btnOutExcel;
     }
 }

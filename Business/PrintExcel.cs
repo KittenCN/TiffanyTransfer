@@ -323,7 +323,7 @@ namespace BHair.Business
                 //    _wsh.Cells[0, count] = myNewColumn.ColumnName;
                 //    count = count + 1;
                 //}er
-                for (int i = 0; i < count-1; i++)
+                for (int i = 0; i < count - 1; i++)
                 {
                     _wsh.Cells[1, i + 1] = thisTable.Columns[i].ColumnName;
                 }
@@ -331,7 +331,7 @@ namespace BHair.Business
                 //加入內容
                 for (int i = 1; i <= thisTable.Rows.Count; i++)
                 {
-                    for (int j = 1; j <= thisTable.Columns.Count-1; j++)
+                    for (int j = 1; j <= thisTable.Columns.Count - 1; j++)
                     {
                         if ((j == 7 && thisTable.Rows[i - 1]["ItemHighlight"].ToString() == "1") || (j == 8 && thisTable.Rows[i - 1]["ItemHighlight"].ToString() == "2"))
                         {
@@ -567,25 +567,33 @@ namespace BHair.Business
                     dr["CtrlID"] = ((Excel.Range)worksheet.Cells[iRow, 2]).Text;
                     if (Result[0].Select(string.Format("CtrlID='{0}'", dr["CtrlID"])).Length != 0)//重复控制号
                     {
-                        try
+                        if(Result[0].Select(string.Format("CtrlID='{0}'", dr["CtrlID"])).Length <= 20)
                         {
-                            dr = Result[0].Select(string.Format("CtrlID='{0}'", dr["CtrlID"])).First();
-                            double price = 0;
-                            DataRow[] itemDr = items.ItemsDT.Select(string.Format("ItemID='{0}' or ItemID2='{0}'", ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString()));
-                            if (itemDr.Length != 0)
-                            { double.TryParse(itemDr[0]["Price"].ToString(), out price); }
+                            try
+                            {
+                                dr = Result[0].Select(string.Format("CtrlID='{0}'", dr["CtrlID"])).First();
+                                double price = 0;
+                                DataRow[] itemDr = items.ItemsDT.Select(string.Format("ItemID='{0}' or ItemID2='{0}'", ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString()));
+                                if (itemDr.Length != 0)
+                                { double.TryParse(itemDr[0]["Price"].ToString(), out price); }
+                                int count = 0;
+                                if (!int.TryParse(((Excel.Range)worksheet.Cells[iRow, 11]).Text.ToString(), out count))
+                                    dr["TotalCount"] = double.Parse(dr["TotalCount"].ToString()) + count;
+                                dr["TotalPrice"] = double.Parse(dr["TotalPrice"].ToString()) + price * count;
+                            }
+                            catch (Exception ex)
+                            {
 
-
-
-                            int count = 0;
-                            if (!int.TryParse(((Excel.Range)worksheet.Cells[iRow, 11]).Text.ToString(), out count))
-                                dr["TotalCount"] = double.Parse(dr["TotalCount"].ToString()) + count;
-
-                            dr["TotalPrice"] = double.Parse(dr["TotalPrice"].ToString()) + price * count;
+                            }
                         }
-                        catch
+                        else
                         {
-
+                            validate++;
+                            intError++;
+                            drError = Result[2].NewRow();
+                            drError["ID"] = intError;
+                            drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 2]).Text + "::货品超过20条!";
+                            Result[2].Rows.Add(drError);
                         }
                     }
                     else
@@ -724,9 +732,7 @@ namespace BHair.Business
                         else
                             dr["App_Count"] = count;
 
-
                         dr["ItemHighlight"] = 1;
-
 
                     }
                     else
@@ -961,10 +967,10 @@ namespace BHair.Business
                 app = null;
             }
         }
-        public string strAppState(string strIN1,string strIN2)
+        public string strAppState(string strIN1, string strIN2)
         {
             string strResult = "";
-            if(strIN2!=null && strIN2!="1")
+            if (strIN2 != null && strIN2 != "1")
             {
                 switch (strIN1)
                 {
@@ -1000,13 +1006,13 @@ namespace BHair.Business
             }
             return strResult;
         }
-        public string strFinishState(string strIN1,string strIN2)
+        public string strFinishState(string strIN1, string strIN2)
         {
             string strResult = "";
             BaseProcess bp = new Business.BaseProcess();
-            if (strIN2!=null && strIN1!= null && strIN2=="9")
+            if (strIN2 != null && strIN1 != null && strIN2 == "9")
             {
-                if(bp.boolCampareOrder(strIN1))
+                if (bp.boolCampareOrder(strIN1))
                 {
                     strResult = "异常";
                 }

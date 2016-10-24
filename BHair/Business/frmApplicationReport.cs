@@ -32,7 +32,7 @@ namespace BHair.Business
             if (txtItemID.Text != "")
                 sqlStr += string.Format(" and (ApplicationDetail.ItemID='{0}' or ApplicationDetail.ItemID2='{0}' )", txtItemID.Text);
 
-            sqlStr += string.Format(" and ApplicationInfo.ApplicantsDate>#{0}# and ApplicationInfo.ApplicantsDate<#{1}#", txtSDate.Value.AddDays(-1), txtEDate.Value);
+            sqlStr += string.Format(" and ApplicationInfo.ApplicantsDate>#{0}# and ApplicationInfo.ApplicantsDate<#{1}#", txtSDate.Value.AddDays(-1).ToShortDateString(), txtEDate.Value.ToShortDateString());
             if (txtDeliverStore.SelectedItem.ToString() != "全部")
                 sqlStr += string.Format(" and ApplicationInfo.DeliverStore='{0}'", txtDeliverStore.SelectedItem.ToString());
             if (txtReceiptStore.SelectedItem.ToString() != "全部")
@@ -194,6 +194,35 @@ namespace BHair.Business
                 sb.Append(getRandomChar());
             }
             return sb.ToString();
+        }
+
+        private void btnOutExcel_Click(object sender, EventArgs e)
+        {
+            PrintExcel pe = new PrintExcel();
+            pe.OutputAsExcelFile(dgvAppDetail);
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "EXCEL文件(*.xls)|*.xls";
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    //string strRandom = getRandomString(12);
+                    //string tempFilePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strRandom + ".xls";
+                    string tempFilePath = saveFileDialog.FileName.ToString();
+                    //PrintExcel pe = new PrintExcel();
+                    pe.WriteToExcelReport(pe.exporeDataToTable(dgvAppDetail), tempFilePath, "Sheet1");
+                    //string localFilePath = saveFileDialog.FileName.ToString();
+                    //PrintPDF pp = new PrintPDF();
+                    //pp.XLSConvertToPDF(tempFilePath, localFilePath);
+                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("保存失败", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }
