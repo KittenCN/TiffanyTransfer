@@ -54,9 +54,13 @@ namespace BHair.Business
                     //创建错误列表
                     DataTable dtError = new DataTable("Error");
                     DataColumn dc1 = new DataColumn("ID", Type.GetType("System.Int16"));
-                    DataColumn dc2 = new DataColumn("ErrorString", Type.GetType("System.String"));
+                    DataColumn dc2 = new DataColumn("eCtrlID", Type.GetType("System.String"));
+                    DataColumn dc3 = new DataColumn("eItemID", Type.GetType("System.String"));
+                    DataColumn dc4 = new DataColumn("ErrorString", Type.GetType("System.String"));
                     dtError.Columns.Add(dc1);
                     dtError.Columns.Add(dc2);
+                    dtError.Columns.Add(dc3);
+                    dtError.Columns.Add(dc4);
                     TempDT[0] = applicationInfoDT;
                     TempDT[1] = applicationDetailDT;
                     TempDT[2] = dtError;

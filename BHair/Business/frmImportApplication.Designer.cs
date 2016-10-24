@@ -91,6 +91,8 @@
             this.gbErrorList = new System.Windows.Forms.GroupBox();
             this.dgvErrorList = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eCtrlID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ErrorString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyInfo)).BeginInit();
@@ -635,6 +637,8 @@
             this.dgvErrorList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvErrorList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
+            this.eCtrlID,
+            this.eItemID,
             this.ErrorString});
             this.dgvErrorList.Location = new System.Drawing.Point(7, 20);
             this.dgvErrorList.Name = "dgvErrorList";
@@ -650,10 +654,24 @@
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             // 
+            // eCtrlID
+            // 
+            this.eCtrlID.DataPropertyName = "eCtrlID";
+            this.eCtrlID.HeaderText = "控制号";
+            this.eCtrlID.Name = "eCtrlID";
+            this.eCtrlID.ReadOnly = true;
+            // 
+            // eItemID
+            // 
+            this.eItemID.DataPropertyName = "eItemID";
+            this.eItemID.HeaderText = "货号/双货号";
+            this.eItemID.Name = "eItemID";
+            this.eItemID.ReadOnly = true;
+            // 
             // ErrorString
             // 
             this.ErrorString.DataPropertyName = "ErrorString";
-            this.ErrorString.HeaderText = "ErrorString";
+            this.ErrorString.HeaderText = "错误信息";
             this.ErrorString.Name = "ErrorString";
             this.ErrorString.ReadOnly = true;
             // 
@@ -748,6 +766,8 @@
         private System.Windows.Forms.GroupBox gbErrorList;
         private System.Windows.Forms.DataGridView dgvErrorList;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eCtrlID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ErrorString;
     }
 }
