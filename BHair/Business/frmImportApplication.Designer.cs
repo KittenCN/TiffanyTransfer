@@ -660,6 +660,7 @@
             this.eCtrlID.HeaderText = "控制号";
             this.eCtrlID.Name = "eCtrlID";
             this.eCtrlID.ReadOnly = true;
+            this.eCtrlID.Width = 200;
             // 
             // eItemID
             // 
@@ -674,6 +675,7 @@
             this.ErrorString.HeaderText = "错误信息";
             this.ErrorString.Name = "ErrorString";
             this.ErrorString.ReadOnly = true;
+            this.ErrorString.Width = 300;
             // 
             // frmImportApplication
             // 
@@ -686,6 +688,8 @@
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExcel);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmImportApplication";
             this.TabText = "申请单导入";
             this.Text = "申请单导入";

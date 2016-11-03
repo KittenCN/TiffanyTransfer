@@ -34,7 +34,7 @@ namespace BHair.Business
 
 
         private void btnExcel_Click(object sender, EventArgs e)
-        {          
+        {
             TempDT = new DataTable[3];
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Excel文件|*.xls";
@@ -74,17 +74,22 @@ namespace BHair.Business
                     dgvErrorList.AutoGenerateColumns = false;
                     dgvErrorList.DataSource = TempDT[2];
                     label1.Text = "Excel数据载入完成";
-                    if(TempDT[0].Rows.Count>0 && TempDT[1].Rows.Count>0)
+                    if (TempDT[0].Rows.Count > 0 && TempDT[1].Rows.Count > 0 && TempDT[2].Rows.Count == 0)
                     {
                         btnImport.Enabled = true;
                     }
-                    if(TempDT[2].Rows.Count>0)
+                    else
                     {
                         label1.ForeColor = Color.Red;
                         label1.Text = label1.Text + " ,但是数据有错,详见数据错误列表";
-                    }                   
+                    }
+                    //if (TempDT[2].Rows.Count > 0)
+                    //{
+                    //    label1.ForeColor = Color.Red;
+                    //    label1.Text = label1.Text + " ,但是数据有错,详见数据错误列表";
+                    //}
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     label1.ForeColor = Color.Red;
                     label1.Text = "Excel数据导入失败,详见数据错误列表";

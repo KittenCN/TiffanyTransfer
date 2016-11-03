@@ -700,14 +700,14 @@ namespace BHair.Business
                                 drError["ID"] = intError;
                                 drError["eCtrlID"] = dr["CtrlID"].ToString();
                                 drError["eItemID"] = "-";
-                                drError["ErrorString"] = "::控制号错误!";
+                                drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 2]).Text + "::控制号错误!";
                                 Result[2].Rows.Add(drError);
                             }
 
                             if (validate == 0) Result[0].Rows.Add(dr);
                         }
                     }
-                    else if(strLastFailCID != dr["CtrlID"].ToString())
+                    else if (strLastFailCID != dr["CtrlID"].ToString())
                     {
                         strLastFailCID = dr["CtrlID"].ToString();
                         validate++;
@@ -730,7 +730,7 @@ namespace BHair.Business
                     DataRow dr = Result[1].NewRow();
 
                     dr["CtrlID"] = ((Excel.Range)worksheet.Cells[iRow, 2]).Text;
-                    if(Result[2].Select(string.Format("eCtrlID='{0}'", dr["CtrlID"])).Length == 0)
+                    if (Result[2].Select(string.Format("eCtrlID='{0}'", dr["CtrlID"])).Length == 0)
                     {
                         DataRow[] itemDr;
                         string itemID = ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString();
@@ -740,7 +740,21 @@ namespace BHair.Business
                             dr["ItemID"] = itemDr[0]["ItemID"];
                             dr["ItemID2"] = itemDr[0]["ItemID2"];
                             dr["Price"] = itemDr[0]["Price"];
-                            dr["Detail"] = itemDr[0]["Detail"];
+                            if (itemDr[0]["Detail"].ToString().IndexOf("'") > -1 || itemDr[0]["Detail"].ToString().IndexOf("\"") > -1)
+                            {
+                                validate++;
+                                intError++;
+                                drError = Result[2].NewRow();
+                                drError["ID"] = intError;
+                                drError["eCtrlID"] = dr["CtrlID"].ToString();
+                                drError["eItemID"] = itemID;
+                                drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString() + "::货物描述有被禁止的符号(单引号,双引号,单撇号)!";
+                                Result[2].Rows.Add(drError);
+                            }
+                            else
+                            {
+                                dr["Detail"] = itemDr[0]["Detail"];
+                            }
                             dr["Department"] = itemDr[0]["Department"];
                             dr["App_Level"] = itemDr[0]["Class"];
 
@@ -753,7 +767,7 @@ namespace BHair.Business
                                 drError["ID"] = intError;
                                 drError["eCtrlID"] = dr["CtrlID"].ToString();
                                 drError["eItemID"] = itemID;
-                                drError["ErrorString"] = "::货物数量错误!";
+                                drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString() + "::货物数量错误!";
                                 Result[2].Rows.Add(drError);
                             }
                             else
@@ -771,7 +785,21 @@ namespace BHair.Business
                                 dr["ItemID"] = itemDr[0]["ItemID"];
                                 dr["ItemID2"] = itemDr[0]["ItemID2"];
                                 dr["Price"] = itemDr[0]["Price"];
-                                dr["Detail"] = itemDr[0]["Detail"];
+                                if (itemDr[0]["Detail"].ToString().IndexOf("'") > -1 || itemDr[0]["Detail"].ToString().IndexOf("\"") > -1)
+                                {
+                                    validate++;
+                                    intError++;
+                                    drError = Result[2].NewRow();
+                                    drError["ID"] = intError;
+                                    drError["eCtrlID"] = dr["CtrlID"].ToString();
+                                    drError["eItemID"] = itemID;
+                                    drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString() + "::货物描述有被禁止的符号(单引号,双引号,单撇号)!";
+                                    Result[2].Rows.Add(drError);
+                                }
+                                else
+                                {
+                                    dr["Detail"] = itemDr[0]["Detail"];
+                                }
                                 dr["Department"] = itemDr[0]["Department"];
                                 dr["App_Level"] = itemDr[0]["Class"];
 
@@ -784,7 +812,7 @@ namespace BHair.Business
                                     drError["ID"] = intError;
                                     drError["eCtrlID"] = dr["CtrlID"].ToString();
                                     drError["eItemID"] = itemID;
-                                    drError["ErrorString"] = "::货物数量错误!";
+                                    drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString() + "::货物数量错误!";
                                     Result[2].Rows.Add(drError);
                                 }
                                 else
@@ -805,7 +833,7 @@ namespace BHair.Business
                             drError["ID"] = intError;
                             drError["eCtrlID"] = dr["CtrlID"].ToString();
                             drError["eItemID"] = itemID;
-                            drError["ErrorString"] = "::货号错误!";
+                            drError["ErrorString"] = ((Excel.Range)worksheet.Cells[iRow, 10]).Text.ToString() + "::货号错误!";
                             Result[2].Rows.Add(drError);
                         }
 
