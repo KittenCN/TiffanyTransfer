@@ -71,6 +71,7 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tsBTNDataProcessing = new System.Windows.Forms.ToolStripButton();
             this.menuMain.SuspendLayout();
             this.ssrMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -315,7 +316,8 @@
             this.toolStripSeparator2,
             this.toolStripButton8,
             this.toolStripButton2,
-            this.toolStripButton9});
+            this.toolStripButton9,
+            this.tsBTNDataProcessing});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(775, 72);
@@ -460,6 +462,18 @@
             this.timer1.Interval = 43200000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // tsBTNDataProcessing
+            // 
+            this.tsBTNDataProcessing.Image = ((System.Drawing.Image)(resources.GetObject("tsBTNDataProcessing.Image")));
+            this.tsBTNDataProcessing.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsBTNDataProcessing.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBTNDataProcessing.Name = "tsBTNDataProcessing";
+            this.tsBTNDataProcessing.Size = new System.Drawing.Size(84, 69);
+            this.tsBTNDataProcessing.Text = "超标订单处理";
+            this.tsBTNDataProcessing.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsBTNDataProcessing.Visible = false;
+            this.tsBTNDataProcessing.Click += new System.EventHandler(this.tsBTNDataProcessing_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -533,5 +547,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripMenuItem menuMain_System_SetupConfig;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripButton tsBTNDataProcessing;
     }
 }
