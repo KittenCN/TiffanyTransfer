@@ -419,6 +419,7 @@ namespace BHair
                 toolStripButton13.Visible = false;
                 toolStripButton5.Visible = false;
                 toolStripButton6.Visible = false;
+                tsBTNDataProcessing.Visible = false;
             }
             else if (Login.LoginUser.Character == 1)    //商品部
             {
@@ -449,6 +450,7 @@ namespace BHair
                     menuMain_System_Log.Visible = false;
                     //toolStripButton8.Visible = false;
                     toolStripButton2.Visible = false;
+                    tsBTNDataProcessing.Visible = false;
                 }
 
                 toolStripButton4.Visible = true;
@@ -458,6 +460,7 @@ namespace BHair
                 toolStripButton5.Visible = true;
                 toolStripButton6.Visible = true;
                 toolStripButton8.Visible = true;
+                tsBTNDataProcessing.Visible = false;
 
                 menuMain_Manage_ApprovalApp_Click(null, null);//商品部审核窗口
             }
@@ -485,6 +488,7 @@ namespace BHair
                 toolStripButton13.Visible = false;
                 toolStripButton5.Visible = false;
                 toolStripButton6.Visible = false;
+                tsBTNDataProcessing.Visible = false;
 
                 menuMain_Manage_Approval2App_Click(null, null);//财务审核窗口
             }
@@ -513,6 +517,7 @@ namespace BHair
                 toolStripButton5.Visible = false;
                 toolStripButton5.Visible = false;
                 toolStripButton6.Visible = true;
+                tsBTNDataProcessing.Visible = false;
 
                 menuMain_Manage_StoreApp_Click(null, null);//打开店面申请状态窗口
             }
@@ -543,6 +548,7 @@ namespace BHair
                 toolStripButton13.Visible = true;
                 toolStripButton5.Visible = true;    //物流部能修改单据 2016.8.29
                 toolStripButton6.Visible = false;
+                tsBTNDataProcessing.Visible = false;
 
                 物流确认ToolStripMenuItem_Click(null, null);//物流确认窗口
             }
@@ -570,6 +576,7 @@ namespace BHair
                 toolStripButton2.Visible = false;
                 toolStripButton5.Visible = false;
                 toolStripButton6.Visible = false;
+                tsBTNDataProcessing.Visible = false;
             }
             if (Login.LoginUser.UID == "Administrator")
             {
@@ -595,6 +602,7 @@ namespace BHair
                 toolStripButton5.Visible = true;
                 toolStripButton6.Visible = true;
                 toolStripButton8.Visible = true;
+                tsBTNDataProcessing.Visible = true;
             }
         }
         #endregion
@@ -668,13 +676,12 @@ namespace BHair
             }
         }
 
-
-
-
-
-
-
-
-
+        private void tsBTNDataProcessing_Click(object sender, EventArgs e)
+        {
+            //frmAddApplication objfrmAddApp = new frmAddApplication();
+            //objfrmAddApp.Show();
+            frmDataProcessing objfrmDP = new Business.frmDataProcessing();
+            objfrmDP.Show();
+        }
     }
 }

@@ -225,6 +225,12 @@
     <Compile Include="Business\frmAppDoneDetail.Designer.cs">
       <DependentUpon>frmAppDoneDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business\frmDataProcessing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmDataProcessing.Designer.cs">
+      <DependentUpon>frmDataProcessing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Business\frmEditReason.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +376,9 @@
     <EmbeddedResource Include="Business\frmAppDoneDetail.resx">
       <DependentUpon>frmAppDoneDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\frmDataProcessing.resx">
+      <DependentUpon>frmDataProcessing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Business\frmEditReason.resx">
       <DependentUpon>frmEditReason.cs</DependentUpon>
