@@ -304,6 +304,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator2,
             this.toolStripButton4,
             this.toolStripSeparator1,
             this.toolStripButton12,
@@ -312,7 +313,6 @@
             this.toolStripButton13,
             this.toolStripButton6,
             this.toolStripButton3,
-            this.toolStripSeparator2,
             this.toolStripButton8,
             this.toolStripButton2,
             this.toolStripButton9});
