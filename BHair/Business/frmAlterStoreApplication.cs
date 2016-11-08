@@ -213,8 +213,22 @@ namespace BHair.Business
             cbRecieveStore.SelectedItem = applicationInfo.ReceiptStore;
             
             txtWuliuID.Text = applicationInfo.WuliuID;
-            if (DeliverOrReceipt == "Deliver") { dtAppDate.Value = DateTime.Parse(applicationInfo.DeliverDate); txtStoreCheck.Text = applicationInfo.DeliverCheck; }
-            else { dtAppDate.Value = DateTime.Parse(applicationInfo.ReceiptDate); txtStoreCheck.Text = applicationInfo.ReceiptCheck; }
+            if (DeliverOrReceipt == "Deliver")
+            {
+                if(applicationInfo.DeliverDate!=null && applicationInfo.DeliverDate != "")
+                {
+                    dtAppDate.Value = DateTime.Parse(applicationInfo.DeliverDate);
+                }               
+                txtStoreCheck.Text = applicationInfo.DeliverCheck;
+            }
+            else
+            {
+                if(applicationInfo.ReceiptDate!=null && applicationInfo.ReceiptDate!="")
+                {
+                    dtAppDate.Value = DateTime.Parse(applicationInfo.ReceiptDate);
+                }               
+                txtStoreCheck.Text = applicationInfo.ReceiptCheck;
+            }
         }
 
 
