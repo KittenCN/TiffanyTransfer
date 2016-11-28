@@ -167,7 +167,7 @@
             131072});
             this.txtPrice.Location = new System.Drawing.Point(83, 85);
             this.txtPrice.Maximum = new decimal(new int[] {
-            999999,
+            99999999,
             0,
             0,
             0});
