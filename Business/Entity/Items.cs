@@ -50,7 +50,7 @@ namespace BHair.Business.BaseData
         public DataTable SelectItemByItemID(string ItemID)
         {
             AccessHelper ah = new AccessHelper();
-            string sqlString = string.Format("select * from Items where ItemID='{0}' or ItemID2='{0}' ", ItemID);
+            string sqlString = string.Format("select * from Items where (ItemID='{0}' or ItemID2='{0}') and IsDelete=0 ", ItemID);
             DataTable Result = ah.SelectToDataTable(sqlString);
             ah.Close();
             return Result;
