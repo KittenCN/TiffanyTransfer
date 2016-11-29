@@ -607,10 +607,6 @@ namespace BHair
         }
         #endregion
 
-
-
-
-
         void CloseAllTab()
         {
             IDockContent[] documents = this.dPanelMain.DocumentsToArray();
