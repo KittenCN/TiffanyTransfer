@@ -28,6 +28,8 @@ namespace BHair.Business
             cbCtrlType.Items.Add("未审核");
             cbCtrlType.Items.Add("历史审核");
             cbCtrlType.SelectedIndex = 0;
+            //dgvApplyInfo.SortCompare += new DataGridViewSortCompareEventHandler(
+            //              this.dgvApplyInfo_SortCompare);
         }
 
 
@@ -42,8 +44,8 @@ namespace BHair.Business
             ApplicationInfoTable = new DataTable();
             switch(CtrlType)
             {
-                case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(SelectStr); break;
-                case "历史审核": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApproval2(SelectStr, Login.LoginUser); break;
+                case "未审核": ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(SelectStr); btn_SortByString.Enabled = false; break;
+                case "历史审核": ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApproval2(SelectStr, Login.LoginUser); btn_SortByString.Enabled = true; break;
                 default: ApplicationInfoTable = applicationInfo.SelectApplicationByApproval2(SelectStr); break;
             }
 
@@ -283,5 +285,19 @@ namespace BHair.Business
         {
             this.TopMost = false;
         }
+
+        private void btn_SortByString_Click(object sender, EventArgs e)
+        {
+            ApplicationInfoTable = applicationInfo.SelectHistoryApplicationByApproval2(SelectStr, Login.LoginUser, " IsDelete,AppState ");
+            dgvApplyInfo.DataSource = ApplicationInfoTable;
+        }
+        //private void dgvApplyInfo_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        //{
+        //    if (e.Column.Name == "流程状态")
+        //    {
+        //        e.SortResult = System.String.Compare(Convert.ToString(e.CellValue1), Convert.ToString(e.CellValue2));
+        //    }
+        //    e.Handled = true;
+        //}
     }
 }

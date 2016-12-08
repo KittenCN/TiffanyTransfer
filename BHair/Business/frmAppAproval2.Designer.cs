@@ -40,9 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtApproval = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnApprovalAll = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.BtnSelect = new System.Windows.Forms.Button();
             this.dgvApplyInfo = new System.Windows.Forms.DataGridView();
@@ -92,10 +90,9 @@
             this.S_O_Str = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.O_O_Str = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WuliuDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_SortByString = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyInfo)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -223,21 +220,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "申请单状态";
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.btnApprovalAll);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(248, 479);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(754, 82);
-            this.panel1.TabIndex = 125;
-            // 
             // btnApprovalAll
             // 
-            this.btnApprovalAll.Location = new System.Drawing.Point(4, 38);
+            this.btnApprovalAll.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnApprovalAll.Location = new System.Drawing.Point(248, 526);
             this.btnApprovalAll.Name = "btnApprovalAll";
             this.btnApprovalAll.Size = new System.Drawing.Size(90, 23);
             this.btnApprovalAll.TabIndex = 2;
@@ -245,20 +231,10 @@
             this.btnApprovalAll.UseVisualStyleBackColor = true;
             this.btnApprovalAll.Click += new System.EventHandler(this.btnApprovalAll_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.BtnRefresh);
-            this.panel2.Controls.Add(this.BtnSelect);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(509, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(245, 82);
-            this.panel2.TabIndex = 1;
-            // 
             // BtnRefresh
             // 
-            this.BtnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnRefresh.Location = new System.Drawing.Point(39, 38);
+            this.BtnRefresh.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BtnRefresh.Location = new System.Drawing.Point(425, 526);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
             this.BtnRefresh.TabIndex = 1;
@@ -268,8 +244,8 @@
             // 
             // BtnSelect
             // 
-            this.BtnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSelect.Location = new System.Drawing.Point(140, 38);
+            this.BtnSelect.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BtnSelect.Location = new System.Drawing.Point(344, 526);
             this.BtnSelect.Name = "BtnSelect";
             this.BtnSelect.Size = new System.Drawing.Size(75, 23);
             this.BtnSelect.TabIndex = 0;
@@ -280,8 +256,7 @@
             // dgvApplyInfo
             // 
             this.dgvApplyInfo.AllowUserToAddRows = false;
-            this.dgvApplyInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvApplyInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvApplyInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvApplyInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -326,12 +301,12 @@
             this.S_O_Str,
             this.O_O_Str,
             this.WuliuDate});
-            this.dgvApplyInfo.Location = new System.Drawing.Point(248, 92);
+            this.dgvApplyInfo.Location = new System.Drawing.Point(248, 49);
             this.dgvApplyInfo.MultiSelect = false;
             this.dgvApplyInfo.Name = "dgvApplyInfo";
             this.dgvApplyInfo.RowTemplate.Height = 23;
             this.dgvApplyInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvApplyInfo.Size = new System.Drawing.Size(733, 378);
+            this.dgvApplyInfo.Size = new System.Drawing.Size(733, 471);
             this.dgvApplyInfo.TabIndex = 127;
             this.dgvApplyInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApplyInfo_CellClick);
             this.dgvApplyInfo.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvApplyInfo_CellMouseDoubleClick);
@@ -341,18 +316,19 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.btn_SortByString);
             this.panel3.Controls.Add(this.btnSelectAll);
             this.panel3.Controls.Add(this.cbCtrlType);
             this.panel3.Controls.Add(this.TxtChoose);
             this.panel3.Controls.Add(this.BtnChoose);
             this.panel3.Location = new System.Drawing.Point(248, 6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(733, 75);
+            this.panel3.Size = new System.Drawing.Size(733, 37);
             this.panel3.TabIndex = 128;
             // 
             // btnSelectAll
             // 
-            this.btnSelectAll.Location = new System.Drawing.Point(4, 38);
+            this.btnSelectAll.Location = new System.Drawing.Point(130, 9);
             this.btnSelectAll.Name = "btnSelectAll";
             this.btnSelectAll.Size = new System.Drawing.Size(75, 23);
             this.btnSelectAll.TabIndex = 3;
@@ -647,6 +623,7 @@
             this.App_State.HeaderText = "流程状态";
             this.App_State.Name = "App_State";
             this.App_State.ReadOnly = true;
+            this.App_State.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // DeliverDate
             // 
@@ -688,14 +665,27 @@
             this.WuliuDate.ReadOnly = true;
             this.WuliuDate.Visible = false;
             // 
+            // btn_SortByString
+            // 
+            this.btn_SortByString.Enabled = false;
+            this.btn_SortByString.Location = new System.Drawing.Point(211, 9);
+            this.btn_SortByString.Name = "btn_SortByString";
+            this.btn_SortByString.Size = new System.Drawing.Size(100, 23);
+            this.btn_SortByString.TabIndex = 4;
+            this.btn_SortByString.Text = "按流程状态排序";
+            this.btn_SortByString.UseVisualStyleBackColor = true;
+            this.btn_SortByString.Click += new System.EventHandler(this.btn_SortByString_Click);
+            // 
             // frmAppAproval2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.BtnSelect);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.btnApprovalAll);
+            this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvApplyInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -709,8 +699,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyInfo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -732,8 +720,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtApproval;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button BtnRefresh;
         private System.Windows.Forms.Button BtnSelect;
         private System.Windows.Forms.DataGridView dgvApplyInfo;
@@ -784,5 +770,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn S_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn O_O_Str;
         private System.Windows.Forms.DataGridViewTextBoxColumn WuliuDate;
+        private System.Windows.Forms.Button btn_SortByString;
     }
 }

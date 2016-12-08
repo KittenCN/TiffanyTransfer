@@ -43,6 +43,7 @@
             this.txtWuliuID = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnOneceRecive = new System.Windows.Forms.Button();
             this.btnApprovalAll = new System.Windows.Forms.Button();
             this.btnImportApp = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -106,7 +107,6 @@
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
-            this.btnOneceRecive = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -272,6 +272,16 @@
             this.panel1.Size = new System.Drawing.Size(754, 82);
             this.panel1.TabIndex = 125;
             // 
+            // btnOneceRecive
+            // 
+            this.btnOneceRecive.Location = new System.Drawing.Point(345, 38);
+            this.btnOneceRecive.Name = "btnOneceRecive";
+            this.btnOneceRecive.Size = new System.Drawing.Size(75, 23);
+            this.btnOneceRecive.TabIndex = 129;
+            this.btnOneceRecive.Text = "一键收货";
+            this.btnOneceRecive.UseVisualStyleBackColor = true;
+            this.btnOneceRecive.Click += new System.EventHandler(this.btnOneceRecive_Click);
+            // 
             // btnApprovalAll
             // 
             this.btnApprovalAll.Location = new System.Drawing.Point(249, 38);
@@ -338,8 +348,7 @@
             // dgvApplyInfo
             // 
             this.dgvApplyInfo.AllowUserToAddRows = false;
-            this.dgvApplyInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvApplyInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvApplyInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvApplyInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -835,16 +844,6 @@
             this.BtnChoose.Text = "查询";
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
-            // 
-            // btnOneceRecive
-            // 
-            this.btnOneceRecive.Location = new System.Drawing.Point(345, 38);
-            this.btnOneceRecive.Name = "btnOneceRecive";
-            this.btnOneceRecive.Size = new System.Drawing.Size(75, 23);
-            this.btnOneceRecive.TabIndex = 129;
-            this.btnOneceRecive.Text = "一键收货";
-            this.btnOneceRecive.UseVisualStyleBackColor = true;
-            this.btnOneceRecive.Click += new System.EventHandler(this.btnOneceRecive_Click);
             // 
             // frmAppAproval
             // 

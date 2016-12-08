@@ -437,6 +437,15 @@ namespace BHair.Business.Table
             ah.Close();
             return Result;
         }
+        public DataTable SelectHistoryApplicationByApproval2(string sql, Users users,string strSort)
+        {
+            AccessHelper ah = new AccessHelper();
+            //string sqlString = string.Format("select * from ApplicationInfo where  AppState>1 and Approval2='{1}'  {0} order by [ApplicantsDate] desc", sql, users.UID);
+            string sqlString = string.Format("select * from ApplicationInfo where  AppState>1 {0} order by {1} ", sql,strSort);
+            DataTable Result = ah.SelectToDataTable(sqlString);
+            ah.Close();
+            return Result;
+        }
 
         /// <summary>
         /// 发货店面查询ApplicationInfo
