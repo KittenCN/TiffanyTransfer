@@ -42,9 +42,15 @@
             this.txtApproval = new System.Windows.Forms.TextBox();
             this.txtWuliuID = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnInput = new System.Windows.Forms.Button();
+            this.plDateTime = new System.Windows.Forms.Panel();
+            this.btnOutFinish = new System.Windows.Forms.Button();
+            this.dtWuliuEnd = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dtWuliuBegin = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -98,19 +104,13 @@
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
-            this.plDateTime = new System.Windows.Forms.Panel();
-            this.dtWuliuEnd = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dtWuliuBegin = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnOutFinish = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.plDateTime.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyInfo)).BeginInit();
             this.panel3.SuspendLayout();
-            this.plDateTime.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -258,6 +258,80 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "申请单状态";
             // 
+            // btnInput
+            // 
+            this.btnInput.Location = new System.Drawing.Point(136, 479);
+            this.btnInput.Name = "btnInput";
+            this.btnInput.Size = new System.Drawing.Size(106, 23);
+            this.btnInput.TabIndex = 4;
+            this.btnInput.Text = "导入未确认订单";
+            this.btnInput.UseVisualStyleBackColor = true;
+            this.btnInput.Click += new System.EventHandler(this.btnInput_Click);
+            // 
+            // plDateTime
+            // 
+            this.plDateTime.Controls.Add(this.btnOutFinish);
+            this.plDateTime.Controls.Add(this.dtWuliuEnd);
+            this.plDateTime.Controls.Add(this.label9);
+            this.plDateTime.Controls.Add(this.dtWuliuBegin);
+            this.plDateTime.Controls.Add(this.label8);
+            this.plDateTime.Location = new System.Drawing.Point(18, 269);
+            this.plDateTime.Name = "plDateTime";
+            this.plDateTime.Size = new System.Drawing.Size(224, 103);
+            this.plDateTime.TabIndex = 6;
+            // 
+            // btnOutFinish
+            // 
+            this.btnOutFinish.Location = new System.Drawing.Point(103, 57);
+            this.btnOutFinish.Name = "btnOutFinish";
+            this.btnOutFinish.Size = new System.Drawing.Size(104, 23);
+            this.btnOutFinish.TabIndex = 5;
+            this.btnOutFinish.Text = "导出已确认明细";
+            this.btnOutFinish.UseVisualStyleBackColor = true;
+            this.btnOutFinish.Click += new System.EventHandler(this.btnOutFinish_Click);
+            // 
+            // dtWuliuEnd
+            // 
+            this.dtWuliuEnd.Location = new System.Drawing.Point(103, 30);
+            this.dtWuliuEnd.Name = "dtWuliuEnd";
+            this.dtWuliuEnd.Size = new System.Drawing.Size(105, 21);
+            this.dtWuliuEnd.TabIndex = 13;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(71, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(17, 12);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "至";
+            // 
+            // dtWuliuBegin
+            // 
+            this.dtWuliuBegin.Location = new System.Drawing.Point(103, 3);
+            this.dtWuliuBegin.Name = "dtWuliuBegin";
+            this.dtWuliuBegin.Size = new System.Drawing.Size(103, 21);
+            this.dtWuliuBegin.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(2, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 12);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "物流确认日期段:";
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(18, 479);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(106, 23);
+            this.btnExport.TabIndex = 3;
+            this.btnExport.Text = "导出未确认订单";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -269,26 +343,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(754, 82);
             this.panel1.TabIndex = 125;
-            // 
-            // btnInput
-            // 
-            this.btnInput.Location = new System.Drawing.Point(136, 479);
-            this.btnInput.Name = "btnInput";
-            this.btnInput.Size = new System.Drawing.Size(106, 23);
-            this.btnInput.TabIndex = 4;
-            this.btnInput.Text = "导入未确认订单";
-            this.btnInput.UseVisualStyleBackColor = true;
-            this.btnInput.Click += new System.EventHandler(this.btnInput_Click);
-            // 
-            // btnExport
-            // 
-            this.btnExport.Location = new System.Drawing.Point(18, 479);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(106, 23);
-            this.btnExport.TabIndex = 3;
-            this.btnExport.Text = "导出未确认订单";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnConfirm
             // 
@@ -335,8 +389,7 @@
             // dgvApplyInfo
             // 
             this.dgvApplyInfo.AllowUserToAddRows = false;
-            this.dgvApplyInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvApplyInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvApplyInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvApplyInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -760,60 +813,6 @@
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
             // 
-            // plDateTime
-            // 
-            this.plDateTime.Controls.Add(this.btnOutFinish);
-            this.plDateTime.Controls.Add(this.dtWuliuEnd);
-            this.plDateTime.Controls.Add(this.label9);
-            this.plDateTime.Controls.Add(this.dtWuliuBegin);
-            this.plDateTime.Controls.Add(this.label8);
-            this.plDateTime.Location = new System.Drawing.Point(18, 269);
-            this.plDateTime.Name = "plDateTime";
-            this.plDateTime.Size = new System.Drawing.Size(224, 103);
-            this.plDateTime.TabIndex = 6;
-            // 
-            // dtWuliuEnd
-            // 
-            this.dtWuliuEnd.Location = new System.Drawing.Point(103, 30);
-            this.dtWuliuEnd.Name = "dtWuliuEnd";
-            this.dtWuliuEnd.Size = new System.Drawing.Size(105, 21);
-            this.dtWuliuEnd.TabIndex = 13;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(71, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(17, 12);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "至";
-            // 
-            // dtWuliuBegin
-            // 
-            this.dtWuliuBegin.Location = new System.Drawing.Point(103, 3);
-            this.dtWuliuBegin.Name = "dtWuliuBegin";
-            this.dtWuliuBegin.Size = new System.Drawing.Size(103, 21);
-            this.dtWuliuBegin.TabIndex = 11;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(2, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 12);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "物流确认日期段:";
-            // 
-            // btnOutFinish
-            // 
-            this.btnOutFinish.Location = new System.Drawing.Point(103, 57);
-            this.btnOutFinish.Name = "btnOutFinish";
-            this.btnOutFinish.Size = new System.Drawing.Size(104, 23);
-            this.btnOutFinish.TabIndex = 5;
-            this.btnOutFinish.Text = "导出已确认明细";
-            this.btnOutFinish.UseVisualStyleBackColor = true;
-            this.btnOutFinish.Click += new System.EventHandler(this.btnOutFinish_Click);
-            // 
             // frmAppDone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -835,13 +834,13 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.plDateTime.ResumeLayout(false);
+            this.plDateTime.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplyInfo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.plDateTime.ResumeLayout(false);
-            this.plDateTime.PerformLayout();
             this.ResumeLayout(false);
 
         }

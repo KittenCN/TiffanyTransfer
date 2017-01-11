@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtLevel4 = new System.Windows.Forms.TextBox();
@@ -39,6 +39,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtCtrlID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,8 +52,9 @@
             this.txtApplicant = new System.Windows.Forms.TextBox();
             this.txtApplicantPos = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.tbEditReason = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboExchangeType = new System.Windows.Forms.ComboBox();
             this.BtnSubmitAddApp = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -72,8 +74,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemHighlight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cboExchangeType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -203,6 +203,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(805, 159);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 85);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "转货类型";
+            // 
             // txtCtrlID
             // 
             this.txtCtrlID.Location = new System.Drawing.Point(123, 3);
@@ -305,6 +314,15 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "控制号";
             // 
+            // tbEditReason
+            // 
+            this.tbEditReason.Enabled = false;
+            this.tbEditReason.Location = new System.Drawing.Point(535, 88);
+            this.tbEditReason.Multiline = true;
+            this.tbEditReason.Name = "tbEditReason";
+            this.tbEditReason.Size = new System.Drawing.Size(265, 68);
+            this.tbEditReason.TabIndex = 23;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -314,14 +332,13 @@
             this.label5.TabIndex = 22;
             this.label5.Text = "修改原因";
             // 
-            // tbEditReason
+            // cboExchangeType
             // 
-            this.tbEditReason.Enabled = false;
-            this.tbEditReason.Location = new System.Drawing.Point(535, 88);
-            this.tbEditReason.Multiline = true;
-            this.tbEditReason.Name = "tbEditReason";
-            this.tbEditReason.Size = new System.Drawing.Size(265, 68);
-            this.tbEditReason.TabIndex = 23;
+            this.cboExchangeType.FormattingEnabled = true;
+            this.cboExchangeType.Location = new System.Drawing.Point(123, 88);
+            this.cboExchangeType.Name = "cboExchangeType";
+            this.cboExchangeType.Size = new System.Drawing.Size(184, 20);
+            this.cboExchangeType.TabIndex = 25;
             // 
             // BtnSubmitAddApp
             // 
@@ -420,8 +437,7 @@
             // 
             this.dgvApplyProducts.AllowUserToAddRows = false;
             this.dgvApplyProducts.AllowUserToDeleteRows = false;
-            this.dgvApplyProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvApplyProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvApplyProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvApplyProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -484,9 +500,9 @@
             // price
             // 
             this.price.DataPropertyName = "Price";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.price.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.price.DefaultCellStyle = dataGridViewCellStyle1;
             this.price.FillWeight = 88.02526F;
             this.price.HeaderText = "单价";
             this.price.Name = "price";
@@ -495,9 +511,9 @@
             // numbers
             // 
             this.numbers.DataPropertyName = "App_Count";
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.numbers.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.numbers.DefaultCellStyle = dataGridViewCellStyle2;
             this.numbers.FillWeight = 88.02526F;
             this.numbers.HeaderText = "数量";
             this.numbers.Name = "numbers";
@@ -530,23 +546,6 @@
             this.ItemHighlight.Name = "ItemHighlight";
             this.ItemHighlight.ReadOnly = true;
             this.ItemHighlight.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 85);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "转货类型";
-            // 
-            // cboExchangeType
-            // 
-            this.cboExchangeType.FormattingEnabled = true;
-            this.cboExchangeType.Location = new System.Drawing.Point(123, 88);
-            this.cboExchangeType.Name = "cboExchangeType";
-            this.cboExchangeType.Size = new System.Drawing.Size(184, 20);
-            this.cboExchangeType.TabIndex = 25;
             // 
             // frmAlterApplication
             // 

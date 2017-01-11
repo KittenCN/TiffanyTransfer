@@ -82,9 +82,9 @@
             this.txtBatch_Num1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnOutExcel = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnOutExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppDetail)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -621,6 +621,17 @@
             this.panel3.Size = new System.Drawing.Size(831, 179);
             this.panel3.TabIndex = 2;
             // 
+            // btnOutExcel
+            // 
+            this.btnOutExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOutExcel.Location = new System.Drawing.Point(585, 153);
+            this.btnOutExcel.Name = "btnOutExcel";
+            this.btnOutExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnOutExcel.TabIndex = 4;
+            this.btnOutExcel.Text = "转存Excel";
+            this.btnOutExcel.UseVisualStyleBackColor = true;
+            this.btnOutExcel.Click += new System.EventHandler(this.btnOutExcel_Click);
+            // 
             // btnExcel
             // 
             this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -642,17 +653,6 @@
             this.btnSearch.Text = "查询";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnOutExcel
-            // 
-            this.btnOutExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOutExcel.Location = new System.Drawing.Point(585, 153);
-            this.btnOutExcel.Name = "btnOutExcel";
-            this.btnOutExcel.Size = new System.Drawing.Size(75, 23);
-            this.btnOutExcel.TabIndex = 4;
-            this.btnOutExcel.Text = "转存Excel";
-            this.btnOutExcel.UseVisualStyleBackColor = true;
-            this.btnOutExcel.Click += new System.EventHandler(this.btnOutExcel_Click);
             // 
             // frmApplicationReport
             // 

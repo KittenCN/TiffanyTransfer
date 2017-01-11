@@ -431,8 +431,7 @@
             // 
             this.dgvApplyProducts.AllowUserToAddRows = false;
             this.dgvApplyProducts.AllowUserToDeleteRows = false;
-            this.dgvApplyProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvApplyProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvApplyProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvApplyProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

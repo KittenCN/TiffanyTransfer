@@ -51,6 +51,8 @@
             this.txtApplicant = new System.Windows.Forms.TextBox();
             this.txtApplicantPos = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboExchangeType = new System.Windows.Forms.ComboBox();
             this.BtnSubmitAddApp = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -70,8 +72,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemHighlight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cboExchangeType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -302,6 +302,23 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "控制号";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 102);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "转货类型";
+            // 
+            // cboExchangeType
+            // 
+            this.cboExchangeType.FormattingEnabled = true;
+            this.cboExchangeType.Location = new System.Drawing.Point(123, 105);
+            this.cboExchangeType.Name = "cboExchangeType";
+            this.cboExchangeType.Size = new System.Drawing.Size(184, 20);
+            this.cboExchangeType.TabIndex = 23;
+            // 
             // BtnSubmitAddApp
             // 
             this.BtnSubmitAddApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -399,8 +416,7 @@
             // 
             this.dgvApplyProducts.AllowUserToAddRows = false;
             this.dgvApplyProducts.AllowUserToDeleteRows = false;
-            this.dgvApplyProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvApplyProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvApplyProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvApplyProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -510,23 +526,6 @@
             this.ItemHighlight.Name = "ItemHighlight";
             this.ItemHighlight.ReadOnly = true;
             this.ItemHighlight.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 102);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "转货类型";
-            // 
-            // cboExchangeType
-            // 
-            this.cboExchangeType.FormattingEnabled = true;
-            this.cboExchangeType.Location = new System.Drawing.Point(123, 105);
-            this.cboExchangeType.Name = "cboExchangeType";
-            this.cboExchangeType.Size = new System.Drawing.Size(184, 20);
-            this.cboExchangeType.TabIndex = 23;
             // 
             // frmAddApplication
             // 
