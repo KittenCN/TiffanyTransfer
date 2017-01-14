@@ -422,7 +422,10 @@ namespace BHair.Business
             }
             catch (Exception ex)
             {
-
+                if(ex.HResult== -2146827284)
+                {
+                    MessageBox.Show("Print Spooler服务未启动", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }               
             }
             finally
             {
@@ -487,7 +490,8 @@ namespace BHair.Business
             Microsoft.Office.Interop.Excel.Worksheet myWorkSheet;
             char myColumns;
             Microsoft.Office.Interop.Excel.Range myRange;
-            object[,] myData = new object[500, 35];
+            //object[,] myData = new object[500, 35];
+            object[,] myData = new object[tempTable.Rows.Count + 1, tempTable.Columns.Count + 1];
             int i, j;//j代表行,i代表列
             myExcel = new Microsoft.Office.Interop.Excel.ApplicationClass();
             //显示EXCEL
@@ -502,7 +506,7 @@ namespace BHair.Business
             myWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)myWorkBook.Worksheets[1];
             myColumns = (char)(tempTable.Columns.Count + 64);//设置列
             myRange = myWorkSheet.get_Range("A4", myColumns.ToString() + "5");//设置列宽
-            int count = 0;
+            int count = 0;            
             //设置列名
             foreach (DataColumn myNewColumn in tempTable.Columns)
             {
