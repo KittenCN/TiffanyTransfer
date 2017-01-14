@@ -95,7 +95,18 @@ namespace BHair.Base
             }
         }
 
-        
-
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string txtItemID = txtSearch.Text;
+            if(txtItemID !=null && txtItemID != "")
+            {
+                items.ItemsDT = items.SelectItemByItemID(txtItemID);
+            }
+            else
+            {
+                items.ItemsDT = items.SelectAllItem();
+            }
+            dgvItem.DataSource = items.ItemsDT;
+        }
     }
 }
