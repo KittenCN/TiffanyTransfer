@@ -107,6 +107,9 @@
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
+            this.dTPBegin = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dTPEnd = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -267,14 +270,14 @@
             this.panel1.Controls.Add(this.btnImportApp);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(248, 479);
+            this.panel1.Location = new System.Drawing.Point(248, 516);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(754, 82);
+            this.panel1.Size = new System.Drawing.Size(733, 45);
             this.panel1.TabIndex = 125;
             // 
             // btnOneceRecive
             // 
-            this.btnOneceRecive.Location = new System.Drawing.Point(345, 38);
+            this.btnOneceRecive.Location = new System.Drawing.Point(347, 12);
             this.btnOneceRecive.Name = "btnOneceRecive";
             this.btnOneceRecive.Size = new System.Drawing.Size(75, 23);
             this.btnOneceRecive.TabIndex = 129;
@@ -284,7 +287,7 @@
             // 
             // btnApprovalAll
             // 
-            this.btnApprovalAll.Location = new System.Drawing.Point(249, 38);
+            this.btnApprovalAll.Location = new System.Drawing.Point(251, 12);
             this.btnApprovalAll.Name = "btnApprovalAll";
             this.btnApprovalAll.Size = new System.Drawing.Size(90, 23);
             this.btnApprovalAll.TabIndex = 5;
@@ -295,7 +298,7 @@
             // btnImportApp
             // 
             this.btnImportApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImportApp.Location = new System.Drawing.Point(127, 38);
+            this.btnImportApp.Location = new System.Drawing.Point(108, 12);
             this.btnImportApp.Name = "btnImportApp";
             this.btnImportApp.Size = new System.Drawing.Size(116, 23);
             this.btnImportApp.TabIndex = 4;
@@ -305,7 +308,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(30, 38);
+            this.btnDelete.Location = new System.Drawing.Point(11, 12);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(91, 23);
             this.btnDelete.TabIndex = 2;
@@ -318,15 +321,15 @@
             this.panel2.Controls.Add(this.BtnRefresh);
             this.panel2.Controls.Add(this.BtnSelect);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(509, 0);
+            this.panel2.Location = new System.Drawing.Point(488, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(245, 82);
+            this.panel2.Size = new System.Drawing.Size(245, 45);
             this.panel2.TabIndex = 1;
             // 
             // BtnRefresh
             // 
             this.BtnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnRefresh.Location = new System.Drawing.Point(39, 38);
+            this.BtnRefresh.Location = new System.Drawing.Point(39, 12);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
             this.BtnRefresh.TabIndex = 1;
@@ -337,7 +340,7 @@
             // BtnSelect
             // 
             this.BtnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSelect.Location = new System.Drawing.Point(140, 38);
+            this.BtnSelect.Location = new System.Drawing.Point(140, 12);
             this.BtnSelect.Name = "BtnSelect";
             this.BtnSelect.Size = new System.Drawing.Size(75, 23);
             this.BtnSelect.TabIndex = 0;
@@ -401,7 +404,7 @@
             this.ExchangeType,
             this.ApprovalState,
             this.FinalState});
-            this.dgvApplyInfo.Location = new System.Drawing.Point(248, 61);
+            this.dgvApplyInfo.Location = new System.Drawing.Point(248, 101);
             this.dgvApplyInfo.MultiSelect = false;
             this.dgvApplyInfo.Name = "dgvApplyInfo";
             this.dgvApplyInfo.RowTemplate.Height = 23;
@@ -774,6 +777,9 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.dTPEnd);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.dTPBegin);
             this.panel3.Controls.Add(this.btnFinishState);
             this.panel3.Controls.Add(this.btnOuttoExcel);
             this.panel3.Controls.Add(this.btnSelectAll);
@@ -782,12 +788,12 @@
             this.panel3.Controls.Add(this.BtnChoose);
             this.panel3.Location = new System.Drawing.Point(248, 6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(733, 49);
+            this.panel3.Size = new System.Drawing.Size(733, 87);
             this.panel3.TabIndex = 128;
             // 
             // btnFinishState
             // 
-            this.btnFinishState.Location = new System.Drawing.Point(289, 10);
+            this.btnFinishState.Location = new System.Drawing.Point(210, 20);
             this.btnFinishState.Name = "btnFinishState";
             this.btnFinishState.Size = new System.Drawing.Size(90, 23);
             this.btnFinishState.TabIndex = 6;
@@ -797,7 +803,7 @@
             // 
             // btnOuttoExcel
             // 
-            this.btnOuttoExcel.Location = new System.Drawing.Point(208, 10);
+            this.btnOuttoExcel.Location = new System.Drawing.Point(437, 52);
             this.btnOuttoExcel.Name = "btnOuttoExcel";
             this.btnOuttoExcel.Size = new System.Drawing.Size(75, 23);
             this.btnOuttoExcel.TabIndex = 5;
@@ -807,7 +813,7 @@
             // 
             // btnSelectAll
             // 
-            this.btnSelectAll.Location = new System.Drawing.Point(127, 10);
+            this.btnSelectAll.Location = new System.Drawing.Point(127, 20);
             this.btnSelectAll.Name = "btnSelectAll";
             this.btnSelectAll.Size = new System.Drawing.Size(75, 23);
             this.btnSelectAll.TabIndex = 4;
@@ -819,7 +825,7 @@
             // 
             this.cbCtrlType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCtrlType.FormattingEnabled = true;
-            this.cbCtrlType.Location = new System.Drawing.Point(0, 12);
+            this.cbCtrlType.Location = new System.Drawing.Point(0, 22);
             this.cbCtrlType.Name = "cbCtrlType";
             this.cbCtrlType.Size = new System.Drawing.Size(121, 20);
             this.cbCtrlType.TabIndex = 3;
@@ -844,6 +850,29 @@
             this.BtnChoose.Text = "查询";
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
+            // 
+            // dTPBegin
+            // 
+            this.dTPBegin.Location = new System.Drawing.Point(3, 54);
+            this.dTPBegin.Name = "dTPBegin";
+            this.dTPBegin.Size = new System.Drawing.Size(202, 21);
+            this.dTPBegin.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(208, 60);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(17, 12);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "--";
+            // 
+            // dTPEnd
+            // 
+            this.dTPEnd.Location = new System.Drawing.Point(231, 54);
+            this.dTPEnd.Name = "dTPEnd";
+            this.dTPEnd.Size = new System.Drawing.Size(200, 21);
+            this.dTPEnd.TabIndex = 9;
             // 
             // frmAppAproval
             // 
@@ -956,5 +985,8 @@
         private System.Windows.Forms.Button btnOuttoExcel;
         private System.Windows.Forms.Button btnFinishState;
         private System.Windows.Forms.Button btnOneceRecive;
+        private System.Windows.Forms.DateTimePicker dTPEnd;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dTPBegin;
     }
 }

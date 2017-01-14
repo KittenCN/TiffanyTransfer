@@ -464,7 +464,7 @@ namespace BHair.Business
                     {
                         string localFilePath = saveFileDialog.FileName.ToString();
                         //string tempFilePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strRandom + ".xls";
-                        dtResult = applicationInfo.SelectAllDetail("");
+                        dtResult = applicationInfo.SelectAllDetail(" and a.ApplicantsDate >= dateadd(\"d\",0,\"" + dTPBegin.Value.Date + "\") and a.ApplicantsDate < dateadd(\"d\",1,\"" + dTPEnd.Value.Date + "\") ");
                         PrintExcel pe = new PrintExcel();
                         pe.WriteToExcelSPB(dtResult, localFilePath, "Sheet1");
                         //PrintPDF pp = new PrintPDF();
