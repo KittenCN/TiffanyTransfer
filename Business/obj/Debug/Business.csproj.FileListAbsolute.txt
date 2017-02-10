@@ -91,3 +91,17 @@ E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\obj\Debug
 G:\WorkStation\GitHub\TiffanyTransfer\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 G:\WorkStation\GitHub\TiffanyTransfer\Business\bin\Debug\Microsoft.Office.interop.access.dao.dll
 E:\workstation\项目\用蝶项目\Tiffany\转货管理系统\Business\bin\Debug\Microsoft.Office.interop.access.dao.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\bin\Debug\BHair.Business.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\bin\Debug\BHair.Business.pdb
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\bin\Debug\Microsoft.Office.interop.access.dao.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\bin\Debug\XLuSharpLibrary.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\bin\Debug\office.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\bin\Debug\stdole.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\obj\Debug\Business.csproj.ResolveComReference.cache
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\obj\Debug\BHair.Business.Properties.Resources.resources
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\obj\Debug\Business.csproj.GenerateResource.Cache
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\obj\Debug\BHair.Business.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\Business\obj\Debug\BHair.Business.pdb
