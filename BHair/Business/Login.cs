@@ -197,7 +197,6 @@ namespace BHair.Business
                                 EmailControl.config.EmailAddress = configDT.Rows[0]["EmailAddress"].ToString();
                                 EmailControl.config.EmailSMTP = configDT.Rows[0]["EmailSMTP"].ToString();
                                 EmailControl.config.UpperLimit = double.Parse(configDT.Rows[0]["UpperLimit"].ToString());
-
                             }
                             this.DialogResult = DialogResult.OK;
                             //this.Close();
