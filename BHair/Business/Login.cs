@@ -188,8 +188,7 @@ namespace BHair.Business
                             LoginUser.Position = UserDT.Rows[0]["Position"].ToString();
                             LoginUser.IsAdmin = (int)UserDT.Rows[0]["IsAdmin"];
 
-                            //取消邮件功能
-                            //EmailControl.users.UsersDT = EmailControl.users.SelectAllUsers("");
+                            EmailControl.users.UsersDT = EmailControl.users.SelectAllUsers("");
                             DataTable configDT = EmailControl.config.GetConfig();
                             if (configDT.Rows != null && configDT.Rows.Count > 0)
                             {
