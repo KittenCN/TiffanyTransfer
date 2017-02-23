@@ -42,15 +42,18 @@ namespace BHair
         {
             //frmPays_List objfrmPaysList = new frmPays_List();
             //this.ShowWindows_Click(objfrmPaysList);
-            if (Login.LoginUser.Character == 1)
-            {
-                timer1.Enabled = true;
-                timer1.Interval = 43200000;
-            }
-            else
-            {
-                timer1.Enabled = false;
-            }
+
+            //取消邮件功能
+            //if (Login.LoginUser.Character == 1)
+            //{
+            //    timer1.Enabled = true;
+            //    timer1.Interval = 43200000;
+            //}
+            //else
+            //{
+            //    timer1.Enabled = false;
+            //}
+
             //this.TopMost = false;
 
         }
@@ -618,58 +621,59 @@ namespace BHair
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //申请批准后超时提醒
-            DataTable alertApprovalDT = applicationInfo.SelectAlertApproval(Login.LoginUser.Store);
-            if (alertApprovalDT.Rows.Count > 0)
-            {
-                foreach (DataRow dr in alertApprovalDT.Rows)
-                {
-                    try
-                    {
-                        EmailControl.ToAlertApproval(dr["CtrlID"].ToString(), dr["ApplicantsName"].ToString(), dr["ApplicantsDate"].ToString(), dr["DeliverStore"].ToString());
-                        applicationInfo.FinishAlertApproval(dr["CtrlID"].ToString());
-                    }
-                    catch
-                    {
+            //取消邮件功能
+            ////申请批准后超时提醒
+            //DataTable alertApprovalDT = applicationInfo.SelectAlertApproval(Login.LoginUser.Store);
+            //if (alertApprovalDT.Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in alertApprovalDT.Rows)
+            //    {
+            //        try
+            //        {
+            //            EmailControl.ToAlertApproval(dr["CtrlID"].ToString(), dr["ApplicantsName"].ToString(), dr["ApplicantsDate"].ToString(), dr["DeliverStore"].ToString());
+            //            applicationInfo.FinishAlertApproval(dr["CtrlID"].ToString());
+            //        }
+            //        catch
+            //        {
 
-                    }
-                }
-            }
-            //发货后超时提醒
-            DataTable alertDeliverDT = applicationInfo.SelectAlertApproval(Login.LoginUser.Store);
-            if (alertApprovalDT.Rows.Count > 0)
-            {
-                foreach (DataRow dr in alertApprovalDT.Rows)
-                {
-                    try
-                    {
-                        EmailControl.ToAlertDeliver(dr["CtrlID"].ToString(), dr["ApplicantsName"].ToString(), dr["ApplicantsDate"].ToString(), dr["DeliverStore"].ToString(), dr["ReceiptStore"].ToString());
-                        applicationInfo.FinishAlertDeliver(dr["CtrlID"].ToString());
-                    }
-                    catch
-                    {
+            //        }
+            //    }
+            //}
+            ////发货后超时提醒
+            //DataTable alertDeliverDT = applicationInfo.SelectAlertApproval(Login.LoginUser.Store);
+            //if (alertApprovalDT.Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in alertApprovalDT.Rows)
+            //    {
+            //        try
+            //        {
+            //            EmailControl.ToAlertDeliver(dr["CtrlID"].ToString(), dr["ApplicantsName"].ToString(), dr["ApplicantsDate"].ToString(), dr["DeliverStore"].ToString(), dr["ReceiptStore"].ToString());
+            //            applicationInfo.FinishAlertDeliver(dr["CtrlID"].ToString());
+            //        }
+            //        catch
+            //        {
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
 
-            //收货后超时提醒
-            DataTable alertReceiptDT = applicationInfo.SelectAlertReceipt(Login.LoginUser.Store);
-            if (alertApprovalDT.Rows.Count > 0)
-            {
-                foreach (DataRow dr in alertApprovalDT.Rows)
-                {
-                    try
-                    {
-                        EmailControl.ToAlertReceipt(dr["CtrlID"].ToString(), dr["ApplicantsName"].ToString(), dr["ApplicantsDate"].ToString(), dr["DeliverStore"].ToString(), dr["ReceiptStore"].ToString());
-                        applicationInfo.FinishAlertReceipt(dr["CtrlID"].ToString());
-                    }
-                    catch
-                    {
+            ////收货后超时提醒
+            //DataTable alertReceiptDT = applicationInfo.SelectAlertReceipt(Login.LoginUser.Store);
+            //if (alertApprovalDT.Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in alertApprovalDT.Rows)
+            //    {
+            //        try
+            //        {
+            //            EmailControl.ToAlertReceipt(dr["CtrlID"].ToString(), dr["ApplicantsName"].ToString(), dr["ApplicantsDate"].ToString(), dr["DeliverStore"].ToString(), dr["ReceiptStore"].ToString());
+            //            applicationInfo.FinishAlertReceipt(dr["CtrlID"].ToString());
+            //        }
+            //        catch
+            //        {
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
         }
 
         private void tsBTNDataProcessing_Click(object sender, EventArgs e)
