@@ -392,7 +392,7 @@ namespace BHair
         }
 
 
-        #region
+        #region 权限
         /// <summary>
         /// 权限按钮
         /// </summary>

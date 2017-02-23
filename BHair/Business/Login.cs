@@ -45,7 +45,10 @@ namespace BHair.Business
                     AccessHelper ahTSQL = new AccessHelper();
                     DataTable dtTSQL = ahTSQL.SelectToDataTable(strTSQL);
                     ahTSQL.Close();
-                    UpdateDataBase();
+                    if (txtName.Text.ToLower() == "administrator" || GetComputerName().Substring(0, 3) == "OC1")
+                    {
+                        UpdateDataBase();
+                    }                       
                     if (strVersion == Application.ProductVersion)
                     {
                         LoginProcess();
@@ -185,17 +188,18 @@ namespace BHair.Business
                             LoginUser.Position = UserDT.Rows[0]["Position"].ToString();
                             LoginUser.IsAdmin = (int)UserDT.Rows[0]["IsAdmin"];
 
-                            EmailControl.users.UsersDT = EmailControl.users.SelectAllUsers("");
-                            DataTable configDT = EmailControl.config.GetConfig();
-                            if (configDT.Rows != null && configDT.Rows.Count > 0)
-                            {
-                                EmailControl.config.EmailID = configDT.Rows[0]["EmailID"].ToString();
-                                EmailControl.config.EmailPwd = configDT.Rows[0]["EmailPwd"].ToString();
-                                EmailControl.config.EmailAddress = configDT.Rows[0]["EmailAddress"].ToString();
-                                EmailControl.config.EmailSMTP = configDT.Rows[0]["EmailSMTP"].ToString();
-                                EmailControl.config.UpperLimit = double.Parse(configDT.Rows[0]["UpperLimit"].ToString());
+                            //取消邮件功能
+                            //EmailControl.users.UsersDT = EmailControl.users.SelectAllUsers("");
+                            //DataTable configDT = EmailControl.config.GetConfig();
+                            //if (configDT.Rows != null && configDT.Rows.Count > 0)
+                            //{
+                            //    EmailControl.config.EmailID = configDT.Rows[0]["EmailID"].ToString();
+                            //    EmailControl.config.EmailPwd = configDT.Rows[0]["EmailPwd"].ToString();
+                            //    EmailControl.config.EmailAddress = configDT.Rows[0]["EmailAddress"].ToString();
+                            //    EmailControl.config.EmailSMTP = configDT.Rows[0]["EmailSMTP"].ToString();
+                            //    EmailControl.config.UpperLimit = double.Parse(configDT.Rows[0]["UpperLimit"].ToString());
 
-                            }
+                            //}
                             this.DialogResult = DialogResult.OK;
                             //this.Close();
                         }
