@@ -465,7 +465,7 @@ namespace BHair
                 toolStripButton8.Visible = true;
                 tsBTNDataProcessing.Visible = false;
 
-                menuMain_Manage_ApprovalApp_Click(null, null);//商品部审核窗口
+                //menuMain_Manage_ApprovalApp_Click(null, null);//商品部审核窗口
             }
             else if (Login.LoginUser.Character == 2)
             {
@@ -493,7 +493,7 @@ namespace BHair
                 toolStripButton6.Visible = false;
                 tsBTNDataProcessing.Visible = false;
 
-                menuMain_Manage_Approval2App_Click(null, null);//财务审核窗口
+                //menuMain_Manage_Approval2App_Click(null, null);//财务审核窗口
             }
             else if (Login.LoginUser.Character == 3)
             {
@@ -522,7 +522,7 @@ namespace BHair
                 toolStripButton6.Visible = true;
                 tsBTNDataProcessing.Visible = false;
 
-                menuMain_Manage_StoreApp_Click(null, null);//打开店面申请状态窗口
+                //menuMain_Manage_StoreApp_Click(null, null);//打开店面申请状态窗口
             }
             else if (Login.LoginUser.Character == 4)
             {
@@ -553,7 +553,7 @@ namespace BHair
                 toolStripButton6.Visible = false;
                 tsBTNDataProcessing.Visible = false;
 
-                物流确认ToolStripMenuItem_Click(null, null);//物流确认窗口
+                //物流确认ToolStripMenuItem_Click(null, null);//物流确认窗口
             }
             else
             {

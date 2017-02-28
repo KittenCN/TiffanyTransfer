@@ -55,9 +55,12 @@ namespace BHair.Business
                     }
                     else if (strVersion == "" || CompareVersion(Application.ProductVersion, strVersion))
                     {
-                        string strSQL = "update SetupConfig set Version='" + Application.ProductVersion + "' ";
-                        AccessHelper ah = new AccessHelper();
-                        ah.ExecuteSQLNonquery(strSQL);
+                        if(GetComputerName().Substring(0, 3) == "OC1")
+                        {
+                            string strSQL = "update SetupConfig set Version='" + Application.ProductVersion + "' ";
+                            AccessHelper ah = new AccessHelper();
+                            ah.ExecuteSQLNonquery(strSQL);
+                        }
                         LoginProcess();
                     }
                     else
