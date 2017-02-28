@@ -60,6 +60,7 @@ namespace BHair.Business
                             string strSQL = "update SetupConfig set Version='" + Application.ProductVersion + "' ";
                             AccessHelper ah = new AccessHelper();
                             ah.ExecuteSQLNonquery(strSQL);
+                            ah.Close();
                         }
                         LoginProcess();
                     }
