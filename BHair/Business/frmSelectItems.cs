@@ -53,46 +53,84 @@ namespace BHair.Business
             DiffReceiptDT = ReceiptDetailTable.Clone();
             dgvDevilerDetails.DataSource = DiffDeliverDT;
             dgvReceiptDetails.DataSource = DiffReceiptDT;
+            string[] strIDs = new string[50];
+            int i = 0;
 
             foreach (DataRow deldr in DeliverDetailTable.Rows)
             {
                 bool isDiff = false;
-                foreach (DataRow recdr in ReceiptDetailTable.Rows)
+                if (ReceiptDetailTable.Rows.Count != 0)
                 {
-                    if (deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
+                    foreach (DataRow recdr in ReceiptDetailTable.Rows)
                     {
-                        isDiff = false;
-                        goto done;
+                        if (deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
+                        {
+                            if (Array.IndexOf<string>(strIDs, recdr["ID"].ToString()) == -1)
+                            {
+                                i++;
+                                strIDs[i] = recdr["ID"].ToString();
+                                isDiff = false;
+                                goto done;
+                            }
+                            else
+                            {
+                                isDiff = true;
+                            }
+                        }
+                        else
+                        {
+                            isDiff = true;
+                        }
                     }
-                    else
+                done:
+                    if (isDiff)
                     {
-                        isDiff = true;
+                        DiffDeliverDT.Rows.Add(deldr.ItemArray);
                     }
                 }
-            done:
-                if (isDiff)
+                else
                 {
+                    isDiff = true;
                     DiffDeliverDT.Rows.Add(deldr.ItemArray);
                 }
             }
+            strIDs = new string[50];
+            i = 0;
             foreach (DataRow recdr in ReceiptDetailTable.Rows)
             {
                 bool isDiff = false;
-                foreach (DataRow deldr in DeliverDetailTable.Rows)
+                if (DeliverDetailTable.Rows.Count != 0)
                 {
-                    if (deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
+                    foreach (DataRow deldr in DeliverDetailTable.Rows)
                     {
-                        isDiff = false;
-                        goto done2;
+                        if (deldr["ItemID2"].ToString() == recdr["ItemID2"].ToString() && deldr["ItemID"].ToString() == recdr["ItemID"].ToString() && deldr["App_Count"].ToString() == recdr["App_Count"].ToString() && deldr["ItemHighlight"].ToString() == recdr["ItemHighlight"].ToString())
+                        {
+                            if (Array.IndexOf<string>(strIDs, deldr["ID"].ToString()) == -1)
+                            {
+                                i++;
+                                strIDs[i] = deldr["ID"].ToString();
+                                isDiff = false;
+                                goto done2;
+                            }
+                            else
+                            {
+                                isDiff = true;
+                            }
+                        }
+                        else
+                        {
+                            isDiff = true;
+                        }
                     }
-                    else
+                done2:
+                    if (isDiff)
                     {
-                        isDiff = true;
+                        DiffReceiptDT.Rows.Add(recdr.ItemArray);
                     }
                 }
-            done2:
-                if (isDiff)
+                else
                 {
+                    isDiff = true;
                     DiffReceiptDT.Rows.Add(recdr.ItemArray);
                 }
             }
