@@ -103,14 +103,20 @@ namespace BHair.Business
             label1.Text = "正在导入到数据库....";
             try
             {
-
-
                 //插入新datatable表
                 //users.ImportUsers(MemberDT);
-                applicationInfo.UpdateApplicationInfo(TempDT[0]);
-                applicationDetail.UpdateApplicationDetail(TempDT[1]);
-                label1.Text = "数据库导入完成";
-                DialogResult = DialogResult.OK;
+                int intR1 = applicationInfo.UpdateApplicationInfo(TempDT[0]);
+                int intR2 = applicationDetail.UpdateApplicationDetail(TempDT[1]);
+                if(intR1 == TempDT[0].Rows.Count && intR2 == TempDT[1].Rows.Count)
+                {
+                    label1.Text = "数据库导入完成";
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    label1.Text = "数据库导入被打断,部分导入完成.建议闲时重新导入!";
+                    DialogResult = DialogResult.OK;
+                }
             }
             catch
             {
