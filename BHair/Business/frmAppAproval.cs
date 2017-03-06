@@ -456,7 +456,14 @@ namespace BHair.Business
             if(CtrlType == "全部")
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+                if(cbQuickOut.Checked)
+                {
+                    saveFileDialog.Filter = "Excel文件(*.csv)|*.csv";
+                }
+                else
+                {
+                    saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
+                }              
                 DialogResult result = saveFileDialog.ShowDialog();
                 if (result == DialogResult.OK)
                 {
@@ -466,7 +473,14 @@ namespace BHair.Business
                         //string tempFilePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\" + strRandom + ".xls";
                         dtResult = applicationInfo.SelectAllDetail(" and a.ApplicantsDate >= dateadd(\"d\",0,\"" + dTPBegin.Value.Date + "\") and a.ApplicantsDate < dateadd(\"d\",1,\"" + dTPEnd.Value.Date + "\") ");
                         PrintExcel pe = new PrintExcel();
-                        pe.WriteToExcelSPB(dtResult, localFilePath, "Sheet1");
+                        if(cbQuickOut.Checked)
+                        {
+                            pe.WriteToExcelSPB_Q(dtResult, localFilePath, "Sheet1", cbQuickOut.Checked);
+                        }
+                        else
+                        {
+                            pe.WriteToExcelSPB(dtResult, localFilePath, "Sheet1", cbQuickOut.Checked);
+                        }
                         //PrintPDF pp = new PrintPDF();
                         //pp.XLSConvertToPDF(tempFilePath, localFilePath);
                         MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);

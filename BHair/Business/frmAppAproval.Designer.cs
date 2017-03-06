@@ -101,15 +101,16 @@
             this.ApprovalState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.FinalState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dTPEnd = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dTPBegin = new System.Windows.Forms.DateTimePicker();
             this.btnFinishState = new System.Windows.Forms.Button();
             this.btnOuttoExcel = new System.Windows.Forms.Button();
             this.btnSelectAll = new System.Windows.Forms.Button();
             this.cbCtrlType = new System.Windows.Forms.ComboBox();
             this.TxtChoose = new System.Windows.Forms.TextBox();
             this.BtnChoose = new System.Windows.Forms.Button();
-            this.dTPBegin = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dTPEnd = new System.Windows.Forms.DateTimePicker();
+            this.cbQuickOut = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -121,9 +122,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(98, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "商品部审批";
             // 
@@ -144,7 +146,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtApproval, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtWuliuID, 1, 5);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 31);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 46);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -153,100 +156,111 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 232);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 348);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 190);
+            this.label6.Location = new System.Drawing.Point(4, 285);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(80, 18);
             this.label6.TabIndex = 6;
             this.label6.Text = "物流单号";
             // 
             // txtIsDone
             // 
-            this.txtIsDone.Location = new System.Drawing.Point(103, 155);
+            this.txtIsDone.Location = new System.Drawing.Point(154, 232);
+            this.txtIsDone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIsDone.Name = "txtIsDone";
             this.txtIsDone.ReadOnly = true;
-            this.txtIsDone.Size = new System.Drawing.Size(94, 21);
+            this.txtIsDone.Size = new System.Drawing.Size(139, 28);
             this.txtIsDone.TabIndex = 3;
             // 
             // txtReceiptConfirm
             // 
-            this.txtReceiptConfirm.Location = new System.Drawing.Point(103, 117);
+            this.txtReceiptConfirm.Location = new System.Drawing.Point(154, 175);
+            this.txtReceiptConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtReceiptConfirm.Name = "txtReceiptConfirm";
             this.txtReceiptConfirm.ReadOnly = true;
-            this.txtReceiptConfirm.Size = new System.Drawing.Size(94, 21);
+            this.txtReceiptConfirm.Size = new System.Drawing.Size(139, 28);
             this.txtReceiptConfirm.TabIndex = 3;
             // 
             // txtDeliverConfirm
             // 
-            this.txtDeliverConfirm.Location = new System.Drawing.Point(103, 79);
+            this.txtDeliverConfirm.Location = new System.Drawing.Point(154, 118);
+            this.txtDeliverConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDeliverConfirm.Name = "txtDeliverConfirm";
             this.txtDeliverConfirm.ReadOnly = true;
-            this.txtDeliverConfirm.Size = new System.Drawing.Size(94, 21);
+            this.txtDeliverConfirm.Size = new System.Drawing.Size(139, 28);
             this.txtDeliverConfirm.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 152);
+            this.label5.Location = new System.Drawing.Point(4, 228);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.Size = new System.Drawing.Size(80, 18);
             this.label5.TabIndex = 5;
             this.label5.Text = "订单完成";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 114);
+            this.label4.Location = new System.Drawing.Point(4, 171);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.Size = new System.Drawing.Size(116, 18);
             this.label4.TabIndex = 4;
             this.label4.Text = "收货店面确认";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 76);
+            this.label3.Location = new System.Drawing.Point(4, 114);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.Size = new System.Drawing.Size(116, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "发货店面确认";
             // 
             // txtApproval2
             // 
-            this.txtApproval2.Location = new System.Drawing.Point(103, 41);
+            this.txtApproval2.Location = new System.Drawing.Point(154, 61);
+            this.txtApproval2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtApproval2.Name = "txtApproval2";
             this.txtApproval2.ReadOnly = true;
-            this.txtApproval2.Size = new System.Drawing.Size(94, 21);
+            this.txtApproval2.Size = new System.Drawing.Size(139, 28);
             this.txtApproval2.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 38);
+            this.label2.Location = new System.Drawing.Point(4, 57);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(98, 18);
             this.label2.TabIndex = 2;
             this.label2.Text = "财务部审批";
             // 
             // txtApproval
             // 
-            this.txtApproval.Location = new System.Drawing.Point(103, 3);
+            this.txtApproval.Location = new System.Drawing.Point(154, 4);
+            this.txtApproval.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtApproval.Name = "txtApproval";
             this.txtApproval.ReadOnly = true;
-            this.txtApproval.Size = new System.Drawing.Size(94, 21);
+            this.txtApproval.Size = new System.Drawing.Size(139, 28);
             this.txtApproval.TabIndex = 1;
             // 
             // txtWuliuID
             // 
-            this.txtWuliuID.Location = new System.Drawing.Point(103, 193);
+            this.txtWuliuID.Location = new System.Drawing.Point(154, 289);
+            this.txtWuliuID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtWuliuID.Name = "txtWuliuID";
             this.txtWuliuID.ReadOnly = true;
-            this.txtWuliuID.Size = new System.Drawing.Size(94, 21);
+            this.txtWuliuID.Size = new System.Drawing.Size(139, 28);
             this.txtWuliuID.TabIndex = 7;
             // 
             // groupBox1
@@ -254,8 +268,10 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(242, 561);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(363, 842);
             this.groupBox1.TabIndex = 126;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "申请单状态";
@@ -270,16 +286,18 @@
             this.panel1.Controls.Add(this.btnImportApp);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(248, 516);
+            this.panel1.Location = new System.Drawing.Point(372, 774);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(733, 45);
+            this.panel1.Size = new System.Drawing.Size(1100, 68);
             this.panel1.TabIndex = 125;
             // 
             // btnOneceRecive
             // 
-            this.btnOneceRecive.Location = new System.Drawing.Point(347, 12);
+            this.btnOneceRecive.Location = new System.Drawing.Point(520, 18);
+            this.btnOneceRecive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOneceRecive.Name = "btnOneceRecive";
-            this.btnOneceRecive.Size = new System.Drawing.Size(75, 23);
+            this.btnOneceRecive.Size = new System.Drawing.Size(112, 34);
             this.btnOneceRecive.TabIndex = 129;
             this.btnOneceRecive.Text = "一键收货";
             this.btnOneceRecive.UseVisualStyleBackColor = true;
@@ -287,9 +305,10 @@
             // 
             // btnApprovalAll
             // 
-            this.btnApprovalAll.Location = new System.Drawing.Point(251, 12);
+            this.btnApprovalAll.Location = new System.Drawing.Point(376, 18);
+            this.btnApprovalAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnApprovalAll.Name = "btnApprovalAll";
-            this.btnApprovalAll.Size = new System.Drawing.Size(90, 23);
+            this.btnApprovalAll.Size = new System.Drawing.Size(135, 34);
             this.btnApprovalAll.TabIndex = 5;
             this.btnApprovalAll.Text = "批量审批通过";
             this.btnApprovalAll.UseVisualStyleBackColor = true;
@@ -298,9 +317,10 @@
             // btnImportApp
             // 
             this.btnImportApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImportApp.Location = new System.Drawing.Point(108, 12);
+            this.btnImportApp.Location = new System.Drawing.Point(162, 18);
+            this.btnImportApp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnImportApp.Name = "btnImportApp";
-            this.btnImportApp.Size = new System.Drawing.Size(116, 23);
+            this.btnImportApp.Size = new System.Drawing.Size(174, 34);
             this.btnImportApp.TabIndex = 4;
             this.btnImportApp.Text = "导入Excel申请表";
             this.btnImportApp.UseVisualStyleBackColor = true;
@@ -308,9 +328,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(11, 12);
+            this.btnDelete.Location = new System.Drawing.Point(16, 18);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(91, 23);
+            this.btnDelete.Size = new System.Drawing.Size(136, 34);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "撤销该转货单";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -321,17 +342,19 @@
             this.panel2.Controls.Add(this.BtnRefresh);
             this.panel2.Controls.Add(this.BtnSelect);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(488, 0);
+            this.panel2.Location = new System.Drawing.Point(732, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(245, 45);
+            this.panel2.Size = new System.Drawing.Size(368, 68);
             this.panel2.TabIndex = 1;
             // 
             // BtnRefresh
             // 
             this.BtnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnRefresh.Location = new System.Drawing.Point(39, 12);
+            this.BtnRefresh.Location = new System.Drawing.Point(58, 18);
+            this.BtnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnRefresh.Name = "BtnRefresh";
-            this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.BtnRefresh.Size = new System.Drawing.Size(112, 34);
             this.BtnRefresh.TabIndex = 1;
             this.BtnRefresh.Text = "刷新";
             this.BtnRefresh.UseVisualStyleBackColor = true;
@@ -340,9 +363,10 @@
             // BtnSelect
             // 
             this.BtnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSelect.Location = new System.Drawing.Point(140, 12);
+            this.BtnSelect.Location = new System.Drawing.Point(210, 18);
+            this.BtnSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnSelect.Name = "BtnSelect";
-            this.BtnSelect.Size = new System.Drawing.Size(75, 23);
+            this.BtnSelect.Size = new System.Drawing.Size(112, 34);
             this.BtnSelect.TabIndex = 0;
             this.BtnSelect.Text = "查看详细";
             this.BtnSelect.UseVisualStyleBackColor = true;
@@ -404,12 +428,13 @@
             this.ExchangeType,
             this.ApprovalState,
             this.FinalState});
-            this.dgvApplyInfo.Location = new System.Drawing.Point(248, 101);
+            this.dgvApplyInfo.Location = new System.Drawing.Point(372, 152);
+            this.dgvApplyInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvApplyInfo.MultiSelect = false;
             this.dgvApplyInfo.Name = "dgvApplyInfo";
             this.dgvApplyInfo.RowTemplate.Height = 23;
             this.dgvApplyInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvApplyInfo.Size = new System.Drawing.Size(733, 409);
+            this.dgvApplyInfo.Size = new System.Drawing.Size(1100, 614);
             this.dgvApplyInfo.TabIndex = 127;
             this.dgvApplyInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApplyInfo_CellClick);
             this.dgvApplyInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApplyInfo_CellContentClick);
@@ -777,6 +802,7 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.cbQuickOut);
             this.panel3.Controls.Add(this.dTPEnd);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.dTPBegin);
@@ -786,16 +812,44 @@
             this.panel3.Controls.Add(this.cbCtrlType);
             this.panel3.Controls.Add(this.TxtChoose);
             this.panel3.Controls.Add(this.BtnChoose);
-            this.panel3.Location = new System.Drawing.Point(248, 6);
+            this.panel3.Location = new System.Drawing.Point(372, 9);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(733, 87);
+            this.panel3.Size = new System.Drawing.Size(1100, 130);
             this.panel3.TabIndex = 128;
+            // 
+            // dTPEnd
+            // 
+            this.dTPEnd.Location = new System.Drawing.Point(346, 81);
+            this.dTPEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dTPEnd.Name = "dTPEnd";
+            this.dTPEnd.Size = new System.Drawing.Size(298, 28);
+            this.dTPEnd.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(312, 90);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 18);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "--";
+            // 
+            // dTPBegin
+            // 
+            this.dTPBegin.Location = new System.Drawing.Point(4, 81);
+            this.dTPBegin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dTPBegin.Name = "dTPBegin";
+            this.dTPBegin.Size = new System.Drawing.Size(301, 28);
+            this.dTPBegin.TabIndex = 7;
             // 
             // btnFinishState
             // 
-            this.btnFinishState.Location = new System.Drawing.Point(210, 20);
+            this.btnFinishState.Location = new System.Drawing.Point(315, 30);
+            this.btnFinishState.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFinishState.Name = "btnFinishState";
-            this.btnFinishState.Size = new System.Drawing.Size(90, 23);
+            this.btnFinishState.Size = new System.Drawing.Size(135, 34);
             this.btnFinishState.TabIndex = 6;
             this.btnFinishState.Text = "计算完成状态";
             this.btnFinishState.UseVisualStyleBackColor = true;
@@ -803,9 +857,10 @@
             // 
             // btnOuttoExcel
             // 
-            this.btnOuttoExcel.Location = new System.Drawing.Point(437, 52);
+            this.btnOuttoExcel.Location = new System.Drawing.Point(656, 78);
+            this.btnOuttoExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOuttoExcel.Name = "btnOuttoExcel";
-            this.btnOuttoExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnOuttoExcel.Size = new System.Drawing.Size(112, 34);
             this.btnOuttoExcel.TabIndex = 5;
             this.btnOuttoExcel.Text = "导出EXCEL";
             this.btnOuttoExcel.UseVisualStyleBackColor = true;
@@ -813,9 +868,10 @@
             // 
             // btnSelectAll
             // 
-            this.btnSelectAll.Location = new System.Drawing.Point(127, 20);
+            this.btnSelectAll.Location = new System.Drawing.Point(190, 30);
+            this.btnSelectAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSelectAll.Name = "btnSelectAll";
-            this.btnSelectAll.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectAll.Size = new System.Drawing.Size(112, 34);
             this.btnSelectAll.TabIndex = 4;
             this.btnSelectAll.Text = "全选/反选";
             this.btnSelectAll.UseVisualStyleBackColor = true;
@@ -825,65 +881,58 @@
             // 
             this.cbCtrlType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCtrlType.FormattingEnabled = true;
-            this.cbCtrlType.Location = new System.Drawing.Point(0, 22);
+            this.cbCtrlType.Location = new System.Drawing.Point(0, 33);
+            this.cbCtrlType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbCtrlType.Name = "cbCtrlType";
-            this.cbCtrlType.Size = new System.Drawing.Size(121, 20);
+            this.cbCtrlType.Size = new System.Drawing.Size(180, 26);
             this.cbCtrlType.TabIndex = 3;
             this.cbCtrlType.SelectedIndexChanged += new System.EventHandler(this.cbCtrlType_SelectedIndexChanged);
             // 
             // TxtChoose
             // 
             this.TxtChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtChoose.Location = new System.Drawing.Point(509, 10);
+            this.TxtChoose.Location = new System.Drawing.Point(764, 15);
+            this.TxtChoose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtChoose.Name = "TxtChoose";
-            this.TxtChoose.Size = new System.Drawing.Size(119, 21);
+            this.TxtChoose.Size = new System.Drawing.Size(176, 28);
             this.TxtChoose.TabIndex = 1;
             this.TxtChoose.TextChanged += new System.EventHandler(this.TxtChoose_TextChanged);
             // 
             // BtnChoose
             // 
             this.BtnChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnChoose.Location = new System.Drawing.Point(646, 9);
+            this.BtnChoose.Location = new System.Drawing.Point(969, 14);
+            this.BtnChoose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnChoose.Name = "BtnChoose";
-            this.BtnChoose.Size = new System.Drawing.Size(75, 23);
+            this.BtnChoose.Size = new System.Drawing.Size(112, 34);
             this.BtnChoose.TabIndex = 0;
             this.BtnChoose.Text = "查询";
             this.BtnChoose.UseVisualStyleBackColor = true;
             this.BtnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
             // 
-            // dTPBegin
+            // cbQuickOut
             // 
-            this.dTPBegin.Location = new System.Drawing.Point(3, 54);
-            this.dTPBegin.Name = "dTPBegin";
-            this.dTPBegin.Size = new System.Drawing.Size(202, 21);
-            this.dTPBegin.TabIndex = 7;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(208, 60);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 12);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "--";
-            // 
-            // dTPEnd
-            // 
-            this.dTPEnd.Location = new System.Drawing.Point(231, 54);
-            this.dTPEnd.Name = "dTPEnd";
-            this.dTPEnd.Size = new System.Drawing.Size(200, 21);
-            this.dTPEnd.TabIndex = 9;
+            this.cbQuickOut.AutoSize = true;
+            this.cbQuickOut.Checked = true;
+            this.cbQuickOut.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbQuickOut.Location = new System.Drawing.Point(775, 85);
+            this.cbQuickOut.Name = "cbQuickOut";
+            this.cbQuickOut.Size = new System.Drawing.Size(250, 22);
+            this.cbQuickOut.TabIndex = 10;
+            this.cbQuickOut.Text = "快速导出(不计算完成状态)";
+            this.cbQuickOut.UseVisualStyleBackColor = true;
             // 
             // frmAppAproval
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1476, 842);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvApplyInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAppAproval";
@@ -988,5 +1037,6 @@
         private System.Windows.Forms.DateTimePicker dTPEnd;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dTPBegin;
+        private System.Windows.Forms.CheckBox cbQuickOut;
     }
 }

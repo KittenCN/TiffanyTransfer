@@ -422,10 +422,10 @@ namespace BHair.Business
             }
             catch (Exception ex)
             {
-                if(ex.HResult== -2146827284)
+                if (ex.HResult == -2146827284)
                 {
                     MessageBox.Show("Print Spooler服务未启动", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }               
+                }
             }
             finally
             {
@@ -506,7 +506,7 @@ namespace BHair.Business
             myWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)myWorkBook.Worksheets[1];
             myColumns = (char)(tempTable.Columns.Count + 64);//设置列
             myRange = myWorkSheet.get_Range("A4", myColumns.ToString() + "5");//设置列宽
-            int count = 0;            
+            int count = 0;
             //设置列名
             foreach (DataColumn myNewColumn in tempTable.Columns)
             {
@@ -949,7 +949,7 @@ namespace BHair.Business
                 app = null;
             }
         }
-        public void WriteToExcelSPB(DataTable thisTable, string FileName, string sheetName)
+        public void WriteToExcelSPB(DataTable thisTable, string FileName, string sheetName, Boolean boolQuick)
         {
             string strFilePath = FileName;
             string XLSName = System.IO.Directory.GetCurrentDirectory() + @"\templet\商品部模板.xls";
@@ -995,7 +995,14 @@ namespace BHair.Business
                     }
                     else
                     {
-                        strLastFinishState = "'" + strFinishState(thisTable.Rows[i - 1]["CtrlID"].ToString(), thisTable.Rows[i - 1]["AppState"].ToString());
+                        if (!boolQuick)
+                        {
+                            strLastFinishState = "'" + strFinishState(thisTable.Rows[i - 1]["CtrlID"].ToString(), thisTable.Rows[i - 1]["AppState"].ToString());
+                        }
+                        else
+                        {
+                            strLastFinishState = "-";
+                        }
                         strLastCtrlID = thisTable.Rows[i - 1]["CtrlID"].ToString();
                         _wsh.Cells[i + sheetRowsCount, 9] = strLastFinishState;
                     }
@@ -1091,6 +1098,151 @@ namespace BHair.Business
                 strResult = "-";
             }
             return strResult;
+        }
+
+        public void WriteToExcelSPB_Q(DataTable thisTable, string FileName, string sheetName, Boolean boolQuick)
+        {
+            try
+            {
+                //int sheetRowsCount = _wsh.UsedRange.Rows.Count;
+                int count = thisTable.Columns.Count;
+                DataTable dt = new DataTable();
+
+                dt.Columns.Add("控制号", Type.GetType("System.String"));
+                dt.Columns.Add("货号", Type.GetType("System.String"));
+                dt.Columns.Add("双货号", Type.GetType("System.String"));
+                dt.Columns.Add("发出", Type.GetType("System.String"));
+                dt.Columns.Add("接受", Type.GetType("System.String"));
+                dt.Columns.Add("操作日期", Type.GetType("System.String"));
+                dt.Columns.Add("操作人", Type.GetType("System.String"));
+                dt.Columns.Add("总价", Type.GetType("System.String"));
+                dt.Columns.Add("完成状态", Type.GetType("System.String"));
+                dt.Columns.Add("订单状态", Type.GetType("System.String"));
+
+                //加入內容
+                string strLastCtrlID = "";
+                string strLastFinishState = "";
+                for (int i = 1; i <= thisTable.Rows.Count; i++)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr[0] = "'" + thisTable.Rows[i - 1]["CtrlID"].ToString();
+                    dr[1] = "'" + thisTable.Rows[i - 1]["ItemID"].ToString();
+                    dr[2] = "'" + thisTable.Rows[i - 1]["ItemID2"].ToString();
+                    dr[3] = "'" + thisTable.Rows[i - 1]["DeliverStore"].ToString();
+                    dr[4] = "'" + thisTable.Rows[i - 1]["ReceiptStore"].ToString();
+                    dr[5] = "'" + thisTable.Rows[i - 1]["ApplicantsDate"].ToString();
+                    dr[6] = "'" + thisTable.Rows[i - 1]["ApplicantsName"].ToString();
+                    dr[7] = "'" + thisTable.Rows[i - 1]["TotalPrice"].ToString();
+                    if (thisTable.Rows[i - 1]["CtrlID"].ToString() == strLastCtrlID)
+                    {
+                        dr[8] = strLastFinishState;
+                    }
+                    else
+                    {
+                        strLastFinishState = "-";
+                        strLastCtrlID = thisTable.Rows[i - 1]["CtrlID"].ToString();
+                        dr[8] = strLastFinishState;
+                    }
+                    dr[9] = "'" + strAppState(thisTable.Rows[i - 1]["AppState"].ToString(), thisTable.Rows[i - 1]["IsDelete"].ToString());
+                    dt.Rows.Add(dr);
+                }
+                //OutputAsExcelFileFromDatatable(dt);
+                CreateCSVFile(dt, FileName);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        public void OutputAsExcelFileFromDatatable(DataTable dt)
+        {
+            //将datagridView中的数据导出到一张表中
+            DataTable tempTable = dt.Copy();
+            //导出信息到Excel表
+            Microsoft.Office.Interop.Excel.ApplicationClass myExcel;
+            Microsoft.Office.Interop.Excel.Workbooks myWorkBooks;
+            Microsoft.Office.Interop.Excel.Workbook myWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet myWorkSheet;
+            char myColumns;
+            Microsoft.Office.Interop.Excel.Range myRange;
+            //object[,] myData = new object[500, 35];
+            object[,] myData = new object[tempTable.Rows.Count + 1, tempTable.Columns.Count + 1];
+            int i, j;//j代表行,i代表列
+            myExcel = new Microsoft.Office.Interop.Excel.ApplicationClass();
+            //显示EXCEL
+            //myExcel.Visible = true;
+            if (myExcel == null)
+            {
+                MessageBox.Show("本地Excel程序无法启动!请检查您的Microsoft Office正确安装并能正常使用", "提示");
+                return;
+            }
+            myWorkBooks = myExcel.Workbooks;
+            myWorkBook = myWorkBooks.Add(System.Reflection.Missing.Value);
+            myWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)myWorkBook.Worksheets[1];
+            myColumns = (char)(tempTable.Columns.Count + 64);//设置列
+            myRange = myWorkSheet.get_Range("A4", myColumns.ToString() + "5");//设置列宽
+            int count = 0;
+            //设置列名
+            foreach (DataColumn myNewColumn in tempTable.Columns)
+            {
+                myData[0, count] = myNewColumn.ColumnName;
+                count = count + 1;
+            }
+            //输出datagridview中的数据记录并放在一个二维数组中
+            j = 1;
+            foreach (DataRow myRow in tempTable.Rows)//循环行
+            {
+                for (i = 0; i < tempTable.Columns.Count; i++)//循环列
+                {
+                    myData[j, i] = myRow[i].ToString();
+                }
+                j++;
+            }
+            //将二维数组中的数据写到Excel中
+            myRange = myRange.get_Resize(tempTable.Rows.Count + 1, tempTable.Columns.Count);//创建列和行
+            myRange.Value2 = myData;
+            myRange.EntireColumn.AutoFit();
+        }
+        public void CreateCSVFile(DataTable dt, string strFilePath)
+        {
+            try
+            {
+                // Create the CSV file to which grid data will be exported.
+                StreamWriter sw = new StreamWriter(strFilePath, false, Encoding.GetEncoding(1252));
+                // First we will write the headers.
+                //DataTable dt = m_dsProducts.Tables[0];
+                int iColCount = dt.Columns.Count;
+                for (int i = 0; i < iColCount; i++)
+                {
+                    sw.Write(dt.Columns[i]);
+                    if (i < iColCount - 1)
+                    {
+                        sw.Write(",");
+                    }
+                }
+                sw.Write(sw.NewLine);
+                // Now write all the rows.
+                foreach (DataRow dr in dt.Rows)
+                {
+                    for (int i = 0; i < iColCount; i++)
+                    {
+                        if (!Convert.IsDBNull(dr[i]))
+                        {
+                            sw.Write(dr[i].ToString());
+                        }
+                        if (i < iColCount - 1)
+                        {
+                            sw.Write(",");
+                        }
+                    }
+                    sw.Write(sw.NewLine);
+                }
+                sw.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
