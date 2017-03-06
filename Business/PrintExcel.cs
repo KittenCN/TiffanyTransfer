@@ -1208,7 +1208,7 @@ namespace BHair.Business
             try
             {
                 // Create the CSV file to which grid data will be exported.
-                StreamWriter sw = new StreamWriter(strFilePath, false, Encoding.GetEncoding(1252));
+                StreamWriter sw = new StreamWriter(strFilePath, false, Encoding.Default);
                 // First we will write the headers.
                 //DataTable dt = m_dsProducts.Tables[0];
                 int iColCount = dt.Columns.Count;
