@@ -436,9 +436,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="bin\Debug\BHair.exe.config" />
-    <None Include="bin\Debug\BHair.vshost.exe.config" />
-    <None Include="bin\Debug\BHair.vshost.exe.manifest" />
     <None Include="bin\Debug\templet\报告模板.xls" />
     <None Include="bin\Debug\templet\转货申请表模板.xls" />
     <None Include="Properties\Settings.settings">
@@ -462,9 +459,6 @@
     <Content Include="bin\Debug\BarcodeLib.dll" />
     <Content Include="bin\Debug\BHair.Business.dll" />
     <Content Include="bin\Debug\BHair.Business.pdb" />
-    <Content Include="bin\Debug\BHair.exe" />
-    <Content Include="bin\Debug\BHair.pdb" />
-    <Content Include="bin\Debug\BHair.vshost.exe" />
     <Content Include="bin\Debug\Config.xml" />
     <Content Include="bin\Debug\Microsoft.Office.Interop.Excel.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
