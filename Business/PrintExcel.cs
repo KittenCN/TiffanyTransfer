@@ -14,85 +14,84 @@ namespace BHair.Business
 {
     public class PrintExcel
     {
-        public bool OutPutXLS(DataTable AppDT, DataTable DetailDT, string ExcelPath)
+        public string OutPutXLS(DataTable AppDT, DataTable DetailDT, string ExcelPath)
         {
-            try
-            {
-                CreateXLS(AppDT, DetailDT, ExcelPath);
-                //string sourcePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\tempExcel.xls";
-                //string targetPath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\tempPDF.pdf";
-                //XLSConvertToPDF(sourcePath, targetPath);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            string strResult;
+            strResult = CreateXLS(AppDT, DetailDT, ExcelPath);
+            return strResult;
         }
 
 
 
-        private bool CreateXLS(DataTable AppDT, DataTable DetailDT, string ExcelPath)
+        private string CreateXLS(DataTable AppDT, DataTable DetailDT, string ExcelPath)
         {
             string XLSName;
-            XLSName = System.IO.Directory.GetCurrentDirectory() + @"\templet\转货申请表模板.xls";
-            Excel.Application app = new Excel.Application();
-            app.DisplayAlerts = false;
-            Excel.Workbooks wbks = app.Workbooks;
-            Excel._Workbook _wbk = wbks.Add(XLSName);
-            Excel.Sheets shs = _wbk.Sheets;
-            Excel._Worksheet _wsh = (Excel._Worksheet)shs.get_Item(1);
-
-
-            //写入
-            _wsh.Cells[2, 13] = AppDT.Rows[0]["CtrlID"].ToString();
-            _wsh.Cells[4, 2] = AppDT.Rows[0]["ApplicantsName"].ToString();
-            _wsh.Cells[5, 2] = AppDT.Rows[0]["ApplicantsPos"].ToString();
-            _wsh.Cells[7, 2] = AppDT.Rows[0]["ApplicantsDate"].ToString();
-            _wsh.Cells[9, 2] = AppDT.Rows[0]["DeliverStore"].ToString();
-            _wsh.Cells[10, 2] = AppDT.Rows[0]["ReceiptStore"].ToString();
-            _wsh.Cells[12, 2] = AppDT.Rows[0]["ApprovalName2"].ToString();
-            _wsh.Cells[13, 2] = AppDT.Rows[0]["ApprovalPos2"].ToString();
-            _wsh.Cells[18, 1] = AppDT.Rows[0]["DeliverCheck"].ToString();
-            _wsh.Cells[19, 2] = AppDT.Rows[0]["DeliverCheckerName"].ToString();
-            _wsh.Cells[24, 1] = AppDT.Rows[0]["ReceiptCheck"].ToString();
-            _wsh.Cells[25, 2] = AppDT.Rows[0]["ReceiptCheckerName"].ToString();
-            _wsh.Cells[25, 13] = AppDT.Rows[0]["TotalPrice"].ToString();
-
-            int j = 0;
-            int i = 0;
-            foreach (DataRow dr in DetailDT.Rows)
+            string strResult = "Success";
+            try
             {
-                if (i < 21)
-                {
-                    _wsh.Cells[5 + i, 6] = dr["Department"].ToString();
-                    _wsh.Cells[5 + i, 7] = dr["App_Level"].ToString();
-                    _wsh.Cells[5 + i, 8] = dr["ItemID"].ToString();
-                    _wsh.Cells[5 + i, 9] = dr["ItemID2"].ToString();
-                    _wsh.Cells[5 + i, 10] = dr["Detail"].ToString();
+                XLSName = System.IO.Directory.GetCurrentDirectory() + @"\templet\转货申请表模板.xls";
+                Excel.Application app = new Excel.Application();
+                app.DisplayAlerts = false;
+                Excel.Workbooks wbks = app.Workbooks;
+                Excel._Workbook _wbk = wbks.Add(XLSName);
+                Excel.Sheets shs = _wbk.Sheets;
+                Excel._Worksheet _wsh = (Excel._Worksheet)shs.get_Item(1);
 
-                    _wsh.Cells[5 + i, 11] = dr["Price"].ToString();
-                    _wsh.Cells[5 + i, 12] = dr["App_Count"].ToString();
-                    _wsh.Cells[5 + i, 13] = double.Parse(dr["Price"].ToString()) * double.Parse(dr["App_Count"].ToString());
-                    i++;
+
+                //写入
+                _wsh.Cells[2, 13] = AppDT.Rows[0]["CtrlID"].ToString();
+                _wsh.Cells[4, 2] = AppDT.Rows[0]["ApplicantsName"].ToString();
+                _wsh.Cells[5, 2] = AppDT.Rows[0]["ApplicantsPos"].ToString();
+                _wsh.Cells[7, 2] = AppDT.Rows[0]["ApplicantsDate"].ToString();
+                _wsh.Cells[9, 2] = AppDT.Rows[0]["DeliverStore"].ToString();
+                _wsh.Cells[10, 2] = AppDT.Rows[0]["ReceiptStore"].ToString();
+                _wsh.Cells[12, 2] = AppDT.Rows[0]["ApprovalName2"].ToString();
+                _wsh.Cells[13, 2] = AppDT.Rows[0]["ApprovalPos2"].ToString();
+                _wsh.Cells[18, 1] = AppDT.Rows[0]["DeliverCheck"].ToString();
+                _wsh.Cells[19, 2] = AppDT.Rows[0]["DeliverCheckerName"].ToString();
+                _wsh.Cells[24, 1] = AppDT.Rows[0]["ReceiptCheck"].ToString();
+                _wsh.Cells[25, 2] = AppDT.Rows[0]["ReceiptCheckerName"].ToString();
+                _wsh.Cells[25, 13] = AppDT.Rows[0]["TotalPrice"].ToString();
+
+                int j = 0;
+                int i = 0;
+                foreach (DataRow dr in DetailDT.Rows)
+                {
+                    if (i < 21)
+                    {
+                        _wsh.Cells[5 + i, 6] = dr["Department"].ToString();
+                        _wsh.Cells[5 + i, 7] = dr["App_Level"].ToString();
+                        _wsh.Cells[5 + i, 8] = dr["ItemID"].ToString();
+                        _wsh.Cells[5 + i, 9] = dr["ItemID2"].ToString();
+                        _wsh.Cells[5 + i, 10] = dr["Detail"].ToString();
+
+                        _wsh.Cells[5 + i, 11] = dr["Price"].ToString();
+                        _wsh.Cells[5 + i, 12] = dr["App_Count"].ToString();
+                        _wsh.Cells[5 + i, 13] = double.Parse(dr["Price"].ToString()) * double.Parse(dr["App_Count"].ToString());
+                        i++;
+                    }
+
                 }
 
+
+                //保存
+                //string filePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\tempExcel.xls";
+                string filePath = ExcelPath;
+                app.AlertBeforeOverwriting = false;
+                _wbk.SaveAs(filePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                //退出和释放
+                _wbk.Close(null, null, null);
+                wbks.Close();
+                app.Quit();
+                //释放掉多余的excel进程
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+                app = null;
             }
-
-
-            //保存
-            //string filePath = System.IO.Directory.GetCurrentDirectory() + @"\tempPDF\tempExcel.xls";
-            string filePath = ExcelPath;
-            app.AlertBeforeOverwriting = false;
-            _wbk.SaveAs(filePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            //退出和释放
-            _wbk.Close(null, null, null);
-            wbks.Close();
-            app.Quit();
-            //释放掉多余的excel进程
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
-            app = null;
-            return true;
+            catch(Exception ex)
+            {
+                strResult = ex.Message;
+            }
+            return strResult;
         }
 
 

@@ -212,6 +212,7 @@ namespace BHair.Business
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
+            string strErr = "";
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
             // Show save file dialog box
@@ -225,8 +226,15 @@ namespace BHair.Business
                 try
                 {
                     DataTable appDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
-                    pe.OutPutXLS(appDT, ApplicationDetailTable, localFilePath);
-                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    strErr = pe.OutPutXLS(appDT, ApplicationDetailTable, localFilePath);
+                    if(strErr == "Success")
+                    {
+                        MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error::" + strErr, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch
                 {
@@ -242,6 +250,7 @@ namespace BHair.Business
 
         private void btnDeliver_Click(object sender, EventArgs e)
         {
+            string strErr = "";
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
             // Show save file dialog box
@@ -255,8 +264,15 @@ namespace BHair.Business
                 try
                 {
                     DataTable appDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
-                    pe.OutPutXLS(appDT, DeliverDetailTable, localFilePath);
-                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    strErr = pe.OutPutXLS(appDT, DeliverDetailTable, localFilePath);
+                    if (strErr == "Success")
+                    {
+                        MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error::" + strErr, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch
                 {
@@ -267,6 +283,7 @@ namespace BHair.Business
 
         private void btnReceipt_Click(object sender, EventArgs e)
         {
+            string strErr = "";
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel文件(*.xls)|*.xls";
             // Show save file dialog box
@@ -280,8 +297,15 @@ namespace BHair.Business
                 try
                 {
                     DataTable appDT = applicationInfo.SelectApplicationByCtrlID(applicationInfo.CtrlID);
-                    pe.OutPutXLS(appDT, ReceiptDetailTable, localFilePath);
-                    MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    strErr = pe.OutPutXLS(appDT, ReceiptDetailTable, localFilePath);
+                    if (strErr == "Success")
+                    {
+                        MessageBox.Show("保存成功", "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error::" + strErr, "消息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch
                 {
