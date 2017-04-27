@@ -151,3 +151,13 @@ D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\obj\Debug\BH
 D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\obj\Debug\TiffanyTransfer.Properties.Resources.resources
 D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\obj\Debug\BHair.SystemSet.ComboDate.resources
 D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\obj\Debug\TT_Base.csproj.GenerateResource.Cache
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\bin\Debug\Dll\BHair.Business.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\bin\Debug\Dll\CheckBoxComboBox.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\bin\Debug\Dll\BarcodeLib.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\bin\Debug\Dll\Microsoft.Office.Interop.Access.Dao.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\bin\Debug\Dll\Microsoft.Office.Interop.Excel.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\bin\Debug\Dll\Microsoft.Vbe.Interop.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\bin\Debug\Dll\office.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\bin\Debug\Dll\stdole.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\bin\Debug\Dll\WinFormsUI.Docking.dll
+D:\workstation\项目\麒佑项目\Tiffany\转货管理系统\BHair\bin\Debug\Dll\XLuSharpLibrary.dll
