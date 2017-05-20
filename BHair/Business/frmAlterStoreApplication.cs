@@ -138,15 +138,10 @@ namespace BHair.Business
                 if (DeliverOrReceipt == "Deliver") { AddAppInfoDT.Rows[0]["DeliverDate"] = dtAppDate.Value; AddAppInfoDT.Rows[0]["DeliverCheck"] = txtStoreCheck.Text; }
                 else  { AddAppInfoDT.Rows[0]["ReceiptDate"] = dtAppDate.Value; AddAppInfoDT.Rows[0]["ReceiptCheck"] = txtStoreCheck.Text; }
 
-                //foreach(DataRow dr in AddApplicationDT.Rows)
-                //{
-                //    dr["CtrlID"] = txtCtrlID.Text;
-                //}
-
-
-
                 try
                 {
+                    AddApplicationDT.AcceptChanges();
+                    AddAppInfoDT.AcceptChanges();
                     if (DeliverOrReceipt == "Deliver")
                     {
                         applicationDetail.UpdateDeliverDetail(AddApplicationDT);
@@ -173,6 +168,7 @@ namespace BHair.Business
             if (dgvApplyProducts.SelectedRows.Count > 0)
             {
                 dgvApplyProducts.Rows.Remove(dgvApplyProducts.SelectedRows[0]);
+                //AddApplicationDT = GenClass.GetDgvToTable(dgvApplyProducts);
             }
             else
             {

@@ -211,6 +211,7 @@ namespace BHair.Business
             if (dgvApplyProducts.SelectedRows.Count > 0)
             {
                 dgvApplyProducts.Rows.Remove(dgvApplyProducts.SelectedRows[0]);
+                AddApplicationDT = GenClass.GetDgvToTable(dgvApplyProducts);
             }
             else
             {

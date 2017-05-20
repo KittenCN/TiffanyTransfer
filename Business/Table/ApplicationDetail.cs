@@ -218,11 +218,13 @@ namespace BHair.Business.Table
             AccessHelper ah = new AccessHelper();
             try
             {
-                OleDbDataAdapter adapt = new OleDbDataAdapter("select * from DeliverDetail", ah.Conn);
-                OleDbCommandBuilder odcb = new OleDbCommandBuilder(adapt);
-                odcb.QuotePrefix = "[";
-                odcb.QuoteSuffix = "]";
-                rows += adapt.Update(dt);
+                //OleDbDataAdapter adapt = new OleDbDataAdapter("select * from DeliverDetail", ah.Conn);
+                //OleDbCommandBuilder odcb = new OleDbCommandBuilder(adapt);
+                //odcb.QuotePrefix = "[";
+                //odcb.QuoteSuffix = "]";
+                //rows += adapt.Update(dt);
+                DeleteDeliverDetail(dt);
+                InsertDeliverDetail(dt);
             }
             catch (Exception ex)
             {
@@ -234,17 +236,49 @@ namespace BHair.Business.Table
             return rows;
         }
 
+        public void InsertDeliverDetail(DataTable dt)
+        {
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    AccessHelper ah = new AccessHelper();
+                    string sql = "insert into DeliverDetail(CtrlID,Department,App_Level,ItemID,ItemID2,Detail,Price,App_Count,IsDelete,ItemHighlight) ";
+                    sql = sql + " values('" + dr["CtrlID"] + "','" + dr["Department"] + "','" + dr["App_Level"] + "','" + dr["ItemID"] + "','" + dr["ItemID2"] + "','" + dr["Detail"] + "'," + dr["Price"] + "," + dr["App_Count"] + "," + dr["IsDelete"] + "," + dr["ItemHighlight"] + ") ";
+                    ah.ExecuteSQLNonquery(sql);
+                    ah.Close();
+                }
+            }
+        }
+
+        public void DeleteDeliverDetail(DataTable dt)
+        {
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    AccessHelper ah = new AccessHelper();
+                    string sql = "delete from DeliverDetail where CtrlID='" + dr["CtrlID"].ToString() + "' ";
+                    ah.ExecuteSQLNonquery(sql);
+                    ah.Close();
+                }
+            }
+        }
+
         public int UpdateReceiptDetail(DataTable dt)
         {
             int rows = 0;
             AccessHelper ah = new AccessHelper();
+            //AccessHelper ahstr = new AccessHelper();
             try
             {
-                OleDbDataAdapter adapt = new OleDbDataAdapter("select * from ReceiptDetail", ah.Conn);
-                OleDbCommandBuilder odcb = new OleDbCommandBuilder(adapt);
-                odcb.QuotePrefix = "[";
-                odcb.QuoteSuffix = "]";
-                rows += adapt.Update(dt);
+                //OleDbDataAdapter adapt = new OleDbDataAdapter("select * from ReceiptDetail", ah.Conn);
+                //OleDbCommandBuilder odcb = new OleDbCommandBuilder(adapt);
+                //odcb.QuotePrefix = "[";
+                //odcb.QuoteSuffix = "]";
+                //rows += adapt.Update(dt);
+                DeleteReceiptDetail(dt);
+                InsertReceiptDetail(dt);
             }
             catch (Exception ex)
             {
